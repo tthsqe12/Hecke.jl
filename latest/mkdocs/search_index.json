@@ -31,14 +31,49 @@
             "title": "Documentation"
         }, 
         {
-            "location": "/numberfields/orders/creation/", 
-            "text": "Orders in number fields\n\n\nsignature(::NfOrd)\n\n\n\n\ndegree(::NfOrd)", 
+            "location": "/numberfields/introduction/", 
+            "text": "Number fields\n\n\n\n\nIntroduction", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/numberfields/introduction/#number-fields", 
+            "text": "", 
+            "title": "Number fields"
+        }, 
+        {
+            "location": "/numberfields/introduction/#introduction", 
+            "text": "", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/numberfields/orders/", 
+            "text": "Orders in number fields\n\n\n\n\nCreation\n\n\n\n\nBasic properties\n\n\nsignature(O::NfOrd) -\n Tuple{Int, Int}\n\n\n\n\n\n\nReturns the signature of the ambient number field of \n\\mathcal O\n.\n\n\n\n\ndegree(O::NfOrd) -\n Int\n\n\n\n\n\n\nReturns the degree of \n\\mathcal O\n.\n\n\n\n\n\n\nElements\n\n\n\n\nIdeals", 
+            "title": "Orders"
+        }, 
+        {
+            "location": "/numberfields/orders/#orders-in-number-fields", 
+            "text": "", 
+            "title": "Orders in number fields"
+        }, 
+        {
+            "location": "/numberfields/orders/#creation", 
+            "text": "", 
             "title": "Creation"
         }, 
         {
-            "location": "/numberfields/orders/creation/#orders-in-number-fields", 
-            "text": "signature(::NfOrd)  degree(::NfOrd)", 
-            "title": "Orders in number fields"
+            "location": "/numberfields/orders/#basic-properties", 
+            "text": "signature(O::NfOrd) -  Tuple{Int, Int}   Returns the signature of the ambient number field of  \\mathcal O .   degree(O::NfOrd) -  Int   Returns the degree of  \\mathcal O .", 
+            "title": "Basic properties"
+        }, 
+        {
+            "location": "/numberfields/orders/#elements", 
+            "text": "", 
+            "title": "Elements"
+        }, 
+        {
+            "location": "/numberfields/orders/#ideals", 
+            "text": "", 
+            "title": "Ideals"
         }
     ]
 }

@@ -12,8 +12,14 @@
     
         
     <url>
-     <loc>None</loc>
-     <lastmod></lastmod>
+     <loc>None/numberfields/introduction/</loc>
+     <lastmod>2016-08-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/numberfields/orders/</loc>
+     <lastmod>2016-08-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
