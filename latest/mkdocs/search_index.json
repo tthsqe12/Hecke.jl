@@ -42,13 +42,18 @@
         }, 
         {
             "location": "/numberfields/orders/", 
-            "text": "Creation\n\n\nOrder(K::AnticNumberField, A::FakeFmpqMat, check::Bool = true) -\n NfOrd\n\n\n\n\n\n\nReturns the order which has basis matrix \nA\n with respect to the power basis of \nK\n. If \ncheck\n is set, it is checked whether \nA\n defines an order.\n\n\n\n\nEquationOrder(K::AnticNumberField) -\n NfOrd\n\n\n\n\n\n\nReturns the equation of the number field \nK\n.\n\n\n\n\n\n\nBasic properties\n\n\nsignature(O::NfOrd) -\n Tuple{Int, Int}\n\n\n\n\n\n\nReturns the signature of the ambient number field of \n\\mathcal O\n.\n\n\n\n\ndegree(O::NfOrd) -\n Int\n\n\n\n\n\n\nReturns the degree of \n\\mathcal O\n.\n\n\n\n\n\n\nElements\n\n\n\n\nIdeals", 
+            "text": "Creation\n\n\nOrder(B::Array{nf_elem, 1}, check::Bool = true) -\n NfOrd\n\n\n\n\n\n\nReturns the order with \n\\Z\n-basis \nB\n. If \ncheck\n is set, it is checked whether \nB\n defines an order.\n\n\n\n\nOrder(K::AnticNumberField, A::FakeFmpqMat, check::Bool = true) -\n NfOrd\n\n\n\n\n\n\nReturns the order which has basis matrix \nA\n with respect to the power basis of \nK\n. If \ncheck\n is set, it is checked whether \nA\n defines an order.\n\n\n\n\nEquationOrder(K::AnticNumberField) -\n NfOrd\n\n\n\n\n\n\nReturns the equation of the number field \nK\n.\n\n\n\n\n\n\nExample\n\n\njulia\n using Hecke;\n\njulia\n Qx, x = PolynomialRing(QQ, \nx\n);\n\njulia\n K, a = NumberField(x^2 - 2, \na\n);\n\njulia\n O = EquationOrder(K)\nOrder of Number field over Rational Field with defining polynomial x^2 - 2\nwith Z-basis [1,a]\n\n\n\n\n\n\nBasic properties\n\n\nsignature(O::NfOrd) -\n Tuple{Int, Int}\n\n\n\n\n\n\nReturns the signature of the ambient number field of \n\\mathcal O\n.\n\n\n\n\ndegree(O::NfOrd) -\n Int\n\n\n\n\n\n\nReturns the degree of \n\\mathcal O\n.\n\n\n\n\n\n\nElements\n\n\n\n\nIdeals", 
             "title": "Orders"
         }, 
         {
             "location": "/numberfields/orders/#creation", 
-            "text": "Order(K::AnticNumberField, A::FakeFmpqMat, check::Bool = true) -  NfOrd   Returns the order which has basis matrix  A  with respect to the power basis of  K . If  check  is set, it is checked whether  A  defines an order.   EquationOrder(K::AnticNumberField) -  NfOrd   Returns the equation of the number field  K .", 
+            "text": "Order(B::Array{nf_elem, 1}, check::Bool = true) -  NfOrd   Returns the order with  \\Z -basis  B . If  check  is set, it is checked whether  B  defines an order.   Order(K::AnticNumberField, A::FakeFmpqMat, check::Bool = true) -  NfOrd   Returns the order which has basis matrix  A  with respect to the power basis of  K . If  check  is set, it is checked whether  A  defines an order.   EquationOrder(K::AnticNumberField) -  NfOrd   Returns the equation of the number field  K .", 
             "title": "Creation"
+        }, 
+        {
+            "location": "/numberfields/orders/#example", 
+            "text": "julia  using Hecke;\n\njulia  Qx, x = PolynomialRing(QQ,  x );\n\njulia  K, a = NumberField(x^2 - 2,  a );\n\njulia  O = EquationOrder(K)\nOrder of Number field over Rational Field with defining polynomial x^2 - 2\nwith Z-basis [1,a]", 
+            "title": "Example"
         }, 
         {
             "location": "/numberfields/orders/#basic-properties", 

@@ -249,6 +249,12 @@
           
           <p><a id='Creation-1'></a></p>
 <h2 id="creation">Creation</h2>
+<pre><code>Order(B::Array{nf_elem, 1}, check::Bool = true) -&gt; NfOrd
+</code></pre>
+
+<blockquote>
+<p>Returns the order with <script type="math/tex">\Z</script>-basis <script type="math/tex">B</script>. If <code>check</code> is set, it is checked whether <script type="math/tex">B</script> defines an order.</p>
+</blockquote>
 <pre><code>Order(K::AnticNumberField, A::FakeFmpqMat, check::Bool = true) -&gt; NfOrd
 </code></pre>
 
@@ -261,6 +267,19 @@
 <blockquote>
 <p>Returns the equation of the number field <script type="math/tex">K</script>.</p>
 </blockquote>
+<p><a id='Example-1'></a></p>
+<h3 id="example">Example</h3>
+<pre><code class="julia">julia&gt; using Hecke;
+
+julia&gt; Qx, x = PolynomialRing(QQ, &quot;x&quot;);
+
+julia&gt; K, a = NumberField(x^2 - 2, &quot;a&quot;);
+
+julia&gt; O = EquationOrder(K)
+Order of Number field over Rational Field with defining polynomial x^2 - 2
+with Z-basis [1,a]
+</code></pre>
+
 <p><a id='Basic-properties-1'></a></p>
 <h2 id="basic-properties">Basic properties</h2>
 <pre><code>signature(O::NfOrd) -&gt; Tuple{Int, Int}
