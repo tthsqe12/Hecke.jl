@@ -32,13 +32,8 @@
         }, 
         {
             "location": "/numberfields/introduction/", 
-            "text": "Number fields\n\n\n\n\nIntroduction", 
+            "text": "Introduction", 
             "title": "Introduction"
-        }, 
-        {
-            "location": "/numberfields/introduction/#number-fields", 
-            "text": "", 
-            "title": "Number fields"
         }, 
         {
             "location": "/numberfields/introduction/#introduction", 
@@ -47,17 +42,12 @@
         }, 
         {
             "location": "/numberfields/orders/", 
-            "text": "Orders in number fields\n\n\n\n\nCreation\n\n\n\n\nBasic properties\n\n\nsignature(O::NfOrd) -\n Tuple{Int, Int}\n\n\n\n\n\n\nReturns the signature of the ambient number field of \n\\mathcal O\n.\n\n\n\n\ndegree(O::NfOrd) -\n Int\n\n\n\n\n\n\nReturns the degree of \n\\mathcal O\n.\n\n\n\n\n\n\nElements\n\n\n\n\nIdeals", 
+            "text": "Creation\n\n\nOrder(K::AnticNumberField, A::FakeFmpqMat, check::Bool = true) -\n NfOrd\n\n\n\n\n\n\nReturns the order which has basis matrix \nA\n with respect to the power basis of \nK\n. If \ncheck\n is set, it is checked whether \nA\n defines an order.\n\n\n\n\nEquationOrder(K::AnticNumberField) -\n NfOrd\n\n\n\n\n\n\nReturns the equation of the number field \nK\n.\n\n\n\n\n\n\nBasic properties\n\n\nsignature(O::NfOrd) -\n Tuple{Int, Int}\n\n\n\n\n\n\nReturns the signature of the ambient number field of \n\\mathcal O\n.\n\n\n\n\ndegree(O::NfOrd) -\n Int\n\n\n\n\n\n\nReturns the degree of \n\\mathcal O\n.\n\n\n\n\n\n\nElements\n\n\n\n\nIdeals", 
             "title": "Orders"
         }, 
         {
-            "location": "/numberfields/orders/#orders-in-number-fields", 
-            "text": "", 
-            "title": "Orders in number fields"
-        }, 
-        {
             "location": "/numberfields/orders/#creation", 
-            "text": "", 
+            "text": "Order(K::AnticNumberField, A::FakeFmpqMat, check::Bool = true) -  NfOrd   Returns the order which has basis matrix  A  with respect to the power basis of  K . If  check  is set, it is checked whether  A  defines an order.   EquationOrder(K::AnticNumberField) -  NfOrd   Returns the equation of the number field  K .", 
             "title": "Creation"
         }, 
         {

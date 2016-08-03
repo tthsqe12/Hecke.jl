@@ -202,8 +202,26 @@
         <ul>
           
             <li class="anchor">
-              <a title="Orders in number fields" href="#orders-in-number-fields">
-                Orders in number fields
+              <a title="Creation" href="#creation">
+                Creation
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Basic properties" href="#basic-properties">
+                Basic properties
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Elements" href="#elements">
+                Elements
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Ideals" href="#ideals">
+                Ideals
               </a>
             </li>
           
@@ -229,12 +247,22 @@
           
             <h1>Orders</h1>
           
-          <p><a id='Orders-in-number-fields-1'></a></p>
-<h2 id="orders-in-number-fields">Orders in number fields</h2>
-<p><a id='Creation-1'></a></p>
-<h3 id="creation">Creation</h3>
+          <p><a id='Creation-1'></a></p>
+<h2 id="creation">Creation</h2>
+<pre><code>Order(K::AnticNumberField, A::FakeFmpqMat, check::Bool = true) -&gt; NfOrd
+</code></pre>
+
+<blockquote>
+<p>Returns the order which has basis matrix <script type="math/tex">A</script> with respect to the power basis of <script type="math/tex">K</script>. If <code>check</code> is set, it is checked whether <script type="math/tex">A</script> defines an order.</p>
+</blockquote>
+<pre><code>EquationOrder(K::AnticNumberField) -&gt; NfOrd
+</code></pre>
+
+<blockquote>
+<p>Returns the equation of the number field <script type="math/tex">K</script>.</p>
+</blockquote>
 <p><a id='Basic-properties-1'></a></p>
-<h3 id="basic-properties">Basic properties</h3>
+<h2 id="basic-properties">Basic properties</h2>
 <pre><code>signature(O::NfOrd) -&gt; Tuple{Int, Int}
 </code></pre>
 
@@ -248,9 +276,9 @@
 <p>Returns the degree of <script type="math/tex">\mathcal O</script>.</p>
 </blockquote>
 <p><a id='Elements-1'></a></p>
-<h3 id="elements">Elements</h3>
+<h2 id="elements">Elements</h2>
 <p><a id='Ideals-1'></a></p>
-<h3 id="ideals">Ideals</h3>
+<h2 id="ideals">Ideals</h2>
           <aside class="copyright" role="note">
             
             Documentation built with
