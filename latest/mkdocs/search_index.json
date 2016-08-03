@@ -1,43 +1,43 @@
 {
     "docs": [
         {
-            "location": "/", 
-            "text": "Hecke\n\n\nBuilds\n\n\n\n\nAbout\n\n\nHecke is a software package for algebraic number theory maintained by Claus Fieker and Tommy Hofmann.\nIt is written in \njulia\n and is based on the computer algebra package \nNemo\n.\n\n\n\n\nhttps://github.com/thofma/Hecke.jl\n (Source code)\n\n\nhttp://hecke.readthedocs.org/en/latest/\n (Online documentation)\n\n\n\n\nSo far, Hecke provides the following features:\n\n\n\n\nOrders (including element and ideal arithmetic) in number fields\n\n\nComputation of maximal orders\n\n\nVerified residue computations of Dedekind zeta functions\n\n\nFactor base creation and relations search in number fields\n\n\nLattice enumeration\n\n\nSparse linear algebra\n\n\n\n\nInstallation\n\n\nTo use Hecke, a julia version of 0.4 or higher is necessary (the latest stable julia version will do).\nPlease see \nhttp://julialang.org/downloads\n for instructions on how to obtain julia for your system.\nOnce a suitable julia version is installed, use the following steps at the julia prompt to install Hecke:\n\n\njulia\n Pkg.clone(\nhttps://github.com/nemocas/Nemo.jl\n)\njulia\n Pkg.clone(\nhttps://github.com/thofma/Hecke.jl\n)\njulia\n Pkg.build(\nHecke\n)\n\n\n\n\nQuick start\n\n\nHere is a quick example of using Hecke:\n\n\njulia\n using Hecke\n...\n\nWelcome to \n\n  _    _           _        \n | |  | |         | |       \n | |__| | ___  ___| | _____ \n |  __  |/ _ \\/ __| |/ / _ \\\n | |  | |  __/ (__|   \n  __/\n |_|  |_|\\___|\\___|_|\\_\\___|\n\nVersion 0.1-dev ... \n ... which comes with absolutely no warrant whatsoever\n(c) 2015 by Claus Fieker and Tommy Hofmann\n\njulia\n Qx, x = PolynomialRing(QQ, \nx\n);\njulia\n f = x^3 + 2;\njulia\n K, a = NumberField(f, \na\n);\njulia\n O = MaximalOrder(K);\njulia\n O\nMaximal order of Number field over Rational Field with defining polynomial x^3 + 2 \nwith basis [1,a,a^2]\n\n\n\n\nDocumentation\n\n\nThe online documentation can be found here: [http://hecke.readthedocs.org/en/latest/]\n\n\nThe documentation of the single functions can also be accessed at the julia prompt. Here is an example:\n\n\nhelp?\n signature\nsearch: signature\n\n  ----------------------------------------------------------------------------\n\n  signature(O::NfMaximalOrder) -\n Tuple{Int, Int}\n\n  |  Returns the signature of the ambient number field of \\mathcal O.", 
+            "location": "/build/", 
+            "text": "Hecke\n\n\nBuilds\n\n\n\n\n\n\nAbout\n\n\nHecke is a software package for algebraic number theory maintained by Claus Fieker and Tommy Hofmann. It is written in \njulia\n and is based on the computer algebra package \nNemo\n.\n\n\n\n\nhttps://github.com/thofma/Hecke.jl\n (Source code)\n\n\nhttp://hecke.readthedocs.org/en/latest/\n (Online documentation)\n\n\n\n\nSo far, Hecke provides the following features:\n\n\n\n\nOrders (including element and ideal arithmetic) in number fields\n\n\nComputation of maximal orders\n\n\nVerified residue computations of Dedekind zeta functions\n\n\nFactor base creation and relations search in number fields\n\n\nLattice enumeration\n\n\nSparse linear algebra\n\n\n\n\n\n\nInstallation\n\n\nTo use Hecke, a julia version of 0.4 or higher is necessary (the latest stable julia version will do). Please see \nhttp://julialang.org/downloads\n for instructions on how to obtain julia for your system. Once a suitable julia version is installed, use the following steps at the julia prompt to install Hecke:\n\n\njulia\n Pkg.clone(\nhttps://github.com/nemocas/Nemo.jl\n)\njulia\n Pkg.clone(\nhttps://github.com/thofma/Hecke.jl\n)\njulia\n Pkg.build(\nHecke\n)\n\n\n\n\n\n\nQuick start\n\n\nHere is a quick example of using Hecke:\n\n\njulia\n using Hecke\n...\n\nWelcome to \n\n  _    _           _        \n | |  | |         | |       \n | |__| | ___  ___| | _____ \n |  __  |/ _ \\/ __| |/ / _ \\\n | |  | |  __/ (__|   \n  __/\n |_|  |_|\\___|\\___|_|\\_\\___|\n\nVersion 0.1-dev ... \n ... which comes with absolutely no warrant whatsoever\n(c) 2015 by Claus Fieker and Tommy Hofmann\n\njulia\n Qx, x = PolynomialRing(QQ, \nx\n);\njulia\n f = x^3 + 2;\njulia\n K, a = NumberField(f, \na\n);\njulia\n O = MaximalOrder(K);\njulia\n O\nMaximal order of Number field over Rational Field with defining polynomial x^3 + 2 \nwith basis [1,a,a^2]\n\n\n\n\n\n\nDocumentation\n\n\nThe online documentation can be found here: [http://hecke.readthedocs.org/en/latest/]\n\n\nThe documentation of the single functions can also be accessed at the julia prompt. Here is an example:\n\n\nhelp?\n signature\nsearch: signature\n\n  ----------------------------------------------------------------------------\n\n  signature(O::NfMaximalOrder) -\n Tuple{Int, Int}\n\n  |  Returns the signature of the ambient number field of \\mathcal O.", 
             "title": "Getting Started"
         }, 
         {
-            "location": "/#hecke", 
+            "location": "/build/#hecke", 
             "text": "Builds", 
             "title": "Hecke"
         }, 
         {
-            "location": "/#about", 
-            "text": "Hecke is a software package for algebraic number theory maintained by Claus Fieker and Tommy Hofmann.\nIt is written in  julia  and is based on the computer algebra package  Nemo .   https://github.com/thofma/Hecke.jl  (Source code)  http://hecke.readthedocs.org/en/latest/  (Online documentation)   So far, Hecke provides the following features:   Orders (including element and ideal arithmetic) in number fields  Computation of maximal orders  Verified residue computations of Dedekind zeta functions  Factor base creation and relations search in number fields  Lattice enumeration  Sparse linear algebra", 
+            "location": "/build/#about", 
+            "text": "Hecke is a software package for algebraic number theory maintained by Claus Fieker and Tommy Hofmann. It is written in  julia  and is based on the computer algebra package  Nemo .   https://github.com/thofma/Hecke.jl  (Source code)  http://hecke.readthedocs.org/en/latest/  (Online documentation)   So far, Hecke provides the following features:   Orders (including element and ideal arithmetic) in number fields  Computation of maximal orders  Verified residue computations of Dedekind zeta functions  Factor base creation and relations search in number fields  Lattice enumeration  Sparse linear algebra", 
             "title": "About"
         }, 
         {
-            "location": "/#installation", 
-            "text": "To use Hecke, a julia version of 0.4 or higher is necessary (the latest stable julia version will do).\nPlease see  http://julialang.org/downloads  for instructions on how to obtain julia for your system.\nOnce a suitable julia version is installed, use the following steps at the julia prompt to install Hecke:  julia  Pkg.clone( https://github.com/nemocas/Nemo.jl )\njulia  Pkg.clone( https://github.com/thofma/Hecke.jl )\njulia  Pkg.build( Hecke )", 
+            "location": "/build/#installation", 
+            "text": "To use Hecke, a julia version of 0.4 or higher is necessary (the latest stable julia version will do). Please see  http://julialang.org/downloads  for instructions on how to obtain julia for your system. Once a suitable julia version is installed, use the following steps at the julia prompt to install Hecke:  julia  Pkg.clone( https://github.com/nemocas/Nemo.jl )\njulia  Pkg.clone( https://github.com/thofma/Hecke.jl )\njulia  Pkg.build( Hecke )", 
             "title": "Installation"
         }, 
         {
-            "location": "/#quick-start", 
+            "location": "/build/#quick-start", 
             "text": "Here is a quick example of using Hecke:  julia  using Hecke\n...\n\nWelcome to \n\n  _    _           _        \n | |  | |         | |       \n | |__| | ___  ___| | _____ \n |  __  |/ _ \\/ __| |/ / _ \\\n | |  | |  __/ (__|      __/\n |_|  |_|\\___|\\___|_|\\_\\___|\n\nVersion 0.1-dev ... \n ... which comes with absolutely no warrant whatsoever\n(c) 2015 by Claus Fieker and Tommy Hofmann\n\njulia  Qx, x = PolynomialRing(QQ,  x );\njulia  f = x^3 + 2;\njulia  K, a = NumberField(f,  a );\njulia  O = MaximalOrder(K);\njulia  O\nMaximal order of Number field over Rational Field with defining polynomial x^3 + 2 \nwith basis [1,a,a^2]", 
             "title": "Quick start"
         }, 
         {
-            "location": "/#documentation", 
+            "location": "/build/#documentation", 
             "text": "The online documentation can be found here: [http://hecke.readthedocs.org/en/latest/]  The documentation of the single functions can also be accessed at the julia prompt. Here is an example:  help?  signature\nsearch: signature\n\n  ----------------------------------------------------------------------------\n\n  signature(O::NfMaximalOrder) -  Tuple{Int, Int}\n\n  |  Returns the signature of the ambient number field of \\mathcal O.", 
             "title": "Documentation"
         }, 
         {
-            "location": "/build/Orders/", 
-            "text": "Orders in number fields\n\n\nsignature(O::NfOrd) -\n Tuple{Int, Int}\n\n\n\n\n\n\nReturns the signature of the ambient number field of \n\\mathcal O\n.\n\n\n\n\ndegree(O::NfOrd) -\n Int\n\n\n\n\n\n\nReturns the degree of \n\\mathcal O\n.", 
-            "title": "Orders"
+            "location": "/build/numberfields/orders/creation/", 
+            "text": "Orders in number fields\n\n\nsignature(::NfOrd)\n\n\n\n\ndegree(::NfOrd)", 
+            "title": "Creation"
         }, 
         {
-            "location": "/build/Orders/#orders-in-number-fields", 
-            "text": "signature(O::NfOrd) -  Tuple{Int, Int}   Returns the signature of the ambient number field of  \\mathcal O .   degree(O::NfOrd) -  Int   Returns the degree of  \\mathcal O .", 
+            "location": "/build/numberfields/orders/creation/#orders-in-number-fields", 
+            "text": "signature(::NfOrd)  degree(::NfOrd)", 
             "title": "Orders in number fields"
         }
     ]

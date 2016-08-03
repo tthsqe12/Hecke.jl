@@ -9,10 +9,8 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Hecke.jl - Hecke</title>
+        <title>Getting Started - Hecke.jl</title>
       
-      
-        <meta name="description" content="Hecke">
       
       
       
@@ -21,33 +19,33 @@
     
     <meta property="og:url" content="None">
     <meta property="og:title" content="Hecke.jl">
-    <meta property="og:image" content="None/./">
+    <meta property="og:image" content="None/../">
     <meta name="apple-mobile-web-app-title" content="Hecke.jl">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     
-    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon-e565ddfa3b.ico">
-    <link rel="icon" type="image/x-icon" href="./assets/images/favicon-e565ddfa3b.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon-e565ddfa3b.ico">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon-e565ddfa3b.ico">
     <style>
       @font-face {
       	font-family: 'Icon';
-      	src: url('./assets/fonts/icon.eot?52m981');
-      	src: url('./assets/fonts/icon.eot?#iefix52m981')
+      	src: url('../assets/fonts/icon.eot?52m981');
+      	src: url('../assets/fonts/icon.eot?#iefix52m981')
                format('embedded-opentype'),
-      		   url('./assets/fonts/icon.woff?52m981')
+      		   url('../assets/fonts/icon.woff?52m981')
                format('woff'),
-      		   url('./assets/fonts/icon.ttf?52m981')
+      		   url('../assets/fonts/icon.ttf?52m981')
                format('truetype'),
-      		   url('./assets/fonts/icon.svg?52m981#icon')
+      		   url('../assets/fonts/icon.svg?52m981#icon')
                format('svg');
       	font-weight: normal;
       	font-style: normal;
       }
     </style>
-    <link rel="stylesheet" href="./assets/stylesheets/application-a422ff04cc.css">
+    <link rel="stylesheet" href="../assets/stylesheets/application-a422ff04cc.css">
     
-      <link rel="stylesheet" href="./assets/stylesheets/palettes-05ab2406df.css">
+      <link rel="stylesheet" href="../assets/stylesheets/palettes-05ab2406df.css">
     
     
       
@@ -64,9 +62,9 @@
       </style>
     
     
-      <link rel="stylesheet" href="./build/assets/Documenter.css">
+      <link rel="stylesheet" href="../build/assets/Documenter.css">
     
-    <script src="./assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    <script src="../assets/javascripts/modernizr-4ab42b99fd.js"></script>
     
   </head>
   
@@ -98,7 +96,7 @@
             
           </span>
         
-        Hecke.jl
+        Getting Started
       </div>
     </div>
     
@@ -168,7 +166,7 @@
           
             
   <li>
-    <a class="current" title="Getting Started" href=".">
+    <a class="current" title="Getting Started" href="./">
       Getting Started
     </a>
     
@@ -210,10 +208,28 @@
           
             
   <li>
-    <a class="" title="Orders" href="build/Orders/">
-      Orders
+    <span class="section">Number fields</span>
+    <ul>
+      
+        
+  <li>
+    <span class="section">Orders</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Creation" href="numberfields/orders/creation/">
+      Creation
     </a>
     
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
   </li>
 
           
@@ -227,12 +243,13 @@
       <article class="article">
         <div class="wrapper">
           
-          <h1 id="hecke">Hecke</h1>
+          <p><a id='Hecke-1'></a></p>
+<h1 id="hecke">Hecke</h1>
 <p><strong>Builds</strong></p>
 <p><a href="https://travis-ci.org/thofma/Hecke.jl"><img alt="Build Status" src="https://travis-ci.org/thofma/Hecke.jl.svg?branch=master" /></a></p>
+<p><a id='About-1'></a></p>
 <h2 id="about">About</h2>
-<p>Hecke is a software package for algebraic number theory maintained by Claus Fieker and Tommy Hofmann.
-It is written in <a href="http://www.julialang.org">julia</a> and is based on the computer algebra package <a href="http://www.nemocas.org">Nemo</a>.</p>
+<p>Hecke is a software package for algebraic number theory maintained by Claus Fieker and Tommy Hofmann. It is written in <a href="http://www.julialang.org">julia</a> and is based on the computer algebra package <a href="http://www.nemocas.org">Nemo</a>.</p>
 <ul>
 <li><a href="https://github.com/thofma/Hecke.jl">https://github.com/thofma/Hecke.jl</a> (Source code)</li>
 <li><a href="http://hecke.readthedocs.org/en/latest/">http://hecke.readthedocs.org/en/latest/</a> (Online documentation)</li>
@@ -246,15 +263,15 @@ It is written in <a href="http://www.julialang.org">julia</a> and is based on th
 <li>Lattice enumeration</li>
 <li>Sparse linear algebra</li>
 </ul>
+<p><a id='Installation-1'></a></p>
 <h2 id="installation">Installation</h2>
-<p>To use Hecke, a julia version of 0.4 or higher is necessary (the latest stable julia version will do).
-Please see <a href="http://julialang.org/downloads/">http://julialang.org/downloads</a> for instructions on how to obtain julia for your system.
-Once a suitable julia version is installed, use the following steps at the julia prompt to install Hecke:</p>
+<p>To use Hecke, a julia version of 0.4 or higher is necessary (the latest stable julia version will do). Please see <a href="http://julialang.org/downloads/">http://julialang.org/downloads</a> for instructions on how to obtain julia for your system. Once a suitable julia version is installed, use the following steps at the julia prompt to install Hecke:</p>
 <pre><code class="julia">julia&gt; Pkg.clone(&quot;https://github.com/nemocas/Nemo.jl&quot;)
 julia&gt; Pkg.clone(&quot;https://github.com/thofma/Hecke.jl&quot;)
 julia&gt; Pkg.build(&quot;Hecke&quot;)
 </code></pre>
 
+<p><a id='Quick-start-1'></a></p>
 <h2 id="quick-start">Quick start</h2>
 <p>Here is a quick example of using Hecke:</p>
 <pre><code class="julia">julia&gt; using Hecke
@@ -282,6 +299,7 @@ Maximal order of Number field over Rational Field with defining polynomial x^3 +
 with basis [1,a,a^2]
 </code></pre>
 
+<p><a id='Documentation-1'></a></p>
 <h2 id="documentation">Documentation</h2>
 <p>The online documentation can be found here: [http://hecke.readthedocs.org/en/latest/]</p>
 <p>The documentation of the single functions can also be accessed at the julia prompt. Here is an example:</p>
@@ -313,14 +331,14 @@ search: signature
     </div>
     <div class="next">
       
-        <a href="build/Orders/" title="Orders">
+        <a href="numberfields/orders/creation/" title="Creation">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Orders
+                Creation
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
@@ -346,12 +364,12 @@ search: signature
       </div>
     </main>
     <script>
-      var base_url = '.';
+      var base_url = '..';
       var repo_id  = 'thofma/Hecke.jl';
     </script>
-    <script src="./assets/javascripts/application-997097ee0c.js"></script>
+    <script src="../assets/javascripts/application-997097ee0c.js"></script>
     
-      <script src="./mathjaxhelper.js"></script>
+      <script src="../mathjaxhelper.js"></script>
     
       <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
     

@@ -3,18 +3,20 @@
 
     
     <url>
-     <loc>None/</loc>
+     <loc>None/build/</loc>
      <lastmod>2016-08-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
+        
     <url>
-     <loc>None/build/Orders/</loc>
-     <lastmod>2016-08-03</lastmod>
+     <loc>None</loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     
 
 </urlset>
