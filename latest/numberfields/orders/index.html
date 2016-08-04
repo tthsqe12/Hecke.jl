@@ -249,47 +249,98 @@
           
           <p><a id='Creation-1'></a></p>
 <h2 id="creation">Creation</h2>
-<pre><code>Order(B::Array{nf_elem, 1}, check::Bool = true) -&gt; NfOrd
-</code></pre>
+<div class="codehilite"><pre><span></span>Order(B::Array{nf_elem, 1}, check::Bool = true) -&gt; NfOrd
+</pre></div>
+
 
 <blockquote>
 <p>Returns the order with <script type="math/tex">\Z</script>-basis <script type="math/tex">B</script>. If <code>check</code> is set, it is checked whether <script type="math/tex">B</script> defines an order.</p>
 </blockquote>
-<pre><code>Order(K::AnticNumberField, A::FakeFmpqMat, check::Bool = true) -&gt; NfOrd
-</code></pre>
+<div class="codehilite"><pre><span></span>Order(K::AnticNumberField, A::FakeFmpqMat, check::Bool = true) -&gt; NfOrd
+</pre></div>
+
 
 <blockquote>
 <p>Returns the order which has basis matrix <script type="math/tex">A</script> with respect to the power basis of <script type="math/tex">K</script>. If <code>check</code> is set, it is checked whether <script type="math/tex">A</script> defines an order.</p>
 </blockquote>
-<pre><code>EquationOrder(K::AnticNumberField) -&gt; NfOrd
-</code></pre>
+<div class="codehilite"><pre><span></span>EquationOrder(K::AnticNumberField) -&gt; NfOrd
+</pre></div>
+
 
 <blockquote>
 <p>Returns the equation of the number field <script type="math/tex">K</script>.</p>
 </blockquote>
 <p><a id='Example-1'></a></p>
 <h3 id="example">Example</h3>
-<pre><code class="julia">julia&gt; using Hecke;
+<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Qx</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">QQ</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">);</span>
 
-julia&gt; Qx, x = PolynomialRing(QQ, &quot;x&quot;);
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">K</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">NumberField</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">);</span>
 
-julia&gt; K, a = NumberField(x^2 - 2, &quot;a&quot;);
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">O</span> <span class="o">=</span> <span class="n">EquationOrder</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+<span class="n">Order</span> <span class="n">of</span> <span class="n">Number</span> <span class="n">field</span> <span class="n">over</span> <span class="n">Rational</span> <span class="n">Field</span> <span class="n">with</span> <span class="n">defining</span> <span class="n">polynomial</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
+<span class="n">with</span> <span class="n">Z</span><span class="o">-</span><span class="n">basis</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="p">]</span>
+</pre></div>
 
-julia&gt; O = EquationOrder(K)
-Order of Number field over Rational Field with defining polynomial x^2 - 2
-with Z-basis [1,a]
-</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Internally there is a difference between arbitary orders and maximal orders.     An order will be treated as a maximal order, that is, as the ring of integers,     if it was computed in the following way.</p>
+</div>
+<div class="codehilite"><pre><span></span>maximal_order(K::AnticNumberField) -&gt; NfMaxOrd
+</pre></div>
+
+
+<blockquote>
+<p>Returns the maximal order of <script type="math/tex">K</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>maximal_order(K::AnticNumberField, primes::Array{fmpz, 1}) -&gt; NfMaxOrd
+maximal_order(K::AnticNumberField, primes::Array{Integer, 1}) -&gt; NfMaxOrd
+</pre></div>
+
+
+<blockquote>
+<p>Assuming that <code>primes</code> contains all the prime numbers at which the equation order <script type="math/tex">\mathbf{Z}[\alpha]</script> of <script type="math/tex">K = \mathbf{Q}(\alpha)</script> is not maximal, this function returns the maximal order of <script type="math/tex">K</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>make_maximal(O::NfOrd) -&gt; NfMaxOrd
+</pre></div>
+
+
+<blockquote>
+<p>Assuming that <script type="math/tex">\mathcal O</script> is an order, this function returns the same order as a maximal order.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Qx</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">QQ</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">);</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">K</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">NumberField</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">);</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">R</span> <span class="o">=</span> <span class="n">EquationOrder</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+<span class="n">Order</span> <span class="n">of</span> <span class="n">Number</span> <span class="n">field</span> <span class="n">over</span> <span class="n">Rational</span> <span class="n">Field</span> <span class="n">with</span> <span class="n">defining</span> <span class="n">polynomial</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
+<span class="n">with</span> <span class="n">Z</span><span class="o">-</span><span class="n">basis</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="p">]</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">S</span> <span class="o">=</span> <span class="n">make_maximal</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+<span class="n">Maximal</span> <span class="n">order</span> <span class="n">of</span> <span class="n">Number</span> <span class="n">field</span> <span class="n">over</span> <span class="n">Rational</span> <span class="n">Field</span> <span class="n">with</span> <span class="n">defining</span> <span class="n">polynomial</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
+<span class="n">with</span> <span class="n">basis</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="p">]</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">T</span> <span class="o">=</span> <span class="n">maximal_order</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+<span class="n">Maximal</span> <span class="n">order</span> <span class="n">of</span> <span class="n">Number</span> <span class="n">field</span> <span class="n">over</span> <span class="n">Rational</span> <span class="n">Field</span> <span class="n">with</span> <span class="n">defining</span> <span class="n">polynomial</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
+<span class="n">with</span> <span class="n">basis</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="p">]</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">basis_mat</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">==</span> <span class="n">basis_mat</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="n">true</span>
+</pre></div>
+
 
 <p><a id='Basic-properties-1'></a></p>
 <h2 id="basic-properties">Basic properties</h2>
-<pre><code>signature(O::NfOrd) -&gt; Tuple{Int, Int}
-</code></pre>
+<div class="codehilite"><pre><span></span>signature(O::NfOrd) -&gt; Tuple{Int, Int}
+</pre></div>
+
 
 <blockquote>
 <p>Returns the signature of the ambient number field of <script type="math/tex">\mathcal O</script>.</p>
 </blockquote>
-<pre><code>degree(O::NfOrd) -&gt; Int
-</code></pre>
+<div class="codehilite"><pre><span></span>degree(O::NfOrd) -&gt; Int
+</pre></div>
+
 
 <blockquote>
 <p>Returns the degree of <script type="math/tex">\mathcal O</script>.</p>
