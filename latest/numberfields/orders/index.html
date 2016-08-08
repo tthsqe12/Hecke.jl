@@ -287,6 +287,7 @@
 <p>Internally there is a difference between arbitary orders and maximal orders.     An order will be treated as a maximal order, that is, as the ring of integers,     if it was computed in the following way.</p>
 </div>
 <div class="codehilite"><pre><span></span>maximal_order(K::AnticNumberField) -&gt; NfMaxOrd
+ring_of_integers(K::AnticNumberField) -&gt; NfMaxOrd
 </pre></div>
 
 
@@ -295,11 +296,13 @@
 </blockquote>
 <div class="codehilite"><pre><span></span>maximal_order(K::AnticNumberField, primes::Array{fmpz, 1}) -&gt; NfMaxOrd
 maximal_order(K::AnticNumberField, primes::Array{Integer, 1}) -&gt; NfMaxOrd
+ring_of_integers(K::AnticNumberField, primes::Array{fmpz, 1}) -&gt; NfMaxOrd
+ring_of_integers(K::AnticNumberField, primes::Array{Integer, 1}) -&gt; NfMaxOrd
 </pre></div>
 
 
 <blockquote>
-<p>Assuming that <code>primes</code> contains all the prime numbers at which the equation order <script type="math/tex">\mathbf{Z}[\alpha]</script> of <script type="math/tex">K = \mathbf{Q}(\alpha)</script> is not maximal, this function returns the maximal order of <script type="math/tex">K</script>.</p>
+<p>Assuming that <code>primes</code> contains all the prime numbers at which the equation order <script type="math/tex">\mathbf{Z}[\alpha]</script> of <script type="math/tex">K = \mathbf{Q}(\alpha)</script> is not maximal (e.g. <code>primes</code> may contain all prime divisors of the discriminant of <script type="math/tex">\mathbf Z[\alpha]</script>), this function returns the maximal order of <script type="math/tex">K</script>.</p>
 </blockquote>
 <div class="codehilite"><pre><span></span>make_maximal(O::NfOrd) -&gt; NfMaxOrd
 </pre></div>
@@ -344,6 +347,13 @@ maximal_order(K::AnticNumberField, primes::Array{Integer, 1}) -&gt; NfMaxOrd
 
 <blockquote>
 <p>Returns the degree of <script type="math/tex">\mathcal O</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>norm_change_const(O::NfOrd) -&gt; (Float64, Float64)
+</pre></div>
+
+
+<blockquote>
+<p>Returns <script type="math/tex">(c_1, c_2) \in \mathbf R_{>0}^2</script> such that for all <script type="math/tex">x = \sum_{i=1}^d x_i \omega_i \in \mathcal O</script> we have <script type="math/tex">T_2(x) \leq c_1 \cdot \sum_i^d x_i^2</script> and <script type="math/tex">\sum_i^d x_i^2 \leq c_2 \cdot T_2(x)</script>, where <script type="math/tex">(\omega_i)_i</script> is the <script type="math/tex">\mathbf Z</script>-basis of <script type="math/tex">\mathcal O</script>.</p>
 </blockquote>
 <p><a id='Elements-1'></a></p>
 <h2 id="elements">Elements</h2>
