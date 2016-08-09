@@ -256,6 +256,7 @@
 <blockquote>
 <p>Returns the order with <script type="math/tex">\Z</script>-basis <script type="math/tex">B</script>. If <code>check</code> is set, it is checked whether <script type="math/tex">B</script> defines an order.</p>
 </blockquote>
+<p><a target='_blank' href='https://github.com/thofma/Hecke.jl/tree/4d8fa656e4b9586533ecbe6e5336eebc075cbd2e/src/NfOrd/NfOrdGen.jl#L61' class='documenter-source'>source</a><br></p>
 <div class="codehilite"><pre><span></span>Order(K::AnticNumberField, A::FakeFmpqMat, check::Bool = true) -&gt; NfOrd
 </pre></div>
 
@@ -263,6 +264,7 @@
 <blockquote>
 <p>Returns the order which has basis matrix <script type="math/tex">A</script> with respect to the power basis of <script type="math/tex">K</script>. If <code>check</code> is set, it is checked whether <script type="math/tex">A</script> defines an order.</p>
 </blockquote>
+<p><a target='_blank' href='https://github.com/thofma/Hecke.jl/tree/4d8fa656e4b9586533ecbe6e5336eebc075cbd2e/src/NfOrd/NfOrdGen.jl#L72' class='documenter-source'>source</a><br></p>
 <div class="codehilite"><pre><span></span>EquationOrder(K::AnticNumberField) -&gt; NfOrd
 </pre></div>
 
@@ -270,6 +272,7 @@
 <blockquote>
 <p>Returns the equation of the number field <script type="math/tex">K</script>.</p>
 </blockquote>
+<p><a target='_blank' href='https://github.com/thofma/Hecke.jl/tree/4d8fa656e4b9586533ecbe6e5336eebc075cbd2e/src/NfOrd/NfOrdGen.jl#L83' class='documenter-source'>source</a><br></p>
 <p><a id='Example-1'></a></p>
 <h3 id="example">Example</h3>
 <div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Qx</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">QQ</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">);</span>
@@ -278,13 +281,13 @@
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">O</span> <span class="o">=</span> <span class="n">EquationOrder</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
 <span class="n">Order</span> <span class="n">of</span> <span class="n">Number</span> <span class="n">field</span> <span class="n">over</span> <span class="n">Rational</span> <span class="n">Field</span> <span class="n">with</span> <span class="n">defining</span> <span class="n">polynomial</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
-<span class="n">with</span> <span class="n">Z</span><span class="o">-</span><span class="n">basis</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="p">]</span>
+<span class="n">with</span> <span class="n">Z</span><span class="o">-</span><span class="n">basis</span> <span class="n">Hecke</span><span class="o">.</span><span class="n">NfOrdElem</span><span class="p">{</span><span class="n">Hecke</span><span class="o">.</span><span class="n">NfOrdGen</span><span class="p">}[</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="p">]</span>
 </pre></div>
 
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Internally there is a difference between arbitary orders and maximal orders.     An order will be treated as a maximal order, that is, as the ring of integers,     if it was computed in the following way.</p>
+<p>Internally there is a difference between arbitary orders and maximal orders. An order will be treated as a maximal order, that is, as the ring of integers, if it was computed in the following way.</p>
 </div>
 <div class="codehilite"><pre><span></span>maximal_order(K::AnticNumberField) -&gt; NfMaxOrd
 ring_of_integers(K::AnticNumberField) -&gt; NfMaxOrd
@@ -294,6 +297,7 @@ ring_of_integers(K::AnticNumberField) -&gt; NfMaxOrd
 <blockquote>
 <p>Returns the maximal order of <script type="math/tex">K</script>.</p>
 </blockquote>
+<p><a target='_blank' href='https://github.com/thofma/Hecke.jl/tree/4d8fa656e4b9586533ecbe6e5336eebc075cbd2e/src/NfMaxOrd/NfMaxOrd.jl#L91' class='documenter-source'>source</a><br></p>
 <div class="codehilite"><pre><span></span>maximal_order(K::AnticNumberField, primes::Array{fmpz, 1}) -&gt; NfMaxOrd
 maximal_order(K::AnticNumberField, primes::Array{Integer, 1}) -&gt; NfMaxOrd
 ring_of_integers(K::AnticNumberField, primes::Array{fmpz, 1}) -&gt; NfMaxOrd
@@ -302,8 +306,9 @@ ring_of_integers(K::AnticNumberField, primes::Array{Integer, 1}) -&gt; NfMaxOrd
 
 
 <blockquote>
-<p>Assuming that <code>primes</code> contains all the prime numbers at which the equation order <script type="math/tex">\mathbf{Z}[\alpha]</script> of <script type="math/tex">K = \mathbf{Q}(\alpha)</script> is not maximal (e.g. <code>primes</code> may contain all prime divisors of the discriminant of <script type="math/tex">\mathbf Z[\alpha]</script>), this function returns the maximal order of <script type="math/tex">K</script>.</p>
+<p>Assuming that <script type="math/tex">primes</script> contains all the prime numbers at which the equation order <script type="math/tex">\mathbf{Z}[\alpha]</script> of <script type="math/tex">K = \mathbf{Q}(\alpha)</script> is not maximal (e.g. <script type="math/tex">primes</script> may contain all prime divisors of the discriminant of <script type="math/tex">\mathbf Z[\alpha]</script>), this function returns the maximal order of <script type="math/tex">K</script>.</p>
 </blockquote>
+<p><a target='_blank' href='https://github.com/thofma/Hecke.jl/tree/4d8fa656e4b9586533ecbe6e5336eebc075cbd2e/src/NfMaxOrd/NfMaxOrd.jl#L108' class='documenter-source'>source</a><br></p>
 <div class="codehilite"><pre><span></span>make_maximal(O::NfOrd) -&gt; NfMaxOrd
 </pre></div>
 
@@ -311,21 +316,22 @@ ring_of_integers(K::AnticNumberField, primes::Array{Integer, 1}) -&gt; NfMaxOrd
 <blockquote>
 <p>Assuming that <script type="math/tex">\mathcal O</script> is an order, this function returns the same order as a maximal order.</p>
 </blockquote>
+<p><a target='_blank' href='https://github.com/thofma/Hecke.jl/tree/4d8fa656e4b9586533ecbe6e5336eebc075cbd2e/src/NfMaxOrd/NfMaxOrd.jl#L81' class='documenter-source'>source</a><br></p>
 <div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Qx</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">QQ</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">);</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">K</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">NumberField</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">);</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">R</span> <span class="o">=</span> <span class="n">EquationOrder</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
 <span class="n">Order</span> <span class="n">of</span> <span class="n">Number</span> <span class="n">field</span> <span class="n">over</span> <span class="n">Rational</span> <span class="n">Field</span> <span class="n">with</span> <span class="n">defining</span> <span class="n">polynomial</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
-<span class="n">with</span> <span class="n">Z</span><span class="o">-</span><span class="n">basis</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="p">]</span>
+<span class="n">with</span> <span class="n">Z</span><span class="o">-</span><span class="n">basis</span> <span class="n">Hecke</span><span class="o">.</span><span class="n">NfOrdElem</span><span class="p">{</span><span class="n">Hecke</span><span class="o">.</span><span class="n">NfOrdGen</span><span class="p">}[</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="p">]</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">S</span> <span class="o">=</span> <span class="n">make_maximal</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
 <span class="n">Maximal</span> <span class="n">order</span> <span class="n">of</span> <span class="n">Number</span> <span class="n">field</span> <span class="n">over</span> <span class="n">Rational</span> <span class="n">Field</span> <span class="n">with</span> <span class="n">defining</span> <span class="n">polynomial</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
-<span class="n">with</span> <span class="n">basis</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="p">]</span>
+<span class="n">with</span> <span class="n">basis</span> <span class="n">Nemo</span><span class="o">.</span><span class="n">nf_elem</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="p">]</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">T</span> <span class="o">=</span> <span class="n">maximal_order</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
 <span class="n">Maximal</span> <span class="n">order</span> <span class="n">of</span> <span class="n">Number</span> <span class="n">field</span> <span class="n">over</span> <span class="n">Rational</span> <span class="n">Field</span> <span class="n">with</span> <span class="n">defining</span> <span class="n">polynomial</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
-<span class="n">with</span> <span class="n">basis</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="p">]</span>
+<span class="n">with</span> <span class="n">basis</span> <span class="n">Nemo</span><span class="o">.</span><span class="n">nf_elem</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="p">]</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">basis_mat</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">==</span> <span class="n">basis_mat</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 <span class="n">true</span>
@@ -341,6 +347,7 @@ ring_of_integers(K::AnticNumberField, primes::Array{Integer, 1}) -&gt; NfMaxOrd
 <blockquote>
 <p>Returns the signature of the ambient number field of <script type="math/tex">\mathcal O</script>.</p>
 </blockquote>
+<p><a target='_blank' href='https://github.com/thofma/Hecke.jl/tree/4d8fa656e4b9586533ecbe6e5336eebc075cbd2e/src/NfOrd/NfOrd.jl#L288' class='documenter-source'>source</a><br></p>
 <div class="codehilite"><pre><span></span>degree(O::NfOrd) -&gt; Int
 </pre></div>
 
@@ -348,6 +355,7 @@ ring_of_integers(K::AnticNumberField, primes::Array{Integer, 1}) -&gt; NfMaxOrd
 <blockquote>
 <p>Returns the degree of <script type="math/tex">\mathcal O</script>.</p>
 </blockquote>
+<p><a target='_blank' href='https://github.com/thofma/Hecke.jl/tree/4d8fa656e4b9586533ecbe6e5336eebc075cbd2e/src/NfOrd/NfOrd.jl#L192' class='documenter-source'>source</a><br></p>
 <div class="codehilite"><pre><span></span>norm_change_const(O::NfOrd) -&gt; (Float64, Float64)
 </pre></div>
 
@@ -355,6 +363,7 @@ ring_of_integers(K::AnticNumberField, primes::Array{Integer, 1}) -&gt; NfMaxOrd
 <blockquote>
 <p>Returns <script type="math/tex">(c_1, c_2) \in \mathbf R_{>0}^2</script> such that for all <script type="math/tex">x = \sum_{i=1}^d x_i \omega_i \in \mathcal O</script> we have <script type="math/tex">T_2(x) \leq c_1 \cdot \sum_i^d x_i^2</script> and <script type="math/tex">\sum_i^d x_i^2 \leq c_2 \cdot T_2(x)</script>, where <script type="math/tex">(\omega_i)_i</script> is the <script type="math/tex">\mathbf Z</script>-basis of <script type="math/tex">\mathcal O</script>.</p>
 </blockquote>
+<p><a target='_blank' href='https://github.com/thofma/Hecke.jl/tree/4d8fa656e4b9586533ecbe6e5336eebc075cbd2e/src/NfOrd/NfOrd.jl#L410' class='documenter-source'>source</a><br></p>
 <p><a id='Elements-1'></a></p>
 <h2 id="elements">Elements</h2>
 <p><a id='Ideals-1'></a></p>
