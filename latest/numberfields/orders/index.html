@@ -453,11 +453,27 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Given two orders <script type="math/tex">R</script>, <script type="math/tex">S</script> of <script type="math/tex">K</script>, this function returns the smallest order containing both <script type="math/tex">R</script> and <script type="math/tex">S</script>. It is assumed that <script type="math/tex">R</script>, <script type="math/tex">S</script> contain the ambient equation order and have coprime index.</p>
 </blockquote>
+<div class="codehilite"><pre><span></span>poverorder(O::NfOrd, p::fmpz) -&gt; NfOrd
+poverorder(O::NfOrd, p::Integer) -&gt; NfOrd
+</pre></div>
+
+
+<blockquote>
+<p>This function tries to find an order that is locally larger than <script type="math/tex">\mathcal O</script> at the prime <script type="math/tex">p</script>: If <script type="math/tex">p</script> divides the index <script type="math/tex">[ \mathcal O_K : \mathcal O]</script>, this function will return an order <script type="math/tex">\tilde{\mathcal O}</script> such that <script type="math/tex">v_p([ \mathcal O_K : \tilde{\mathcal O}]) < v_p([ \mathcal O_K : \mathcal O])</script>. Otherwise <script type="math/tex">\mathcal O</script> is returned.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>pmaximal_overorder(O::NfOrd, p::fmpz) -&gt; NfOrd
+pmaximal_overorder(O::NfOrd, p::Integer) -&gt; NfOrd
+</pre></div>
+
+
+<blockquote>
+<p>This function finds a <script type="math/tex">p</script>-maximal order <script type="math/tex">\tilde{\mathcal O}</script> containing <script type="math/tex">\mathcal O</script>. That is, the index <script type="math/tex">[ \mathcal O_K : \tilde{\mathcal O}]</script> is not dividible by <script type="math/tex">p</script>.</p>
+</blockquote>
 <p><a id='Elements-1'></a></p>
 <h2 id="elements">Elements</h2>
 <p><a id='Creation-2'></a></p>
 <h3 id="creation_1">Creation</h3>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>  call(O::NfOrd, a::nf_elem, check::Bool = true) -&gt; NfOrdElem
 </pre></div>
 
@@ -465,7 +481,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Given an element <script type="math/tex">a</script> of the ambient number field of <script type="math/tex">\mathcal O</script>, this function coerces the element into <script type="math/tex">\mathcal O</script>. It will be checked that <script type="math/tex">a</script> is contained in <script type="math/tex">\mathcal O</script> if and only if <code>check</code> is <code>true</code>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>  call(O::NfOrd, a::Union{fmpz, Integer}) -&gt; NfOrdElem
 </pre></div>
 
@@ -473,7 +489,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Given an element <script type="math/tex">a</script> of type <code>fmpz</code> or <code>Integer</code>, this function coerces the element into <script type="math/tex">\mathcal O</script>. It will be checked that <script type="math/tex">a</script> is contained in <script type="math/tex">\mathcal O</script> if and only if <code>check</code> is <code>true</code>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>  call(O::NfOrd, arr::Array{fmpz, 1})
 </pre></div>
 
@@ -481,7 +497,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns the element of <script type="math/tex">\mathcal O</script> with coefficient vector <code>arr</code>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>  call{T &lt;: Integer}(O::NfOrd, arr::Array{T, 1})
 </pre></div>
 
@@ -489,7 +505,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns the element of <script type="math/tex">\mathcal O</script> with coefficient vector <code>arr</code>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>  call(O::NfOrd) -&gt; NfOrdElem
 </pre></div>
 
@@ -499,7 +515,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 </blockquote>
 <p><a id='Basic-properties-2'></a></p>
 <h3 id="basic-properties_1">Basic properties</h3>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>parent(a::NfOrdElem) -&gt; NfOrd
 </pre></div>
 
@@ -507,7 +523,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns the order of which <script type="math/tex">a</script> is an element.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>elem_in_nf(a::NfOrdElem) -&gt; nf_elem
 </pre></div>
 
@@ -515,7 +531,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns the element <script type="math/tex">a</script> considered as an element of the ambient number field.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>elem_in_basis(a::NfOrdElem) -&gt; Array{fmpz, 1}
 </pre></div>
 
@@ -523,7 +539,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns the coefficient vector of <script type="math/tex">a</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>discriminant(B::Array{NfOrdElem, 1}) -&gt; fmpz
 </pre></div>
 
@@ -531,7 +547,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns the discriminant of the family <script type="math/tex">B</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>==(x::NfOrdElem, y::NfOrdElem) -&gt; Bool
 </pre></div>
 
@@ -539,7 +555,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns whether <script type="math/tex">x</script> and <script type="math/tex">y</script> are equal.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>zero(O::NfOrd) -&gt; NfOrdElem
 </pre></div>
 
@@ -547,7 +563,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns the zero element of <script type="math/tex">\mathcal O</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>one(O::NfOrd) -&gt; NfOrdElem
 </pre></div>
 
@@ -555,7 +571,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns the zero element of <script type="math/tex">\mathcal O</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>iszero(a::NfOrd) -&gt; Bool
 </pre></div>
 
@@ -563,7 +579,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Tests if <script type="math/tex">a</script> is one.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>isone(a::NfOrd) -&gt; Bool
 </pre></div>
 
@@ -573,7 +589,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 </blockquote>
 <p><a id='Arithmetic-1'></a></p>
 <h3 id="arithmetic">Arithmetic</h3>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>-(x::NfOrdElem) -&gt; NfOrdElem
 </pre></div>
 
@@ -581,7 +597,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns the additive inverse of <script type="math/tex">x</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>+(x::NfOrdElem, y::NfOrdElem) -&gt; NfOrdElem
 </pre></div>
 
@@ -589,7 +605,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns <script type="math/tex">x + y</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>-(x::NfOrdElem, y::NfOrdElem) -&gt; NfOrdElem
 </pre></div>
 
@@ -597,7 +613,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns <script type="math/tex">x - y</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>*(x::NfOrdElem, y::NfOrdElem) -&gt; NfOrdElem
 </pre></div>
 
@@ -605,7 +621,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns <script type="math/tex">x \cdot y</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>^(x::NfOrdElem, y::Union{fmpz, Int})
 </pre></div>
 
@@ -613,7 +629,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns <script type="math/tex">x^y</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>mod(a::NfOrdElem, m::Union{fmpz, Int}) -&gt; NfOrdElem
 </pre></div>
 
@@ -621,7 +637,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Reduces the coefficient vector of <script type="math/tex">a</script> modulo <script type="math/tex">m</script> and returns the corresponding element. The coefficient vector of the result will have entries <script type="math/tex">x</script> with  <script type="math/tex">0 \leq x \leq m</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>powermod(a::NfOrdElem, i::fmpz, m::Integer) -&gt; NfOrdElem
 </pre></div>
 
@@ -631,7 +647,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 </blockquote>
 <p><a id='Miscallenous-1'></a></p>
 <h3 id="miscallenous">Miscallenous</h3>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>representation_mat(a::NfOrdElem) -&gt; fmpz_mat
 </pre></div>
 
@@ -639,7 +655,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns the representation matrix of the element <script type="math/tex">a</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>representation_mat(a::NfOrdElem, K::AnticNumberField) -&gt; FakeFmpqMat
 </pre></div>
 
@@ -647,7 +663,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns the representation matrix of the element <script type="math/tex">a</script> considered as an element of the ambient number field <script type="math/tex">K</script>. It is assumed that <script type="math/tex">K</script> is the ambient number field of the order of <script type="math/tex">a</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>trace(a::NfOrdElem) -&gt; fmpz
 </pre></div>
 
@@ -655,7 +671,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns the trace of <script type="math/tex">a</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>norm(a::NfOrdElem) -&gt; fmpz
 </pre></div>
 
@@ -663,7 +679,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns the norm of <script type="math/tex">a</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>rand(O::NfOrd, n::Union{Integer, fmpz}) -&gt; NfOrdElem
 </pre></div>
 
@@ -671,7 +687,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Computes a coefficient vector with entries uniformly distributed in <script type="math/tex">\{-n,\dotsc,-1,0,1,\dotsc,n\}</script> and returns the corresponding element of the order <script type="math/tex">\mathcal O</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>minkowski_map(a::NfOrdElem, abs_tol::Int) -&gt; Array{arb, 1}
 </pre></div>
 
@@ -679,7 +695,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns the image of <script type="math/tex">a</script> under the Minkowski embedding. Every entry of the array returned is of type <code>arb</code> with radius less then <code>2^-abs_tol</code>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>conjugates_arb(x::NfOrdElem, abs_tol::Int) -&gt; Array{acb, 1}
 </pre></div>
 
@@ -688,7 +704,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <p>Compute the the conjugates of <code>x</code> as elements of type <code>acb</code>. Recall that we order the complex conjugates <script type="math/tex">\sigma_{r+1}(x),...,\sigma_{r+2s}(x)</script> such that <script type="math/tex">\sigma_{i}(x) = \overline{\sigma_{i + s}(x)}</script> for <script type="math/tex">r + 1 \leq i \leq r + s</script>.</p>
 <p>Every entry <code>y</code> of the array returned satisfies <code>radius(real(y)) &lt; 2^-abs_tol</code>, <code>radius(imag(y)) &lt; 2^-abs_tol</code> respectively.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>conjugates_arb_log(x::NfOrdElem, abs_tol::Int) -&gt; Array{arb, 1}
 </pre></div>
 
@@ -696,7 +712,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns the elements <script type="math/tex">(\log(\lvert \sigma_1(x) \rvert),\dotsc,\log(\lvert\sigma_r(x) \rvert), \dotsc,2\log(\lvert \sigma_{r+1}(x) \rvert),\dotsc, 2\log(\lvert \sigma_{r+s}(x)\rvert))</script> as elements of type <code>arb</code> radius less then <code>2^-abs_tol</code>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>t2(x::NfOrdElem, abs_tol::Int = 32) -&gt; arb
 </pre></div>
 
@@ -708,7 +724,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <h2 id="ideals">Ideals</h2>
 <p><a id='Creation-3'></a></p>
 <h3 id="creation_2">Creation</h3>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>ideal(O::NfOrd, a::Int) -&gt; NfOrdIdl
 </pre></div>
 
@@ -716,7 +732,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns the ideal of <script type="math/tex">\mathcal O</script> which is generated by <script type="math/tex">a</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>ideal(O::NfOrd, a::fmpz) -&gt; NfOrdIdl
 </pre></div>
 
@@ -724,7 +740,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns the ideal of <script type="math/tex">\mathcal O</script> which is generated by <script type="math/tex">a</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>ideal(O::NfOrd, A::fmpz_mat) -&gt; NfOrdIdl
 </pre></div>
 
@@ -732,7 +748,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Assuming that <script type="math/tex">A</script> is a <script type="math/tex">d \times d</script> nonsingular integer matrix, this function returns the ideal <script type="math/tex">I</script> given by <script type="math/tex">I = \bigoplus \mathbf Z \alpha_i</script>, where <script type="math/tex">(\alpha_1,\dotsc,\alpha_d) = (\omega_1,\dotsc,\omega_d) A^t</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>ideal(O::NfOrd, a::NfOrdElem) -&gt; NfOrdIdl
 </pre></div>
 
@@ -740,7 +756,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns the ideal of <script type="math/tex">\mathcal O</script> which is generated by <script type="math/tex">a</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>ring_of_multipliers(I::NfOrdIdl) -&gt; NfOrdGen
 </pre></div>
 
@@ -750,7 +766,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 </blockquote>
 <p><a id='Arithmetic-2'></a></p>
 <h3 id="arithmetic_1">Arithmetic</h3>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>==(x::NfOrdIdl, y::NfOrdIdl)
 </pre></div>
 
@@ -758,7 +774,7 @@ is_index_divisor(O::NfOrd, d::Int) -&gt; Bool
 <blockquote>
 <p>Returns whether <script type="math/tex">x</script> and <script type="math/tex">y</script> are equal.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>+(x::NfOrdIdl, y::NfOrdIdl)
 </pre></div>
 
@@ -783,7 +799,7 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 </blockquote>
 <p><a id='Miscaellenous-1'></a></p>
 <h3 id="miscaellenous">Miscaellenous</h3>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>parent(I::NfOrdIdl) -&gt; NfOrd
 </pre></div>
 
@@ -791,7 +807,7 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 <blockquote>
 <p>Returns the order of <script type="math/tex">I</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>basis(I::NfOrdIdl) -&gt; Array{NfOrdElem, 1}
 </pre></div>
 
@@ -799,7 +815,7 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 <blockquote>
 <p>Returns the <script type="math/tex">\mathbf Z</script>-basis of <script type="math/tex">I</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>basis_mat(I::NfOrdIdl) -&gt; fmpz_mat
 </pre></div>
 
@@ -807,7 +823,7 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 <blockquote>
 <p>Returns the basis matrix of <script type="math/tex">I</script> with respect to the basis of the order.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>minimum(I::NfOrdIdl) -&gt; fmpz
 </pre></div>
 
@@ -815,7 +831,7 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 <blockquote>
 <p>Returns the minimum of <script type="math/tex">I</script>, that is, the minimum of <script type="math/tex">I \cap \mathbf Z_{\geq 0}</script>, where <script type="math/tex">\mathcal O</script> is the order of <script type="math/tex">I</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>norm(I::NfOrdIdl) -&gt; fmpz
 </pre></div>
 
@@ -823,7 +839,7 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 <blockquote>
 <p>Returns the norm of <script type="math/tex">I</script>, that is, the cardinality of <script type="math/tex">\mathcal O/I</script>, where <script type="math/tex">\mathcal O</script> is the order of <script type="math/tex">I</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>in(x::NfOrdElem, y::NfOrdIdl)
 </pre></div>
 
@@ -839,7 +855,7 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 <p>Returns a tuple <code>(e, f)</code> consisting of elements <code>e in x</code>, <code>f in y</code> such that <code>1 = e + f</code>.</p>
 <p>If the ideals are not coprime, an error is raised.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>mod(x::NfOrdElem, I::NfOrdIdl)
 </pre></div>
 
@@ -847,7 +863,7 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 <blockquote>
 <p>Returns the unique element <script type="math/tex">y</script> of the ambient order of <script type="math/tex">x</script> with <script type="math/tex">x \equiv y \bmod I</script> and the following property: If <script type="math/tex">a_1,\dotsc,a_d \in \Z_{\geq 1}</script> are the diagonal entries of the unique HNF basis matrix of <script type="math/tex">I</script> and <script type="math/tex">(b_1,\dotsc,b_d)</script> is the coefficient vector of <script type="math/tex">y</script>, then <script type="math/tex">0 \leq b_i < a_i</script> for <script type="math/tex">1 \leq i \leq d</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>pradical(O::NfOrd, p::fmpz) -&gt; NfOrdIdl
 </pre></div>
 
@@ -859,7 +875,7 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 <h2 id="fractional-ideals">Fractional ideals</h2>
 <p><a id='Creation-4'></a></p>
 <h3 id="creation_3">Creation</h3>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>frac_ideal(O::NfOrd, A::fmpz_mat, b::fmpz) -&gt; NfOrdFracIdl
 </pre></div>
 
@@ -867,7 +883,7 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 <blockquote>
 <p>Creates the fractional ideal of <script type="math/tex">\mathcal O</script> with basis matrix <script type="math/tex">A/b</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>frac_ideal(O::NfOrd, A::FakeFmpqMat) -&gt; NfOrdFracIdl
 </pre></div>
 
@@ -875,7 +891,7 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 <blockquote>
 <p>Creates the fractional ideal of <script type="math/tex">\mathcal O</script> with basis matrix <script type="math/tex">A</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>frac_ideal(O::NfOrd, I::NfOrdIdl) -&gt; NfOrdFracIdl
 </pre></div>
 
@@ -883,7 +899,7 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 <blockquote>
 <p>Turns the ideal <script type="math/tex">I</script> into a fractional ideal of <script type="math/tex">\mathcal O</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>frac_ideal(O::NfOrd, I::NfOrdIdl, b::fmpz) -&gt; NfOrdFracIdl
 </pre></div>
 
@@ -891,7 +907,7 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 <blockquote>
 <p>Creates the fractional ideal <script type="math/tex">I/b</script> of <script type="math/tex">\mathcal O</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>frac_ideal(O::NfOrd, a::nf_elem) -&gt; NfOrdFracIdl
 </pre></div>
 
@@ -899,7 +915,7 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 <blockquote>
 <p>Creates the principal fractional ideal <script type="math/tex">(a)</script> of <script type="math/tex">\mathcal O</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>frac_ideal(O::NfOrd, a::NfOrdElem) -&gt; NfOrdFracIdl
 </pre></div>
 
@@ -909,7 +925,7 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 </blockquote>
 <p><a id='Arithmetic-3'></a></p>
 <h3 id="arithmetic_2">Arithmetic</h3>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>==(x::NfOrdFracIdl, y::NfOrdFracIdl) -&gt; Bool
 </pre></div>
 
@@ -919,7 +935,7 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 </blockquote>
 <p><a id='Miscaellenous-2'></a></p>
 <h3 id="miscaellenous_1">Miscaellenous</h3>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>basis_mat(I::NfOrdFracIdl) -&gt; FakeFmpqMat
 </pre></div>
 
@@ -927,7 +943,7 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 <blockquote>
 <p>Returns the basis matrix of <script type="math/tex">I</script> with respect to the basis of the order.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>basis_mat_inv(I::NfOrdFracIdl) -&gt; FakeFmpqMat
 </pre></div>
 
@@ -935,7 +951,7 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 <blockquote>
 <p>Returns the inverse of the basis matrix of <script type="math/tex">I</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>basis(I::NfOrdFracIdl) -&gt; Array{nf_elem, 1}
 </pre></div>
 
@@ -943,7 +959,7 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 <blockquote>
 <p>Returns the <script type="math/tex">\mathbf Z</script>-basis of <script type="math/tex">I</script>.</p>
 </blockquote>
-<p>–––</p>
+<hr />
 <div class="codehilite"><pre><span></span>norm(I::NfOrdFracIdl) -&gt; fmpq
 </pre></div>
 
