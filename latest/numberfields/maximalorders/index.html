@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Introduction - Hecke.jl</title>
+        <title>Maximal Orders - Hecke.jl</title>
       
       
       
@@ -100,7 +100,7 @@
             
           </span>
         
-        Introduction
+        Maximal Orders
       </div>
     </div>
     
@@ -184,22 +184,9 @@
       
         
   <li>
-    <a class="current" title="Introduction" href="./">
+    <a class="" title="Introduction" href="../introduction/">
       Introduction
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Introduction" href="#introduction">
-                Introduction
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
@@ -215,9 +202,22 @@
       
         
   <li>
-    <a class="" title="Maximal Orders" href="../maximalorders/">
+    <a class="current" title="Maximal Orders" href="./">
       Maximal Orders
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Ideals" href="#ideals">
+                Ideals
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -236,10 +236,25 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Introduction</h1>
+            <h1>Maximal Orders</h1>
           
-          <p><a id='Introduction-1'></a></p>
-<h2 id="introduction">Introduction</h2>
+          <p><a id='Ideals-1'></a></p>
+<h2 id="ideals">Ideals</h2>
+<hr />
+<p>inv(A::NfMaxOrdIdl) -&gt; NfMaxOrdFracIdl</p>
+<blockquote>
+<p>Computes the inverse of A, that is, the fractional ideal <script type="math/tex">B</script> such that <script type="math/tex">AB = \mathcal O_K</script>.</p>
+</blockquote>
+<hr />
+<p>valuation(a::nf_elem, p::NfMaxOrdIdl) -&gt; fmpz   valuation(a::NfOrdElem, p::NfMaxOrdIdl) -&gt; fmpz   valuation(a::fmpz, p::NfMaxOrdIdl) -&gt; fmpz</p>
+<blockquote>
+<p>Computes the <script type="math/tex">\mathfrak p</script>-adic valuation of <script type="math/tex">a</script>, that is, the largest <script type="math/tex">i</script> such that <script type="math/tex">a</script> is contained in <script type="math/tex">\mathfrak p^i</script>.</p>
+</blockquote>
+<hr />
+<p>valuation(A::NfMaxOrdIdl, p::NfMaxOrdIdl) -&gt; fmpz</p>
+<blockquote>
+<p>Computes the <script type="math/tex">\mathfrak p</script>-adic valuation of <script type="math/tex">A</script>, that is, the largest <script type="math/tex">i</script> such that <script type="math/tex">A</script> is contained in <script type="math/tex">\mathfrak p^i</script>.</p>
+</blockquote>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -256,7 +271,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../.." title="Getting Started">
+        <a href="../orders/" title="Orders">
           <span class="direction">
             Previous
           </span>
@@ -266,7 +281,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Getting Started
+                Orders
               </div>
             </div>
           </div>
@@ -274,22 +289,6 @@
       
     </div>
     <div class="next">
-      
-        <a href="../orders/" title="Orders">
-          <span class="direction">
-            Next
-          </span>
-          <div class="page">
-            <div class="stretch">
-              <div class="title">
-                Orders
-              </div>
-            </div>
-            <div class="button button-next" role="button" aria-label="Next">
-              <i class="icon icon-forward"></i>
-            </div>
-          </div>
-        </a>
       
     </div>
   </nav>
