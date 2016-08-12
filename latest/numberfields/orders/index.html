@@ -301,6 +301,7 @@
 <p class="admonition-title">Note</p>
 <p>Internally there is a difference between arbitary orders and maximal orders.     An order will be treated as a maximal order, that is, as the ring of integers,     if it was computed in the following way.</p>
 </div>
+<hr />
 <div class="codehilite"><pre><span></span>maximal_order(K::AnticNumberField) -&gt; NfMaxOrd
 ring_of_integers(K::AnticNumberField) -&gt; NfMaxOrd
 </pre></div>
@@ -309,6 +310,7 @@ ring_of_integers(K::AnticNumberField) -&gt; NfMaxOrd
 <blockquote>
 <p>Returns the maximal order of <script type="math/tex">K</script>.</p>
 </blockquote>
+<hr />
 <div class="codehilite"><pre><span></span>maximal_order(K::AnticNumberField, primes::Array{fmpz, 1}) -&gt; NfMaxOrd
 maximal_order(K::AnticNumberField, primes::Array{Integer, 1}) -&gt; NfMaxOrd
 ring_of_integers(K::AnticNumberField, primes::Array{fmpz, 1}) -&gt; NfMaxOrd
@@ -319,6 +321,7 @@ ring_of_integers(K::AnticNumberField, primes::Array{Integer, 1}) -&gt; NfMaxOrd
 <blockquote>
 <p>Assuming that <code>primes</code> contains all the prime numbers at which the equation order <script type="math/tex">\mathbf{Z}[\alpha]</script> of <script type="math/tex">K = \mathbf{Q}(\alpha)</script> is not maximal (e.g. <code>primes</code> may contain all prime divisors of the discriminant of <script type="math/tex">\mathbf Z[\alpha]</script>), this function returns the maximal order of <script type="math/tex">K</script>.</p>
 </blockquote>
+<hr />
 <div class="codehilite"><pre><span></span>make_maximal(O::NfOrd) -&gt; NfMaxOrd
 </pre></div>
 
