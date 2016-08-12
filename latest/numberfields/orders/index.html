@@ -338,14 +338,15 @@ ring_of_integers(K::AnticNumberField, primes::Array{Integer, 1}) -&gt; NfMaxOrd
 <span class="n">with</span> <span class="n">Z</span><span class="o">-</span><span class="n">basis</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="p">]</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">S</span> <span class="o">=</span> <span class="n">make_maximal</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
-<span class="n">ERROR</span><span class="p">:</span> <span class="n">UndefVarError</span><span class="p">:</span> <span class="n">make_maximal</span> <span class="n">not</span> <span class="n">defined</span>
+<span class="n">Maximal</span> <span class="n">order</span> <span class="n">of</span> <span class="n">Number</span> <span class="n">field</span> <span class="n">over</span> <span class="n">Rational</span> <span class="n">Field</span> <span class="n">with</span> <span class="n">defining</span> <span class="n">polynomial</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
+<span class="n">with</span> <span class="n">basis</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="p">]</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">T</span> <span class="o">=</span> <span class="n">maximal_order</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
 <span class="n">Maximal</span> <span class="n">order</span> <span class="n">of</span> <span class="n">Number</span> <span class="n">field</span> <span class="n">over</span> <span class="n">Rational</span> <span class="n">Field</span> <span class="n">with</span> <span class="n">defining</span> <span class="n">polynomial</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
 <span class="n">with</span> <span class="n">basis</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="p">]</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">basis_mat</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">==</span> <span class="n">basis_mat</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-<span class="n">ERROR</span><span class="p">:</span> <span class="n">UndefVarError</span><span class="p">:</span> <span class="n">S</span> <span class="n">not</span> <span class="n">defined</span>
+<span class="n">true</span>
 </pre></div>
 
 

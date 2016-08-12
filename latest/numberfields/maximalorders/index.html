@@ -228,6 +228,18 @@
               </a>
             </li>
           
+            <li class="anchor">
+              <a title="Residue rings" href="#residue-rings">
+                Residue rings
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Residue fields" href="#residue-fields">
+                Residue fields
+              </a>
+            </li>
+          
         </ul>
       
     
@@ -353,6 +365,59 @@ valuation(a::fmpz, p::NfMaxOrdIdl) -&gt; fmpz
 </blockquote>
 <p><a id='Class-and-unit-group-1'></a></p>
 <h2 id="class-and-unit-group">Class and unit group</h2>
+<hr />
+<div class="codehilite"><pre><span></span>unit_rank(O::NfOrd) -&gt; Int
+</pre></div>
+
+
+<blockquote>
+<p>Returns the unit rank of <script type="math/tex">\mathcal O</script>, that is, the rank of the unit group <script type="math/tex">\mathcal O^\times</script>.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>is_unit(x::NfOrdElem) -&gt; Bool
+</pre></div>
+
+
+<blockquote>
+<p>Returns whether <script type="math/tex">x</script> is invertible or not.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>is_torsion_unit(x::NfOrdElem, checkisunit::Bool = false) -&gt; Bool
+</pre></div>
+
+
+<blockquote>
+<p>Returns whether <script type="math/tex">x</script> is a torsion unit, that is, whether there exists <script type="math/tex">n</script> such that <script type="math/tex">x^n = 1</script>.</p>
+<p>If <code>checkisunit</code> is <code>true</code>, it is first checked whether <script type="math/tex">x</script> is a unit of the maximal order of the number field <script type="math/tex">x</script> is lying in.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>torsion_units(O::NfOrd) -&gt; Array{NfOrdElem, 1}
+</pre></div>
+
+
+<blockquote>
+<p>Given an order <script type="math/tex">O</script>, compute the torsion units of <script type="math/tex">O</script>.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>torsion_units(O::NfOrd) -&gt; NfOrdElem
+</pre></div>
+
+
+<blockquote>
+<p>Given an order <script type="math/tex">O</script>, compute a generator of the torsion units of <script type="math/tex">O</script>.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>unit_group(O::NfMaxOrd) -&gt; Map
+</pre></div>
+
+
+<blockquote>
+<p>Returns an isomorphism map <script type="math/tex">f \colon A \to \mathcal O^\times</script>. Let <code>A = domain(f)</code>. Then a set of fundamental units of <script type="math/tex">\mathcal O</script> can be obtained via <code>[ f(A[i]) for i in 1:unit_rank(O) ]</code>.</p>
+</blockquote>
+<p><a id='Residue-rings-1'></a></p>
+<h2 id="residue-rings">Residue rings</h2>
+<p><a id='Residue-fields-1'></a></p>
+<h2 id="residue-fields">Residue fields</h2>
           <aside class="copyright" role="note">
             
             Documentation built with
