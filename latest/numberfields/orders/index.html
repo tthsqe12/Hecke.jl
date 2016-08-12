@@ -772,6 +772,14 @@ pmaximal_overorder(O::NfOrd, p::Integer) -&gt; NfOrd
 <blockquote>
 <p>Computes the order <script type="math/tex">(I : I)</script>, which is the set of all <script type="math/tex">x \in K</script> with <script type="math/tex">xI \subseteq I</script>.</p>
 </blockquote>
+<div class="codehilite"><pre><span></span>*(O::NfOrd, x::NfOrdElem) -&gt; NfOrdIdl
+*(x::NfOrdElem, O::NfOrd) -&gt; NfOrdIdl
+</pre></div>
+
+
+<blockquote>
+<p>Returns the principal ideal <script type="math/tex">(x)</script> of <script type="math/tex">\mathcal O</script>.</p>
+</blockquote>
 <p><a id='Arithmetic-2'></a></p>
 <h3 id="arithmetic_1">Arithmetic</h3>
 <hr />

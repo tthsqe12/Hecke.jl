@@ -216,6 +216,12 @@
               </a>
             </li>
           
+            <li class="anchor">
+              <a title="Fractional ideals" href="#fractional-ideals">
+                Fractional ideals
+              </a>
+            </li>
+          
         </ul>
       
     
@@ -246,14 +252,88 @@
 <p>Computes the inverse of A, that is, the fractional ideal <script type="math/tex">B</script> such that <script type="math/tex">AB = \mathcal O_K</script>.</p>
 </blockquote>
 <hr />
-<p>valuation(a::nf_elem, p::NfMaxOrdIdl) -&gt; fmpz   valuation(a::NfOrdElem, p::NfMaxOrdIdl) -&gt; fmpz   valuation(a::fmpz, p::NfMaxOrdIdl) -&gt; fmpz</p>
+<div class="codehilite"><pre><span></span>valuation(a::nf_elem, p::NfMaxOrdIdl) -&gt; fmpz
+valuation(a::NfOrdElem, p::NfMaxOrdIdl) -&gt; fmpz
+valuation(a::fmpz, p::NfMaxOrdIdl) -&gt; fmpz
+</pre></div>
+
+
 <blockquote>
 <p>Computes the <script type="math/tex">\mathfrak p</script>-adic valuation of <script type="math/tex">a</script>, that is, the largest <script type="math/tex">i</script> such that <script type="math/tex">a</script> is contained in <script type="math/tex">\mathfrak p^i</script>.</p>
 </blockquote>
 <hr />
-<p>valuation(A::NfMaxOrdIdl, p::NfMaxOrdIdl) -&gt; fmpz</p>
+<div class="codehilite"><pre><span></span>valuation(A::NfMaxOrdIdl, p::NfMaxOrdIdl) -&gt; fmpz
+</pre></div>
+
+
 <blockquote>
 <p>Computes the <script type="math/tex">\mathfrak p</script>-adic valuation of <script type="math/tex">A</script>, that is, the largest <script type="math/tex">i</script> such that <script type="math/tex">A</script> is contained in <script type="math/tex">\mathfrak p^i</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>isramified(O::NfMaxOrd, p::Int) -&gt; Bool
+</pre></div>
+
+
+<blockquote>
+<p>Returns whether the integer <script type="math/tex">p</script> is ramified in <script type="math/tex">\mathcal O</script>. It is assumed that <script type="math/tex">p</script> is prime.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>prime_decomposition(O::NfMaxOrd,
+                    p::Integer,
+                    degree_limit::Int = 0,
+                    lower_limit::Int = 0) -&gt; Array{Tuple{NfMaxOrdIdl, Int}, 1}
+</pre></div>
+
+
+<blockquote>
+<p>Returns an array of tuples <script type="math/tex">(\mathfrak p_i,e_i)</script> such that <script type="math/tex">p \mathcal O</script> is the product of the <script type="math/tex">\mathfrak p_i^{e_i}</script> and <script type="math/tex">\mathfrak p_i \neq \mathfrak p_j</script> for <script type="math/tex">i \neq j</script>.</p>
+<p>If <code>degree_limit</code> is a nonzero integer <script type="math/tex">k > 0</script>, then only those prime ideals <script type="math/tex">\mathfrak p</script> with <script type="math/tex">\deg(\mathfrak p) \leq k</script> will be returned. Similarly if <code>\lower_limit</code> is a nonzero integer <script type="math/tex">l > 0</script>, then only those prime ideals <script type="math/tex">\mathfrak p</script> with <script type="math/tex">l \leq \deg(\mathfrak p)</script> will be returned. Note that in this case it may happen that <script type="math/tex">p\mathcal O</script> is not the product of the <script type="math/tex">\mathfrak p_i^{e_i}</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><span class="nt">prime_ideals_up_to</span><span class="o">(</span><span class="nt">O</span><span class="o">:</span><span class="nd">:NfMaxOrd</span><span class="o">,</span>
+                   <span class="nt">B</span><span class="o">:</span><span class="nd">:Int</span><span class="o">;</span>
+                   <span class="nt">degree_limit</span><span class="o">:</span><span class="nd">:Int</span> <span class="o">=</span> <span class="nt">0</span><span class="o">)</span> <span class="nt">-</span><span class="o">&gt;</span> <span class="nt">Array</span><span class="p">{</span><span class="n">NfMaxOrdIdl</span><span class="o">,</span> <span class="m">1</span><span class="p">}</span>
+</pre></div>
+
+
+<blockquote>
+<p>Computes the prime ideals <script type="math/tex">\mathcal O</script> with norm up to <script type="math/tex">B</script>.</p>
+<p>If <code>degree_limit</code> is a nonzero integer <script type="math/tex">k</script>, then prime ideals <script type="math/tex">\mathfrak p</script> with <script type="math/tex">\deg(\mathfrak p) > k</script> will be discarded.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>factor(A::NfMaxOrdIdl) -&gt; Dict{NfMaxOrdIdl, Int}
+</pre></div>
+
+
+<blockquote>
+<p>Computes the prime ideal factorization <script type="math/tex">A</script> as a dictionary, the keys being the prime ideal divisors: If <code>lp = factor_dict(A)</code>, then <code>keys(lp)</code> are the prime ideal divisors of A and <code>lp[P]</code> is the <code>P</code>-adic valuation of <code>A</code> for all <code>P</code> in <code>keys(lp)</code>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>divexact(A::NfMaxOrdIdl, y::fmpz) -&gt; NfMaxOrdIdl
+</pre></div>
+
+
+<blockquote>
+<p>Returns <script type="math/tex">A/y</script> assuming that <script type="math/tex">A/y</script> is again an integral ideal.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>divexact(A::NfMaxOrdIdl, B::NfMaxOrdIdl) -&gt; NfMaxOrdIdl
+</pre></div>
+
+
+<blockquote>
+<p>Returns <script type="math/tex">AB^{-1}</script> assuming that <script type="math/tex">AB^{-1}</script> is again an integral ideal.</p>
+</blockquote>
+<p><a id='Fractional-ideals-1'></a></p>
+<h2 id="fractional-ideals">Fractional ideals</h2>
+<hr />
+<div class="codehilite"><pre><span></span>*(I::NfMaxOrdFracIdl, J::NfMaxOrdFracIdl) -&gt; NfMaxOrdFracIdl
+</pre></div>
+
+
+<blockquote>
+<p>Returns <script type="math/tex">IJ</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>inv(A::NfMaxOrdFracIdl) -&gt; NfMaxOrdFracIdl
+</pre></div>
+
+
+<blockquote>
+<p>Returns the fractional ideal <script type="math/tex">B</script> such that <script type="math/tex">AB = \mathcal O</script>.</p>
 </blockquote>
           <aside class="copyright" role="note">
             
