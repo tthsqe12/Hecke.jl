@@ -713,7 +713,7 @@ pmaximal_overorder(O::NfOrd, p::Integer) -&gt; NfOrd
 
 
 <blockquote>
-<p>Compute the the conjugates of <code>x</code> as elements of type <code>acb</code>. Recall that we order the complex conjugates <script type="math/tex">\sigma_{r+1}(x),...,\sigma_{r+2s}(x)</script> such that <script type="math/tex">\sigma_{i}(x) = \overline{\sigma_{i + s}(x)}</script> for <script type="math/tex">r + 1 \leq i \leq r + s</script>.</p>
+<p>Compute the the conjugates of <code>x</code> as elements of type <code>acb</code>. Recall that we order the complex conjugates <script type="math/tex">\sigma_{r+1}(x),...,\sigma_{r+2s}(x)</script> such that <script type="math/tex">\sigma_{i}(x) = \overline{\sigma_{i + s}(x)}</script> for <script type="math/tex">r + 2 \leq i \leq r + s</script>.</p>
 <p>Every entry <code>y</code> of the array returned satisfies <code>radius(real(y)) &lt; 2^-abs_tol</code>, <code>radius(imag(y)) &lt; 2^-abs_tol</code> respectively.</p>
 </blockquote>
 <hr />
