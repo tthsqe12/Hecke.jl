@@ -239,25 +239,66 @@
 
 
 <p>Returns the order which has basis matrix <script type="math/tex">A</script> with respect to the power basis of <script type="math/tex">K</script>. If <code>check</code> is set, it is checked whether <script type="math/tex">A</script> defines an order.</p>
+<div class="codehilite"><pre><span></span>Order(A::NfOrdFracIdl) -&gt; NfOrd
+</pre></div>
+
+
+<p>Returns the fractional ideal <script type="math/tex">A</script> as an order of the ambient number field.</p>
+<hr />
+<div class="codehilite"><pre><span></span>  Order(K::NfRel, M::PMat) -&gt; NfRelOrd
+</pre></div>
+
+
+<blockquote>
+<p>Returns the order which has basis pseudo-matrix <script type="math/tex">M</script> with respect to the power basis of <script type="math/tex">K</script>.</p>
+</blockquote>
 <div class="codehilite"><pre><span></span>EquationOrder(K::AnticNumberField) -&gt; NfOrd
 </pre></div>
 
 
 <p>Returns the equation order of the number field <script type="math/tex">K</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span>MaximalOrder(K::AnticNumberField) -&gt; NfOrd
+</pre></div>
+
+
+<p>Returns the maximal order of <script type="math/tex">K</script>. <strong>Example</strong></p>
+<div class="codehilite"><pre><span></span>julia&gt; Qx, x = FlintQQ[&quot;x&quot;]
+julia&gt; K, a = NumberField(x^3 + 2, &quot;a&quot;)
+julia&gt; O = MaximalOrder(K)
+</pre></div>
+
+
+<hr />
+<div class="codehilite"><pre><span></span>MaximalOrder(K::NfOrd) -&gt; NfOrd
+</pre></div>
+
+
+<p>Returns the maximal order of <script type="math/tex">K</script>.</p>
 <p><a id='Example-1'></a></p>
 <h3 id="example">Example</h3>
-<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Qx</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">QQ</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Qx</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">FlintQQ</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">);</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">K</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">NumberField</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">);</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">O</span> <span class="o">=</span> <span class="n">EquationOrder</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
 <span class="n">Order</span> <span class="n">of</span> <span class="kt">Number</span> <span class="n">field</span> <span class="n">over</span> <span class="kt">Rational</span> <span class="n">Field</span> <span class="n">with</span> <span class="n">defining</span> <span class="n">polynomial</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
-<span class="n">with</span> <span class="n">Z</span><span class="o">-</span><span class="n">basis</span> <span class="n">Hecke</span><span class="o">.</span><span class="n">NfOrdElem</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="p">]</span>
+<span class="n">with</span> <span class="n">Z</span><span class="o">-</span><span class="n">basis</span> <span class="n">Hecke</span><span class="o">.</span><span class="n">NfOrdElem</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="p">]</span>
 </pre></div>
 
 
 <p><a id='Basic-properties-1'></a></p>
 <h2 id="basic-properties">Basic properties</h2>
+<div class="codehilite"><pre><span></span>parent(O::NfOrd) -&gt; NfOrdSet
+</pre></div>
+
+
+<p>Returns the parent of <script type="math/tex">\mathcal O</script>, that is, the set of orders of the ambient number field.</p>
+<div class="codehilite"><pre><span></span>isequation_order(O::NfOrd) -&gt; Bool
+</pre></div>
+
+
+<p>Returns whether <script type="math/tex">\mathcal O</script> is the equation order of the ambient number field.</p>
 <div class="codehilite"><pre><span></span>signature(O::NfOrd) -&gt; Tuple{Int, Int}
 </pre></div>
 
@@ -268,38 +309,149 @@
 
 
 <p>Returns the ambient number field of <script type="math/tex">\mathcal O</script>.</p>
-<div class="codehilite"><pre><span></span>maximal_order(::AnticNumberField)
-maximal_order(::AnticNumberField, ::Array{fmpz, 1})
-make_maximal(::NfOrd)
+<div class="codehilite"><pre><span></span>degree(O::NfOrd) -&gt; Int
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Qx</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">QQ</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">);</span>
-
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">K</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">NumberField</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">);</span>
-
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">R</span> <span class="o">=</span> <span class="n">EquationOrder</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
-<span class="n">Order</span> <span class="n">of</span> <span class="kt">Number</span> <span class="n">field</span> <span class="n">over</span> <span class="kt">Rational</span> <span class="n">Field</span> <span class="n">with</span> <span class="n">defining</span> <span class="n">polynomial</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
-<span class="n">with</span> <span class="n">Z</span><span class="o">-</span><span class="n">basis</span> <span class="n">Hecke</span><span class="o">.</span><span class="n">NfOrdElem</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="p">]</span>
-
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">T</span> <span class="o">=</span> <span class="n">maximal_order</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
-<span class="n">ERROR</span><span class="o">:</span> <span class="kt">MethodError</span><span class="o">:</span> <span class="n">no</span> <span class="n">method</span> <span class="n">matching</span> <span class="n">maximal_order</span><span class="p">(</span><span class="o">::</span><span class="n">Hecke</span><span class="o">.</span><span class="n">NfOrd</span><span class="p">)</span>
-<span class="n">Closest</span> <span class="n">candidates</span> <span class="n">are</span><span class="o">:</span>
-  <span class="n">maximal_order</span><span class="p">(</span><span class="o">!</span><span class="n">Matched</span><span class="o">::</span><span class="n">Nemo</span><span class="o">.</span><span class="n">AnticNumberField</span><span class="p">,</span> <span class="o">!</span><span class="n">Matched</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">Nemo</span><span class="o">.</span><span class="n">fmpz</span><span class="p">,</span><span class="mi">1</span><span class="p">})</span> <span class="n">at</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">travis</span><span class="o">/.</span><span class="n">julia</span><span class="o">/</span><span class="n">v0</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">Hecke</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">NfOrd</span><span class="o">/</span><span class="n">NfOrd</span><span class="o">.</span><span class="n">jl</span><span class="o">:</span><span class="mi">969</span>
-  <span class="n">maximal_order</span><span class="p">(</span><span class="o">!</span><span class="n">Matched</span><span class="o">::</span><span class="n">Nemo</span><span class="o">.</span><span class="n">AnticNumberField</span><span class="p">)</span> <span class="n">at</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">travis</span><span class="o">/.</span><span class="n">julia</span><span class="o">/</span><span class="n">v0</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">Hecke</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">NfOrd</span><span class="o">/</span><span class="n">NfOrd</span><span class="o">.</span><span class="n">jl</span><span class="o">:</span><span class="mi">943</span>
-  <span class="n">maximal_order</span><span class="p">{</span><span class="n">T</span><span class="p">}(</span><span class="o">!</span><span class="n">Matched</span><span class="o">::</span><span class="n">Nemo</span><span class="o">.</span><span class="n">AnticNumberField</span><span class="p">,</span> <span class="o">!</span><span class="n">Matched</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="mi">1</span><span class="p">})</span> <span class="n">at</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">travis</span><span class="o">/.</span><span class="n">julia</span><span class="o">/</span><span class="n">v0</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">Hecke</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">NfOrd</span><span class="o">/</span><span class="n">NfOrd</span><span class="o">.</span><span class="n">jl</span><span class="o">:</span><span class="mi">973</span>
+<p>Returns the degree of <script type="math/tex">\mathcal O</script>.</p>
+<div class="codehilite"><pre><span></span>basis(O::NfOrd) -&gt; Array{NfOrdElem, 1}
 </pre></div>
 
 
+<p>Returns the <script type="math/tex">\mathbf Z</script>-basis of <script type="math/tex">\mathcal O</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span>basis(A::NfOrdIdl) -&gt; Array{NfOrdElem, 1}
+</pre></div>
+
+
+<blockquote>
+<p>Returns the basis of A.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>basis(O::NfOrd, K::AnticNumberField) -&gt; Array{nf_elem, 1}
+</pre></div>
+
+
+<p>Returns the <script type="math/tex">\mathbf Z</script>-basis elements of <script type="math/tex">\mathcal O</script> as elements of the ambient number field.</p>
+<div class="codehilite"><pre><span></span>basis_mat(O::NfOrd) -&gt; FakeFmpqMat
+</pre></div>
+
+
+<p>Returns the basis matrix of <script type="math/tex">\mathcal O</script> with respect to the power basis of the ambient number field.</p>
+<hr />
+<p>basis_mat(A::NfOrdIdl) -&gt; fmpz_mat</p>
+<blockquote>
+<p>Returns the basis matrix of <script type="math/tex">A</script>.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>  basis_mat(O::NfRelOrd{T, S}) -&gt; GenMat{T}
+</pre></div>
+
+
+<blockquote>
+<p>Returns the basis matrix of <script type="math/tex">\mathcal O</script> with respect to the power basis of the ambient number field.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>  basis_mat(a::NfRelOrdIdl{T, S}) -&gt; GenMat{T}
+</pre></div>
+
+
+<blockquote>
+<p>Returns the basis matrix of <script type="math/tex">a</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>basis_mat_inv(O::NfOrd) -&gt; FakeFmpqMat
+</pre></div>
+
+
+<p>Returns the inverse of the basis matrix of <script type="math/tex">\mathcal O</script>.</p>
+<hr />
+<p>basis_mat_inv(A::NfOrdIdl) -&gt; fmpz_mat</p>
+<blockquote>
+<p>Returns the inverse basis matrix of <script type="math/tex">A</script>.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>  basis_mat_inv(O::NfRelOrd{T, S}) -&gt; GenMat{T}
+</pre></div>
+
+
+<blockquote>
+<p>Returns the inverse of the basis matrix of <script type="math/tex">\mathcal O</script>.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>  basis_mat_inv(a::NfRelOrdIdl{T, S}) -&gt; GenMat{T}
+</pre></div>
+
+
+<blockquote>
+<p>Returns the inverse of the basis matrix of <script type="math/tex">a</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>discriminant(O::NfOrd) -&gt; fmpz
+</pre></div>
+
+
+<p>Returns the discriminant of <script type="math/tex">\mathcal O</script>.</p>
+<div class="codehilite"><pre><span></span>gen_index(O::NfOrd) -&gt; fmpq
+</pre></div>
+
+
+<p>Returns the generalized index of <script type="math/tex">\mathcal O</script> with respect to the equation order of the ambient number field.</p>
+<div class="codehilite"><pre><span></span>index(O::NfOrd) -&gt; fmpz
+</pre></div>
+
+
+<p>Assuming that the order <script type="math/tex">\mathcal O</script> contains the equation order <script type="math/tex">\mathbf Z[\alpha]</script> of the ambient number field, this function returns the index <script type="math/tex">[ \mathcal O : \mathbf Z]</script>.</p>
+<div class="codehilite"><pre><span></span>isindex_divisor(O::NfOrd, d::fmpz) -&gt; Bool
+isindex_divisor(O::NfOrd, d::Int) -&gt; Bool
+</pre></div>
+
+
+<p>Returns whether <script type="math/tex">d</script> is a divisor of the index of <script type="math/tex">\mathcal O</script>. It is assumed that <script type="math/tex">\mathcal O</script> contains the equation order of the ambient number field.</p>
+<div class="codehilite"><pre><span></span>minkowski_mat(O::NfOrd, abs_tol::Int = 64) -&gt; arb_mat
+</pre></div>
+
+
+<p>Returns the Minkowski matrix of <script type="math/tex">\mathcal O</script>.  Thus if <script type="math/tex">\mathcal O</script> has degree <script type="math/tex">d</script>, then the result is a matrix in <script type="math/tex">\operatorname{Mat}_{d\times d}(\mathbf R)</script>. The entries of the matrix are real balls of type <code>arb</code> with radius less then <code>2^-abs_tol</code>.</p>
+<div class="codehilite"><pre><span></span>in(a::nf_elem, O::NfOrd) -&gt; Bool
+</pre></div>
+
+
+<p>Checks whether <script type="math/tex">a</script> lies in <script type="math/tex">\mathcal O</script>.</p>
+<div class="codehilite"><pre><span></span>den(a::nf_elem, O::NfOrd) -&gt; fmpz
+</pre></div>
+
+
+<p>Returns the smallest positive integer <script type="math/tex">k</script> such that <script type="math/tex">k \cdot a</script> is contained in <script type="math/tex">\mathcal O</script>.</p>
+<div class="codehilite"><pre><span></span>norm_change_const(O::NfOrd) -&gt; (Float64, Float64)
+</pre></div>
+
+
+<p>Returns <script type="math/tex">(c_1, c_2) \in \mathbf R_{>0}^2</script> such that for all <script type="math/tex">x = \sum_{i=1}^d x_i \omega_i \in \mathcal O</script> we have <script type="math/tex">T_2(x) \leq c_1 \cdot \sum_i^d x_i^2</script> and <script type="math/tex">\sum_i^d x_i^2 \leq c_2 \cdot T_2(x)</script>, where <script type="math/tex">(\omega_i)_i</script> is the <script type="math/tex">\mathbf Z</script>-basis of <script type="math/tex">\mathcal O</script>.</p>
+<div class="codehilite"><pre><span></span>trace_matrix(O::NfOrd) -&gt; fmpz_mat
+</pre></div>
+
+
+<p>Returns the trace matrix of <code>\mathcal O</code>, that is, the matrix <script type="math/tex">(\operatorname{tr}_{K/\mathbf Q}(b_i \cdot b_j))_{1 \leq i, j \leq d}</script>.</p>
+<div class="codehilite"><pre><span></span>+(R::NfOrd, S::NfOrd) -&gt; NfOrd
+</pre></div>
+
+
+<p>Given two orders <script type="math/tex">R</script>, <script type="math/tex">S</script> of <script type="math/tex">K</script>, this function returns the smallest order containing both <script type="math/tex">R</script> and <script type="math/tex">S</script>. It is assumed that <script type="math/tex">R</script>, <script type="math/tex">S</script> contain the ambient equation order and have coprime index.</p>
+<div class="codehilite"><pre><span></span>poverorder(O::NfOrd, p::fmpz) -&gt; NfOrd
+poverorder(O::NfOrd, p::Integer) -&gt; NfOrd
+</pre></div>
+
+
+<p>This function tries to find an order that is locally larger than <script type="math/tex">\mathcal O</script> at the prime <script type="math/tex">p</script>: If <script type="math/tex">p</script> divides the index <script type="math/tex">[ \mathcal O_K : \mathcal O]</script>, this function will return an order <script type="math/tex">R</script> such that <script type="math/tex">v_p([ \mathcal O_K : R]) < v_p([ \mathcal O_K : \mathcal O])</script>. Otherwise <script type="math/tex">\mathcal O</script> is returned.</p>
+<div class="codehilite"><pre><span></span>pmaximal_overorder(O::NfOrd, p::fmpz) -&gt; NfOrd
+pmaximal_overorder(O::NfOrd, p::Integer) -&gt; NfOrd
+</pre></div>
+
+
+<p>This function finds a <script type="math/tex">p</script>-maximal order <script type="math/tex">R</script> containing <script type="math/tex">\mathcal O</script>. That is, the index <script type="math/tex">[ \mathcal O_K : R]</script> is not dividible by <script type="math/tex">p</script>.</p>
 <p><a id='Elements-1'></a></p>
 <h2 id="elements">Elements</h2>
 <p><a id='Creation-2'></a></p>
 <h3 id="creation_1">Creation</h3>
-<div class="codehilite"><pre><span></span>call(::NfOrd, ::nf_elem)
-call(::NfOrd, ::fmpz)
-call(::NfOrd, ::Array{fmpz, 1})
-call(::NfOrd, ::Array{Int, 1})
-call(::NfOrd)
+<div class="codehilite"><pre><span></span>(O::NfOrd)(::nf_elem)
 </pre></div>
 
 
@@ -603,6 +755,11 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 <blockquote>
 <p>Returns the order of <script type="math/tex">I</script>.</p>
 </blockquote>
+<div class="codehilite"><pre><span></span>basis(O::NfOrd) -&gt; Array{NfOrdElem, 1}
+</pre></div>
+
+
+<p>Returns the <script type="math/tex">\mathbf Z</script>-basis of <script type="math/tex">\mathcal O</script>.</p>
 <hr />
 <div class="codehilite"><pre><span></span>basis(A::NfOrdIdl) -&gt; Array{NfOrdElem, 1}
 </pre></div>
@@ -611,15 +768,57 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 <blockquote>
 <p>Returns the basis of A.</p>
 </blockquote>
+<div class="codehilite"><pre><span></span>basis_mat(O::NfOrd) -&gt; FakeFmpqMat
+</pre></div>
+
+
+<p>Returns the basis matrix of <script type="math/tex">\mathcal O</script> with respect to the power basis of the ambient number field.</p>
 <hr />
 <p>basis_mat(A::NfOrdIdl) -&gt; fmpz_mat</p>
 <blockquote>
 <p>Returns the basis matrix of <script type="math/tex">A</script>.</p>
 </blockquote>
 <hr />
+<div class="codehilite"><pre><span></span>  basis_mat(O::NfRelOrd{T, S}) -&gt; GenMat{T}
+</pre></div>
+
+
+<blockquote>
+<p>Returns the basis matrix of <script type="math/tex">\mathcal O</script> with respect to the power basis of the ambient number field.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>  basis_mat(a::NfRelOrdIdl{T, S}) -&gt; GenMat{T}
+</pre></div>
+
+
+<blockquote>
+<p>Returns the basis matrix of <script type="math/tex">a</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>basis_mat_inv(O::NfOrd) -&gt; FakeFmpqMat
+</pre></div>
+
+
+<p>Returns the inverse of the basis matrix of <script type="math/tex">\mathcal O</script>.</p>
+<hr />
 <p>basis_mat_inv(A::NfOrdIdl) -&gt; fmpz_mat</p>
 <blockquote>
 <p>Returns the inverse basis matrix of <script type="math/tex">A</script>.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>  basis_mat_inv(O::NfRelOrd{T, S}) -&gt; GenMat{T}
+</pre></div>
+
+
+<blockquote>
+<p>Returns the inverse of the basis matrix of <script type="math/tex">\mathcal O</script>.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>  basis_mat_inv(a::NfRelOrdIdl{T, S}) -&gt; GenMat{T}
+</pre></div>
+
+
+<blockquote>
+<p>Returns the inverse of the basis matrix of <script type="math/tex">a</script>.</p>
 </blockquote>
 <hr />
 <div class="codehilite"><pre><span></span>minimum(A::NfOrdIdl) -&gt; fmpz
@@ -636,6 +835,23 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 
 <blockquote>
 <p>Returns the norm of <script type="math/tex">A</script>, that is, the cardinality of <script type="math/tex">\mathcal O/A</script>, where <script type="math/tex">\mathcal O</script> is the order of <script type="math/tex">A</script>.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>norm(a::NfRelOrdIdl) -&gt; NfOrdIdl
+</pre></div>
+
+
+<blockquote>
+<p>Returns the norm of <script type="math/tex">a</script>.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>norm(a::NfRelOrdFracIdl{T, S}) -&gt; S
+</pre></div>
+
+
+<blockquote>
+<p>Returns the norm of <script type="math/tex">a</script>
+</p>
 </blockquote>
 <hr />
 <div class="codehilite"><pre><span></span>in(x::NfOrdElem, y::NfOrdIdl)
