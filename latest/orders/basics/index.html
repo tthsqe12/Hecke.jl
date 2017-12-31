@@ -245,7 +245,7 @@
 
 <p>Returns the fractional ideal <script type="math/tex">A</script> as an order of the ambient number field.</p>
 <hr />
-<div class="codehilite"><pre><span></span>  Order(K::NfRel, M::PMat) -&gt; NfRelOrd
+<div class="codehilite"><pre><span></span>  Order(K::RelativeExtension, M::PMat) -&gt; NfRelOrd
 </pre></div>
 
 
@@ -282,7 +282,7 @@ julia&gt; O = MaximalOrder(K)
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">K</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">NumberField</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">);</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">O</span> <span class="o">=</span> <span class="n">EquationOrder</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
-<span class="n">Order</span> <span class="n">of</span> <span class="kt">Number</span> <span class="n">field</span> <span class="n">over</span> <span class="kt">Rational</span> <span class="n">Field</span> <span class="n">with</span> <span class="n">defining</span> <span class="n">polynomial</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
+<span class="n">Order</span> <span class="n">of</span> <span class="kt">Number</span> <span class="n">field</span> <span class="n">over</span> <span class="kt">Rational</span> <span class="n">Field</span> <span class="n">with</span> <span class="n">defining</span> <span class="n">polynomial</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">-</span><span class="mi">2</span>
 <span class="n">with</span> <span class="n">Z</span><span class="o">-</span><span class="n">basis</span> <span class="n">Hecke</span><span class="o">.</span><span class="n">NfOrdElem</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="p">]</span>
 </pre></div>
 
@@ -415,7 +415,7 @@ isindex_divisor(O::NfOrd, d::Int) -&gt; Bool
 
 
 <p>Checks whether <script type="math/tex">a</script> lies in <script type="math/tex">\mathcal O</script>.</p>
-<div class="codehilite"><pre><span></span>den(a::nf_elem, O::NfOrd) -&gt; fmpz
+<div class="codehilite"><pre><span></span>denominator(a::nf_elem, O::NfOrd) -&gt; fmpz
 </pre></div>
 
 
