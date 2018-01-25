@@ -160,28 +160,27 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#creation">Creation</a></li>
+        <li class="first-level active"><a href="#creation-and-basic-properties">Creation and basic properties</a></li>
             <li class="second-level"><a href="#example">Example</a></li>
                 
-        <li class="first-level "><a href="#basic-properties">Basic properties</a></li>
         <li class="first-level "><a href="#elements">Elements</a></li>
-            <li class="second-level"><a href="#creation_1">Creation</a></li>
+            <li class="second-level"><a href="#creation">Creation</a></li>
                 
-            <li class="second-level"><a href="#basic-properties_1">Basic properties</a></li>
+            <li class="second-level"><a href="#basic-properties">Basic properties</a></li>
                 
             <li class="second-level"><a href="#arithmetic">Arithmetic</a></li>
                 
             <li class="second-level"><a href="#miscallenous">Miscallenous</a></li>
                 
         <li class="first-level "><a href="#ideals">Ideals</a></li>
-            <li class="second-level"><a href="#creation_2">Creation</a></li>
+            <li class="second-level"><a href="#creation_1">Creation</a></li>
                 
             <li class="second-level"><a href="#arithmetic_1">Arithmetic</a></li>
                 
             <li class="second-level"><a href="#miscaellenous">Miscaellenous</a></li>
                 
         <li class="first-level "><a href="#fractional-ideals">Fractional ideals</a></li>
-            <li class="second-level"><a href="#creation_3">Creation</a></li>
+            <li class="second-level"><a href="#creation_2">Creation</a></li>
                 
             <li class="second-level"><a href="#arithmetic_2">Arithmetic</a></li>
                 
@@ -191,8 +190,8 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<p><a id='Creation-1'></a></p>
-<h2 id="creation">Creation</h2>
+<p><a id='Creation-and-basic-properties-1'></a></p>
+<h2 id="creation-and-basic-properties">Creation and basic properties</h2>
 <div class="codehilite"><pre><span></span>Order(B::Array{nf_elem, 1}, check::Bool = true) -&gt; NfOrd
 </pre></div>
 
@@ -251,8 +250,6 @@ julia&gt; O = MaximalOrder(K)
 </pre></div>
 
 
-<p><a id='Basic-properties-1'></a></p>
-<h2 id="basic-properties">Basic properties</h2>
 <div class="codehilite"><pre><span></span>parent(O::NfOrd) -&gt; NfOrdSet
 </pre></div>
 
@@ -413,14 +410,10 @@ pmaximal_overorder(O::NfOrd, p::Integer) -&gt; NfOrd
 <p>This function finds a <script type="math/tex">p</script>-maximal order <script type="math/tex">R</script> containing <script type="math/tex">\mathcal O</script>. That is, the index <script type="math/tex">[ \mathcal O_K : R]</script> is not dividible by <script type="math/tex">p</script>.</p>
 <p><a id='Elements-1'></a></p>
 <h2 id="elements">Elements</h2>
-<p><a id='Creation-2'></a></p>
-<h3 id="creation_1">Creation</h3>
-<div class="codehilite"><pre><span></span>(O::NfOrd)(::nf_elem)
-</pre></div>
-
-
-<p><a id='Basic-properties-2'></a></p>
-<h3 id="basic-properties_1">Basic properties</h3>
+<p><a id='Creation-1'></a></p>
+<h3 id="creation">Creation</h3>
+<p><a id='Basic-properties-1'></a></p>
+<h3 id="basic-properties">Basic properties</h3>
 <hr />
 <div class="codehilite"><pre><span></span>parent(a::NfOrdElem) -&gt; NfOrd
 </pre></div>
@@ -634,8 +627,8 @@ pmaximal_overorder(O::NfOrd, p::Integer) -&gt; NfOrd
 </blockquote>
 <p><a id='Ideals-1'></a></p>
 <h2 id="ideals">Ideals</h2>
-<p><a id='Creation-3'></a></p>
-<h3 id="creation_2">Creation</h3>
+<p><a id='Creation-2'></a></p>
+<h3 id="creation_1">Creation</h3>
 <hr />
 <div class="codehilite"><pre><span></span>ideal(O::NfOrd, a::Int) -&gt; NfOrdIdl
 </pre></div>
@@ -861,8 +854,8 @@ in(x::fmpz, y::NfOrdIdl)
 </blockquote>
 <p><a id='Fractional-ideals-1'></a></p>
 <h2 id="fractional-ideals">Fractional ideals</h2>
-<p><a id='Creation-4'></a></p>
-<h3 id="creation_3">Creation</h3>
+<p><a id='Creation-3'></a></p>
+<h3 id="creation_2">Creation</h3>
 <div class="codehilite"><pre><span></span>frac_ideal(::NfOrd, ::fmpz_mat)
 frac_ideal(::NfOrd, ::fmpz_mat, ::fmpz)
 frac_ideal(::NfOrd, ::FakeFmpqMat)
