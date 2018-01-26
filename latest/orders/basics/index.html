@@ -225,10 +225,11 @@
 </pre></div>
 
 
-<p>Returns the maximal order of <script type="math/tex">K</script>. <strong>Example</strong></p>
-<div class="codehilite"><pre><span></span>julia&gt; Qx, x = FlintQQ[&quot;x&quot;]
-julia&gt; K, a = NumberField(x^3 + 2, &quot;a&quot;)
-julia&gt; O = MaximalOrder(K)
+<p>Returns the maximal order of <script type="math/tex">K</script>.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span>julia&gt; Qx, xx = FlintQQ[&quot;x&quot;];
+julia&gt; K, a = NumberField(x^3 + 2, &quot;a&quot;);
+julia&gt; O = MaximalOrder(K);
 </pre></div>
 
 
