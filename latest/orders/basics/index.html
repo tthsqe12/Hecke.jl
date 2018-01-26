@@ -238,6 +238,52 @@ julia&gt; O = MaximalOrder(K)
 
 
 <p>Returns the maximal order of <script type="math/tex">K</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span>maximal_order(K::AnticNumberField) -&gt; NfOrd
+ring_of_integers(K::AnticNumberField) -&gt; NfOrd
+</pre></div>
+
+
+<p>Returns the maximal order of <script type="math/tex">K</script>.</p>
+<div class="codehilite"><pre><span></span>lll(M::NfOrd) -&gt; NfOrd
+</pre></div>
+
+
+<blockquote>
+<p>The same order, but with the basis now being LLL reduced wrt. the Minkowski metric.</p>
+</blockquote>
+<p>By Chistov's fundamental theorem, the computation of the maximal order is basically as hard as the factorisation of the discriminant. In order to help the computer, Hecke also provides the following signatures:</p>
+<hr />
+<div class="codehilite"><pre><span></span>maximal_order(K::AnticNumberField, primes::Array{fmpz, 1}) -&gt; NfOrd
+maximal_order(K::AnticNumberField, primes::Array{Integer, 1}) -&gt; NfOrd
+</pre></div>
+
+
+<p>Assuming that <script type="math/tex">primes</script> contains all the prime numbers at which the equation order <script type="math/tex">\mathbf{Z}[\alpha]</script> of <script type="math/tex">K = \mathbf{Q}(\alpha)</script> is not maximal (e.g. <script type="math/tex">primes</script> may contain all prime divisors of the discriminant of <script type="math/tex">\mathbf Z[\alpha]</script>), this function returns the maximal order of <script type="math/tex">K</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span>ring_of_integers(K::AnticNumberField, primes::Array{fmpz, 1}) -&gt; NfOrd
+ring_of_integers(K::AnticNumberField, primes::Array{Integer, 1}) -&gt; NfOrd
+</pre></div>
+
+
+<p>Assuming that <script type="math/tex">primes</script> contains all the prime numbers at which the equation order <script type="math/tex">\mathbf{Z}[\alpha]</script> of <script type="math/tex">K = \mathbf{Q}(\alpha)</script> is not maximal, this function returns the maximal order of <script type="math/tex">K</script>.</p>
+<p>It is also possible the execute the steps individually:</p>
+<hr />
+<div class="codehilite"><pre><span></span>pradical(O::NfOrd, p::fmpz) -&gt; NfOrdIdl
+</pre></div>
+
+
+<blockquote>
+<p>Given a prime number <script type="math/tex">p</script>, this function returns the <script type="math/tex">p</script>-radical <script type="math/tex">\sqrt{p\mathcal O}</script> of <script type="math/tex">\mathcal O</script>, which is just <script type="math/tex">\{ x \in \mathcal O \mid \exists k \in \mathbf Z_{\geq 0} \colon x^k \in p\mathcal O \}</script>. It is not checked that <script type="math/tex">p</script> is prime.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>ring_of_multipliers(I::NfOrdIdl) -&gt; NfOrd
+</pre></div>
+
+
+<blockquote>
+<p>Computes the order <script type="math/tex">(I : I)</script>, which is the set of all <script type="math/tex">x \in K</script> with <script type="math/tex">xI \subseteq I</script>.</p>
+</blockquote>
 <p><a id='Example-1'></a></p>
 <h3 id="example">Example</h3>
 <div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Qx</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">FlintQQ</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">);</span>
@@ -250,164 +296,32 @@ julia&gt; O = MaximalOrder(K)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>parent(O::NfOrd) -&gt; NfOrdSet
+<div class="codehilite"><pre><span></span>parent(::NfOrd)
+isequation_order(::NfOrd)
+signature(::NfOrd)
+nf(::NfOrd)
+degree(::NfOrd)
+basis(::NfOrd)
+basis(::NfOrd, ::AnticNumberField)
+basis_mat(::NfOrd)
+basis_mat_inv(::NfOrd)
+discriminant(::NfOrd)
+gen_index(::NfOrd)
+index(::NfOrd)
+isindex_divisor(::NfOrd, ::fmpz)
+minkowski_mat(::NfOrd, ::Int)
+in(::nf_elem, ::NfOrd)
+denominator(::nf_elem, ::NfOrd)
+norm_change_const(::NfOrd)
+trace_matrix(::NfOrd)
++(::NfOrd, ::NfOrd)
+poverorder(::NfOrd, ::fmpz)
+pmaximal_overorder(::NfOrd, ::fmpz)
+parent(::NfOrd)
+deepcopy(::NfOrd)
 </pre></div>
 
 
-<p>Returns the parent of <script type="math/tex">\mathcal O</script>, that is, the set of orders of the ambient number field.</p>
-<div class="codehilite"><pre><span></span>isequation_order(O::NfOrd) -&gt; Bool
-</pre></div>
-
-
-<p>Returns whether <script type="math/tex">\mathcal O</script> is the equation order of the ambient number field.</p>
-<div class="codehilite"><pre><span></span>signature(O::NfOrd) -&gt; Tuple{Int, Int}
-</pre></div>
-
-
-<p>Returns the signature of the ambient number field of <script type="math/tex">\mathcal O</script>.</p>
-<div class="codehilite"><pre><span></span>nf(O::NfOrd) -&gt; AnticNumberField
-</pre></div>
-
-
-<p>Returns the ambient number field of <script type="math/tex">\mathcal O</script>.</p>
-<div class="codehilite"><pre><span></span>degree(O::NfOrd) -&gt; Int
-</pre></div>
-
-
-<p>Returns the degree of <script type="math/tex">\mathcal O</script>.</p>
-<div class="codehilite"><pre><span></span>basis(O::NfOrd) -&gt; Array{NfOrdElem, 1}
-</pre></div>
-
-
-<p>Returns the <script type="math/tex">\mathbf Z</script>-basis of <script type="math/tex">\mathcal O</script>.</p>
-<hr />
-<div class="codehilite"><pre><span></span>basis(A::NfOrdIdl) -&gt; Array{NfOrdElem, 1}
-</pre></div>
-
-
-<blockquote>
-<p>Returns the basis of A.</p>
-</blockquote>
-<div class="codehilite"><pre><span></span>basis(O::NfOrd, K::AnticNumberField) -&gt; Array{nf_elem, 1}
-</pre></div>
-
-
-<p>Returns the <script type="math/tex">\mathbf Z</script>-basis elements of <script type="math/tex">\mathcal O</script> as elements of the ambient number field.</p>
-<div class="codehilite"><pre><span></span>basis_mat(O::NfOrd) -&gt; FakeFmpqMat
-</pre></div>
-
-
-<p>Returns the basis matrix of <script type="math/tex">\mathcal O</script> with respect to the power basis of the ambient number field.</p>
-<hr />
-<p>basis_mat(A::NfOrdIdl) -&gt; fmpz_mat</p>
-<blockquote>
-<p>Returns the basis matrix of <script type="math/tex">A</script>.</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span>  basis_mat(O::NfRelOrd{T, S}) -&gt; Generic.Mat{T}
-</pre></div>
-
-
-<blockquote>
-<p>Returns the basis matrix of <script type="math/tex">\mathcal O</script> with respect to the power basis of the ambient number field.</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span>  basis_mat(a::NfRelOrdIdl{T, S}) -&gt; Generic.Mat{T}
-</pre></div>
-
-
-<blockquote>
-<p>Returns the basis matrix of <script type="math/tex">a</script>.</p>
-</blockquote>
-<div class="codehilite"><pre><span></span>basis_mat_inv(O::NfOrd) -&gt; FakeFmpqMat
-</pre></div>
-
-
-<p>Returns the inverse of the basis matrix of <script type="math/tex">\mathcal O</script>.</p>
-<hr />
-<p>basis_mat_inv(A::NfOrdIdl) -&gt; fmpz_mat</p>
-<blockquote>
-<p>Returns the inverse basis matrix of <script type="math/tex">A</script>.</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span>  basis_mat_inv(O::NfRelOrd{T, S}) -&gt; Generic.Mat{T}
-</pre></div>
-
-
-<blockquote>
-<p>Returns the inverse of the basis matrix of <script type="math/tex">\mathcal O</script>.</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span>  basis_mat_inv(a::NfRelOrdIdl{T, S}) -&gt; Generic.Mat{T}
-</pre></div>
-
-
-<blockquote>
-<p>Returns the inverse of the basis matrix of <script type="math/tex">a</script>.</p>
-</blockquote>
-<div class="codehilite"><pre><span></span>discriminant(O::NfOrd) -&gt; fmpz
-</pre></div>
-
-
-<p>Returns the discriminant of <script type="math/tex">\mathcal O</script>.</p>
-<div class="codehilite"><pre><span></span>gen_index(O::NfOrd) -&gt; fmpq
-</pre></div>
-
-
-<p>Returns the generalized index of <script type="math/tex">\mathcal O</script> with respect to the equation order of the ambient number field.</p>
-<div class="codehilite"><pre><span></span>index(O::NfOrd) -&gt; fmpz
-</pre></div>
-
-
-<p>Assuming that the order <script type="math/tex">\mathcal O</script> contains the equation order <script type="math/tex">\mathbf Z[\alpha]</script> of the ambient number field, this function returns the index <script type="math/tex">[ \mathcal O : \mathbf Z]</script>.</p>
-<div class="codehilite"><pre><span></span>isindex_divisor(O::NfOrd, d::fmpz) -&gt; Bool
-isindex_divisor(O::NfOrd, d::Int) -&gt; Bool
-</pre></div>
-
-
-<p>Returns whether <script type="math/tex">d</script> is a divisor of the index of <script type="math/tex">\mathcal O</script>. It is assumed that <script type="math/tex">\mathcal O</script> contains the equation order of the ambient number field.</p>
-<div class="codehilite"><pre><span></span>minkowski_mat(O::NfOrd, abs_tol::Int = 64) -&gt; arb_mat
-</pre></div>
-
-
-<p>Returns the Minkowski matrix of <script type="math/tex">\mathcal O</script>.  Thus if <script type="math/tex">\mathcal O</script> has degree <script type="math/tex">d</script>, then the result is a matrix in <script type="math/tex">\operatorname{Mat}_{d\times d}(\mathbf R)</script>. The entries of the matrix are real balls of type <code>arb</code> with radius less then <code>2^-abs_tol</code>.</p>
-<div class="codehilite"><pre><span></span>in(a::nf_elem, O::NfOrd) -&gt; Bool
-</pre></div>
-
-
-<p>Checks whether <script type="math/tex">a</script> lies in <script type="math/tex">\mathcal O</script>.</p>
-<div class="codehilite"><pre><span></span>denominator(a::nf_elem, O::NfOrd) -&gt; fmpz
-</pre></div>
-
-
-<p>Returns the smallest positive integer <script type="math/tex">k</script> such that <script type="math/tex">k \cdot a</script> is contained in <script type="math/tex">\mathcal O</script>.</p>
-<div class="codehilite"><pre><span></span>norm_change_const(O::NfOrd) -&gt; (Float64, Float64)
-</pre></div>
-
-
-<p>Returns <script type="math/tex">(c_1, c_2) \in \mathbf R_{>0}^2</script> such that for all <script type="math/tex">x = \sum_{i=1}^d x_i \omega_i \in \mathcal O</script> we have <script type="math/tex">T_2(x) \leq c_1 \cdot \sum_i^d x_i^2</script> and <script type="math/tex">\sum_i^d x_i^2 \leq c_2 \cdot T_2(x)</script>, where <script type="math/tex">(\omega_i)_i</script> is the <script type="math/tex">\mathbf Z</script>-basis of <script type="math/tex">\mathcal O</script>.</p>
-<div class="codehilite"><pre><span></span>trace_matrix(O::NfOrd) -&gt; fmpz_mat
-</pre></div>
-
-
-<p>Returns the trace matrix of <code>\mathcal O</code>, that is, the matrix <script type="math/tex">(\operatorname{tr}_{K/\mathbf Q}(b_i \cdot b_j))_{1 \leq i, j \leq d}</script>.</p>
-<div class="codehilite"><pre><span></span>+(R::NfOrd, S::NfOrd) -&gt; NfOrd
-</pre></div>
-
-
-<p>Given two orders <script type="math/tex">R</script>, <script type="math/tex">S</script> of <script type="math/tex">K</script>, this function returns the smallest order containing both <script type="math/tex">R</script> and <script type="math/tex">S</script>. It is assumed that <script type="math/tex">R</script>, <script type="math/tex">S</script> contain the ambient equation order and have coprime index.</p>
-<div class="codehilite"><pre><span></span>poverorder(O::NfOrd, p::fmpz) -&gt; NfOrd
-poverorder(O::NfOrd, p::Integer) -&gt; NfOrd
-</pre></div>
-
-
-<p>This function tries to find an order that is locally larger than <script type="math/tex">\mathcal O</script> at the prime <script type="math/tex">p</script>: If <script type="math/tex">p</script> divides the index <script type="math/tex">[ \mathcal O_K : \mathcal O]</script>, this function will return an order <script type="math/tex">R</script> such that <script type="math/tex">v_p([ \mathcal O_K : R]) < v_p([ \mathcal O_K : \mathcal O])</script>. Otherwise <script type="math/tex">\mathcal O</script> is returned.</p>
-<div class="codehilite"><pre><span></span>pmaximal_overorder(O::NfOrd, p::fmpz) -&gt; NfOrd
-pmaximal_overorder(O::NfOrd, p::Integer) -&gt; NfOrd
-</pre></div>
-
-
-<p>This function finds a <script type="math/tex">p</script>-maximal order <script type="math/tex">R</script> containing <script type="math/tex">\mathcal O</script>. That is, the index <script type="math/tex">[ \mathcal O_K : R]</script> is not dividible by <script type="math/tex">p</script>.</p>
 <p><a id='Elements-1'></a></p>
 <h2 id="elements">Elements</h2>
 <p><a id='Creation-1'></a></p>
@@ -625,58 +539,37 @@ pmaximal_overorder(O::NfOrd, p::Integer) -&gt; NfOrd
 <blockquote>
 <p>Return the <script type="math/tex">T_2</script>-norm of <script type="math/tex">x</script>. The radius of the result will be less than <code>2^-abs_tol</code>.</p>
 </blockquote>
+<div class="codehilite"><pre><span></span>minpoly{T &lt;: RingElement}(S::Ring, M::Nemo.MatElem{T}, charpoly_only = false)
+</pre></div>
+
+
+<blockquote>
+<p>Returns the minimal polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">R</script> of the resulting polynomial must be supplied and the matrix must be square.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>charpoly{T &lt;: RingElement}(V::Ring, Y::Nemo.MatElem{T})
+</pre></div>
+
+
+<blockquote>
+<p>Returns the characteristic polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">R</script> of the resulting polynomial must be supplied and the matrix is assumed to be square.</p>
+</blockquote>
 <p><a id='Ideals-1'></a></p>
 <h2 id="ideals">Ideals</h2>
 <p><a id='Creation-2'></a></p>
 <h3 id="creation_1">Creation</h3>
-<hr />
-<div class="codehilite"><pre><span></span>ideal(O::NfOrd, a::Int) -&gt; NfOrdIdl
+<div class="codehilite"><pre><span></span>ideal(::NfOrd, ::Int)
+ideal(::NfOrd, ::Integer)
+ideal(::NfOrd, ::fmpz)
+ideal(::NfOrd, ::fmpz_mat)
+ideal(::NfOrd, ::NfOrdElem)
+ideal(::NfOrd, ::Integer, ::NfOrdElem)
+ideal(::NfOrd, ::fmpz, ::NfOrdElem)
+*(::NfOrd, ::NfOrdElem)
+prime_decomposition(::NfOrd, ::Integer)
+prime_decomposition(::NfOrd, ::fmpz)
 </pre></div>
 
 
-<blockquote>
-<p>Returns the ideal of <script type="math/tex">\mathcal O</script> which is generated by <script type="math/tex">a</script>.</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span>ideal(O::NfOrd, a::fmpz) -&gt; NfOrdIdl
-</pre></div>
-
-
-<blockquote>
-<p>Returns the ideal of <script type="math/tex">\mathcal O</script> which is generated by <script type="math/tex">a</script>.</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span>ideal(O::NfOrd, x::fmpz_mat, check::Bool = false) -&gt; NfOrdIdl
-</pre></div>
-
-
-<blockquote>
-<p>Creates the ideal of <script type="math/tex">\mathcal O</script> with basis matrix <script type="math/tex">x</script>. If check is set, then it is checked whether <script type="math/tex">x</script> defines an ideal (expensive).</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span>ideal(O::NfOrd, x::NfOrdElem) -&gt; NfOrdIdl
-</pre></div>
-
-
-<blockquote>
-<p>Creates the principal ideal <script type="math/tex">(x)</script> of <script type="math/tex">\mathcal O</script>.</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span>ring_of_multipliers(I::NfOrdIdl) -&gt; NfOrd
-</pre></div>
-
-
-<blockquote>
-<p>Computes the order <script type="math/tex">(I : I)</script>, which is the set of all <script type="math/tex">x \in K</script> with <script type="math/tex">xI \subseteq I</script>.</p>
-</blockquote>
-<div class="codehilite"><pre><span></span>*(O::NfOrd, x::NfOrdElem) -&gt; NfOrdIdl
-*(x::NfOrdElem, O::NfOrd) -&gt; NfOrdIdl
-</pre></div>
-
-
-<blockquote>
-<p>Returns the principal ideal <script type="math/tex">(x)</script> of <script type="math/tex">\mathcal O</script>.</p>
-</blockquote>
 <p><a id='Arithmetic-2'></a></p>
 <h3 id="arithmetic_1">Arithmetic</h3>
 <hr />
@@ -712,146 +605,26 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 </blockquote>
 <p><a id='Miscaellenous-1'></a></p>
 <h3 id="miscaellenous">Miscaellenous</h3>
-<hr />
-<div class="codehilite"><pre><span></span>parent(I::NfOrdIdl) -&gt; NfOrd
+<div class="codehilite"><pre><span></span>order(::NfOrdIdl)
+basis(::NfOrdIdl)
+basis_mat(::NfOrdIdl)
+basis_mat_inv(::NfOrdIdl)
+minimum(::NfOrdIdl)
+norm(::NfOrdIdl)
+in(::NfOrdElem, ::NfOrdIdl)
+idempotents(::NfOrdIdl, ::NfOrdIdl)
+mod(::NfOrdElem, ::NfOrdIdl)
+pradical(::NfOrd, p::fmpz)
+isprime(::NfOrdIdl)
+valuation(::nf_elem, ::NfOrdIdl)
+valuation(::NfOrdElem, ::NfOrdIdl)
+valuation(::NfOrdIdl, ::NfOrdIdl)
+valuation(::Integer, ::NfOrdIdl)
+valuation(::fmpz, ::NfOrdIdl)
+valuation(::NfOrdFracIdl, ::NfOrdIdl)
 </pre></div>
 
 
-<blockquote>
-<p>Returns the order of <script type="math/tex">I</script>.</p>
-</blockquote>
-<div class="codehilite"><pre><span></span>basis(O::NfOrd) -&gt; Array{NfOrdElem, 1}
-</pre></div>
-
-
-<p>Returns the <script type="math/tex">\mathbf Z</script>-basis of <script type="math/tex">\mathcal O</script>.</p>
-<hr />
-<div class="codehilite"><pre><span></span>basis(A::NfOrdIdl) -&gt; Array{NfOrdElem, 1}
-</pre></div>
-
-
-<blockquote>
-<p>Returns the basis of A.</p>
-</blockquote>
-<div class="codehilite"><pre><span></span>basis_mat(O::NfOrd) -&gt; FakeFmpqMat
-</pre></div>
-
-
-<p>Returns the basis matrix of <script type="math/tex">\mathcal O</script> with respect to the power basis of the ambient number field.</p>
-<hr />
-<p>basis_mat(A::NfOrdIdl) -&gt; fmpz_mat</p>
-<blockquote>
-<p>Returns the basis matrix of <script type="math/tex">A</script>.</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span>  basis_mat(O::NfRelOrd{T, S}) -&gt; Generic.Mat{T}
-</pre></div>
-
-
-<blockquote>
-<p>Returns the basis matrix of <script type="math/tex">\mathcal O</script> with respect to the power basis of the ambient number field.</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span>  basis_mat(a::NfRelOrdIdl{T, S}) -&gt; Generic.Mat{T}
-</pre></div>
-
-
-<blockquote>
-<p>Returns the basis matrix of <script type="math/tex">a</script>.</p>
-</blockquote>
-<div class="codehilite"><pre><span></span>basis_mat_inv(O::NfOrd) -&gt; FakeFmpqMat
-</pre></div>
-
-
-<p>Returns the inverse of the basis matrix of <script type="math/tex">\mathcal O</script>.</p>
-<hr />
-<p>basis_mat_inv(A::NfOrdIdl) -&gt; fmpz_mat</p>
-<blockquote>
-<p>Returns the inverse basis matrix of <script type="math/tex">A</script>.</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span>  basis_mat_inv(O::NfRelOrd{T, S}) -&gt; Generic.Mat{T}
-</pre></div>
-
-
-<blockquote>
-<p>Returns the inverse of the basis matrix of <script type="math/tex">\mathcal O</script>.</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span>  basis_mat_inv(a::NfRelOrdIdl{T, S}) -&gt; Generic.Mat{T}
-</pre></div>
-
-
-<blockquote>
-<p>Returns the inverse of the basis matrix of <script type="math/tex">a</script>.</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span>minimum(A::NfOrdIdl) -&gt; fmpz
-</pre></div>
-
-
-<blockquote>
-<p>Returns the smallest nonnegative element in <script type="math/tex">A \cap \mathbf Z</script>.</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span>norm(A::NfOrdIdl) -&gt; fmpz
-</pre></div>
-
-
-<blockquote>
-<p>Returns the norm of <script type="math/tex">A</script>, that is, the cardinality of <script type="math/tex">\mathcal O/A</script>, where <script type="math/tex">\mathcal O</script> is the order of <script type="math/tex">A</script>.</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span>norm(a::NfRelOrdIdl) -&gt; NfOrdIdl
-</pre></div>
-
-
-<blockquote>
-<p>Returns the norm of <script type="math/tex">a</script>.</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span>norm(a::NfRelOrdFracIdl{T, S}) -&gt; S
-</pre></div>
-
-
-<blockquote>
-<p>Returns the norm of <script type="math/tex">a</script>
-</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span>in(x::NfOrdElem, y::NfOrdIdl)
-in(x::nf_elem, y::NfOrdIdl)
-in(x::fmpz, y::NfOrdIdl)
-</pre></div>
-
-
-<blockquote>
-<p>Returns whether <script type="math/tex">x</script> is contained in <script type="math/tex">y</script>.</p>
-</blockquote>
-<div class="codehilite"><pre><span></span>idempotents(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdElem, NfOrdElem
-</pre></div>
-
-
-<blockquote>
-<p>Returns a tuple <code>(e, f)</code> consisting of elements <code>e in x</code>, <code>f in y</code> such that <code>1 = e + f</code>.</p>
-<p>If the ideals are not coprime, an error is raised.</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span>mod(x::NfOrdElem, I::NfOrdIdl)
-</pre></div>
-
-
-<blockquote>
-<p>Returns the unique element <script type="math/tex">y</script> of the ambient order of <script type="math/tex">x</script> with <script type="math/tex">x \equiv y \bmod I</script> and the following property: If <script type="math/tex">a_1,\dotsc,a_d \in \Z_{\geq 1}</script> are the diagonal entries of the unique HNF basis matrix of <script type="math/tex">I</script> and <script type="math/tex">(b_1,\dotsc,b_d)</script> is the coefficient vector of <script type="math/tex">y</script>, then <script type="math/tex">0 \leq b_i < a_i</script> for <script type="math/tex">1 \leq i \leq d</script>.</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span>pradical(O::NfOrd, p::fmpz) -&gt; NfOrdIdl
-</pre></div>
-
-
-<blockquote>
-<p>Given a prime number <script type="math/tex">p</script>, this function returns the <script type="math/tex">p</script>-radical <script type="math/tex">\sqrt{p\mathcal O}</script> of <script type="math/tex">\mathcal O</script>, which is just <script type="math/tex">\{ x \in \mathcal O \mid \exists k \in \mathbf Z_{\geq 0} \colon x^k \in p\mathcal O \}</script>. It is not checked that <script type="math/tex">p</script> is prime.</p>
-</blockquote>
 <p><a id='Fractional-ideals-1'></a></p>
 <h2 id="fractional-ideals">Fractional ideals</h2>
 <p><a id='Creation-3'></a></p>
@@ -875,6 +648,23 @@ frac_ideal(::NfOrd, ::NfOrdElem)
 
 <blockquote>
 <p>Returns whether <script type="math/tex">x</script> and <script type="math/tex">y</script> are equal.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>inv(A::NfOrdFracIdl) -&gt; NfOrdFracIdl
+</pre></div>
+
+
+<blockquote>
+<p>Returns the fractional ideal <script type="math/tex">B</script> such that <script type="math/tex">AB = \mathcal O</script>.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>integral_split(A::NfOrdFracIdl) -&gt; NfOrdIdl, NfOrdIdl
+</pre></div>
+
+
+<blockquote>
+<p>Computes the unique coprime integral ideals <script type="math/tex">N</script> and <script type="math/tex">D</script> s.th. <script type="math/tex">A = ND^{-1}</script>
+</p>
 </blockquote>
 <p><a id='Miscaellenous-2'></a></p>
 <h3 id="miscaellenous_1">Miscaellenous</h3>
