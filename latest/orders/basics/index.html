@@ -540,14 +540,14 @@ deepcopy(::NfOrd)
 <blockquote>
 <p>Return the <script type="math/tex">T_2</script>-norm of <script type="math/tex">x</script>. The radius of the result will be less than <code>2^-abs_tol</code>.</p>
 </blockquote>
-<div class="codehilite"><pre><span></span>minpoly{T &lt;: RingElement}(S::Ring, M::Nemo.MatElem{T}, charpoly_only = false)
+<div class="codehilite"><pre><span></span>minpoly{T &lt;: RingElement}(S::Ring, M::AbstractAlgebra.MatElem{T}, charpoly_only = false)
 </pre></div>
 
 
 <blockquote>
 <p>Returns the minimal polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">R</script> of the resulting polynomial must be supplied and the matrix must be square.</p>
 </blockquote>
-<div class="codehilite"><pre><span></span>charpoly{T &lt;: RingElement}(V::Ring, Y::Nemo.MatElem{T})
+<div class="codehilite"><pre><span></span>charpoly{T &lt;: RingElement}(V::Ring, Y::AbstractAlgebra.MatElem{T})
 </pre></div>
 
 
