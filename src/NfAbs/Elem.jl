@@ -195,14 +195,12 @@ doc"""
 > The minimal polynomial of a.
 """
 function minpoly(a::nf_elem)
-  d = denominator(a)
-  Zx = PolynomialRing(FlintZZ, string(parent(parent(a).pol).S))[1]
-  f = minpoly(Zx, representation_mat(d*a))
-  f = f(gen(parent(f))*d)
-  return divexact(f, content(f))
+  Qx = a.parent.pol.parent # To get a polynomial ring for free
+  return minpoly(Qx, representation_matrix(a))
 end
 
 function minpoly(a::NfOrdElem)
-  return minpoly(number_field(parent(a))(a))
+  Zx, x = PolynomialRing(FlintZZ, "x")
+  return minpoly(Zx, representation_mat(a))
 end
 
