@@ -774,12 +774,10 @@ function Base.isequal(R::NfOrd, S::NfOrd)
 end
 
 function ==(R::NfAbsOrd, S::NfAbsOrd)
-  return R === S
-#end
-#  nf(R) != nf(S) && return false
-#  assure_has_basis_mat(R)
-#  assure_has_basis_mat(S)
-#  return R.basis_mat == S.basis_mat
+  nf(R) != nf(S) && return false
+  assure_has_basis_mat(R)
+  assure_has_basis_mat(S)
+  return R.basis_mat == S.basis_mat
 end
 
 ################################################################################
