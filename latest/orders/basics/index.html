@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <meta name="author" content="Tommy Hofmann">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hecke"> 
+    <meta name="author" content="Tommy Hofmann"> 
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     <title>Basics - Hecke</title>
@@ -131,6 +132,21 @@
   </li>
 
                         
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Class fields</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../class_fields/intro/">Introduction</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
                         </ul>
                     </li>
                 
@@ -192,67 +208,17 @@
 
 <p><a id='Creation-and-basic-properties-1'></a></p>
 <h2 id="creation-and-basic-properties">Creation and basic properties</h2>
-<div class="codehilite"><pre><span></span>Order(B::Array{nf_elem, 1}, check::Bool = true) -&gt; NfOrd
+<div class="codehilite"><pre><span></span>Order(::AnticNumberField, ::Array{nf_elem, 1})
+Order(::AnticNumberField, ::FakeFmpqMat)
+Order(::NfOrdFracIdl)
+EquationOrder(::AnticNumberField)
+MaximalOrder(::AnticNumberField)
+MaximalOrder(::NfOrd)
+maximal_order(::AnticNumberField)
+lll(::NfOrd)
 </pre></div>
 
 
-<p>Returns the order with <script type="math/tex">\mathbf Z</script>-basis <script type="math/tex">B</script>. If <code>check</code> is set, it is checked whether <script type="math/tex">B</script> defines an order.</p>
-<div class="codehilite"><pre><span></span>Order(K::AnticNumberField, A::FakeFmpqMat, check::Bool = true) -&gt; NfOrd
-</pre></div>
-
-
-<p>Returns the order which has basis matrix <script type="math/tex">A</script> with respect to the power basis of <script type="math/tex">K</script>. If <code>check</code> is set, it is checked whether <script type="math/tex">A</script> defines an order.</p>
-<div class="codehilite"><pre><span></span>Order(A::NfOrdFracIdl) -&gt; NfOrd
-</pre></div>
-
-
-<p>Returns the fractional ideal <script type="math/tex">A</script> as an order of the ambient number field.</p>
-<hr />
-<div class="codehilite"><pre><span></span>  Order(K::RelativeExtension, M::PMat) -&gt; NfRelOrd
-</pre></div>
-
-
-<blockquote>
-<p>Returns the order which has basis pseudo-matrix <script type="math/tex">M</script> with respect to the power basis of <script type="math/tex">K</script>.</p>
-</blockquote>
-<div class="codehilite"><pre><span></span>EquationOrder(K::AnticNumberField) -&gt; NfOrd
-</pre></div>
-
-
-<p>Returns the equation order of the number field <script type="math/tex">K</script>.</p>
-<hr />
-<div class="codehilite"><pre><span></span>MaximalOrder(K::AnticNumberField) -&gt; NfOrd
-</pre></div>
-
-
-<p>Returns the maximal order of <script type="math/tex">K</script>.</p>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span>julia&gt; Qx, xx = FlintQQ[&quot;x&quot;];
-julia&gt; K, a = NumberField(x^3 + 2, &quot;a&quot;);
-julia&gt; O = MaximalOrder(K);
-</pre></div>
-
-
-<hr />
-<div class="codehilite"><pre><span></span>MaximalOrder(K::NfOrd) -&gt; NfOrd
-</pre></div>
-
-
-<p>Returns the maximal order of <script type="math/tex">K</script>.</p>
-<hr />
-<div class="codehilite"><pre><span></span>maximal_order(K::AnticNumberField) -&gt; NfOrd
-ring_of_integers(K::AnticNumberField) -&gt; NfOrd
-</pre></div>
-
-
-<p>Returns the maximal order of <script type="math/tex">K</script>.</p>
-<div class="codehilite"><pre><span></span>lll(M::NfOrd) -&gt; NfOrd
-</pre></div>
-
-
-<blockquote>
-<p>The same order, but with the basis now being LLL reduced wrt. the Minkowski metric.</p>
-</blockquote>
 <p>By Chistov's fundamental theorem, the computation of the maximal order is basically as hard as the factorisation of the discriminant. In order to help the computer, Hecke also provides the following signatures:</p>
 <hr />
 <div class="codehilite"><pre><span></span>maximal_order(K::AnticNumberField, primes::Array{fmpz, 1}) -&gt; NfOrd
@@ -270,7 +236,7 @@ ring_of_integers(K::AnticNumberField, primes::Array{Integer, 1}) -&gt; NfOrd
 <p>Assuming that <script type="math/tex">primes</script> contains all the prime numbers at which the equation order <script type="math/tex">\mathbf{Z}[\alpha]</script> of <script type="math/tex">K = \mathbf{Q}(\alpha)</script> is not maximal, this function returns the maximal order of <script type="math/tex">K</script>.</p>
 <p>It is also possible the execute the steps individually:</p>
 <hr />
-<div class="codehilite"><pre><span></span>pradical(O::NfOrd, p::fmpz) -&gt; NfOrdIdl
+<div class="codehilite"><pre><span></span>pradical(O::NfOrd, p::fmpz) -&gt; NfAbsOrdIdl
 </pre></div>
 
 
@@ -278,12 +244,20 @@ ring_of_integers(K::AnticNumberField, primes::Array{Integer, 1}) -&gt; NfOrd
 <p>Given a prime number <script type="math/tex">p</script>, this function returns the <script type="math/tex">p</script>-radical <script type="math/tex">\sqrt{p\mathcal O}</script> of <script type="math/tex">\mathcal O</script>, which is just <script type="math/tex">\{ x \in \mathcal O \mid \exists k \in \mathbf Z_{\geq 0} \colon x^k \in p\mathcal O \}</script>. It is not checked that <script type="math/tex">p</script> is prime.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>ring_of_multipliers(I::NfOrdIdl) -&gt; NfOrd
+<div class="codehilite"><pre><span></span>ring_of_multipliers(I::NfAbsOrdIdl) -&gt; NfOrd
 </pre></div>
 
 
 <blockquote>
 <p>Computes the order <script type="math/tex">(I : I)</script>, which is the set of all <script type="math/tex">x \in K</script> with <script type="math/tex">xI \subseteq I</script>.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>ring_of_multipliers(a::NfRelOrdIdl) -&gt; NfRelOrd
+</pre></div>
+
+
+<blockquote>
+<p>Computes the order <script type="math/tex">(a : a)</script>, which is the set of all <script type="math/tex">x \in K</script> with <script type="math/tex">xa \subseteq a</script>, where <script type="math/tex">K</script> is the ambient number field of <script type="math/tex">a</script>.</p>
 </blockquote>
 <p><a id='Example-1'></a></p>
 <h3 id="example">Example</h3>
@@ -293,7 +267,7 @@ ring_of_integers(K::AnticNumberField, primes::Array{Integer, 1}) -&gt; NfOrd
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">O</span> <span class="o">=</span> <span class="n">EquationOrder</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
 <span class="n">Order</span> <span class="n">of</span> <span class="kt">Number</span> <span class="n">field</span> <span class="n">over</span> <span class="kt">Rational</span> <span class="n">Field</span> <span class="n">with</span> <span class="n">defining</span> <span class="n">polynomial</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">-</span><span class="mi">2</span>
-<span class="n">with</span> <span class="n">Z</span><span class="o">-</span><span class="n">basis</span> <span class="n">Hecke</span><span class="o">.</span><span class="n">NfOrdElem</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="p">]</span>
+<span class="n">with</span> <span class="n">Z</span><span class="o">-</span><span class="n">basis</span> <span class="n">Hecke</span><span class="o">.</span><span class="n">NfAbsOrdElem</span><span class="p">{</span><span class="n">Nemo</span><span class="o">.</span><span class="n">AnticNumberField</span><span class="p">,</span><span class="n">Nemo</span><span class="o">.</span><span class="n">nf_elem</span><span class="p">}[</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="p">]</span>
 </pre></div>
 
 
@@ -330,13 +304,35 @@ deepcopy(::NfOrd)
 <p><a id='Basic-properties-1'></a></p>
 <h3 id="basic-properties">Basic properties</h3>
 <hr />
-<div class="codehilite"><pre><span></span>parent(a::NfOrdElem) -&gt; NfOrd
+<div class="codehilite"><pre><span></span>parent(a::NfAbsOrdElem) -&gt; NfOrd
 </pre></div>
 
 
 <p>Returns the order of which <script type="math/tex">a</script> is an element.</p>
+<div class="codehilite"><pre><span></span>parent(g::perm)
+</pre></div>
+
+
+<blockquote>
+<p>Return the parent of the permutation <code>g</code>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>julia&gt; G = PermutationGroup(5); g = perm([3,4,5,2,1])
+(1,3,5)(2,4)
+
+julia&gt; parent(g) == G
+true
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>parent(a::AbstractAlgebra.MatElem)
+</pre></div>
+
+
+<blockquote>
+<p>Return the parent object of the given matrix.</p>
+</blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>elem_in_nf(a::NfOrdElem) -&gt; nf_elem
+<div class="codehilite"><pre><span></span>elem_in_nf(a::NfAbsOrdElem) -&gt; nf_elem
 </pre></div>
 
 
@@ -344,7 +340,7 @@ deepcopy(::NfOrd)
 <p>Returns the element <script type="math/tex">a</script> considered as an element of the ambient number field.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>elem_in_basis(a::NfOrdElem) -&gt; Array{fmpz, 1}
+<div class="codehilite"><pre><span></span>elem_in_basis(a::NfAbsOrdElem) -&gt; Array{fmpz, 1}
 </pre></div>
 
 
@@ -360,7 +356,7 @@ deepcopy(::NfOrd)
 <p>Returns the coefficient vector of <script type="math/tex">a</script>.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>discriminant(B::Array{NfOrdElem, 1}) -&gt; fmpz
+<div class="codehilite"><pre><span></span>discriminant(B::Array{NfAbsOrdElem, 1}) -&gt; fmpz
 </pre></div>
 
 
@@ -368,7 +364,7 @@ deepcopy(::NfOrd)
 <p>Returns the discriminant of the family <script type="math/tex">B</script>.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>==(x::NfOrdElem, y::NfOrdElem) -&gt; Bool
+<div class="codehilite"><pre><span></span>==(x::NfAbsOrdElem, y::NfAbsOrdElem) -&gt; Bool
 </pre></div>
 
 
@@ -376,7 +372,7 @@ deepcopy(::NfOrd)
 <p>Returns whether <script type="math/tex">x</script> and <script type="math/tex">y</script> are equal.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>zero(O::NfOrd) -&gt; NfOrdElem
+<div class="codehilite"><pre><span></span>zero(O::NfOrd) -&gt; NfAbsOrdElem
 </pre></div>
 
 
@@ -384,7 +380,7 @@ deepcopy(::NfOrd)
 <p>Returns the zero element of <script type="math/tex">\mathcal O</script>.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>one(O::NfOrd) -&gt; NfOrdElem
+<div class="codehilite"><pre><span></span>one(O::NfOrd) -&gt; NfAbsOrdElem
 </pre></div>
 
 
@@ -410,15 +406,127 @@ deepcopy(::NfOrd)
 <p><a id='Arithmetic-1'></a></p>
 <h3 id="arithmetic">Arithmetic</h3>
 <hr />
-<div class="codehilite"><pre><span></span>-(x::NfOrdElem) -&gt; NfOrdElem
+<div class="codehilite"><pre><span></span>-(x::NfAbsOrdElem) -&gt; NfAbsOrdElem
 </pre></div>
 
 
 <blockquote>
 <p>Returns the additive inverse of <script type="math/tex">x</script>.</p>
 </blockquote>
+<div class="codehilite"><pre><span></span>-{T &lt;: RingElement}(a::AbstractAlgebra.ResElem{T}, b::AbstractAlgebra.ResElem{T})
+</pre></div>
+
+
+<blockquote>
+<p>Return <script type="math/tex">a - b</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>-{T &lt;: RingElem}(a::AbstractAlgebra.ResElem{T}, b::T)
+</pre></div>
+
+
+<blockquote>
+<p>Return <script type="math/tex">a - b</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>-{T &lt;: RingElem}(a::T, b::AbstractAlgebra.ResElem{T})
+</pre></div>
+
+
+<blockquote>
+<p>Return <script type="math/tex">a - b</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>-{T &lt;: RingElement}(a::AbstractAlgebra.ResFieldElem{T}, b::AbstractAlgebra.ResFieldElem{T})
+</pre></div>
+
+
+<blockquote>
+<p>Return <script type="math/tex">a - b</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>-{T &lt;: RingElem}(a::AbstractAlgebra.ResFieldElem{T}, b::T)
+</pre></div>
+
+
+<blockquote>
+<p>Return <script type="math/tex">a - b</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>-{T &lt;: RingElem}(a::T, b::AbstractAlgebra.ResFieldElem{T})
+</pre></div>
+
+
+<blockquote>
+<p>Return <script type="math/tex">a - b</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>-{T &lt;: RingElement}(a::AbstractAlgebra.PolyElem{T}, b::AbstractAlgebra.PolyElem{T})
+</pre></div>
+
+
+<blockquote>
+<p>Return <script type="math/tex">a - b</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>-{T &lt;: RingElement}(a::AbstractAlgebra.RelSeriesElem{T}, b::AbstractAlgebra.RelSeriesElem{T})
+</pre></div>
+
+
+<blockquote>
+<p>Return <script type="math/tex">a - b</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>-{T &lt;: RingElement}(a::AbstractAlgebra.AbsSeriesElem{T}, b::AbstractAlgebra.AbsSeriesElem{T})
+</pre></div>
+
+
+<blockquote>
+<p>Return <script type="math/tex">a - b</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>-{T &lt;: RingElement}(a::LaurentSeriesElem{T}, b::LaurentSeriesElem{T})
+</pre></div>
+
+
+<blockquote>
+<p>Return <script type="math/tex">a - b</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>-{T &lt;: RingElement}(a::AbstractAlgebra.MatElem{T}, b::AbstractAlgebra.MatElem{T})
+</pre></div>
+
+
+<blockquote>
+<p>Return <script type="math/tex">a - b</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>-{T &lt;: RingElem}(x::T, y::AbstractAlgebra.MatElem{T})
+</pre></div>
+
+
+<blockquote>
+<p>Return <script type="math/tex">S(x) - y</script> where <script type="math/tex">S</script> is the parent of <script type="math/tex">y</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>-{T &lt;: RingElem}(x::AbstractAlgebra.MatElem{T}, y::T)
+</pre></div>
+
+
+<blockquote>
+<p>Return <script type="math/tex">x - S(y)</script>, where <script type="math/tex">S</script> is the parent of <script type="math/tex">a</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>-{T &lt;: RingElem}(a::AbstractAlgebra.FracElem{T}, b::AbstractAlgebra.FracElem{T})
+</pre></div>
+
+
+<blockquote>
+<p>Return <script type="math/tex">a - b</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>-{T &lt;: RingElem}(a::AbstractAlgebra.FracElem{T}, b::T)
+</pre></div>
+
+
+<blockquote>
+<p>Return <script type="math/tex">a - b</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>-{T &lt;: RingElem}(a::T, b::AbstractAlgebra.FracElem{T})
+</pre></div>
+
+
+<blockquote>
+<p>Return <script type="math/tex">a - b</script>.</p>
+</blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>+(x::NfOrdElem, y::NfOrdElem) -&gt; NfOrdElem
+<div class="codehilite"><pre><span></span>+(x::NfAbsOrdElem, y::NfAbsOrdElem) -&gt; NfAbsOrdElem
 </pre></div>
 
 
@@ -426,7 +534,7 @@ deepcopy(::NfOrd)
 <p>Returns <script type="math/tex">x + y</script>.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>-(x::NfOrdElem, y::NfOrdElem) -&gt; NfOrdElem
+<div class="codehilite"><pre><span></span>-(x::NfAbsOrdElem, y::NfAbsOrdElem) -&gt; NfAbsOrdElem
 </pre></div>
 
 
@@ -434,7 +542,7 @@ deepcopy(::NfOrd)
 <p>Returns <script type="math/tex">x - y</script>.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>*(x::NfOrdElem, y::NfOrdElem) -&gt; NfOrdElem
+<div class="codehilite"><pre><span></span>*(x::NfAbsOrdElem, y::NfAbsOrdElem) -&gt; NfAbsOrdElem
 </pre></div>
 
 
@@ -442,7 +550,7 @@ deepcopy(::NfOrd)
 <p>Returns <script type="math/tex">x \cdot y</script>.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>^(x::NfOrdElem, y::Union{fmpz, Int})
+<div class="codehilite"><pre><span></span>^(x::NfAbsOrdElem, y::Union{fmpz, Int})
 </pre></div>
 
 
@@ -450,7 +558,7 @@ deepcopy(::NfOrd)
 <p>Returns <script type="math/tex">x^y</script>.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>mod(a::NfOrdElem, m::Union{fmpz, Int}) -&gt; NfOrdElem
+<div class="codehilite"><pre><span></span>mod(a::NfAbsOrdElem, m::Union{fmpz, Int}) -&gt; NfAbsOrdElem
 </pre></div>
 
 
@@ -458,7 +566,7 @@ deepcopy(::NfOrd)
 <p>Reduces the coefficient vector of <script type="math/tex">a</script> modulo <script type="math/tex">m</script> and returns the corresponding element. The coefficient vector of the result will have entries <script type="math/tex">x</script> with <script type="math/tex">0 \leq x \leq m</script>.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>powermod(a::NfOrdElem, i::fmpz, m::Integer) -&gt; NfOrdElem
+<div class="codehilite"><pre><span></span>powermod(a::NfAbsOrdElem, i::fmpz, m::Integer) -&gt; NfAbsOrdElem
 </pre></div>
 
 
@@ -468,7 +576,7 @@ deepcopy(::NfOrd)
 <p><a id='Miscallenous-1'></a></p>
 <h3 id="miscallenous">Miscallenous</h3>
 <hr />
-<div class="codehilite"><pre><span></span>representation_mat(a::NfOrdElem) -&gt; fmpz_mat
+<div class="codehilite"><pre><span></span>representation_matrix(a::NfAbsOrdElem) -&gt; fmpz_mat
 </pre></div>
 
 
@@ -476,7 +584,7 @@ deepcopy(::NfOrd)
 <p>Returns the representation matrix of the element <script type="math/tex">a</script>.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>representation_mat(a::NfOrdElem, K::AnticNumberField) -&gt; FakeFmpqMat
+<div class="codehilite"><pre><span></span>representation_matrix(a::NfAbsOrdElem, K::AnticNumberField) -&gt; FakeFmpqMat
 </pre></div>
 
 
@@ -484,7 +592,15 @@ deepcopy(::NfOrd)
 <p>Returns the representation matrix of the element <script type="math/tex">a</script> considered as an element of the ambient number field <script type="math/tex">K</script>. It is assumed that <script type="math/tex">K</script> is the ambient number field of the order of <script type="math/tex">a</script>.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>trace(a::NfOrdElem) -&gt; fmpz
+<div class="codehilite"><pre><span></span>representation_matrix(a::NfAbsOrdElem, K::AnticNumberField) -&gt; FakeFmpqMat
+</pre></div>
+
+
+<blockquote>
+<p>Returns the representation matrix of the element <script type="math/tex">a</script> considered as an element of the ambient number field <script type="math/tex">K</script>. It is assumed that <script type="math/tex">K</script> is the ambient number field of the order of <script type="math/tex">a</script>.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>trace(a::NfAbsOrdElem) -&gt; fmpz
 </pre></div>
 
 
@@ -492,7 +608,7 @@ deepcopy(::NfOrd)
 <p>Returns the trace of <script type="math/tex">a</script>.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>norm(a::NfOrdElem) -&gt; fmpz
+<div class="codehilite"><pre><span></span>norm(a::NfAbsOrdElem) -&gt; fmpz
 </pre></div>
 
 
@@ -500,7 +616,32 @@ deepcopy(::NfOrd)
 <p>Returns the norm of <script type="math/tex">a</script>.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>rand(O::NfOrd, n::Union{Integer, fmpz}) -&gt; NfOrdElem
+<div class="codehilite"><pre><span></span>norm(A::NfAbsOrdIdl) -&gt; fmpz
+</pre></div>
+
+
+<blockquote>
+<p>Returns the norm of <script type="math/tex">A</script>, that is, the cardinality of <script type="math/tex">\mathcal O/A</script>, where <script type="math/tex">\mathcal O</script> is the order of <script type="math/tex">A</script>.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>norm(a::NfRelOrdIdl) -&gt; NfOrdIdl
+</pre></div>
+
+
+<blockquote>
+<p>Returns the norm of <script type="math/tex">a</script>.</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>norm(a::NfRelOrdFracIdl{T, S}) -&gt; S
+</pre></div>
+
+
+<blockquote>
+<p>Returns the norm of <script type="math/tex">a</script>
+</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span></span>rand(O::NfOrd, n::Union{Integer, fmpz}) -&gt; NfAbsOrdElem
 </pre></div>
 
 
@@ -508,7 +649,7 @@ deepcopy(::NfOrd)
 <p>Computes a coefficient vector with entries uniformly distributed in <script type="math/tex">\{-n,\dotsc,-1,0,1,\dotsc,n\}</script> and returns the corresponding element of the order <script type="math/tex">\mathcal O</script>.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>minkowski_map(a::NfOrdElem, abs_tol::Int) -&gt; Array{arb, 1}
+<div class="codehilite"><pre><span></span>minkowski_map(a::NfAbsOrdElem, abs_tol::Int) -&gt; Array{arb, 1}
 </pre></div>
 
 
@@ -516,7 +657,7 @@ deepcopy(::NfOrd)
 <p>Returns the image of <script type="math/tex">a</script> under the Minkowski embedding. Every entry of the array returned is of type <code>arb</code> with radius less then <code>2^-abs_tol</code>.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>conjugates_arb(x::NfOrdElem, abs_tol::Int) -&gt; Array{acb, 1}
+<div class="codehilite"><pre><span></span>conjugates_arb(x::NfAbsOrdElem, abs_tol::Int) -&gt; Array{acb, 1}
 </pre></div>
 
 
@@ -525,7 +666,7 @@ deepcopy(::NfOrd)
 <p>Every entry <code>y</code> of the array returned satisfies <code>radius(real(y)) &lt; 2^-abs_tol</code>, <code>radius(imag(y)) &lt; 2^-abs_tol</code> respectively.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>conjugates_arb_log(x::NfOrdElem, abs_tol::Int) -&gt; Array{arb, 1}
+<div class="codehilite"><pre><span></span>conjugates_arb_log(x::NfAbsOrdElem, abs_tol::Int) -&gt; Array{arb, 1}
 </pre></div>
 
 
@@ -533,7 +674,7 @@ deepcopy(::NfOrd)
 <p>Returns the elements <script type="math/tex">(\log(\lvert \sigma_1(x) \rvert),\dotsc,\log(\lvert\sigma_r(x) \rvert), \dotsc,2\log(\lvert \sigma_{r+1}(x) \rvert),\dotsc, 2\log(\lvert \sigma_{r+s}(x)\rvert))</script> as elements of type <code>arb</code> radius less then <code>2^-abs_tol</code>.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span>t2(x::NfOrdElem, abs_tol::Int = 32) -&gt; arb
+<div class="codehilite"><pre><span></span>t2(x::NfAbsOrdElem, abs_tol::Int = 32) -&gt; arb
 </pre></div>
 
 
@@ -574,7 +715,7 @@ prime_decomposition(::NfOrd, ::fmpz)
 <p><a id='Arithmetic-2'></a></p>
 <h3 id="arithmetic_1">Arithmetic</h3>
 <hr />
-<div class="codehilite"><pre><span></span>==(x::NfOrdIdl, y::NfOrdIdl)
+<div class="codehilite"><pre><span></span>==(x::NfAbsOrdIdl, y::NfAbsOrdIdl)
 </pre></div>
 
 
