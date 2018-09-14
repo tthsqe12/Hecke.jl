@@ -1,11 +1,11 @@
-using Documenter, Hecke, Nemo, Markdown, Pkg
+using Documenter, Hecke, Nemo, AbstractAlgebra, Markdown, Pkg
 
 function Markdown.plain(io::IO, ::Markdown.HorizontalRule)
            println(io, "-"^3)
 end
 
 makedocs(
-    modules = [Hecke, Nemo],
+    modules = [Hecke, Nemo, AbstractAlgebra],
     clean   = true,
     format = :html,
     sitename = "Hecke",
@@ -26,6 +26,7 @@ makedocs(
 #                          ],
       "abelian/introduction.md",
       "class_fields/intro.md",
+      "sparse/intro.md",
       "FacElem.md"
       ]
 )
