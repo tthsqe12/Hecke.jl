@@ -2145,6 +2145,142 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "sparse/intro.html#",
+    "page": "Sparse linear algebra",
+    "title": "Sparse linear algebra",
+    "category": "page",
+    "text": ""
+},
+
+{
+    "location": "sparse/intro.html#Sparse-linear-algebra-1",
+    "page": "Sparse linear algebra",
+    "title": "Sparse linear algebra",
+    "category": "section",
+    "text": "CurrentModule = Hecke"
+},
+
+{
+    "location": "sparse/intro.html#Introduction-1",
+    "page": "Sparse linear algebra",
+    "title": "Introduction",
+    "category": "section",
+    "text": "This chapter deals with sparse linear algebra over commutative rings and fields.Sparse linear algebra, that is, linear algebra with sparse matrices,  plays an important role in various algorithms in algebraic number theory. For example, it is one of the key ingredients in the computation of class groups and discrete logarithms using index calculus methods."
+},
+
+{
+    "location": "sparse/intro.html#Sparse-rows-1",
+    "page": "Sparse linear algebra",
+    "title": "Sparse rows",
+    "category": "section",
+    "text": "Building blocks for sparse matrices are sparse rows, which are modelled by objects of type \\texttt{SRow}. More precisely, the type is of parametrized form objects of type SRow. More precisely, the type is of parametrized form SRow{T}, where T is the element type of the base ring R. For example, SRow{fmpz} is the type for sparse rows over the integers.It is important to note that sparse rows do not have a fixed number of columns, that is, they represent elements of  (x_i)_i in R^mathbbN mid x_i = 0 text for almost all i. In particular any two sparse rows over the same base ring can be added."
+},
+
+{
+    "location": "sparse/intro.html#Hecke.sparse_row-Tuple{FlintIntegerRing,Array{Tuple{Int64,fmpz},1}}",
+    "page": "Sparse linear algebra",
+    "title": "Hecke.sparse_row",
+    "category": "method",
+    "text": "sparse_row(R::Ring, J::Vector{Tuple{Int, T}}) -> SRow{T}\n\nConstructs the sparse row (a_i)_i with a_j_i = x_i, where J = (j_i x_i)_i. The elements x_i must belong to the ring R.\n\n\n\n"
+},
+
+{
+    "location": "sparse/intro.html#Hecke.sparse_row-Tuple{FlintIntegerRing,Array{Tuple{Int64,Int64},1}}",
+    "page": "Sparse linear algebra",
+    "title": "Hecke.sparse_row",
+    "category": "method",
+    "text": "sparse_row(R::Ring, J::Vector{Tuple{Int, T}}) -> SRow{T}\n\nConstructs the sparse row (a_i)_i with a_j_i = x_i, where J = (j_i x_i)_i. The elements x_i must belong to the ring R.\n\n\n\nsparse_row(R::Ring, J::Vector{Tuple{Int, Int}}) -> SRow\n\nConstructs the sparse row (a_i)_i over R with a_j_i = x_i, where J = (j_i x_i)_i.\n\n\n\n"
+},
+
+{
+    "location": "sparse/intro.html#Hecke.sparse_row-Tuple{FlintIntegerRing,Array{Int64,1},Array{fmpz,1}}",
+    "page": "Sparse linear algebra",
+    "title": "Hecke.sparse_row",
+    "category": "method",
+    "text": "sparse_row(R::Ring, J::Vector{Int}, V::Vector{T}) -> SRow{T}\n\nConstructs the sparse row (a_i)_i over R with a_j_i = x_i, where J = (j_i)_i and V = (x_i)_i.\n\n\n\n"
+},
+
+{
+    "location": "sparse/intro.html#Creation-1",
+    "page": "Sparse linear algebra",
+    "title": "Creation",
+    "category": "section",
+    "text": "sparse_row(::FlintIntegerRing, ::Vector{Tuple{Int, fmpz}})\nsparse_row(::FlintIntegerRing, ::Vector{Tuple{Int, Int}})\nsparse_row(::FlintIntegerRing, ::Vector{Int}, ::Vector{fmpz})"
+},
+
+{
+    "location": "sparse/intro.html#Basic-operations-1",
+    "page": "Sparse linear algebra",
+    "title": "Basic operations",
+    "category": "section",
+    "text": "==(::SRow{fmpz}, ::SRow{fmpz})\n+(::SRow{fmpz}, ::SRow{fmpz})\ngetindex(::SRow{fmpz}, Int)\n*(::fmpz, ::SRow{fmpz})\ndiv(::SRow{fmpz}, ::fmpz)\ndivexact(::SRow{fmpz}, ::fmpz)\nadd_scaled_row(::SRow{fmpz}, ::SRow{fmpz}, ::fmpz)"
+},
+
+{
+    "location": "sparse/intro.html#Change-of-base-ring-1",
+    "page": "Sparse linear algebra",
+    "title": "Change of base ring",
+    "category": "section",
+    "text": "change_ring(::SRow{fmpz}, ::FlintIntegerRing)"
+},
+
+{
+    "location": "sparse/intro.html#Base.maximum-Tuple{SRow{fmpz}}",
+    "page": "Sparse linear algebra",
+    "title": "Base.maximum",
+    "category": "method",
+    "text": "maximum(A::SRow{fmpz}) -> fmpz\n\nFinds the largest entry of A.\n\n\n\n"
+},
+
+{
+    "location": "sparse/intro.html#Base.minimum-Tuple{SRow{fmpz}}",
+    "page": "Sparse linear algebra",
+    "title": "Base.minimum",
+    "category": "method",
+    "text": "minimum(A::SRow{fmpz}) -> fmpz\n\nFinds the smallest entry of A.\n\n\n\n"
+},
+
+{
+    "location": "sparse/intro.html#Nemo.lift-Tuple{SRow{Nemo.nmod}}",
+    "page": "Sparse linear algebra",
+    "title": "Nemo.lift",
+    "category": "method",
+    "text": "lift(A::SRow{nmod}) -> SRow{fmpz}\n\nReturn the sparse row obtained by lifting all entries in A.\n\n\n\n"
+},
+
+{
+    "location": "sparse/intro.html#Hecke.mod!-Tuple{SRow{fmpz},fmpz}",
+    "page": "Sparse linear algebra",
+    "title": "Hecke.mod!",
+    "category": "method",
+    "text": "mod!(A::SRow{fmpz}, n::fmpz) -> SRow{fmpz}\n\nInplace reduction of all entries of A modulo n to the positive residue system.\n\n\n\n"
+},
+
+{
+    "location": "sparse/intro.html#Hecke.mod_sym!-Tuple{SRow{fmpz},fmpz}",
+    "page": "Sparse linear algebra",
+    "title": "Hecke.mod_sym!",
+    "category": "method",
+    "text": "mod_sym!(A::SRow{fmpz}, n::fmpz) -> SRow{fmpz}\n\nInplace reduction of all entries of A modulo n to the symmetric residue system.\n\n\n\n"
+},
+
+{
+    "location": "sparse/intro.html#Functionality-for-integral-sparse-rows-1",
+    "page": "Sparse linear algebra",
+    "title": "Functionality for integral sparse rows",
+    "category": "section",
+    "text": "maximum(::SRow{fmpz})\nminimum(::SRow{fmpz})\nlift(::SRow{nmod})\nmod!(::SRow{fmpz}, ::fmpz)\nmod_sym!(::SRow{fmpz}, ::fmpz)"
+},
+
+{
+    "location": "sparse/intro.html#Sparse-matrices-1",
+    "page": "Sparse linear algebra",
+    "title": "Sparse matrices",
+    "category": "section",
+    "text": "Let R be a commutative ring. Sparse matrices with base ring R are modlled by objects of type SMat. More precisely, the type is of parametrized form SRow{T}, where T is the element type of the base ring. For example, SMat{fmpz} is the type for sparse matrices over the integers.In constrast to sparse rows, sparse matrices have a fixed number of rows and columns, that is, they represent elements of the matrices space mathrmMat_ntimes m(R). Internally, sparse matrices are implemented as an array of sparse rows.  As a consequence, Unlike their dense counterparts, sparse matrices have a mutable number of rows and it is very performant to add additional rows."
+},
+
+{
     "location": "FacElem.html#",
     "page": "Factored Elements",
     "title": "Factored Elements",
