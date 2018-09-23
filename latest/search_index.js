@@ -2181,7 +2181,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Sparse linear algebra",
     "title": "Hecke.sparse_row",
     "category": "method",
-    "text": "sparse_row(R::Ring, J::Vector{Tuple{Int, T}}) -> SRow{T}\n\nConstructs the sparse row (a_i)_i with a_j_i = x_i, where J = (j_i x_i)_i. The elements x_i must belong to the ring R.\n\n\n\n"
+    "text": "sparse_row(R::Ring, J::Vector{Tuple{Int, T}}) -> SRow{T}\n\nConstructs the sparse row (a_i)_i with a_i_j = x_j, where J = (i_j x_j)_j. The elements x_i must belong to the ring R.\n\n\n\n"
 },
 
 {
@@ -2189,7 +2189,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Sparse linear algebra",
     "title": "Hecke.sparse_row",
     "category": "method",
-    "text": "sparse_row(R::Ring, J::Vector{Tuple{Int, T}}) -> SRow{T}\n\nConstructs the sparse row (a_i)_i with a_j_i = x_i, where J = (j_i x_i)_i. The elements x_i must belong to the ring R.\n\n\n\nsparse_row(R::Ring, J::Vector{Tuple{Int, Int}}) -> SRow\n\nConstructs the sparse row (a_i)_i over R with a_j_i = x_i, where J = (j_i x_i)_i.\n\n\n\n"
+    "text": "sparse_row(R::Ring, J::Vector{Tuple{Int, T}}) -> SRow{T}\n\nConstructs the sparse row (a_i)_i with a_i_j = x_j, where J = (i_j x_j)_j. The elements x_i must belong to the ring R.\n\n\n\nsparse_row(R::Ring, J::Vector{Tuple{Int, Int}}) -> SRow\n\nConstructs the sparse row (a_i)_i over R with a_i_j = x_j, where J = (i_j x_j)_j.\n\n\n\n"
 },
 
 {
@@ -2197,7 +2197,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Sparse linear algebra",
     "title": "Hecke.sparse_row",
     "category": "method",
-    "text": "sparse_row(R::Ring, J::Vector{Int}, V::Vector{T}) -> SRow{T}\n\nConstructs the sparse row (a_i)_i over R with a_j_i = x_i, where J = (j_i)_i and V = (x_i)_i.\n\n\n\n"
+    "text": "sparse_row(R::Ring, J::Vector{Int}, V::Vector{T}) -> SRow{T}\n\nConstructs the sparse row (a_i)_i over R with a_i_j = x_j, where J = (i_j)_j and V = (x_j)_j.\n\n\n\n"
 },
 
 {
@@ -2209,11 +2209,75 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "sparse/intro.html#Base.:==-Tuple{SRow{fmpz},SRow{fmpz}}",
+    "page": "Sparse linear algebra",
+    "title": "Base.:==",
+    "category": "method",
+    "text": "==(x::SRow, y::SRow)\n\nChecks whether x and y are the same sparse row, that is, whether x and y have the same non-zero entries.\n\n\n\n"
+},
+
+{
+    "location": "sparse/intro.html#Base.:+-Tuple{SRow{fmpz},SRow{fmpz}}",
+    "page": "Sparse linear algebra",
+    "title": "Base.:+",
+    "category": "method",
+    "text": "+(A::SRow, B::SRow) -> SRow\n\nReturns the sum of A and B.\n\n\n\n"
+},
+
+{
+    "location": "sparse/intro.html#Base.getindex-Tuple{SRow{fmpz},Int64}",
+    "page": "Sparse linear algebra",
+    "title": "Base.getindex",
+    "category": "method",
+    "text": "getindex(A::SRow, j::Int) -> RingElem\n\nGiven a sparse row (a_i)_i and an index j return a_j.\n\n\n\n"
+},
+
+{
+    "location": "sparse/intro.html#Base.:*-Tuple{fmpz,SRow{fmpz}}",
+    "page": "Sparse linear algebra",
+    "title": "Base.:*",
+    "category": "method",
+    "text": "*(b::T, A::SRow{T}) -> SRow\n\nReturn the sparse row obtained by multiplying all elements of A by b.\n\n\n\n"
+},
+
+{
+    "location": "sparse/intro.html#Base.div-Tuple{SRow{fmpz},fmpz}",
+    "page": "Sparse linear algebra",
+    "title": "Base.div",
+    "category": "method",
+    "text": "div(A::SRow{T}, b::T) -> SRow\n\nReturn the sparse row obtained by dividing all elements of A by b using div.\n\n\n\n"
+},
+
+{
+    "location": "sparse/intro.html#AbstractAlgebra.Generic.divexact-Tuple{SRow{fmpz},fmpz}",
+    "page": "Sparse linear algebra",
+    "title": "AbstractAlgebra.Generic.divexact",
+    "category": "method",
+    "text": "divexact(A::SRow{T}, b::T) -> SRow\n\nReturn the sparse row obtained by dividing all elements of A by b using divexact.\n\n\n\n"
+},
+
+{
+    "location": "sparse/intro.html#Hecke.add_scaled_row-Tuple{SRow{fmpz},SRow{fmpz},fmpz}",
+    "page": "Sparse linear algebra",
+    "title": "Hecke.add_scaled_row",
+    "category": "method",
+    "text": "add_scaled_row(A::SRow{T}, B::SRow{T}, c::T) -> SRow{T}\n\nReturns the row c A + B.\n\n\n\n"
+},
+
+{
     "location": "sparse/intro.html#Basic-operations-1",
     "page": "Sparse linear algebra",
     "title": "Basic operations",
     "category": "section",
-    "text": "==(::SRow{fmpz}, ::SRow{fmpz})\n+(::SRow{fmpz}, ::SRow{fmpz})\ngetindex(::SRow{fmpz}, Int)\n*(::fmpz, ::SRow{fmpz})\ndiv(::SRow{fmpz}, ::fmpz)\ndivexact(::SRow{fmpz}, ::fmpz)\nadd_scaled_row(::SRow{fmpz}, ::SRow{fmpz}, ::fmpz)"
+    "text": "==(::SRow{fmpz}, ::SRow{fmpz})\n+(::SRow{fmpz}, ::SRow{fmpz})\ngetindex(::SRow{fmpz}, ::Int)\n*(::fmpz, ::SRow{fmpz})\ndiv(::SRow{fmpz}, ::fmpz)\ndivexact(::SRow{fmpz}, ::fmpz)\nadd_scaled_row(::SRow{fmpz}, ::SRow{fmpz}, ::fmpz)"
+},
+
+{
+    "location": "sparse/intro.html#Hecke.change_ring-Tuple{SRow{fmpz},FlintIntegerRing}",
+    "page": "Sparse linear algebra",
+    "title": "Hecke.change_ring",
+    "category": "method",
+    "text": "change_ring(A::SRow, R::Ring) -> SRow\n\nCreate a new sparse row by coercing all elements into the ring R.\n\n\n\n"
 },
 
 {
@@ -2278,6 +2342,14 @@ var documenterSearchIndex = {"docs": [
     "title": "Sparse matrices",
     "category": "section",
     "text": "Let R be a commutative ring. Sparse matrices with base ring R are modlled by objects of type SMat. More precisely, the type is of parametrized form SRow{T}, where T is the element type of the base ring. For example, SMat{fmpz} is the type for sparse matrices over the integers.In constrast to sparse rows, sparse matrices have a fixed number of rows and columns, that is, they represent elements of the matrices space mathrmMat_ntimes m(R). Internally, sparse matrices are implemented as an array of sparse rows.  As a consequence, Unlike their dense counterparts, sparse matrices have a mutable number of rows and it is very performant to add additional rows."
+},
+
+{
+    "location": "sparse/intro.html#Construction-1",
+    "page": "Sparse linear algebra",
+    "title": "Construction",
+    "category": "section",
+    "text": ""
 },
 
 {
