@@ -805,7 +805,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.:-",
     "category": "method",
-    "text": "\n\n-(x::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns the additive inverse of x.\n\n\n\n"
+    "text": "\n\n-(x::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns the additive inverse of x.\n\n\n\n-(A::SMat, B::SMat) -> SMat\n\nReturn the difference A - B.\n\n\n\n-(A::SRow, B::SRow) -> SRow\n\nReturns the difference of A and B.\n\n\n\n"
 },
 
 {
@@ -2293,7 +2293,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Sparse linear algebra",
     "title": "Base.maximum",
     "category": "method",
-    "text": "maximum(A::SRow{fmpz}) -> fmpz\n\nFinds the largest entry of A.\n\n\n\n"
+    "text": "maximum(A::SRow{T}) -> T\n\nReturns the largest entry of A.\n\n\n\n"
 },
 
 {
@@ -2301,7 +2301,23 @@ var documenterSearchIndex = {"docs": [
     "page": "Sparse linear algebra",
     "title": "Base.minimum",
     "category": "method",
-    "text": "minimum(A::SRow{fmpz}) -> fmpz\n\nFinds the smallest entry of A.\n\n\n\n"
+    "text": "\n\nminimum(A::NfAbsOrdIdl) -> fmpz\n\nReturns the smallest nonnegative element in A cap mathbf Z.\n\n\n\nminimum(A::SRow{T}) -> T\n\nReturns the smallest entry of A.\n\n\n\n\n\n  minimum(A::NfRelOrdIdl) -> NfOrdIdl\n  minimum(A::NfRelOrdIdl) -> NfRelOrdIdl\n\nReturns the ideal A cap O where O is the maximal order of the coefficient ideals of A.\n\n\n\n"
+},
+
+{
+    "location": "sparse/intro.html#Hecke.norm2-Tuple{SRow{fmpz}}",
+    "page": "Sparse linear algebra",
+    "title": "Hecke.norm2",
+    "category": "method",
+    "text": "norm2(A::SRow{T} -> T\n\nReturns A cdot A^t.\n\n\n\n"
+},
+
+{
+    "location": "sparse/intro.html#Maximum,-minimum-and-2-norm-1",
+    "page": "Sparse linear algebra",
+    "title": "Maximum, minimum and 2-norm",
+    "category": "section",
+    "text": "maximum(::SRow{fmpz})\nminimum(::SRow{fmpz})\nnorm2(::SRow{fmpz})"
 },
 
 {
@@ -2329,11 +2345,19 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "sparse/intro.html#Base.maximum-Tuple{typeof(abs),SRow{fmpz}}",
+    "page": "Sparse linear algebra",
+    "title": "Base.maximum",
+    "category": "method",
+    "text": "maximum(abs, A::SRow{fmpz}) -> fmpz\n\nReturns the largest, in absolute value, entry of A.\n\n\n\n"
+},
+
+{
     "location": "sparse/intro.html#Functionality-for-integral-sparse-rows-1",
     "page": "Sparse linear algebra",
     "title": "Functionality for integral sparse rows",
     "category": "section",
-    "text": "maximum(::SRow{fmpz})\nminimum(::SRow{fmpz})\nlift(::SRow{nmod})\nmod!(::SRow{fmpz}, ::fmpz)\nmod_sym!(::SRow{fmpz}, ::fmpz)"
+    "text": "lift(::SRow{nmod})\nmod!(::SRow{fmpz}, ::fmpz)\nmod_sym!(::SRow{fmpz}, ::fmpz)\nmaximum(::typeof(abs), ::SRow{fmpz})"
 },
 
 {
