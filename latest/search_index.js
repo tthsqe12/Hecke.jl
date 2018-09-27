@@ -321,6 +321,30 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "number_fields/intro.html#AbstractAlgebra.Generic.degree-Tuple{AnticNumberField}",
+    "page": "Number Fields",
+    "title": "AbstractAlgebra.Generic.degree",
+    "category": "method",
+    "text": "degree(a::AnticNumberField)\n\nReturn the degree of the given number field, i.e. the degree of its defining polynomial.\n\n\n\n"
+},
+
+{
+    "location": "number_fields/intro.html#Hecke.basis-Tuple{AnticNumberField}",
+    "page": "Number Fields",
+    "title": "Hecke.basis",
+    "category": "method",
+    "text": "basis(K::AnticNumberField) -> Vector{nf_elem}\n\nReturns the power basis of K, that is, the elements 1adotsca^d - 1, where d is the degree of K.\n\n\n\n"
+},
+
+{
+    "location": "number_fields/intro.html#AbstractAlgebra.Generic.discriminant-Tuple{AnticNumberField}",
+    "page": "Number Fields",
+    "title": "AbstractAlgebra.Generic.discriminant",
+    "category": "method",
+    "text": "discriminant(K::AnticNumberField) -> fmpq\ndiscriminant(K::NfRel) ->\n\nThe discriminant of the defining polynomial of K {\\bf not} the discriminant  of the maximal order.\n\n\n\n"
+},
+
+{
     "location": "number_fields/intro.html#Invariants-1",
     "page": "Number Fields",
     "title": "Invariants",
@@ -337,11 +361,67 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "number_fields/intro.html#Nemo.AnticNumberField",
+    "page": "Number Fields",
+    "title": "Nemo.AnticNumberField",
+    "category": "type",
+    "text": "(a::AnticNumberField)()\n\nReturn an empty (0) element.    \n\n\n\n(a::AnticNumberField)(c::Int)\n\nReturn c as an element in a.\n\n\n\n"
+},
+
+{
     "location": "number_fields/intro.html#Creation-5",
     "page": "Number Fields",
     "title": "Creation",
     "category": "section",
     "text": "AnticNumberField"
+},
+
+{
+    "location": "number_fields/intro.html#LinearAlgebra.norm-Tuple{nf_elem}",
+    "page": "Number Fields",
+    "title": "LinearAlgebra.norm",
+    "category": "method",
+    "text": "norm(a::nf_elem)\n\nReturn the absolute norm of a. The result will be a rational number.\n\n\n\n"
+},
+
+{
+    "location": "number_fields/intro.html#AbstractAlgebra.Generic.minpoly-Tuple{nf_elem}",
+    "page": "Number Fields",
+    "title": "AbstractAlgebra.Generic.minpoly",
+    "category": "method",
+    "text": "\n\nminpoly(a::nf_elem) -> fmpq_poly\n\nThe minimal polynomial of a.\n\n\n\n"
+},
+
+{
+    "location": "number_fields/intro.html#AbstractAlgebra.Generic.charpoly-Tuple{nf_elem}",
+    "page": "Number Fields",
+    "title": "AbstractAlgebra.Generic.charpoly",
+    "category": "method",
+    "text": "\n\ncharpoly(a::nf_elem) -> fmpq_poly\n\nThe characteristic polynomial of a.\n\n\n\n"
+},
+
+{
+    "location": "number_fields/intro.html#Base.denominator-Tuple{nf_elem}",
+    "page": "Number Fields",
+    "title": "Base.denominator",
+    "category": "method",
+    "text": "denominator(a::nf_elem)\n\nReturn the denominator of the polynomial representation of the given number field element.\n\n\n\n"
+},
+
+{
+    "location": "number_fields/intro.html#Base.numerator-Tuple{nf_elem}",
+    "page": "Number Fields",
+    "title": "Base.numerator",
+    "category": "method",
+    "text": "numerator(a::nf_elem) -> nf_elem\n\nFor an element ain K = Qtf write a as bd with bin Zt, deg(a) = deg(b) and d0 minimal in Z. This function returns b.\n\n\n\n"
+},
+
+{
+    "location": "number_fields/intro.html#AbstractAlgebra.Generic.isunit-Tuple{nf_elem}",
+    "page": "Number Fields",
+    "title": "AbstractAlgebra.Generic.isunit",
+    "category": "method",
+    "text": "isunit(a::nf_elem)\n\nReturn true if the given number field element is invertible, i.e. nonzero, otherwise return false.\n\n\n\n"
 },
 
 {
