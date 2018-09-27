@@ -1309,7 +1309,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.isprincipal",
     "category": "method",
-    "text": "isprincipal(A::NfOrdIdl) -> Bool, NfOrdElem\n\nTests if A is principal and returns (mathtttrue alpha) if A = langle alpharangle of (mathttfalse 1) otherwise.  \n\n\n\n"
+    "text": "isprincipal(A::NfOrdIdl) -> Bool, NfOrdElem\nisprincipal(A::NfOrdFracIdl) -> Bool, NfOrdElem\n\nTests if A is principal and returns (mathtttrue alpha) if A = langle alpharangle of (mathttfalse 1) otherwise.  \n\n\n\n"
 },
 
 {
