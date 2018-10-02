@@ -321,30 +321,6 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "number_fields/intro.html#AbstractAlgebra.Generic.degree-Tuple{AnticNumberField}",
-    "page": "Number Fields",
-    "title": "AbstractAlgebra.Generic.degree",
-    "category": "method",
-    "text": "degree(a::AnticNumberField)\n\nReturn the degree of the given number field, i.e. the degree of its defining polynomial.\n\n\n\n"
-},
-
-{
-    "location": "number_fields/intro.html#Hecke.basis-Tuple{AnticNumberField}",
-    "page": "Number Fields",
-    "title": "Hecke.basis",
-    "category": "method",
-    "text": "basis(K::AnticNumberField) -> Vector{nf_elem}\n\nReturns the power basis of K, that is, the elements 1adotsca^d - 1, where d is the degree of K.\n\n\n\n"
-},
-
-{
-    "location": "number_fields/intro.html#AbstractAlgebra.Generic.discriminant-Tuple{AnticNumberField}",
-    "page": "Number Fields",
-    "title": "AbstractAlgebra.Generic.discriminant",
-    "category": "method",
-    "text": "discriminant(K::AnticNumberField) -> fmpq\ndiscriminant(K::NfRel) ->\n\nThe discriminant of the defining polynomial of K {\\bf not} the discriminant  of the maximal order.\n\n\n\n"
-},
-
-{
     "location": "number_fields/intro.html#Invariants-1",
     "page": "Number Fields",
     "title": "Invariants",
@@ -361,67 +337,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "number_fields/intro.html#Nemo.AnticNumberField",
-    "page": "Number Fields",
-    "title": "Nemo.AnticNumberField",
-    "category": "type",
-    "text": "(a::AnticNumberField)()\n\nReturn an empty (0) element.    \n\n\n\n(a::AnticNumberField)(c::Int)\n\nReturn c as an element in a.\n\n\n\n"
-},
-
-{
     "location": "number_fields/intro.html#Creation-5",
     "page": "Number Fields",
     "title": "Creation",
     "category": "section",
     "text": "AnticNumberField"
-},
-
-{
-    "location": "number_fields/intro.html#LinearAlgebra.norm-Tuple{nf_elem}",
-    "page": "Number Fields",
-    "title": "LinearAlgebra.norm",
-    "category": "method",
-    "text": "norm(a::nf_elem)\n\nReturn the absolute norm of a. The result will be a rational number.\n\n\n\n"
-},
-
-{
-    "location": "number_fields/intro.html#AbstractAlgebra.Generic.minpoly-Tuple{nf_elem}",
-    "page": "Number Fields",
-    "title": "AbstractAlgebra.Generic.minpoly",
-    "category": "method",
-    "text": "\n\nminpoly(a::nf_elem) -> fmpq_poly\n\nThe minimal polynomial of a.\n\n\n\n"
-},
-
-{
-    "location": "number_fields/intro.html#AbstractAlgebra.Generic.charpoly-Tuple{nf_elem}",
-    "page": "Number Fields",
-    "title": "AbstractAlgebra.Generic.charpoly",
-    "category": "method",
-    "text": "\n\ncharpoly(a::nf_elem) -> fmpq_poly\n\nThe characteristic polynomial of a.\n\n\n\n"
-},
-
-{
-    "location": "number_fields/intro.html#Base.denominator-Tuple{nf_elem}",
-    "page": "Number Fields",
-    "title": "Base.denominator",
-    "category": "method",
-    "text": "denominator(a::nf_elem)\n\nReturn the denominator of the polynomial representation of the given number field element.\n\n\n\n"
-},
-
-{
-    "location": "number_fields/intro.html#Base.numerator-Tuple{nf_elem}",
-    "page": "Number Fields",
-    "title": "Base.numerator",
-    "category": "method",
-    "text": "numerator(a::nf_elem) -> nf_elem\n\nFor an element ain K = Qtf write a as bd with bin Zt, deg(a) = deg(b) and d0 minimal in Z. This function returns b.\n\n\n\n"
-},
-
-{
-    "location": "number_fields/intro.html#AbstractAlgebra.Generic.isunit-Tuple{nf_elem}",
-    "page": "Number Fields",
-    "title": "AbstractAlgebra.Generic.isunit",
-    "category": "method",
-    "text": "isunit(a::nf_elem)\n\nReturn true if the given number field element is invertible, i.e. nonzero, otherwise return false.\n\n\n\n"
 },
 
 {
@@ -885,7 +805,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.:-",
     "category": "method",
-    "text": "\n\n-(x::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns the additive inverse of x.\n\n\n\n-(A::SMat, B::SMat) -> SMat\n\nReturn the difference A - B.\n\n\n\n-(A::SRow, B::SRow) -> SRow\n\nReturns the difference of A and B.\n\n\n\n"
+    "text": "\n\n-(x::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns the additive inverse of x.\n\n\n\n"
 },
 
 {
@@ -1309,7 +1229,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.isprincipal",
     "category": "method",
-    "text": "isprincipal(A::NfOrdIdl) -> Bool, NfOrdElem\nisprincipal(A::NfOrdFracIdl) -> Bool, NfOrdElem\n\nTests if A is principal and returns (mathtttrue alpha) if A = langle alpharangle of (mathttfalse 1) otherwise.  \n\n\n\n"
+    "text": "isprincipal(A::NfOrdIdl) -> Bool, NfOrdElem\n\nTests if A is principal and returns (mathtttrue alpha) if A = langle alpharangle of (mathttfalse 1) otherwise.  \n\n\n\n"
 },
 
 {
@@ -2261,7 +2181,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Sparse linear algebra",
     "title": "Hecke.sparse_row",
     "category": "method",
-    "text": "sparse_row(R::Ring, J::Vector{Tuple{Int, T}}) -> SRow{T}\n\nConstructs the sparse row (a_i)_i with a_i_j = x_j, where J = (i_j x_j)_j. The elements x_i must belong to the ring R.\n\n\n\n"
+    "text": "sparse_row(R::Ring, J::Vector{Tuple{Int, T}}) -> SRow{T}\n\nConstructs the sparse row (a_i)_i with a_j_i = x_i, where J = (j_i x_i)_i. The elements x_i must belong to the ring R.\n\n\n\n"
 },
 
 {
@@ -2269,7 +2189,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Sparse linear algebra",
     "title": "Hecke.sparse_row",
     "category": "method",
-    "text": "sparse_row(R::Ring, J::Vector{Tuple{Int, T}}) -> SRow{T}\n\nConstructs the sparse row (a_i)_i with a_i_j = x_j, where J = (i_j x_j)_j. The elements x_i must belong to the ring R.\n\n\n\nsparse_row(R::Ring, J::Vector{Tuple{Int, Int}}) -> SRow\n\nConstructs the sparse row (a_i)_i over R with a_i_j = x_j, where J = (i_j x_j)_j.\n\n\n\n"
+    "text": "sparse_row(R::Ring, J::Vector{Tuple{Int, T}}) -> SRow{T}\n\nConstructs the sparse row (a_i)_i with a_j_i = x_i, where J = (j_i x_i)_i. The elements x_i must belong to the ring R.\n\n\n\nsparse_row(R::Ring, J::Vector{Tuple{Int, Int}}) -> SRow\n\nConstructs the sparse row (a_i)_i over R with a_j_i = x_i, where J = (j_i x_i)_i.\n\n\n\n"
 },
 
 {
@@ -2277,7 +2197,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Sparse linear algebra",
     "title": "Hecke.sparse_row",
     "category": "method",
-    "text": "sparse_row(R::Ring, J::Vector{Int}, V::Vector{T}) -> SRow{T}\n\nConstructs the sparse row (a_i)_i over R with a_i_j = x_j, where J = (i_j)_j and V = (x_j)_j.\n\n\n\n"
+    "text": "sparse_row(R::Ring, J::Vector{Int}, V::Vector{T}) -> SRow{T}\n\nConstructs the sparse row (a_i)_i over R with a_j_i = x_i, where J = (j_i)_i and V = (x_i)_i.\n\n\n\n"
 },
 
 {
@@ -2289,75 +2209,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "sparse/intro.html#Base.:==-Tuple{SRow{fmpz},SRow{fmpz}}",
-    "page": "Sparse linear algebra",
-    "title": "Base.:==",
-    "category": "method",
-    "text": "==(x::SRow, y::SRow)\n\nChecks whether x and y are the same sparse row, that is, whether x and y have the same non-zero entries.\n\n\n\n"
-},
-
-{
-    "location": "sparse/intro.html#Base.:+-Tuple{SRow{fmpz},SRow{fmpz}}",
-    "page": "Sparse linear algebra",
-    "title": "Base.:+",
-    "category": "method",
-    "text": "+(A::SRow, B::SRow) -> SRow\n\nReturns the sum of A and B.\n\n\n\n"
-},
-
-{
-    "location": "sparse/intro.html#Base.getindex-Tuple{SRow{fmpz},Int64}",
-    "page": "Sparse linear algebra",
-    "title": "Base.getindex",
-    "category": "method",
-    "text": "getindex(A::SRow, j::Int) -> RingElem\n\nGiven a sparse row (a_i)_i and an index j return a_j.\n\n\n\n"
-},
-
-{
-    "location": "sparse/intro.html#Base.:*-Tuple{fmpz,SRow{fmpz}}",
-    "page": "Sparse linear algebra",
-    "title": "Base.:*",
-    "category": "method",
-    "text": "*(b::T, A::SRow{T}) -> SRow\n\nReturn the sparse row obtained by multiplying all elements of A by b.\n\n\n\n"
-},
-
-{
-    "location": "sparse/intro.html#Base.div-Tuple{SRow{fmpz},fmpz}",
-    "page": "Sparse linear algebra",
-    "title": "Base.div",
-    "category": "method",
-    "text": "div(A::SRow{T}, b::T) -> SRow\n\nReturn the sparse row obtained by dividing all elements of A by b using div.\n\n\n\n"
-},
-
-{
-    "location": "sparse/intro.html#AbstractAlgebra.Generic.divexact-Tuple{SRow{fmpz},fmpz}",
-    "page": "Sparse linear algebra",
-    "title": "AbstractAlgebra.Generic.divexact",
-    "category": "method",
-    "text": "divexact(A::SRow{T}, b::T) -> SRow\n\nReturn the sparse row obtained by dividing all elements of A by b using divexact.\n\n\n\n"
-},
-
-{
-    "location": "sparse/intro.html#Hecke.add_scaled_row-Tuple{SRow{fmpz},SRow{fmpz},fmpz}",
-    "page": "Sparse linear algebra",
-    "title": "Hecke.add_scaled_row",
-    "category": "method",
-    "text": "add_scaled_row(A::SRow{T}, B::SRow{T}, c::T) -> SRow{T}\n\nReturns the row c A + B.\n\n\n\n"
-},
-
-{
     "location": "sparse/intro.html#Basic-operations-1",
     "page": "Sparse linear algebra",
     "title": "Basic operations",
     "category": "section",
     "text": "==(::SRow{fmpz}, ::SRow{fmpz})\n+(::SRow{fmpz}, ::SRow{fmpz})\ngetindex(::SRow{fmpz}, ::Int)\n*(::fmpz, ::SRow{fmpz})\ndiv(::SRow{fmpz}, ::fmpz)\ndivexact(::SRow{fmpz}, ::fmpz)\nadd_scaled_row(::SRow{fmpz}, ::SRow{fmpz}, ::fmpz)"
-},
-
-{
-    "location": "sparse/intro.html#Hecke.change_ring-Tuple{SRow{fmpz},FlintIntegerRing}",
-    "page": "Sparse linear algebra",
-    "title": "Hecke.change_ring",
-    "category": "method",
-    "text": "change_ring(A::SRow, R::Ring) -> SRow\n\nCreate a new sparse row by coercing all elements into the ring R.\n\n\n\n"
 },
 
 {
@@ -2373,7 +2229,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Sparse linear algebra",
     "title": "Base.maximum",
     "category": "method",
-    "text": "maximum(A::SRow{T}) -> T\n\nReturns the largest entry of A.\n\n\n\n"
+    "text": "maximum(A::SRow{fmpz}) -> fmpz\n\nFinds the largest entry of A.\n\n\n\n"
 },
 
 {
@@ -2381,7 +2237,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Sparse linear algebra",
     "title": "Base.minimum",
     "category": "method",
-    "text": "\n\nminimum(A::NfAbsOrdIdl) -> fmpz\n\nReturns the smallest nonnegative element in A cap mathbf Z.\n\n\n\nminimum(A::SRow{T}) -> T\n\nReturns the smallest entry of A.\n\n\n\n\n\n  minimum(A::NfRelOrdIdl) -> NfOrdIdl\n  minimum(A::NfRelOrdIdl) -> NfRelOrdIdl\n\nReturns the ideal A cap O where O is the maximal order of the coefficient ideals of A.\n\n\n\n"
+    "text": "minimum(A::SRow{fmpz}) -> fmpz\n\nFinds the smallest entry of A.\n\n\n\n"
 },
 
 {
@@ -2389,7 +2245,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Sparse linear algebra",
     "title": "Hecke.norm2",
     "category": "method",
-    "text": "norm2(A::SRow{T} -> T\n\nReturns A cdot A^t.\n\n\n\n"
+    "text": "\n\nnorm2(A::SRow{fmpz})\n\nThe square of the euclidean norm of A.\n\n\n\n"
 },
 
 {
@@ -2398,38 +2254,6 @@ var documenterSearchIndex = {"docs": [
     "title": "Maximum, minimum and 2-norm",
     "category": "section",
     "text": "maximum(::SRow{fmpz})\nminimum(::SRow{fmpz})\nnorm2(::SRow{fmpz})"
-},
-
-{
-    "location": "sparse/intro.html#Nemo.lift-Tuple{SRow{Nemo.nmod}}",
-    "page": "Sparse linear algebra",
-    "title": "Nemo.lift",
-    "category": "method",
-    "text": "lift(A::SRow{nmod}) -> SRow{fmpz}\n\nReturn the sparse row obtained by lifting all entries in A.\n\n\n\n"
-},
-
-{
-    "location": "sparse/intro.html#Hecke.mod!-Tuple{SRow{fmpz},fmpz}",
-    "page": "Sparse linear algebra",
-    "title": "Hecke.mod!",
-    "category": "method",
-    "text": "mod!(A::SRow{fmpz}, n::fmpz) -> SRow{fmpz}\n\nInplace reduction of all entries of A modulo n to the positive residue system.\n\n\n\n"
-},
-
-{
-    "location": "sparse/intro.html#Hecke.mod_sym!-Tuple{SRow{fmpz},fmpz}",
-    "page": "Sparse linear algebra",
-    "title": "Hecke.mod_sym!",
-    "category": "method",
-    "text": "mod_sym!(A::SRow{fmpz}, n::fmpz) -> SRow{fmpz}\n\nInplace reduction of all entries of A modulo n to the symmetric residue system.\n\n\n\n"
-},
-
-{
-    "location": "sparse/intro.html#Base.maximum-Tuple{typeof(abs),SRow{fmpz}}",
-    "page": "Sparse linear algebra",
-    "title": "Base.maximum",
-    "category": "method",
-    "text": "maximum(abs, A::SRow{fmpz}) -> fmpz\n\nReturns the largest, in absolute value, entry of A.\n\n\n\n"
 },
 
 {
