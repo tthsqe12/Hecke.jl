@@ -2,7 +2,7 @@
 
 export sparse_trafo_scale, sparse_trafo_swap, sparse_trafo_add_scaled,
        sparse_trafo_para_add_scaled, sparse_trafo_partial_dense,
-       sparse_trafo_delete_row
+       sparse_trafo_delete_zero
 
 ################################################################################
 #
@@ -446,6 +446,7 @@ function apply_right!(x::Vector{T}, t::SparseTrafoElem{T, S}) where {T, S}
       x[j - 1] = r
     end
   end
+  return x
 end
 
 ################################################################################
