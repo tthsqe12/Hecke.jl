@@ -253,7 +253,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Number Fields",
     "title": "Hecke.simple_extension",
     "category": "method",
-    "text": "simple_extension(K::NfRel_ns{nf_elem}) -> AnticNumberField, Map, Map\n\nCompute an isomorphic field as an extension of Q together with the isomorphism  (1st map) and the embedding of the base field (2nd map).\n\n\n\n"
+    "text": "simple_extension(K::NfRel_ns{nf_elem}) -> NfRel, Map, Map\n\nCompute an isomorphic field as an extension of Q together with the isomorphism  (1st map) and the embedding of the base field (2nd map).\n\n\n\n"
 },
 
 {
