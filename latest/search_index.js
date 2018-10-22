@@ -389,7 +389,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Number Fields",
     "title": "AbstractAlgebra.Generic.minpoly",
     "category": "method",
-    "text": "\n\nminpoly(a::nf_elem) -> fmpq_poly\n\nThe minimal polynomial of a.\n\n\n\n"
+    "text": "minpoly{T <: FieldElement}(S::Ring, M::AbstractAlgebra.MatElem{T}, charpoly_only = false)\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly{T <: RingElement}(S::Ring, M::AbstractAlgebra.MatElem{T}, charpoly_only = false)\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\n\n\nminpoly(a::nf_elem) -> fmpq_poly\n\nThe minimal polynomial of a.\n\n\n\n"
 },
 
 {
@@ -397,7 +397,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Number Fields",
     "title": "AbstractAlgebra.Generic.charpoly",
     "category": "method",
-    "text": "\n\ncharpoly(a::nf_elem) -> fmpq_poly\n\nThe characteristic polynomial of a.\n\n\n\n"
+    "text": "charpoly{T <: RingElement}(V::Ring, Y::AbstractAlgebra.MatElem{T})\n\nReturns the characteristic polynomial p of the matrix M. The polynomial ring R of the resulting polynomial must be supplied and the matrix is assumed to be square.\n\n\n\n\n\ncharpoly(a::nf_elem) -> fmpq_poly\n\nThe characteristic polynomial of a.\n\n\n\n"
 },
 
 {
@@ -805,7 +805,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.parent",
     "category": "method",
-    "text": "\n\nparent(a::NfAbsOrdElem) -> NfOrd\n\nReturns the order of which a is an element.\n\n\n\n"
+    "text": "parent(g::perm)\n\nReturn the parent of the permutation g.\n\njulia> G = PermutationGroup(5); g = perm([3,4,5,2,1])\n(1,3,5)(2,4)\n\njulia> parent(g) == G\ntrue\n\n\n\nparent(a::AbstractAlgebra.MatElem)\n\nReturn the parent object of the given matrix.\n\n\n\n\n\nparent(a::NfAbsOrdElem) -> NfOrd\n\nReturns the order of which a is an element.\n\n\n\n"
 },
 
 {
@@ -885,7 +885,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.:-",
     "category": "method",
-    "text": "\n\n-(x::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns the additive inverse of x.\n\n\n\n-(A::SMat, B::SMat) -> SMat\n\nReturn the difference A - B.\n\n\n\n-(A::SRow, B::SRow) -> SRow\n\nReturns the difference of A and B.\n\n\n\n"
+    "text": "-{T <: RingElement}(a::AbstractAlgebra.ResElem{T}, b::AbstractAlgebra.ResElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::AbstractAlgebra.ResElem{T}, b::T)\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::T, b::AbstractAlgebra.ResElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.ResFieldElem{T}, b::AbstractAlgebra.ResFieldElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::AbstractAlgebra.ResFieldElem{T}, b::T)\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::T, b::AbstractAlgebra.ResFieldElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.PolyElem{T}, b::AbstractAlgebra.PolyElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.RelSeriesElem{T}, b::AbstractAlgebra.RelSeriesElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.AbsSeriesElem{T}, b::AbstractAlgebra.AbsSeriesElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::LaurentSeriesElem{T}, b::LaurentSeriesElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.MatElem{T}, b::AbstractAlgebra.MatElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(x::T, y::AbstractAlgebra.MatElem{T})\n\nReturn S(x) - y where S is the parent of y.\n\n\n\n-{T <: RingElem}(x::AbstractAlgebra.MatElem{T}, y::T)\n\nReturn x - S(y), where S is the parent of a.\n\n\n\n-{T <: RingElem}(a::AbstractAlgebra.FracElem{T}, b::AbstractAlgebra.FracElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::AbstractAlgebra.FracElem{T}, b::T)\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::T, b::AbstractAlgebra.FracElem{T})\n\nReturn a - b.\n\n\n\n\n\n-(x::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns the additive inverse of x.\n\n\n\n-(A::SMat, B::SMat) -> SMat\n\nReturn the difference A - B.\n\n\n\n-(A::SRow, B::SRow) -> SRow\n\nReturns the difference of A and B.\n\n\n\n"
 },
 
 {
@@ -1021,7 +1021,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "AbstractAlgebra.Generic.minpoly",
     "category": "method",
-    "text": "minpoly(a::NfAbsOrdElem) -> fmpz_poly\n\nminpoly(a::NfAbsOrdElem, FlintZZ) -> fmpz_poly\n\nThe minimal polynomial of a.    \n\n\n\n"
+    "text": "minpoly{T <: RingElement}(S::Ring, M::AbstractAlgebra.MatElem{T}, charpoly_only = false)\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(a::NfAbsOrdElem) -> fmpz_poly\n\nminpoly(a::NfAbsOrdElem, FlintZZ) -> fmpz_poly\n\nThe minimal polynomial of a.    \n\n\n\n"
 },
 
 {
@@ -1029,7 +1029,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "AbstractAlgebra.Generic.charpoly",
     "category": "method",
-    "text": "charpoly(a::NfAbsOrdElem) -> fmpz_poly\n\ncharpoly(a::NfAbsOrdElem, FlintZZ) -> fmpz_poly\n\nThe characteristic polynomial of a.    \n\n\n\n"
+    "text": "charpoly{T <: RingElement}(V::Ring, Y::AbstractAlgebra.MatElem{T})\n\nReturns the characteristic polynomial p of the matrix M. The polynomial ring R of the resulting polynomial must be supplied and the matrix is assumed to be square.\n\n\n\ncharpoly(a::NfAbsOrdElem) -> fmpz_poly\n\ncharpoly(a::NfAbsOrdElem, FlintZZ) -> fmpz_poly\n\nThe characteristic polynomial of a.    \n\n\n\n"
 },
 
 {
