@@ -389,7 +389,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Number Fields",
     "title": "AbstractAlgebra.Generic.minpoly",
     "category": "method",
-    "text": "minpoly{T <: FieldElement}(S::Ring, M::AbstractAlgebra.MatElem{T}, charpoly_only = false)\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly{T <: RingElement}(S::Ring, M::AbstractAlgebra.MatElem{T}, charpoly_only = false)\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\n\n\nminpoly(a::nf_elem) -> fmpq_poly\n\nThe minimal polynomial of a.\n\n\n\n"
+    "text": "\n\nminpoly(a::nf_elem) -> fmpq_poly\n\nThe minimal polynomial of a.\n\n\n\nminpoly{T <: FieldElement}(S::Ring, M::AbstractAlgebra.MatElem{T}, charpoly_only = false)\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly{T <: RingElement}(S::Ring, M::AbstractAlgebra.MatElem{T}, charpoly_only = false)\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\n"
 },
 
 {
@@ -397,7 +397,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Number Fields",
     "title": "AbstractAlgebra.Generic.charpoly",
     "category": "method",
-    "text": "charpoly{T <: RingElement}(V::Ring, Y::AbstractAlgebra.MatElem{T})\n\nReturns the characteristic polynomial p of the matrix M. The polynomial ring R of the resulting polynomial must be supplied and the matrix is assumed to be square.\n\n\n\n\n\ncharpoly(a::nf_elem) -> fmpq_poly\n\nThe characteristic polynomial of a.\n\n\n\n"
+    "text": "\n\ncharpoly(a::nf_elem) -> fmpq_poly\n\nThe characteristic polynomial of a.\n\n\n\ncharpoly{T <: RingElement}(V::Ring, Y::AbstractAlgebra.MatElem{T})\n\nReturns the characteristic polynomial p of the matrix M. The polynomial ring R of the resulting polynomial must be supplied and the matrix is assumed to be square.\n\n\n\n"
 },
 
 {
@@ -805,7 +805,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.parent",
     "category": "method",
-    "text": "parent(g::perm)\n\nReturn the parent of the permutation g.\n\njulia> G = PermutationGroup(5); g = perm([3,4,5,2,1])\n(1,3,5)(2,4)\n\njulia> parent(g) == G\ntrue\n\n\n\nparent(a::AbstractAlgebra.MatElem)\n\nReturn the parent object of the given matrix.\n\n\n\n\n\nparent(a::NfAbsOrdElem) -> NfOrd\n\nReturns the order of which a is an element.\n\n\n\n"
+    "text": "\n\nparent(a::NfAbsOrdElem) -> NfOrd\n\nReturns the order of which a is an element.\n\n\n\nparent(g::perm)\n\nReturn the parent of the permutation g.\n\njulia> G = PermutationGroup(5); g = perm([3,4,5,2,1])\n(1,3,5)(2,4)\n\njulia> parent(g) == G\ntrue\n\n\n\nparent(a::AbstractAlgebra.MatElem)\n\nReturn the parent object of the given matrix.\n\n\n\n"
 },
 
 {
@@ -885,7 +885,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.:-",
     "category": "method",
-    "text": "-{T <: RingElement}(a::AbstractAlgebra.ResElem{T}, b::AbstractAlgebra.ResElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::AbstractAlgebra.ResElem{T}, b::T)\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::T, b::AbstractAlgebra.ResElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.ResFieldElem{T}, b::AbstractAlgebra.ResFieldElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::AbstractAlgebra.ResFieldElem{T}, b::T)\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::T, b::AbstractAlgebra.ResFieldElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.PolyElem{T}, b::AbstractAlgebra.PolyElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.RelSeriesElem{T}, b::AbstractAlgebra.RelSeriesElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.AbsSeriesElem{T}, b::AbstractAlgebra.AbsSeriesElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::LaurentSeriesElem{T}, b::LaurentSeriesElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.MatElem{T}, b::AbstractAlgebra.MatElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(x::T, y::AbstractAlgebra.MatElem{T})\n\nReturn S(x) - y where S is the parent of y.\n\n\n\n-{T <: RingElem}(x::AbstractAlgebra.MatElem{T}, y::T)\n\nReturn x - S(y), where S is the parent of a.\n\n\n\n-{T <: RingElem}(a::AbstractAlgebra.FracElem{T}, b::AbstractAlgebra.FracElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::AbstractAlgebra.FracElem{T}, b::T)\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::T, b::AbstractAlgebra.FracElem{T})\n\nReturn a - b.\n\n\n\n\n\n-(x::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns the additive inverse of x.\n\n\n\n-(A::SMat, B::SMat) -> SMat\n\nReturn the difference A - B.\n\n\n\n-(A::SRow, B::SRow) -> SRow\n\nReturns the difference of A and B.\n\n\n\n"
+    "text": "\n\n-(x::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns the additive inverse of x.\n\n\n\n-(A::SMat, B::SMat) -> SMat\n\nReturn the difference A - B.\n\n\n\n-(A::SRow, B::SRow) -> SRow\n\nReturns the difference of A and B.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.ResElem{T}, b::AbstractAlgebra.ResElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::AbstractAlgebra.ResElem{T}, b::T)\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::T, b::AbstractAlgebra.ResElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.ResFieldElem{T}, b::AbstractAlgebra.ResFieldElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::AbstractAlgebra.ResFieldElem{T}, b::T)\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::T, b::AbstractAlgebra.ResFieldElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.PolyElem{T}, b::AbstractAlgebra.PolyElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.RelSeriesElem{T}, b::AbstractAlgebra.RelSeriesElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.AbsSeriesElem{T}, b::AbstractAlgebra.AbsSeriesElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::LaurentSeriesElem{T}, b::LaurentSeriesElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.MatElem{T}, b::AbstractAlgebra.MatElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(x::T, y::AbstractAlgebra.MatElem{T})\n\nReturn S(x) - y where S is the parent of y.\n\n\n\n-{T <: RingElem}(x::AbstractAlgebra.MatElem{T}, y::T)\n\nReturn x - S(y), where S is the parent of a.\n\n\n\n-{T <: RingElem}(a::AbstractAlgebra.FracElem{T}, b::AbstractAlgebra.FracElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::AbstractAlgebra.FracElem{T}, b::T)\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::T, b::AbstractAlgebra.FracElem{T})\n\nReturn a - b.\n\n\n\n"
 },
 
 {
@@ -1021,7 +1021,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "AbstractAlgebra.Generic.minpoly",
     "category": "method",
-    "text": "minpoly{T <: RingElement}(S::Ring, M::AbstractAlgebra.MatElem{T}, charpoly_only = false)\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(a::NfAbsOrdElem) -> fmpz_poly\n\nminpoly(a::NfAbsOrdElem, FlintZZ) -> fmpz_poly\n\nThe minimal polynomial of a.    \n\n\n\n"
+    "text": "minpoly(a::NfAbsOrdElem) -> fmpz_poly\n\nminpoly(a::NfAbsOrdElem, FlintZZ) -> fmpz_poly\n\nThe minimal polynomial of a.    \n\n\n\nminpoly{T <: RingElement}(S::Ring, M::AbstractAlgebra.MatElem{T}, charpoly_only = false)\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\n"
 },
 
 {
@@ -1029,7 +1029,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "AbstractAlgebra.Generic.charpoly",
     "category": "method",
-    "text": "charpoly{T <: RingElement}(V::Ring, Y::AbstractAlgebra.MatElem{T})\n\nReturns the characteristic polynomial p of the matrix M. The polynomial ring R of the resulting polynomial must be supplied and the matrix is assumed to be square.\n\n\n\ncharpoly(a::NfAbsOrdElem) -> fmpz_poly\n\ncharpoly(a::NfAbsOrdElem, FlintZZ) -> fmpz_poly\n\nThe characteristic polynomial of a.    \n\n\n\n"
+    "text": "charpoly(a::NfAbsOrdElem) -> fmpz_poly\n\ncharpoly(a::NfAbsOrdElem, FlintZZ) -> fmpz_poly\n\nThe characteristic polynomial of a.    \n\n\n\ncharpoly{T <: RingElement}(V::Ring, Y::AbstractAlgebra.MatElem{T})\n\nReturns the characteristic polynomial p of the matrix M. The polynomial ring R of the resulting polynomial must be supplied and the matrix is assumed to be square.\n\n\n\n"
 },
 
 {
@@ -1654,46 +1654,6 @@ var documenterSearchIndex = {"docs": [
     "title": "Miscaellenous",
     "category": "section",
     "text": "order(::NfAbsOrdIdl)\nnf(::NfAbsOrdIdl)\nbasis(::NfOrdIdl)\nbasis_mat(::NfOrdIdl)\nbasis_mat_inv(::NfOrdIdl)\nHecke.assure_has_basis_mat_inv(::NfOrdIdl)\nHecke.has_basis(::NfOrdIdl)\nHecke.has_basis_mat(::NfOrdIdl)\nHecke.has_2_elem(::NfOrdIdl)\nHecke.has_2_elem_normal(::NfOrdIdl)\nHecke.has_weakly_normal(::NfOrdIdl)\nHecke.has_princ_gen_special(::NfOrdIdl)\nHecke.principal_gen(::NfOrdIdl)\nHecke.principal_gen_fac_elem(::NfOrdIdl)\nminimum(::NfOrdIdl)\n#minimum(m::T, I::NfOrdIdl) where T <: (AbstractAlgebra.Map{Nemo.AnticNumberField,Nemo.AnticNumberField,S,T} where T where S)\nhas_minimum(::NfOrdIdl)\nnorm(::NfOrdIdl)\nHecke.has_norm(::NfOrdIdl)\nidempotents(::NfOrdIdl, ::NfOrdIdl)\nisprime(::NfOrdIdl)\nHecke.isprime_known(::NfOrdIdl)\nsplitting_type(::NfOrdIdl)\nisramified(::NfOrd, ::Union{Int, fmpz})\nramification_index(::NfOrdIdl)\ndegree(::NfOrdIdl)\nvaluation(::nf_elem, ::NfOrdIdl)\nvaluation(::NfOrdElem, ::NfOrdIdl)\nvaluation(::NfOrdIdl, ::NfOrdIdl)\nvaluation(::Integer, ::NfOrdIdl)\nvaluation(::fmpz, ::NfOrdIdl)\nvaluation(::NfOrdFracIdl, ::NfOrdIdl)"
-},
-
-{
-    "location": "orders/ideals.html#Hecke.quo-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}",
-    "page": "Ideals",
-    "title": "Hecke.quo",
-    "category": "method",
-    "text": "quo(O::NfOrd, I::NfOrdIdl) -> NfOrdQuoRing, Map\n\nThe quotient ring OI as a ring together with the section M OI to O. The pointwise inverse of M is the canonical projection Oto OI.\n\n\n\n"
-},
-
-{
-    "location": "orders/ideals.html#AbstractAlgebra.ResidueRing-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}",
-    "page": "Ideals",
-    "title": "AbstractAlgebra.ResidueRing",
-    "category": "method",
-    "text": "ResidueRing(O::NfOrd, I::NfOrdIdl) -> NfOrdQuoRing\n\nThe quotient ring O modulo I as a new ring.\n\n\n\n"
-},
-
-{
-    "location": "orders/ideals.html#AbstractAlgebra.ResidueField-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem},Bool}",
-    "page": "Ideals",
-    "title": "AbstractAlgebra.ResidueField",
-    "category": "method",
-    "text": "ResidueField(O::NfOrd, P::NfOrdIdl, check::Bool = true) -> Field, Map\n\nReturns the residue field of the prime ideal P together with th projection map. If check is true, the ideal is checked for  being prime.\n\n\n\n"
-},
-
-{
-    "location": "orders/ideals.html#Base.mod-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdIdl}",
-    "page": "Ideals",
-    "title": "Base.mod",
-    "category": "method",
-    "text": "\n\nmod(x::NfOrdElem, I::NfAbsOrdIdl)\n\nReturns the unique element y of the ambient order of x with x equiv y bmod I and the following property: If a_1dotsca_d in Z_geq 1 are the diagonal entries of the unique HNF basis matrix of I and (b_1dotscb_d) is the coefficient vector of y, then 0 leq b_i  a_i for 1 leq i leq d.\n\n\n\n"
-},
-
-{
-    "location": "orders/ideals.html#AbstractAlgebra.crt-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}",
-    "page": "Ideals",
-    "title": "AbstractAlgebra.crt",
-    "category": "method",
-    "text": "crt(r1::NfOrdElem, i1::NfOrdIdl, r2::NfOrdElem, i2::NfOrdIdl) -> NfOrdElem\n\nFind x s.th x equiv r1 bmod i1 and x equiv r2 bmod i2\n\nusing (((idempotents)))\n\n\n\n"
 },
 
 {
