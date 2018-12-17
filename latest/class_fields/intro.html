@@ -10,6 +10,7 @@ julia&gt; Qx, x = PolynomialRing(FlintQQ, &quot;x&quot;);
 julia&gt; K, a = NumberField(x^2 - 10, &quot;a&quot;);
 
 julia&gt; c, mc = class_group(K)
+K = Number field over Rational Field with defining polynomial x^2-10
 (GrpAb: Z/2, ClassGroup map of Set of ideals of Maximal order of Number field over Rational Field with defining polynomial x^2-10
 with basis nf_elem[1, a]
 
@@ -22,6 +23,7 @@ julia&gt; Qx, x = PolynomialRing(FlintQQ, &quot;x&quot;);
 julia&gt; k, a = NumberField(x^2 - 10, &quot;a&quot;);
 
 julia&gt; c, mc = class_group(k);
+K = Number field over Rational Field with defining polynomial x^2-10
 
 julia&gt; A = ray_class_field(mc)
 Class field defined mod (&lt;1, 1&gt;, InfPlc[]) of structure Abelian group with structure: Z/2
@@ -36,7 +38,7 @@ Relative maximal order of non-simple Relative number field over
 Number field over Rational Field with defining polynomial x^2-10
  with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[_$1^2+(-2)]
 with pseudo-basis
-(1, 1//1 * &lt;1, a+3&gt;)
+(1, 1//1 * &lt;1, a+1&gt;)
 (_$1+(a), 1//4 * &lt;2, 3*a&gt;)
 
 julia&gt; isone(discriminant(ZK))
