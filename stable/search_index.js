@@ -253,7 +253,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Number Fields",
     "title": "Hecke.simple_extension",
     "category": "method",
-    "text": "simple_extension(K::NfRel_ns{nf_elem}) -> NfRel, Map, Map\n\nCompute an isomorphic field as an extension of Q together with the isomorphism  (1st map) and the embedding of the base field (2nd map).\n\n\n\n"
+    "text": "simple_extension(K::NfRel_ns{nf_elem}) -> NfRel, Map\n\nCompute a simple field L as an extension of the base field of K and an isomorphism between L and K \n\n\n\n"
 },
 
 {
@@ -277,7 +277,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Number Fields",
     "title": "Base.minimum",
     "category": "method",
-    "text": "minimum(m::T, I::NfOrdIdl) where T <: Map{AnticNumberField, AnticNumberField} -> NfOrdIdl\n\nGiven an embedding mkto K of number fields and an integral ideal in K, find the  intersection I cap Z_k.\n\n\n\n"
+    "text": "minimum(m::T, I::NfOrdIdl) where T <: Map{AnticNumberField, AnticNumberField} -> NfOrdIdl\n\nGiven an embedding mkto K of number fields and an integral ideal in K, find the  intersect I cap Z_k.\n\n\n\n"
 },
 
 {
@@ -389,7 +389,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Number Fields",
     "title": "AbstractAlgebra.Generic.minpoly",
     "category": "method",
-    "text": "\n\nminpoly(a::nf_elem) -> fmpq_poly\n\nThe minimal polynomial of a.\n\n\n\nminpoly{T <: FieldElement}(S::Ring, M::AbstractAlgebra.MatElem{T}, charpoly_only = false)\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly{T <: RingElement}(S::Ring, M::AbstractAlgebra.MatElem{T}, charpoly_only = false)\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\n"
+    "text": "minpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T <: FieldElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(S::Ring, M::MatAlgElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\n\n\nminpoly(a::nf_elem) -> fmpq_poly\n\nThe minimal polynomial of a.\n\n\n\n"
 },
 
 {
@@ -397,7 +397,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Number Fields",
     "title": "AbstractAlgebra.Generic.charpoly",
     "category": "method",
-    "text": "\n\ncharpoly(a::nf_elem) -> fmpq_poly\n\nThe characteristic polynomial of a.\n\n\n\ncharpoly{T <: RingElement}(V::Ring, Y::AbstractAlgebra.MatElem{T})\n\nReturns the characteristic polynomial p of the matrix M. The polynomial ring R of the resulting polynomial must be supplied and the matrix is assumed to be square.\n\n\n\n"
+    "text": "charpoly(V::Ring, Y::Generic.MatrixElem{T}) where {T <: RingElement}\n\nReturns the characteristic polynomial p of the matrix M. The polynomial ring R of the resulting polynomial must be supplied and the matrix is assumed to be square.\n\n\n\n\n\ncharpoly(a::nf_elem) -> fmpq_poly\n\nThe characteristic polynomial of a.\n\n\n\n"
 },
 
 {
@@ -525,7 +525,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "Hecke.EquationOrder",
     "category": "method",
-    "text": "EquationOrder(K::AnticNumberField) -> NfOrd\n\nReturns the equation order of the number field K.\n\n\n\n"
+    "text": "EquationOrder(K::NfAbs) -> NfAbsOrd\n\nReturns the equation order of the absolute number field K.\n\n\n\n"
 },
 
 {
@@ -541,7 +541,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "Hecke.MaximalOrder",
     "category": "method",
-    "text": "\n\nmaximal_order(O::NfOrd) -> NfOrd\nMaximalOrder(O::NfOrd) -> NfOrd\n\nReturns the maximal overorder of O.\n\n\n\n"
+    "text": "\n\nmaximal_order(O::NfOrd) -> NfOrd\nMaximalOrder(O::NfOrd) -> NfOrd\n\nReturns the maximal overorder of O.\n\n\n\nmaximal_order(K::AnticNumberField) -> NfOrd\nring_of_integers(K::AnticNumberField) -> NfOrd\n\nReturns the maximal order of K.\n\nExample\n\njulia> Qx, xx = FlintQQ[\"x\"];\njulia> K, a = NumberField(x^3 + 2, \"a\");\njulia> O = MaximalOrder(K);\n\n\n\n"
 },
 
 {
@@ -597,7 +597,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "Base.parent",
     "category": "method",
-    "text": "parent(O::NfOrd) -> NfOrdSet\n\nReturns the parent of mathcal O, that is, the set of orders of the ambient number field.\n\n\n\n"
+    "text": "parent(O::NfAbsOrd) -> NfOrdSet\n\nReturns the parent of mathcal O, that is, the set of orders of the ambient number field.\n\n\n\n"
 },
 
 {
@@ -605,7 +605,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "Hecke.isequation_order",
     "category": "method",
-    "text": "isequation_order(O::NfOrd) -> Bool\n\nReturns whether mathcal O is the equation order of the ambient number field.\n\n\n\n"
+    "text": "isequation_order(O::NfAbsOrd) -> Bool\n\nReturns whether mathcal O is the equation order of the ambient number field K.\n\n\n\n"
 },
 
 {
@@ -621,7 +621,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "Hecke.nf",
     "category": "method",
-    "text": "nf(O::NfOrd) -> AnticNumberField\n\nReturns the ambient number field of mathcal O.\n\n\n\n"
+    "text": "nf(O::NfAbsOrd) -> AnticNumberField\n\nReturns the ambient number field of mathcal O.\n\n\n\n"
 },
 
 {
@@ -805,7 +805,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.parent",
     "category": "method",
-    "text": "\n\nparent(a::NfAbsOrdElem) -> NfOrd\n\nReturns the order of which a is an element.\n\n\n\nparent(g::perm)\n\nReturn the parent of the permutation g.\n\njulia> G = PermutationGroup(5); g = perm([3,4,5,2,1])\n(1,3,5)(2,4)\n\njulia> parent(g) == G\ntrue\n\n\n\nparent(a::AbstractAlgebra.MatElem)\n\nReturn the parent object of the given matrix.\n\n\n\n"
+    "text": "parent(g::perm{T}) where T = PermGroup\n\nReturn the parent of the permutation g.\n\njulia> G = PermutationGroup(5); g = perm([3,4,5,2,1])\n(1,3,5)(2,4)\n\njulia> parent(g) == G\ntrue\n\n\n\nparent(a::AbstractAlgebra.MatElem{T}, cached::Bool = true) where T <: RingElement\n\nReturn the parent object of the given matrix.\n\n\n\nparent(a::AbstractAlgebra.MatAlgElem{T}, cached::Bool = true) where T <: RingElement\n\nReturn the parent object of the given matrix.\n\n\n\n\n\nparent(a::NfAbsOrdElem) -> NfOrd\n\nReturns the order of which a is an element.\n\n\n\n"
 },
 
 {
@@ -885,7 +885,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.:-",
     "category": "method",
-    "text": "\n\n-(x::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns the additive inverse of x.\n\n\n\n-(A::SMat, B::SMat) -> SMat\n\nReturn the difference A - B.\n\n\n\n-(A::SRow, B::SRow) -> SRow\n\nReturns the difference of A and B.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.ResElem{T}, b::AbstractAlgebra.ResElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::AbstractAlgebra.ResElem{T}, b::T)\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::T, b::AbstractAlgebra.ResElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.ResFieldElem{T}, b::AbstractAlgebra.ResFieldElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::AbstractAlgebra.ResFieldElem{T}, b::T)\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::T, b::AbstractAlgebra.ResFieldElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.PolyElem{T}, b::AbstractAlgebra.PolyElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.RelSeriesElem{T}, b::AbstractAlgebra.RelSeriesElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.AbsSeriesElem{T}, b::AbstractAlgebra.AbsSeriesElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::LaurentSeriesElem{T}, b::LaurentSeriesElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElement}(a::AbstractAlgebra.MatElem{T}, b::AbstractAlgebra.MatElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(x::T, y::AbstractAlgebra.MatElem{T})\n\nReturn S(x) - y where S is the parent of y.\n\n\n\n-{T <: RingElem}(x::AbstractAlgebra.MatElem{T}, y::T)\n\nReturn x - S(y), where S is the parent of a.\n\n\n\n-{T <: RingElem}(a::AbstractAlgebra.FracElem{T}, b::AbstractAlgebra.FracElem{T})\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::AbstractAlgebra.FracElem{T}, b::T)\n\nReturn a - b.\n\n\n\n-{T <: RingElem}(a::T, b::AbstractAlgebra.FracElem{T})\n\nReturn a - b.\n\n\n\n"
+    "text": "-(a::AbstractAlgebra.ResElem{T}, b::AbstractAlgebra.ResElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.ResElem{T}, b::T) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::T, b::AbstractAlgebra.ResElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.ResFieldElem{T}, b::AbstractAlgebra.ResFieldElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.ResFieldElem{T}, b::T) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::T, b::AbstractAlgebra.ResFieldElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.PolyElem{T}, b::AbstractAlgebra.PolyElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.NCPolyElem{T}, b::AbstractAlgebra.NCPolyElem{T}) where {T <: NCRingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.RelSeriesElem{T}, b::AbstractAlgebra.RelSeriesElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.AbsSeriesElem{T}, b::AbstractAlgebra.AbsSeriesElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::Generic.LaurentSeriesElem{T}, b::Generic.LaurentSeriesElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(x::Generic.MatrixElem{T}, y::Generic.MatrixElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(x::T, y::Generic.MatrixElem{T}) where {T <: RingElem}\n\nReturn S(x) - y where S is the parent of y.\n\n\n\n-(x::Generic.MatrixElem{T}, y::T) where {T <: RingElem}\n\nReturn x - S(y), where S is the parent of a.\n\n\n\n-(a::AbstractAlgebra.FracElem{T}, b::AbstractAlgebra.FracElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.FracElem{T}, b::T) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::T, b::AbstractAlgebra.FracElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n\n\n-(x::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns the additive inverse of x.\n\n\n\n-(A::SMat, B::SMat) -> SMat\n\nReturn the difference A - B.\n\n\n\n-(A::SRow, B::SRow) -> SRow\n\nReturns the difference of A and B.\n\n\n\n"
 },
 
 {
@@ -1021,7 +1021,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "AbstractAlgebra.Generic.minpoly",
     "category": "method",
-    "text": "minpoly(a::NfAbsOrdElem) -> fmpz_poly\n\nminpoly(a::NfAbsOrdElem, FlintZZ) -> fmpz_poly\n\nThe minimal polynomial of a.    \n\n\n\nminpoly{T <: RingElement}(S::Ring, M::AbstractAlgebra.MatElem{T}, charpoly_only = false)\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\n"
+    "text": "minpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(S::Ring, M::MatAlgElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(a::NfAbsOrdElem) -> fmpz_poly\n\nminpoly(a::NfAbsOrdElem, FlintZZ) -> fmpz_poly\n\nThe minimal polynomial of a.    \n\n\n\n"
 },
 
 {
@@ -1029,7 +1029,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "AbstractAlgebra.Generic.charpoly",
     "category": "method",
-    "text": "charpoly(a::NfAbsOrdElem) -> fmpz_poly\n\ncharpoly(a::NfAbsOrdElem, FlintZZ) -> fmpz_poly\n\nThe characteristic polynomial of a.    \n\n\n\ncharpoly{T <: RingElement}(V::Ring, Y::AbstractAlgebra.MatElem{T})\n\nReturns the characteristic polynomial p of the matrix M. The polynomial ring R of the resulting polynomial must be supplied and the matrix is assumed to be square.\n\n\n\n"
+    "text": "charpoly(V::Ring, Y::Generic.MatrixElem{T}) where {T <: RingElement}\n\nReturns the characteristic polynomial p of the matrix M. The polynomial ring R of the resulting polynomial must be supplied and the matrix is assumed to be square.\n\n\n\ncharpoly(a::NfAbsOrdElem) -> fmpz_poly\n\ncharpoly(a::NfAbsOrdElem, FlintZZ) -> fmpz_poly\n\nThe characteristic polynomial of a.    \n\n\n\n"
 },
 
 {
@@ -1109,7 +1109,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.prime_decomposition",
     "category": "method",
-    "text": "\n\nprime_decomposition(O::NfOrd,\n                    p::Integer,\n                    degree_limit::Int = 0,\n                    lower_limit::Int = 0) -> Array{Tuple{NfOrdIdl, Int}, 1}\n\nReturns an array of tuples (mathfrak p_ie_i) such that p mathcal O is the product of the mathfrak p_i^e_i and mathfrak p_i neq mathfrak p_j for i neq j.If degree_limit is a nonzero integer k  0, then only those prime ideals mathfrak p with deg(mathfrak p) leq k will be returned. Similarly if \\lower_limit is a nonzero integer l  0, then only those prime ideals mathfrak p with l leq deg(mathfrak p) will be returned. Note that in this case it may happen that pmathcal O is not the product of the mathfrak p_i^e_i.\n\n\n\n"
+    "text": "\n\nprime_decomposition(O::NfAbsOrd,\n                    p::Integer,\n                    degree_limit::Int = 0,\n                    lower_limit::Int = 0) -> Array{Tuple{NfOrdIdl, Int}, 1}\n\nReturns an array of tuples (mathfrak p_ie_i) such that p mathcal O is the product of the mathfrak p_i^e_i and mathfrak p_i neq mathfrak p_j for i neq j.If degree_limit is a nonzero integer k  0, then only those prime ideals mathfrak p with deg(mathfrak p) leq k will be returned. Similarly if \\lower_limit is a nonzero integer l  0, then only those prime ideals mathfrak p with l leq deg(mathfrak p) will be returned. Note that in this case it may happen that pmathcal O is not the product of the mathfrak p_i^e_i.\n\n\n\n"
 },
 
 {
@@ -1117,7 +1117,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.prime_decomposition",
     "category": "method",
-    "text": "\n\nprime_decomposition(O::NfOrd,\n                    p::Integer,\n                    degree_limit::Int = 0,\n                    lower_limit::Int = 0) -> Array{Tuple{NfOrdIdl, Int}, 1}\n\nReturns an array of tuples (mathfrak p_ie_i) such that p mathcal O is the product of the mathfrak p_i^e_i and mathfrak p_i neq mathfrak p_j for i neq j.If degree_limit is a nonzero integer k  0, then only those prime ideals mathfrak p with deg(mathfrak p) leq k will be returned. Similarly if \\lower_limit is a nonzero integer l  0, then only those prime ideals mathfrak p with l leq deg(mathfrak p) will be returned. Note that in this case it may happen that pmathcal O is not the product of the mathfrak p_i^e_i.\n\n\n\n"
+    "text": "\n\nprime_decomposition(O::NfAbsOrd,\n                    p::Integer,\n                    degree_limit::Int = 0,\n                    lower_limit::Int = 0) -> Array{Tuple{NfOrdIdl, Int}, 1}\n\nReturns an array of tuples (mathfrak p_ie_i) such that p mathcal O is the product of the mathfrak p_i^e_i and mathfrak p_i neq mathfrak p_j for i neq j.If degree_limit is a nonzero integer k  0, then only those prime ideals mathfrak p with deg(mathfrak p) leq k will be returned. Similarly if \\lower_limit is a nonzero integer l  0, then only those prime ideals mathfrak p with l leq deg(mathfrak p) will be returned. Note that in this case it may happen that pmathcal O is not the product of the mathfrak p_i^e_i.\n\n\n\n"
 },
 
 {
@@ -1189,7 +1189,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Base.lcm",
     "category": "method",
-    "text": "intersection(x::NfOrdIdl, y::NfOrdIdl) -> NfOrdIdl\nlcm(x::NfOrdIdl, y::NfOrdIdl) -> NfOrdIdl\n\nReturns x cap y.\n\n\n\n"
+    "text": "intersect(x::NfOrdIdl, y::NfOrdIdl) -> NfOrdIdl\nlcm(x::NfOrdIdl, y::NfOrdIdl) -> NfOrdIdl\n\nReturns x cap y.\n\n\n\n"
 },
 
 {
@@ -1209,11 +1209,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "orders/ideals.html#Hecke.intersection-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}",
+    "location": "orders/ideals.html#Base.intersect-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}",
     "page": "Ideals",
-    "title": "Hecke.intersection",
+    "title": "Base.intersect",
     "category": "method",
-    "text": "intersection(x::NfOrdIdl, y::NfOrdIdl) -> NfOrdIdl\nlcm(x::NfOrdIdl, y::NfOrdIdl) -> NfOrdIdl\n\nReturns x cap y.\n\n\n\n"
+    "text": "intersect(x::NfOrdIdl, y::NfOrdIdl) -> NfOrdIdl\nlcm(x::NfOrdIdl, y::NfOrdIdl) -> NfOrdIdl\n\nReturns x cap y.\n\n\n\n"
 },
 
 {
@@ -1269,7 +1269,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Arithmetic",
     "category": "section",
-    "text": "==(::NfOrdIdl, ::NfOrdIdl)\n+(::NfOrdIdl, ::NfOrdIdl)\n*(::NfOrdIdl, ::NfOrdIdl)\ndivexact(::NfOrdIdl, ::NfOrdIdl)\ndivides(::NfAbsOrdIdl{AnticNumberField,nf_elem}, ::NfAbsOrdIdl{AnticNumberField,nf_elem})\nlcm(::NfOrdIdl, ::NfOrdIdl)\ngcd(::NfOrdIdl, ::NfOrdIdl)\ngcd(::NfOrdIdl, ::fmpz)\nintersection(::NfOrdIdl, ::NfOrdIdl)\ncolon(::NfOrdIdl, ::NfOrdIdl)\nin(::NfOrdElem, ::NfAbsOrdIdl)\nispower(::NfAbsOrdIdl, ::Int)\nispower(::NfAbsOrdIdl)\nisinvertible(::NfOrdIdl)\nisone(::NfOrdIdl)"
+    "text": "==(::NfOrdIdl, ::NfOrdIdl)\n+(::NfOrdIdl, ::NfOrdIdl)\n*(::NfOrdIdl, ::NfOrdIdl)\ndivexact(::NfOrdIdl, ::NfOrdIdl)\ndivides(::NfAbsOrdIdl{AnticNumberField,nf_elem}, ::NfAbsOrdIdl{AnticNumberField,nf_elem})\nlcm(::NfOrdIdl, ::NfOrdIdl)\ngcd(::NfOrdIdl, ::NfOrdIdl)\ngcd(::NfOrdIdl, ::fmpz)\nintersect(::NfOrdIdl, ::NfOrdIdl)\ncolon(::NfOrdIdl, ::NfOrdIdl)\nin(::NfOrdElem, ::NfAbsOrdIdl)\nispower(::NfAbsOrdIdl, ::Int)\nispower(::NfAbsOrdIdl)\nisinvertible(::NfOrdIdl)\nisone(::NfOrdIdl)"
 },
 
 {
@@ -1654,46 +1654,6 @@ var documenterSearchIndex = {"docs": [
     "title": "Miscaellenous",
     "category": "section",
     "text": "order(::NfAbsOrdIdl)\nnf(::NfAbsOrdIdl)\nbasis(::NfOrdIdl)\nbasis_mat(::NfOrdIdl)\nbasis_mat_inv(::NfOrdIdl)\nHecke.assure_has_basis_mat_inv(::NfOrdIdl)\nHecke.has_basis(::NfOrdIdl)\nHecke.has_basis_mat(::NfOrdIdl)\nHecke.has_2_elem(::NfOrdIdl)\nHecke.has_2_elem_normal(::NfOrdIdl)\nHecke.has_weakly_normal(::NfOrdIdl)\nHecke.has_princ_gen_special(::NfOrdIdl)\nHecke.principal_gen(::NfOrdIdl)\nHecke.principal_gen_fac_elem(::NfOrdIdl)\nminimum(::NfOrdIdl)\n#minimum(m::T, I::NfOrdIdl) where T <: (AbstractAlgebra.Map{Nemo.AnticNumberField,Nemo.AnticNumberField,S,T} where T where S)\nhas_minimum(::NfOrdIdl)\nnorm(::NfOrdIdl)\nHecke.has_norm(::NfOrdIdl)\nidempotents(::NfOrdIdl, ::NfOrdIdl)\nisprime(::NfOrdIdl)\nHecke.isprime_known(::NfOrdIdl)\nsplitting_type(::NfOrdIdl)\nisramified(::NfOrd, ::Union{Int, fmpz})\nramification_index(::NfOrdIdl)\ndegree(::NfOrdIdl)\nvaluation(::nf_elem, ::NfOrdIdl)\nvaluation(::NfOrdElem, ::NfOrdIdl)\nvaluation(::NfOrdIdl, ::NfOrdIdl)\nvaluation(::Integer, ::NfOrdIdl)\nvaluation(::fmpz, ::NfOrdIdl)\nvaluation(::NfOrdFracIdl, ::NfOrdIdl)"
-},
-
-{
-    "location": "orders/ideals.html#Hecke.quo-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}",
-    "page": "Ideals",
-    "title": "Hecke.quo",
-    "category": "method",
-    "text": "quo(O::NfOrd, I::NfOrdIdl) -> NfOrdQuoRing, Map\n\nThe quotient ring OI as a ring together with the section M OI to O. The pointwise inverse of M is the canonical projection Oto OI.\n\n\n\n"
-},
-
-{
-    "location": "orders/ideals.html#AbstractAlgebra.ResidueRing-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}",
-    "page": "Ideals",
-    "title": "AbstractAlgebra.ResidueRing",
-    "category": "method",
-    "text": "ResidueRing(O::NfOrd, I::NfOrdIdl) -> NfOrdQuoRing\n\nThe quotient ring O modulo I as a new ring.\n\n\n\n"
-},
-
-{
-    "location": "orders/ideals.html#AbstractAlgebra.ResidueField-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem},Bool}",
-    "page": "Ideals",
-    "title": "AbstractAlgebra.ResidueField",
-    "category": "method",
-    "text": "ResidueField(O::NfOrd, P::NfOrdIdl, check::Bool = true) -> Field, Map\n\nReturns the residue field of the prime ideal P together with th projection map. If check is true, the ideal is checked for  being prime.\n\n\n\n"
-},
-
-{
-    "location": "orders/ideals.html#Base.mod-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdIdl}",
-    "page": "Ideals",
-    "title": "Base.mod",
-    "category": "method",
-    "text": "\n\nmod(x::NfOrdElem, I::NfAbsOrdIdl)\n\nReturns the unique element y of the ambient order of x with x equiv y bmod I and the following property: If a_1dotsca_d in Z_geq 1 are the diagonal entries of the unique HNF basis matrix of I and (b_1dotscb_d) is the coefficient vector of y, then 0 leq b_i  a_i for 1 leq i leq d.\n\n\n\n"
-},
-
-{
-    "location": "orders/ideals.html#AbstractAlgebra.crt-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}",
-    "page": "Ideals",
-    "title": "AbstractAlgebra.crt",
-    "category": "method",
-    "text": "crt(r1::NfOrdElem, i1::NfOrdIdl, r2::NfOrdElem, i2::NfOrdIdl) -> NfOrdElem\n\nFind x s.th x equiv r1 bmod i1 and x equiv r2 bmod i2\n\nusing (((idempotents)))\n\n\n\n"
 },
 
 {
@@ -2157,7 +2117,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Class Field Theory",
     "title": "Base.intersect",
     "category": "method",
-    "text": "intersect(a::ClassField, b::ClassField) -> ClassField\n\nThe intersection of a and b as a class field.\n\n\n\n"
+    "text": "intersect(a::ClassField, b::ClassField) -> ClassField\n\nThe intersect of a and b as a class field.\n\n\n\n"
 },
 
 {
