@@ -181,7 +181,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Number Fields",
     "title": "Nemo.NumberField",
     "category": "method",
-    "text": "NumberField(f::Generic.Poly{T}, s::String; cached::Bool = false, check::Bool = false) where T\n\nGiven an irreducible polynomial f over some number field K, create the field Ktf. f must be irreducible - although this is not tested.\n\n\n\nNumberField(f::Generic.Poly{T}; cached::Bool = false, check::Bool = false) where T\n\nGiven an irreducible polynomial f over some number field K, create the field Ktf. f must be irreducible - although this is not tested.\n\n\n\nnumber_field(f::Array{Generic.Poly{T}, 1}, s::String=\"_\\$\") where T -> NfRel_ns\n\nGiven polynomials f = (f_1 ldots f_n) over some number field k, construct K = kt_1 ldots t_nlangle f_1(t_1) ldots f_n(t_n)rangle The ideal in the quotient must be maximal - although this is not tested.\n\n\n\n"
+    "text": "NumberField(f::Generic.Poly{T}, s::String; cached::Bool = false, check::Bool = false) where T\n\nGiven an irreducible polynomial f over some number field K, create the field Ktf. f must be irreducible - although this is not tested.\n\n\n\nNumberField(f::Generic.Poly{T}; cached::Bool = false, check::Bool = false) where T\n\nGiven an irreducible polynomial f over some number field K, create the field Ktf. f must be irreducible - although this is not tested.\n\n\n\nnumber_field(f::Array{Generic.Poly{T}, 1}, s::String=\"_\\$\") where T -> NfRel_ns\n\nGiven polynomials f = (f_1 ldots f_n) over some number field k, construct K = kt_1 ldots t_nlangle f_1(t_1) ldots f_n(t_n)rangle The ideal in the quotient must be maximal - although this is not tested.\n\n\n\nNumberField(CF::ClassField) -> Hecke.NfRel_ns{Nemo.nf_elem}\n\nGiven a (formal) abelian extension, compute the class field by finding defining polynomials for all prime power cyclic subfields. Note, by type this is always a non-simple extension.\n\n\n\n"
 },
 
 {
@@ -629,7 +629,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "AbstractAlgebra.Generic.degree",
     "category": "method",
-    "text": "degree(O::NfOrd) -> Int\n\nReturns the degree of mathcal O.\n\n\n\n"
+    "text": "degree(O::NfOrd) -> Int\n\nReturns the degree of mathcal O.\n\n\n\ndegree(A::ClassField)\n\nThe degree of A over its base field, ie. the size of the defining ideal group.\n\n\n\n"
 },
 
 {
@@ -1597,7 +1597,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "AbstractAlgebra.Generic.degree",
     "category": "method",
-    "text": "\n\ndegree(P::NfOrdIdl) -> Int\n\nThe inertia degree of the prime-ideal P.\n\n\n\n"
+    "text": "\n\ndegree(P::NfOrdIdl) -> Int\n\nThe inertia degree of the prime-ideal P.\n\n\n\ndegree(A::ClassField)\n\nThe degree of A over its base field, ie. the size of the defining ideal group.\n\n\n\n"
 },
 
 {
