@@ -389,7 +389,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Number Fields",
     "title": "AbstractAlgebra.Generic.minpoly",
     "category": "method",
-    "text": "minpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T <: FieldElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(S::Ring, M::MatAlgElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\n\n\nminpoly(a::nf_elem) -> fmpq_poly\n\nThe minimal polynomial of a.\n\n\n\n"
+    "text": "\n\nminpoly(a::nf_elem) -> fmpq_poly\n\nThe minimal polynomial of a.\n\n\n\nminpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T <: FieldElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(S::Ring, M::MatAlgElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\n"
 },
 
 {
@@ -397,7 +397,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Number Fields",
     "title": "AbstractAlgebra.Generic.charpoly",
     "category": "method",
-    "text": "charpoly(V::Ring, Y::Generic.MatrixElem{T}) where {T <: RingElement}\n\nReturns the characteristic polynomial p of the matrix M. The polynomial ring R of the resulting polynomial must be supplied and the matrix is assumed to be square.\n\n\n\n\n\ncharpoly(a::nf_elem) -> fmpq_poly\n\nThe characteristic polynomial of a.\n\n\n\n"
+    "text": "\n\ncharpoly(a::nf_elem) -> fmpq_poly\n\nThe characteristic polynomial of a.\n\n\n\ncharpoly(V::Ring, Y::Generic.MatrixElem{T}) where {T <: RingElement}\n\nReturns the characteristic polynomial p of the matrix M. The polynomial ring R of the resulting polynomial must be supplied and the matrix is assumed to be square.\n\n\n\n"
 },
 
 {
@@ -805,7 +805,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.parent",
     "category": "method",
-    "text": "parent(g::perm{T}) where T = PermGroup\n\nReturn the parent of the permutation g.\n\njulia> G = PermutationGroup(5); g = perm([3,4,5,2,1])\n(1,3,5)(2,4)\n\njulia> parent(g) == G\ntrue\n\n\n\nparent(a::AbstractAlgebra.MatElem{T}, cached::Bool = true) where T <: RingElement\n\nReturn the parent object of the given matrix.\n\n\n\nparent(a::AbstractAlgebra.MatAlgElem{T}, cached::Bool = true) where T <: RingElement\n\nReturn the parent object of the given matrix.\n\n\n\n\n\nparent(a::NfAbsOrdElem) -> NfOrd\n\nReturns the order of which a is an element.\n\n\n\n"
+    "text": "\n\nparent(a::NfAbsOrdElem) -> NfOrd\n\nReturns the order of which a is an element.\n\n\n\nparent(g::perm{T}) where T = PermGroup\n\nReturn the parent of the permutation g.\n\njulia> G = PermutationGroup(5); g = perm([3,4,5,2,1])\n(1,3,5)(2,4)\n\njulia> parent(g) == G\ntrue\n\n\n\nparent(a::AbstractAlgebra.MatElem{T}, cached::Bool = true) where T <: RingElement\n\nReturn the parent object of the given matrix.\n\n\n\nparent(a::AbstractAlgebra.MatAlgElem{T}, cached::Bool = true) where T <: RingElement\n\nReturn the parent object of the given matrix.\n\n\n\n"
 },
 
 {
@@ -885,7 +885,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.:-",
     "category": "method",
-    "text": "-(a::AbstractAlgebra.ResElem{T}, b::AbstractAlgebra.ResElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.ResElem{T}, b::T) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::T, b::AbstractAlgebra.ResElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.ResFieldElem{T}, b::AbstractAlgebra.ResFieldElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.ResFieldElem{T}, b::T) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::T, b::AbstractAlgebra.ResFieldElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.PolyElem{T}, b::AbstractAlgebra.PolyElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.NCPolyElem{T}, b::AbstractAlgebra.NCPolyElem{T}) where {T <: NCRingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.RelSeriesElem{T}, b::AbstractAlgebra.RelSeriesElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.AbsSeriesElem{T}, b::AbstractAlgebra.AbsSeriesElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::Generic.LaurentSeriesElem{T}, b::Generic.LaurentSeriesElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(x::Generic.MatrixElem{T}, y::Generic.MatrixElem{T}) where {T <: RingElement}\n\nReturn x - y.\n\n\n\n-(x::T, y::Generic.MatrixElem{T}) where {T <: RingElem}\n\nReturn S(x) - y where S is the parent of y.\n\n\n\n-(x::Generic.MatrixElem{T}, y::T) where {T <: RingElem}\n\nReturn x - S(y), where S is the parent of a.\n\n\n\n-(a::AbstractAlgebra.FracElem{T}, b::AbstractAlgebra.FracElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.FracElem{T}, b::T) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::T, b::AbstractAlgebra.FracElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n\n\n-(x::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns the additive inverse of x.\n\n\n\n-(A::SMat, B::SMat) -> SMat\n\nReturn the difference A - B.\n\n\n\n-(A::SRow, B::SRow) -> SRow\n\nReturns the difference of A and B.\n\n\n\n-(A::SRow) -> SRow\n\nReturns the negative of A.\n\n\n\n"
+    "text": "\n\n-(x::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns the additive inverse of x.\n\n\n\n-(A::SMat, B::SMat) -> SMat\n\nReturn the difference A - B.\n\n\n\n-(A::SRow, B::SRow) -> SRow\n\nReturns the difference of A and B.\n\n\n\n-(A::SRow) -> SRow\n\nReturns the negative of A.\n\n\n\n-(a::AbstractAlgebra.ResElem{T}, b::AbstractAlgebra.ResElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.ResElem{T}, b::T) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::T, b::AbstractAlgebra.ResElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.ResFieldElem{T}, b::AbstractAlgebra.ResFieldElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.ResFieldElem{T}, b::T) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::T, b::AbstractAlgebra.ResFieldElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.PolyElem{T}, b::AbstractAlgebra.PolyElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.NCPolyElem{T}, b::AbstractAlgebra.NCPolyElem{T}) where {T <: NCRingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.RelSeriesElem{T}, b::AbstractAlgebra.RelSeriesElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.AbsSeriesElem{T}, b::AbstractAlgebra.AbsSeriesElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::Generic.LaurentSeriesElem{T}, b::Generic.LaurentSeriesElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(x::Generic.MatrixElem{T}, y::Generic.MatrixElem{T}) where {T <: RingElement}\n\nReturn x - y.\n\n\n\n-(x::T, y::Generic.MatrixElem{T}) where {T <: RingElem}\n\nReturn S(x) - y where S is the parent of y.\n\n\n\n-(x::Generic.MatrixElem{T}, y::T) where {T <: RingElem}\n\nReturn x - S(y), where S is the parent of a.\n\n\n\n-(a::AbstractAlgebra.FracElem{T}, b::AbstractAlgebra.FracElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.FracElem{T}, b::T) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::T, b::AbstractAlgebra.FracElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n"
 },
 
 {
@@ -1021,7 +1021,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "AbstractAlgebra.Generic.minpoly",
     "category": "method",
-    "text": "minpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(S::Ring, M::MatAlgElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(a::NfAbsOrdElem) -> fmpz_poly\n\nminpoly(a::NfAbsOrdElem, FlintZZ) -> fmpz_poly\n\nThe minimal polynomial of a.    \n\n\n\n"
+    "text": "minpoly(a::NfAbsOrdElem) -> fmpz_poly\n\nminpoly(a::NfAbsOrdElem, FlintZZ) -> fmpz_poly\n\nThe minimal polynomial of a.    \n\n\n\nminpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(S::Ring, M::MatAlgElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\n"
 },
 
 {
@@ -1029,7 +1029,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "AbstractAlgebra.Generic.charpoly",
     "category": "method",
-    "text": "charpoly(V::Ring, Y::Generic.MatrixElem{T}) where {T <: RingElement}\n\nReturns the characteristic polynomial p of the matrix M. The polynomial ring R of the resulting polynomial must be supplied and the matrix is assumed to be square.\n\n\n\ncharpoly(a::NfAbsOrdElem) -> fmpz_poly\n\ncharpoly(a::NfAbsOrdElem, FlintZZ) -> fmpz_poly\n\nThe characteristic polynomial of a.    \n\n\n\n"
+    "text": "charpoly(a::NfAbsOrdElem) -> fmpz_poly\n\ncharpoly(a::NfAbsOrdElem, FlintZZ) -> fmpz_poly\n\nThe characteristic polynomial of a.    \n\n\n\ncharpoly(V::Ring, Y::Generic.MatrixElem{T}) where {T <: RingElement}\n\nReturns the characteristic polynomial p of the matrix M. The polynomial ring R of the resulting polynomial must be supplied and the matrix is assumed to be square.\n\n\n\n"
 },
 
 {
@@ -1277,7 +1277,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.class_group",
     "category": "method",
-    "text": "\n\nclass_group(O::NfOrd; bound = -1, method = 3, redo = false, large = 1000) -> GrpAbFinGen, Map\n\nReturns a group A and a map f from A to the set of ideals of O. The inverse of the map is the projection onto the group of ideals modulo the  group of principal ideals. \\texttt{redo} allows to trigger a re-computation, thus avoiding the cache. \\texttt{bound}, when given, is the bound for the factor base.\n\n\n\n"
+    "text": "class_group(O::NfOrd; bound = -1, method = 3, redo = false, large = 1000) -> GrpAbFinGen, Map\n\nReturns a group A and a map f from A to the set of ideals of O. The inverse of the map is the projection onto the group of ideals modulo the  group of principal ideals. \\texttt{redo} allows to trigger a re-computation, thus avoiding the cache. \\texttt{bound}, when given, is the bound for the factor base.\n\n\n\n"
 },
 
 {
@@ -1357,7 +1357,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.unit_group",
     "category": "method",
-    "text": "\n\nunit_group(O::NfOrd) -> GrpAbFinGen, Map\n\nReturns a group U and an isomorphism map f colon U to mathcal O^times. A set of fundamental units of mathcal O can be obtained via [ f(U[1+i]) for i in 1:unit_rank(O) ]. f(U[1]) will give a generator for the torsion subgroup.\n\n\n\n"
+    "text": "unit_group(O::NfOrd) -> GrpAbFinGen, Map\n\nReturns a group U and an isomorphism map f colon U to mathcal O^times. A set of fundamental units of mathcal O can be obtained via [ f(U[1+i]) for i in 1:unit_rank(O) ]. f(U[1]) will give a generator for the torsion subgroup.\n\n\n\n"
 },
 
 {
@@ -1365,7 +1365,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.unit_group_fac_elem",
     "category": "method",
-    "text": "\n\nunit_group_fac_elem(O::NfOrd) -> GrpAbFinGen, Map\n\nReturns a group U and an isomorphism map f colon U to mathcal O^times. A set of fundamental units of mathcal O can be obtained via [ f(U[1+i]) for i in 1:unit_rank(O) ]. f(U[1]) will give a generator for the torsion subgroup. All elements will be returned in factored form.\n\n\n\n"
+    "text": "unit_group_fac_elem(O::NfOrd) -> GrpAbFinGen, Map\n\nReturns a group U and an isomorphism map f colon U to mathcal O^times. A set of fundamental units of mathcal O can be obtained via [ f(U[1+i]) for i in 1:unit_rank(O) ]. f(U[1]) will give a generator for the torsion subgroup. All elements will be returned in factored form.\n\n\n\n"
 },
 
 {
