@@ -581,7 +581,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "Hecke.ring_of_multipliers",
     "category": "method",
-    "text": "\n\nring_of_multipliers(I::NfAbsOrdIdl) -> NfOrd\n\nComputes the order (I  I), which is the set of all x in K with xI subseteq I.\n\n\n\n"
+    "text": "\n\nring_of_multipliers(I::NfAbsOrdIdl) -> NfOrd\n\nComputes the order (I  I), which is the set of all x in K with xI subseteq I.\n\n\n\n\n\nring_of_multipliers(a::NfRelOrdIdl) -> NfRelOrd\n\nComputes the order (a  a), which is the set of all x in K with xa subseteq a, where K is the ambient number field of a.\n\n\n\n"
 },
 
 {
