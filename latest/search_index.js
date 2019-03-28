@@ -389,7 +389,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Number Fields",
     "title": "AbstractAlgebra.Generic.minpoly",
     "category": "method",
-    "text": "\n\nminpoly(a::nf_elem) -> fmpq_poly\n\nThe minimal polynomial of a.\n\n\n\nminpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T <: FieldElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(S::Ring, M::MatAlgElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\n"
+    "text": "minpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T <: FieldElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(S::Ring, M::MatAlgElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\n"
 },
 
 {
@@ -397,7 +397,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Number Fields",
     "title": "AbstractAlgebra.Generic.charpoly",
     "category": "method",
-    "text": "\n\ncharpoly(a::nf_elem) -> fmpq_poly\n\nThe characteristic polynomial of a.\n\n\n\ncharpoly(V::Ring, Y::Generic.MatrixElem{T}) where {T <: RingElement}\n\nReturns the characteristic polynomial p of the matrix M. The polynomial ring R of the resulting polynomial must be supplied and the matrix is assumed to be square.\n\n\n\n"
+    "text": "charpoly(V::Ring, Y::Generic.MatrixElem{T}) where {T <: RingElement}\n\nReturns the characteristic polynomial p of the matrix M. The polynomial ring R of the resulting polynomial must be supplied and the matrix is assumed to be square.\n\n\n\n"
 },
 
 {
@@ -501,7 +501,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "Hecke.Order",
     "category": "method",
-    "text": "Order(B::Array{nf_elem, 1}, check::Bool = true) -> NfOrd\n\nReturns the order with mathbf Z-basis B. If check is set, it is checked whether B defines an order.\n\n\n\n"
+    "text": "Order(B::Array{nf_elem, 1}; check::Bool = true, cached::Bool = true) -> NfOrd\n\nReturns the order generated B. If check is set, it is checked whether B defines an order. If is_basis is set, then elements are assumed to form a Z-basis.\n\n\n\n"
 },
 
 {
@@ -509,7 +509,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "Hecke.Order",
     "category": "method",
-    "text": "Order(K::AnticNumberField, A::FakeFmpqMat, check::Bool = true) -> NfOrd\n\nReturns the order which has basis matrix A with respect to the power basis of K. If check is set, it is checked whether A defines an order.\n\n\n\n"
+    "text": "Order(K::AnticNumberField, A::FakeFmpqMat; check::Bool = true) -> NfOrd\n\nReturns the order which has basis matrix A with respect to the power basis of K. If check is set, it is checked whether A defines an order.\n\n\n\n"
 },
 
 {
@@ -517,7 +517,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "Hecke.Order",
     "category": "method",
-    "text": "Order(K::AnticNumberField, A::fmpz_mat, check::Bool = true) -> NfOrd\n\nReturns the order which has basis matrix A with respect to the power basis of K. If check is set, it is checked whether A defines an order.\n\n\n\nOrder(A::NfOrdFracIdl) -> NfOrd\n\nReturns the fractional ideal A as an order of the ambient number field.\n\n\n\n\n\n  Order(K::RelativeExtension, M::PMat) -> NfRelOrd\n\nReturns the order which has basis pseudo-matrix M with respect to the power basis of K.\n\n\n\n"
+    "text": "Order(K::AnticNumberField, A::fmpz_mat, check::Bool = true) -> NfOrd\n\nReturns the order which has basis matrix A with respect to the power basis of K. If check is set, it is checked whether A defines an order.\n\n\n\n\n\n  Order(K::RelativeExtension, M::PMat) -> NfRelOrd\n\nReturns the order which has basis pseudo-matrix M with respect to the power basis of K.\n\n\n\n"
 },
 
 {
@@ -533,7 +533,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "Hecke.MaximalOrder",
     "category": "method",
-    "text": "maximal_order(K::AnticNumberField) -> NfOrd\nring_of_integers(K::AnticNumberField) -> NfOrd\n\nReturns the maximal order of K.\n\nExample\n\njulia> Qx, xx = FlintQQ[\"x\"];\njulia> K, a = NumberField(x^3 + 2, \"a\");\njulia> O = MaximalOrder(K);\n\n\n\n"
+    "text": "maximal_order(O::NfAbsOrd; index_divisors::Vector{fmpz}, discriminant::fmpz, ramified_primes::Vector{fmpz}) -> NfAbsOrd\n\nReturns the maximal order of the number field that contains O. Additional information can be supplied if they are already known, as the ramified primes, the discriminant of the maximal order or a set of integers dividing the index of O in the maximal order.\n\n\n\nmaximal_order(K::Union{AnticNumberField, NfAbsNS}; discriminant::fmpz, ramified_primes::Vector{fmpz}) -> NfAbsOrd\n\nReturns the maximal order of K. Additional information can be supplied if they are already known, as the ramified primes or the discriminant of the maximal order.  \n\nExample\n\njulia> Qx, xx = FlintQQ[\"x\"];\njulia> K, a = NumberField(x^3 + 2, \"a\");\njulia> O = MaximalOrder(K);\n\n\n\n"
 },
 
 {
@@ -541,7 +541,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "Hecke.MaximalOrder",
     "category": "method",
-    "text": "\n\nmaximal_order(O::NfOrd) -> NfOrd\nMaximalOrder(O::NfOrd) -> NfOrd\n\nReturns the maximal overorder of O.\n\n\n\nmaximal_order(K::AnticNumberField) -> NfOrd\nring_of_integers(K::AnticNumberField) -> NfOrd\n\nReturns the maximal order of K.\n\nExample\n\njulia> Qx, xx = FlintQQ[\"x\"];\njulia> K, a = NumberField(x^3 + 2, \"a\");\njulia> O = MaximalOrder(K);\n\n\n\n"
+    "text": "maximal_order(O::NfAbsOrd; index_divisors::Vector{fmpz}, discriminant::fmpz, ramified_primes::Vector{fmpz}) -> NfAbsOrd\n\nReturns the maximal order of the number field that contains O. Additional information can be supplied if they are already known, as the ramified primes, the discriminant of the maximal order or a set of integers dividing the index of O in the maximal order.\n\n\n\n"
 },
 
 {
@@ -549,7 +549,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "Hecke.maximal_order",
     "category": "method",
-    "text": "maximal_order(K::AnticNumberField) -> NfOrd\nring_of_integers(K::AnticNumberField) -> NfOrd\n\nReturns the maximal order of K.\n\nExample\n\njulia> Qx, xx = FlintQQ[\"x\"];\njulia> K, a = NumberField(x^3 + 2, \"a\");\njulia> O = MaximalOrder(K);\n\n\n\n"
+    "text": "maximal_order(O::NfAbsOrd; index_divisors::Vector{fmpz}, discriminant::fmpz, ramified_primes::Vector{fmpz}) -> NfAbsOrd\n\nReturns the maximal order of the number field that contains O. Additional information can be supplied if they are already known, as the ramified primes, the discriminant of the maximal order or a set of integers dividing the index of O in the maximal order.\n\n\n\nmaximal_order(K::Union{AnticNumberField, NfAbsNS}; discriminant::fmpz, ramified_primes::Vector{fmpz}) -> NfAbsOrd\n\nReturns the maximal order of K. Additional information can be supplied if they are already known, as the ramified primes or the discriminant of the maximal order.  \n\nExample\n\njulia> Qx, xx = FlintQQ[\"x\"];\njulia> K, a = NumberField(x^3 + 2, \"a\");\njulia> O = MaximalOrder(K);\n\n\n\n"
 },
 
 {
@@ -558,14 +558,6 @@ var documenterSearchIndex = {"docs": [
     "title": "Nemo.lll",
     "category": "method",
     "text": "lll(M::NfOrd) -> NfOrd\n\nThe same order, but with the basis now being LLL reduced wrt. the Minkowski metric.\n\n\n\n"
-},
-
-{
-    "location": "orders/orders.html#Hecke.maximal_order-Tuple{AnticNumberField,Array{fmpz,1}}",
-    "page": "Orders",
-    "title": "Hecke.maximal_order",
-    "category": "method",
-    "text": "\n\nMaximalOrder(K::AnticNumberField, primes::Array{fmpz, 1}) -> NfOrd\nmaximal_order(K::AnticNumberField, primes::Array{fmpz, 1}) -> NfOrd\nring_of_integers(K::AnticNumberField, primes::Array{fmpz, 1}) -> NfOrd\n\nAssuming that primes contains all the prime numbers at which the equation order mathbfZalpha of K = mathbfQ(alpha) is not maximal, this function returns the maximal order of K.\n\n\n\n"
 },
 
 {
