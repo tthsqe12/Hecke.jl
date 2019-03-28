@@ -1197,7 +1197,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Base.gcd",
     "category": "method",
-    "text": "\n\ngcd(A::NfOrdIdl, p::fmpz) -> NfOrdIdl\n\nThe gcd or sum (A+ pO).\n\n\n\n"
+    "text": "\n\ngcd(A::NfOrdIdl, p::fmpz) -> NfOrdIdl\n\nThe gcd or sum (A + pO).\n\n\n\n"
 },
 
 {
