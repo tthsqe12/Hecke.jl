@@ -501,7 +501,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "Hecke.Order",
     "category": "method",
-    "text": "Order(B::Array{nf_elem, 1}; check::Bool = true, cached::Bool = true) -> NfOrd\n\nReturns the order generated B. If check is set, it is checked whether B defines an order. If is_basis is set, then elements are assumed to form a Z-basis.\n\n\n\n"
+    "text": "Order(B::Array{nf_elem, 1}; check::Bool = true, cached::Bool = true) -> NfOrd\n\nReturns the order generated B. If check is set, it is checked whether B defines an order. If isbasis is set, then elements are assumed to form a Z-basis.\n\n\n\n"
 },
 
 {
