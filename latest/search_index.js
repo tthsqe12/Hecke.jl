@@ -2661,7 +2661,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Factored Elements",
     "title": "Hecke.reduce_ideal2",
     "category": "method",
-    "text": "\n\nreduce_ideal2(A::FacElem{NfOrdIdl}) -> NfOrdIdl, FacElem{nf_elem}\n\nComputes B and alpha in factored form, such that alpha B = A.\n\n\n\n"
+    "text": "reduce_ideal2(A::FacElem{NfOrdIdl}) -> NfOrdIdl, FacElem{nf_elem}\n\nComputes B and alpha in factored form, such that alpha B = A.\n\n\n\n"
 },
 
 {
