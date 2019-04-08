@@ -112,7 +112,7 @@ function _norm_relation_setup_abelian(K::AnticNumberField; small_degree::Bool = 
 end
 
 function _norm_relation_setup_generic(K::AnticNumberField; small_degree::Bool = true, target_den::fmpz = zero(fmpz))
-  println("Compute isomorphism ...")
+  println("Compute automorphisms ...")
   A = automorphisms(K)
   println("Compute group table ...")
   G, AtoG, GtoA = generic_group(A, *);
