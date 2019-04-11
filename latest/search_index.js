@@ -133,7 +133,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Number Fields",
     "title": "Nemo.NumberField",
     "category": "function",
-    "text": "number_field(f::Array{fmpq_poly, 1}, s::String=\"_\\$\") -> NfAbsNS\n\nLet f = (f_1 ldots f_n) be univariate rational polynomials, then we construct \n\nK = Qt_1 ldots t_nlangle f_1(t_1) ldots f_n(t_n)rangle\n\nThe ideal bust be maximal, however, this is not tested.\n\n\n\n"
+    "text": "number_field(f::Array{fmpq_poly, 1}, s::String=\"_\\$\") -> NfAbsNS\n\nLet f = (f_1 ldots f_n) be univariate rational polynomials, then we construct   K = Qt_1 ldots t_nlangle f_1(t_1) ldots f_n(t_n)rangle The ideal bust be maximal, however, this is not tested.\n\n\n\n"
 },
 
 {
@@ -621,7 +621,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "AbstractAlgebra.Generic.degree",
     "category": "method",
-    "text": "degree(O::NfOrd) -> Int\n\nReturns the degree of mathcal O.\n\n\n\ndegree(A::ClassField)\n\nThe degree of A over its base field, ie. the size of the defining ideal group.\n\n\n\n"
+    "text": "degree(O::NfOrd) -> Int\n\nReturns the degree of mathcal O.\n\n\n\ndegree(A::ClassField) The degree of A over its base field, ie. the size of the defining ideal group.\n\n\n\n"
 },
 
 {
@@ -989,7 +989,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Hecke.conjugates_arb",
     "category": "method",
-    "text": "\n\nconjugates_arb(x::NfAbsOrdElem, abs_tol::Int) -> Array{acb, 1}\n\nCompute the the conjugates of x as elements of type acb. Recall that we order the complex conjugates sigma_r+1(x)sigma_r+2s(x) such that sigma_i(x) = overlinesigma_i + s(x) for r + 2 leq i leq r + s.Every entry y of the array returned satisfies radius(real(y)) < 2^-abs_tol, radius(imag(y)) < 2^-abs_tol respectively.\n\n\n\n"
+    "text": "\n\nconjugates_arb(x::NfAbsOrdElem, abs_tol::Int) -> Array{acb, 1}\n\nCompute the the conjugates of x as elements of type acb. Recall that we order the complex conjugates sigma_r+1(x)sigma_r+2s(x) such that sigma_i(x) = overlinesigma_i + s(x) for r + 2 leq i leq r + s.\n\n\n\nEvery entry y of the array returned satisfies radius(real(y)) < 2^-abs_tol, radius(imag(y)) < 2^-abs_tol respectively.\n\n\n\n"
 },
 
 {
@@ -1101,7 +1101,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.prime_decomposition",
     "category": "method",
-    "text": "\n\nprime_decomposition(O::NfAbsOrd,\n                    p::Integer,\n                    degree_limit::Int = 0,\n                    lower_limit::Int = 0) -> Array{Tuple{NfOrdIdl, Int}, 1}\n\nReturns an array of tuples (mathfrak p_ie_i) such that p mathcal O is the product of the mathfrak p_i^e_i and mathfrak p_i neq mathfrak p_j for i neq j.If degree_limit is a nonzero integer k  0, then only those prime ideals mathfrak p with deg(mathfrak p) leq k will be returned. Similarly if \\lower_limit is a nonzero integer l  0, then only those prime ideals mathfrak p with l leq deg(mathfrak p) will be returned. Note that in this case it may happen that pmathcal O is not the product of the mathfrak p_i^e_i.\n\n\n\n"
+    "text": "\n\nprime_decomposition(O::NfAbsOrd,\n                    p::Integer,\n                    degree_limit::Int = 0,\n                    lower_limit::Int = 0) -> Array{Tuple{NfOrdIdl, Int}, 1}\n\nReturns an array of tuples (mathfrak p_ie_i) such that p mathcal O is the product of the mathfrak p_i^e_i and mathfrak p_i neq mathfrak p_j for i neq j.\n\n\n\nIf degree_limit is a nonzero integer k  0, then only those prime ideals mathfrak p with deg(mathfrak p) leq k will be returned. Similarly if \\lower_limit is a nonzero integer l  0, then only those prime ideals mathfrak p with l leq deg(mathfrak p) will be returned. Note that in this case it may happen that pmathcal O is not the product of the mathfrak p_i^e_i.\n\n\n\n"
 },
 
 {
@@ -1109,7 +1109,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.prime_decomposition",
     "category": "method",
-    "text": "\n\nprime_decomposition(O::NfAbsOrd,\n                    p::Integer,\n                    degree_limit::Int = 0,\n                    lower_limit::Int = 0) -> Array{Tuple{NfOrdIdl, Int}, 1}\n\nReturns an array of tuples (mathfrak p_ie_i) such that p mathcal O is the product of the mathfrak p_i^e_i and mathfrak p_i neq mathfrak p_j for i neq j.If degree_limit is a nonzero integer k  0, then only those prime ideals mathfrak p with deg(mathfrak p) leq k will be returned. Similarly if \\lower_limit is a nonzero integer l  0, then only those prime ideals mathfrak p with l leq deg(mathfrak p) will be returned. Note that in this case it may happen that pmathcal O is not the product of the mathfrak p_i^e_i.\n\n\n\n"
+    "text": "\n\nprime_decomposition(O::NfAbsOrd,\n                    p::Integer,\n                    degree_limit::Int = 0,\n                    lower_limit::Int = 0) -> Array{Tuple{NfOrdIdl, Int}, 1}\n\nReturns an array of tuples (mathfrak p_ie_i) such that p mathcal O is the product of the mathfrak p_i^e_i and mathfrak p_i neq mathfrak p_j for i neq j.\n\n\n\nIf degree_limit is a nonzero integer k  0, then only those prime ideals mathfrak p with deg(mathfrak p) leq k will be returned. Similarly if \\lower_limit is a nonzero integer l  0, then only those prime ideals mathfrak p with l leq deg(mathfrak p) will be returned. Note that in this case it may happen that pmathcal O is not the product of the mathfrak p_i^e_i.\n\n\n\n"
 },
 
 {
@@ -1125,7 +1125,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.factor",
     "category": "method",
-    "text": "factor(a::nf_elem, I::NfOrdIdlSet) -> Dict{NfOrdIdl, fmpz}\n\nFactors the principal ideal generated by a.\n\n\n\n"
+    "text": "factor(a::nf_elem, I::NfOrdIdlSet) -> Dict{NfOrdIdl, fmpz} Factors the principal ideal generated by a.\n\n\n\n"
 },
 
 {
@@ -1189,7 +1189,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Base.gcd",
     "category": "method",
-    "text": "\n\ngcd(A::NfOrdIdl, B::NfOrdIdl) -> NfOrdIdl\n\nThe gcd or sum (A+B).\n\n\n\n"
+    "text": "\n\ngcd(A::NfOrdIdl, B::NfOrdIdl) -> NfOrdIdl The gcd or sum (A+B).\n\n\n\n"
 },
 
 {
@@ -1197,7 +1197,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Base.gcd",
     "category": "method",
-    "text": "\n\ngcd(A::NfOrdIdl, p::fmpz) -> NfOrdIdl\n\nThe gcd or sum (A + pO).\n\n\n\n"
+    "text": "\n\ngcd(A::NfOrdIdl, p::fmpz) -> NfOrdIdl The gcd or sum (A + pO).\n\n\n\n"
 },
 
 {
@@ -1541,7 +1541,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.idempotents",
     "category": "method",
-    "text": "idempotents(x::NfOrdIdl, y::NfOrdIdl) -> NfOrdElem, NfOrdElem\n\nReturns a tuple (e, f) consisting of elements e in x, f in y such that 1 = e + f.If the ideals are not coprime, an error is raised.\n\n\n\n"
+    "text": "idempotents(x::NfOrdIdl, y::NfOrdIdl) -> NfOrdElem, NfOrdElem\n\nReturns a tuple (e, f) consisting of elements e in x, f in y such that 1 = e + f.\n\n\n\nIf the ideals are not coprime, an error is raised.\n\n\n\n"
 },
 
 {
@@ -1589,7 +1589,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "AbstractAlgebra.Generic.degree",
     "category": "method",
-    "text": "\n\ndegree(P::NfOrdIdl) -> Int\n\nThe inertia degree of the prime-ideal P.\n\n\n\ndegree(A::ClassField)\n\nThe degree of A over its base field, ie. the size of the defining ideal group.\n\n\n\n"
+    "text": "\n\ndegree(P::NfOrdIdl) -> Int\n\nThe inertia degree of the prime-ideal P.\n\n\n\ndegree(A::ClassField) The degree of A over its base field, ie. the size of the defining ideal group.\n\n\n\n"
 },
 
 {
@@ -1997,7 +1997,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Class Field Theory",
     "title": "AbstractAlgebra.Generic.degree",
     "category": "method",
-    "text": "degree(A::ClassField)\n\nThe degree of A over its base field, ie. the size of the defining ideal group.\n\n\n\n"
+    "text": "degree(A::ClassField) The degree of A over its base field, ie. the size of the defining ideal group.\n\n\n\n"
 },
 
 {
@@ -2005,7 +2005,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Class Field Theory",
     "title": "AbstractAlgebra.Generic.base_ring",
     "category": "method",
-    "text": "base_ring(A::ClassField)\n\nThe maximal order of the field that A is defined over.\n\n\n\n"
+    "text": "base_ring(A::ClassField) The maximal order of the field that A is defined over.\n\n\n\n"
 },
 
 {
@@ -2013,7 +2013,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Class Field Theory",
     "title": "Hecke.base_field",
     "category": "method",
-    "text": "base_field(A::ClassField)\n\nThe number field that A is defined over.\n\n\n\n"
+    "text": "base_field(A::ClassField) The number field that A is defined over.\n\n\n\n"
 },
 
 {
@@ -2029,7 +2029,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Class Field Theory",
     "title": "Hecke.conductor",
     "category": "method",
-    "text": "\n\nconductor(C::Hecke.ClassField) -> NfOrdIdl, Array{InfPlc,1}\n\nReturn the conductor of the abelian extension corresponding to C\n\n\n\n\n\n"
+    "text": "\n\nconductor(C::Hecke.ClassField) -> NfOrdIdl, Array{InfPlc,1}\n\nReturn the conductor of the abelian extension corresponding to C ***\n\n\n\n"
 },
 
 {
@@ -2053,7 +2053,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Class Field Theory",
     "title": "Hecke.isconductor",
     "category": "method",
-    "text": "\n\nisconductor(C::Hecke.ClassField, m::NfOrdIdl, inf_plc::Array{InfPlc,1}=InfPlc[]; check) -> NfOrdIdl, Array{InfPlc,1}\n\nChecks if m, inf_plc is the conductor of the abelian extension corresponding to C. If check is false, it assumes that the  given modulus is a multiple of the conductor. This is generically faster than computing the conductor.\n\n\n\n\n\n"
+    "text": "\n\nisconductor(C::Hecke.ClassField, m::NfOrdIdl, inf_plc::Array{InfPlc,1}=InfPlc[]; check) -> NfOrdIdl, Array{InfPlc,1}\n\nChecks if m, inf_plc is the conductor of the abelian extension corresponding to C. If check is false, it assumes that the  given modulus is a multiple of the conductor. This is generically faster than computing the conductor. ***\n\n\n\n"
 },
 
 {
@@ -2085,7 +2085,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Class Field Theory",
     "title": "Base.:*",
     "category": "method",
-    "text": "*(A::ClassField, B::ClassField) -> ClassField\n\nThe compositum of a and b as a (formal) class field.\n\n\n\n"
+    "text": "*(A::ClassField, B::ClassField) -> ClassField The compositum of a and b as a (formal) class field.\n\n\n\n"
 },
 
 {
@@ -2549,7 +2549,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Factored Elements",
     "title": "Hecke.factor_coprime",
     "category": "method",
-    "text": "factorcoprime(a::FacElem{nfelem, AnticNumberField}, I::NfOrdIdlSet) -> Dict{NfOrdIdl, fmpz}\n\nFactors the rincipal ideal generated by a into coprimes by computing a coprime basis from the principal ideals in the factorisation of a.\n\n\n\n"
+    "text": "factorcoprime(a::FacElem{nfelem, AnticNumberField}, I::NfOrdIdlSet) -> Dict{NfOrdIdl, fmpz} Factors the rincipal ideal generated by a into coprimes by computing a coprime basis from the principal ideals in the factorisation of a.\n\n\n\n"
 },
 
 {
@@ -2565,7 +2565,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Factored Elements",
     "title": "Hecke.factor",
     "category": "method",
-    "text": "factor(a::FacElem{nf_elem, AnticNumberField}, I::NfOrdIdlSet) -> Dict{NfOrdIdl, fmpz}\n\nFactors the principal ideal generated by a by refinind a coprime factorisation.\n\n\n\n"
+    "text": "factor(a::FacElem{nf_elem, AnticNumberField}, I::NfOrdIdlSet) -> Dict{NfOrdIdl, fmpz} Factors the principal ideal generated by a by refinind a coprime factorisation.\n\n\n\n"
 },
 
 {
