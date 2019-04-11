@@ -517,7 +517,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "Hecke.Order",
     "category": "method",
-    "text": "Order(K::AnticNumberField, A::fmpz_mat, check::Bool = true) -> NfOrd\n\nReturns the order which has basis matrix A with respect to the power basis of K. If check is set, it is checked whether A defines an order.\n\n\n\n\n\n  Order(K::RelativeExtension, M::PMat) -> NfRelOrd\n\nReturns the order which has basis pseudo-matrix M with respect to the power basis of K.\n\n\n\n"
+    "text": "Order(K::AnticNumberField, A::fmpz_mat, check::Bool = true) -> NfOrd\n\nReturns the order which has basis matrix A with respect to the power basis of K. If check is set, it is checked whether A defines an order.\n\n\n\n  Order(K::RelativeExtension, M::PMat) -> NfRelOrd\n\nReturns the order which has basis pseudo-matrix M with respect to the power basis of K.\n\n\n\n"
 },
 
 {
@@ -573,7 +573,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "Hecke.ring_of_multipliers",
     "category": "method",
-    "text": "\n\nring_of_multipliers(I::NfAbsOrdIdl) -> NfOrd\n\nComputes the order (I  I), which is the set of all x in K with xI subseteq I.\n\n\n\n\n\nring_of_multipliers(a::NfRelOrdIdl) -> NfRelOrd\n\nComputes the order (a  a), which is the set of all x in K with xa subseteq a, where K is the ambient number field of a.\n\n\n\n"
+    "text": "ring_of_multipliers(I::NfAbsOrdIdl) -> NfOrd\n\nComputes the order (I  I), which is the set of all x in K with xI subseteq I.\n\n\n\nring_of_multipliers(a::NfRelOrdIdl) -> NfRelOrd\n\nComputes the order (a  a), which is the set of all x in K with xa subseteq a, where K is the ambient number field of a.\n\n\n\n"
 },
 
 {
@@ -653,7 +653,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "Hecke.basis_mat_inv",
     "category": "method",
-    "text": "basis_mat_inv(O::NfOrd) -> FakeFmpqMat\n\nReturns the inverse of the basis matrix of mathcal O.\n\n\n\n\n\nbasis_mat_inv(A::NfAbsOrdIdl) -> fmpz_mat\n\nReturns the inverse basis matrix of A.\n\n\n\n"
+    "text": "basis_mat_inv(O::NfOrd) -> FakeFmpqMat\n\nReturns the inverse of the basis matrix of mathcal O.\n\n\n\nbasis_mat_inv(A::NfAbsOrdIdl) -> fmpz_mat\n\nReturns the inverse basis matrix of A.\n\n\n\n"
 },
 
 {
@@ -661,7 +661,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "AbstractAlgebra.Generic.discriminant",
     "category": "method",
-    "text": "discriminant(O::NfOrd) -> fmpz\n\nReturns the discriminant of mathcal O.\n\n\n\n\n\ndiscriminant(B::Array{NfAbsOrdElem, 1}) -> fmpz\n\nReturns the discriminant of the family B.\n\n\n\n"
+    "text": "discriminant(O::NfOrd) -> fmpz\n\nReturns the discriminant of mathcal O.\n\n\n\ndiscriminant(B::Array{NfAbsOrdElem, 1}) -> fmpz\n\nReturns the discriminant of the family B.\n\n\n\n"
 },
 
 {
@@ -781,7 +781,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Hecke.NfAbsOrd",
     "category": "type",
-    "text": "\n\n  (O::NfOrd)(a::Union{fmpz, Integer}) -> NfAbsOrdElem\n\nGiven an element a of type fmpz or Integer, this function coerces the element into mathcal O. It will be checked that a is contained in mathcal O if and only if check is true.\n\n\n\n\n\n  (O::NfOrd)(arr::Array{fmpz, 1})\n\nReturns the element of mathcal O with coefficient vector arr.\n\n\n\n\n\n  (O::NfOrd)() -> NfAbsOrdElem\n\nThis function constructs a new element of mathcal O which is set to 0.\n\n\n\n"
+    "text": "  (O::NfOrd)(a::Union{fmpz, Integer}) -> NfAbsOrdElem\n\nGiven an element a of type fmpz or Integer, this function coerces the element into mathcal O. It will be checked that a is contained in mathcal O if and only if check is true.\n\n\n\n  (O::NfOrd)(arr::Array{fmpz, 1})\n\nReturns the element of mathcal O with coefficient vector arr.\n\n\n\n  (O::NfOrd)() -> NfAbsOrdElem\n\nThis function constructs a new element of mathcal O which is set to 0.\n\n\n\n"
 },
 
 {
@@ -797,7 +797,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.parent",
     "category": "method",
-    "text": "parent(g::perm{T}) where T = PermGroup\n\nReturn the parent of the permutation g.\n\njulia> G = PermutationGroup(5); g = perm([3,4,5,2,1])\n(1,3,5)(2,4)\n\njulia> parent(g) == G\ntrue\n\n\n\nparent(a::AbstractAlgebra.MatElem{T}, cached::Bool = true) where T <: RingElement\n\nReturn the parent object of the given matrix.\n\n\n\nparent(a::AbstractAlgebra.MatAlgElem{T}, cached::Bool = true) where T <: RingElement\n\nReturn the parent object of the given matrix.\n\n\n\n\n\nparent(a::NfAbsOrdElem) -> NfOrd\n\nReturns the order of which a is an element.\n\n\n\n"
+    "text": "parent(g::perm{T}) where T = PermGroup\n\nReturn the parent of the permutation g.\n\njulia> G = PermutationGroup(5); g = perm([3,4,5,2,1])\n(1,3,5)(2,4)\n\njulia> parent(g) == G\ntrue\n\n\n\nparent(a::AbstractAlgebra.MatElem{T}, cached::Bool = true) where T <: RingElement\n\nReturn the parent object of the given matrix.\n\n\n\nparent(a::AbstractAlgebra.MatAlgElem{T}, cached::Bool = true) where T <: RingElement\n\nReturn the parent object of the given matrix.\n\n\n\nparent(a::NfAbsOrdElem) -> NfOrd\n\nReturns the order of which a is an element.\n\n\n\n"
 },
 
 {
@@ -805,7 +805,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Hecke.elem_in_nf",
     "category": "method",
-    "text": "\n\nelem_in_nf(a::NfAbsOrdElem) -> nf_elem\n\nReturns the element a considered as an element of the ambient number field.\n\n\n\n"
+    "text": "elem_in_nf(a::NfAbsOrdElem) -> nf_elem\n\nReturns the element a considered as an element of the ambient number field.\n\n\n\n"
 },
 
 {
@@ -813,7 +813,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Hecke.coordinates",
     "category": "method",
-    "text": "\n\ncoordinates(a::NfAbsOrdElem) -> Array{fmpz, 1}\n\nReturns the coefficient vector of a.\n\n\n\n\n\n  coordinates(a::NfRelOrdElem{T}) -> Vector{T}\n\nReturns the coefficient vector of a.\n\n\n\n"
+    "text": "coordinates(a::NfAbsOrdElem) -> Array{fmpz, 1}\n\nReturns the coefficient vector of a.\n\n\n\n  coordinates(a::NfRelOrdElem{T}) -> Vector{T}\n\nReturns the coefficient vector of a.\n\n\n\n"
 },
 
 {
@@ -821,7 +821,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "AbstractAlgebra.Generic.discriminant",
     "category": "method",
-    "text": "\n\ndiscriminant(B::Array{NfAbsOrdElem, 1}) -> fmpz\n\nReturns the discriminant of the family B.\n\n\n\n"
+    "text": "discriminant(B::Array{NfAbsOrdElem, 1}) -> fmpz\n\nReturns the discriminant of the family B.\n\n\n\n"
 },
 
 {
@@ -829,7 +829,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.:==",
     "category": "method",
-    "text": "\n\n==(x::NfAbsOrdElem, y::NfAbsOrdElem) -> Bool\n\nReturns whether x and y are equal.\n\n\n\n"
+    "text": "==(x::NfAbsOrdElem, y::NfAbsOrdElem) -> Bool\n\nReturns whether x and y are equal.\n\n\n\n"
 },
 
 {
@@ -837,7 +837,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.zero",
     "category": "method",
-    "text": "\n\nzero(O::NfOrd) -> NfAbsOrdElem\n\nReturns the zero element of mathcal O.\n\n\n\n"
+    "text": "zero(O::NfOrd) -> NfAbsOrdElem\n\nReturns the zero element of mathcal O.\n\n\n\n"
 },
 
 {
@@ -845,7 +845,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.one",
     "category": "method",
-    "text": "\n\none(O::NfOrd) -> NfAbsOrdElem\n\nReturns the one element of mathcal O.\n\n\n\n"
+    "text": "one(O::NfOrd) -> NfAbsOrdElem\n\nReturns the one element of mathcal O.\n\n\n\n"
 },
 
 {
@@ -853,7 +853,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.iszero",
     "category": "method",
-    "text": "\n\niszero(a::NfOrd) -> Bool\n\nTests if a is zero.\n\n\n\n"
+    "text": "iszero(a::NfOrd) -> Bool\n\nTests if a is zero.\n\n\n\n"
 },
 
 {
@@ -861,7 +861,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.isone",
     "category": "method",
-    "text": "\n\nisone(a::NfOrd) -> Bool\n\nTests if a is one.\n\n\n\n"
+    "text": "isone(a::NfOrd) -> Bool\n\nTests if a is one.\n\n\n\n"
 },
 
 {
@@ -877,7 +877,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.:-",
     "category": "method",
-    "text": "-(a::AbstractAlgebra.ResElem{T}, b::AbstractAlgebra.ResElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.ResElem{T}, b::T) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::T, b::AbstractAlgebra.ResElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.ResFieldElem{T}, b::AbstractAlgebra.ResFieldElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.ResFieldElem{T}, b::T) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::T, b::AbstractAlgebra.ResFieldElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.PolyElem{T}, b::AbstractAlgebra.PolyElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.NCPolyElem{T}, b::AbstractAlgebra.NCPolyElem{T}) where {T <: NCRingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.RelSeriesElem{T}, b::AbstractAlgebra.RelSeriesElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.AbsSeriesElem{T}, b::AbstractAlgebra.AbsSeriesElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::Generic.LaurentSeriesElem{T}, b::Generic.LaurentSeriesElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(x::Generic.MatrixElem{T}, y::Generic.MatrixElem{T}) where {T <: RingElement}\n\nReturn x - y.\n\n\n\n-(x::T, y::Generic.MatrixElem{T}) where {T <: RingElem}\n\nReturn S(x) - y where S is the parent of y.\n\n\n\n-(x::Generic.MatrixElem{T}, y::T) where {T <: RingElem}\n\nReturn x - S(y), where S is the parent of a.\n\n\n\n-(a::AbstractAlgebra.FracElem{T}, b::AbstractAlgebra.FracElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.FracElem{T}, b::T) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::T, b::AbstractAlgebra.FracElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n\n\n-(x::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns the additive inverse of x.\n\n\n\n-(A::SMat, B::SMat) -> SMat\n\nReturn the difference A - B.\n\n\n\n-(A::SRow, B::SRow) -> SRow\n\nReturns the difference of A and B.\n\n\n\n-(A::SRow) -> SRow\n\nReturns the negative of A.\n\n\n\n"
+    "text": "-(a::AbstractAlgebra.ResElem{T}, b::AbstractAlgebra.ResElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.ResElem{T}, b::T) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::T, b::AbstractAlgebra.ResElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.ResFieldElem{T}, b::AbstractAlgebra.ResFieldElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.ResFieldElem{T}, b::T) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::T, b::AbstractAlgebra.ResFieldElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.PolyElem{T}, b::AbstractAlgebra.PolyElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.NCPolyElem{T}, b::AbstractAlgebra.NCPolyElem{T}) where {T <: NCRingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.RelSeriesElem{T}, b::AbstractAlgebra.RelSeriesElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.AbsSeriesElem{T}, b::AbstractAlgebra.AbsSeriesElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(a::Generic.LaurentSeriesElem{T}, b::Generic.LaurentSeriesElem{T}) where {T <: RingElement}\n\nReturn a - b.\n\n\n\n-(x::Generic.MatrixElem{T}, y::Generic.MatrixElem{T}) where {T <: RingElement}\n\nReturn x - y.\n\n\n\n-(x::T, y::Generic.MatrixElem{T}) where {T <: RingElem}\n\nReturn S(x) - y where S is the parent of y.\n\n\n\n-(x::Generic.MatrixElem{T}, y::T) where {T <: RingElem}\n\nReturn x - S(y), where S is the parent of a.\n\n\n\n-(a::AbstractAlgebra.FracElem{T}, b::AbstractAlgebra.FracElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::AbstractAlgebra.FracElem{T}, b::T) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(a::T, b::AbstractAlgebra.FracElem{T}) where {T <: RingElem}\n\nReturn a - b.\n\n\n\n-(x::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns the additive inverse of x.\n\n\n\n-(A::SMat, B::SMat) -> SMat\n\nReturn the difference A - B.\n\n\n\n-(A::SRow, B::SRow) -> SRow\n\nReturns the difference of A and B.\n\n\n\n-(A::SRow) -> SRow\n\nReturns the negative of A.\n\n\n\n"
 },
 
 {
@@ -885,7 +885,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.:+",
     "category": "method",
-    "text": "\n\n+(x::NfAbsOrdElem, y::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns x + y.\n\n\n\n"
+    "text": "+(x::NfAbsOrdElem, y::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns x + y.\n\n\n\n"
 },
 
 {
@@ -893,7 +893,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.:-",
     "category": "method",
-    "text": "\n\n-(x::NfAbsOrdElem, y::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns x - y.\n\n\n\n"
+    "text": "-(x::NfAbsOrdElem, y::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns x - y.\n\n\n\n"
 },
 
 {
@@ -901,7 +901,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.:*",
     "category": "method",
-    "text": "\n\n*(x::NfAbsOrdElem, y::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns x cdot y.\n\n\n\n"
+    "text": "*(x::NfAbsOrdElem, y::NfAbsOrdElem) -> NfAbsOrdElem\n\nReturns x cdot y.\n\n\n\n"
 },
 
 {
@@ -909,7 +909,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.:^",
     "category": "method",
-    "text": "\n\n^(x::NfAbsOrdElem, y::Union{fmpz, Int})\n\nReturns x^y.\n\n\n\n"
+    "text": "^(x::NfAbsOrdElem, y::Union{fmpz, Int})\n\nReturns x^y.\n\n\n\n"
 },
 
 {
@@ -917,7 +917,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.mod",
     "category": "method",
-    "text": "\n\nmod(a::NfAbsOrdElem, m::Union{fmpz, Int}) -> NfAbsOrdElem\n\nReduces the coefficient vector of a modulo m and returns the corresponding element. The coefficient vector of the result will have entries x with 0 leq x leq m.\n\n\n\n"
+    "text": "mod(a::NfAbsOrdElem, m::Union{fmpz, Int}) -> NfAbsOrdElem\n\nReduces the coefficient vector of a modulo m and returns the corresponding element. The coefficient vector of the result will have entries x with 0 leq x leq m.\n\n\n\n"
 },
 
 {
@@ -925,7 +925,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.powermod",
     "category": "method",
-    "text": "\n\npowermod(a::NfAbsOrdElem, i::fmpz, m::Integer) -> NfAbsOrdElem\n\nReturns the element a^i modulo m.\n\n\n\n"
+    "text": "powermod(a::NfAbsOrdElem, i::fmpz, m::Integer) -> NfAbsOrdElem\n\nReturns the element a^i modulo m.\n\n\n\n"
 },
 
 {
@@ -941,7 +941,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Nemo.representation_matrix",
     "category": "method",
-    "text": "\n\nrepresentation_matrix(a::NfAbsOrdElem) -> fmpz_mat\n\nReturns the representation matrix of the element a.\n\n\n\n\n\nrepresentation_matrix(a::NfAbsOrdElem, K::AnticNumberField) -> FakeFmpqMat\n\nReturns the representation matrix of the element a considered as an element of the ambient number field K. It is assumed that K is the ambient number field of the order of a.\n\n\n\n"
+    "text": "representation_matrix(a::NfAbsOrdElem) -> fmpz_mat\n\nReturns the representation matrix of the element a.\n\n\n\nrepresentation_matrix(a::NfAbsOrdElem, K::AnticNumberField) -> FakeFmpqMat\n\nReturns the representation matrix of the element a considered as an element of the ambient number field K. It is assumed that K is the ambient number field of the order of a.\n\n\n\n"
 },
 
 {
@@ -949,7 +949,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Nemo.representation_matrix",
     "category": "method",
-    "text": "\n\nrepresentation_matrix(a::NfAbsOrdElem, K::AnticNumberField) -> FakeFmpqMat\n\nReturns the representation matrix of the element a considered as an element of the ambient number field K. It is assumed that K is the ambient number field of the order of a.\n\n\n\n"
+    "text": "representation_matrix(a::NfAbsOrdElem, K::AnticNumberField) -> FakeFmpqMat\n\nReturns the representation matrix of the element a considered as an element of the ambient number field K. It is assumed that K is the ambient number field of the order of a.\n\n\n\n"
 },
 
 {
@@ -957,7 +957,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "LinearAlgebra.tr",
     "category": "method",
-    "text": "\n\ntr(a::NfAbsOrdElem) -> fmpz\n\nReturns the trace of a.\n\n\n\n"
+    "text": "tr(a::NfAbsOrdElem) -> fmpz\n\nReturns the trace of a.\n\n\n\n"
 },
 
 {
@@ -965,7 +965,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "LinearAlgebra.norm",
     "category": "method",
-    "text": "\n\nnorm(a::NfAbsOrdElem) -> fmpz\n\nReturns the norm of a.\n\n\n\n\n\nnorm(a::NfRelOrdFracIdl{T, S}) -> S\n\nReturns the norm of a\n\n\n\n"
+    "text": "norm(a::NfAbsOrdElem) -> fmpz\n\nReturns the norm of a.\n\n\n\nnorm(a::NfRelOrdFracIdl{T, S}) -> S\n\nReturns the norm of a\n\n\n\n"
 },
 
 {
@@ -973,7 +973,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Base.rand",
     "category": "method",
-    "text": "\n\nrand(O::NfOrd, n::Union{Integer, fmpz}) -> NfAbsOrdElem\n\nComputes a coefficient vector with entries uniformly distributed in -ndotsc-101dotscn and returns the corresponding element of the order mathcal O.\n\n\n\n"
+    "text": "rand(O::NfOrd, n::Union{Integer, fmpz}) -> NfAbsOrdElem\n\nComputes a coefficient vector with entries uniformly distributed in -ndotsc-101dotscn and returns the corresponding element of the order mathcal O.\n\n\n\n"
 },
 
 {
@@ -981,7 +981,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Hecke.minkowski_map",
     "category": "method",
-    "text": "\n\nminkowski_map(a::NfAbsOrdElem, abs_tol::Int) -> Array{arb, 1}\n\nReturns the image of a under the Minkowski embedding. Every entry of the array returned is of type arb with radius less then 2^-abs_tol.\n\n\n\n"
+    "text": "minkowski_map(a::NfAbsOrdElem, abs_tol::Int) -> Array{arb, 1}\n\nReturns the image of a under the Minkowski embedding. Every entry of the array returned is of type arb with radius less then 2^-abs_tol.\n\n\n\n"
 },
 
 {
@@ -989,7 +989,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Hecke.conjugates_arb",
     "category": "method",
-    "text": "\n\nconjugates_arb(x::NfAbsOrdElem, abs_tol::Int) -> Array{acb, 1}\n\nCompute the the conjugates of x as elements of type acb. Recall that we order the complex conjugates sigma_r+1(x)sigma_r+2s(x) such that sigma_i(x) = overlinesigma_i + s(x) for r + 2 leq i leq r + s.\n\n\n\nEvery entry y of the array returned satisfies radius(real(y)) < 2^-abs_tol, radius(imag(y)) < 2^-abs_tol respectively.\n\n\n\n"
+    "text": "conjugates_arb(x::NfAbsOrdElem, abs_tol::Int) -> Array{acb, 1}\n\nCompute the the conjugates of x as elements of type acb. Recall that we order the complex conjugates sigma_r+1(x)sigma_r+2s(x) such that sigma_i(x) = overlinesigma_i + s(x) for r + 2 leq i leq r + s.\n\n\n\nEvery entry y of the array returned satisfies radius(real(y)) < 2^-abs_tol, radius(imag(y)) < 2^-abs_tol respectively.\n\n\n\n"
 },
 
 {
@@ -997,7 +997,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Hecke.conjugates_arb_log",
     "category": "method",
-    "text": "\n\nconjugates_arb_log(x::NfAbsOrdElem, abs_tol::Int) -> Array{arb, 1}\n\nReturns the elements (log(lvert sigma_1(x) rvert)dotsclog(lvertsigma_r(x) rvert) dotsc2log(lvert sigma_r+1(x) rvert)dotsc 2log(lvert sigma_r+s(x)rvert)) as elements of type arb radius less then 2^-abs_tol.\n\n\n\n"
+    "text": "conjugates_arb_log(x::NfAbsOrdElem, abs_tol::Int) -> Array{arb, 1}\n\nReturns the elements (log(lvert sigma_1(x) rvert)dotsclog(lvertsigma_r(x) rvert) dotsc2log(lvert sigma_r+1(x) rvert)dotsc 2log(lvert sigma_r+s(x)rvert)) as elements of type arb radius less then 2^-abs_tol.\n\n\n\n"
 },
 
 {
@@ -1005,7 +1005,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "Hecke.t2",
     "category": "method",
-    "text": "\n\nt2(x::NfAbsOrdElem, abs_tol::Int = 32) -> arb\n\nReturn the T_2-norm of x. The radius of the result will be less than 2^-abs_tol.\n\n\n\n"
+    "text": "t2(x::NfAbsOrdElem, abs_tol::Int = 32) -> arb\n\nReturn the T_2-norm of x. The radius of the result will be less than 2^-abs_tol.\n\n\n\n"
 },
 
 {
@@ -1053,7 +1053,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.ideal",
     "category": "method",
-    "text": "\n\nideal(O::NfOrd, a::fmpz) -> NfAbsOrdIdl\nideal(O::NfOrd, a::Integer) -> NfAbsOrdIdl\n\nReturns the ideal of mathcal O which is generated by a.\n\n\n\n"
+    "text": "ideal(O::NfOrd, a::fmpz) -> NfAbsOrdIdl\nideal(O::NfOrd, a::Integer) -> NfAbsOrdIdl\n\nReturns the ideal of mathcal O which is generated by a.\n\n\n\n"
 },
 
 {
@@ -1061,7 +1061,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.ideal",
     "category": "method",
-    "text": "\n\nideal(O::NfOrd, x::fmpz_mat, check::Bool = false, x_in_hnf::Bool = false) -> NfAbsOrdIdl\n\nCreates the ideal of mathcal O with basis matrix x. If check is set, then it is checked whether x defines an ideal (expensive). If xinhnf is set, then it is assumed that x is already in lower left HNF.\n\n\n\n"
+    "text": "ideal(O::NfOrd, x::fmpz_mat, check::Bool = false, x_in_hnf::Bool = false) -> NfAbsOrdIdl\n\nCreates the ideal of mathcal O with basis matrix x. If check is set, then it is checked whether x defines an ideal (expensive). If xinhnf is set, then it is assumed that x is already in lower left HNF.\n\n\n\n"
 },
 
 {
@@ -1101,7 +1101,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.prime_decomposition",
     "category": "method",
-    "text": "\n\nprime_decomposition(O::NfAbsOrd,\n                    p::Integer,\n                    degree_limit::Int = 0,\n                    lower_limit::Int = 0) -> Array{Tuple{NfOrdIdl, Int}, 1}\n\nReturns an array of tuples (mathfrak p_ie_i) such that p mathcal O is the product of the mathfrak p_i^e_i and mathfrak p_i neq mathfrak p_j for i neq j.\n\n\n\nIf degree_limit is a nonzero integer k  0, then only those prime ideals mathfrak p with deg(mathfrak p) leq k will be returned. Similarly if \\lower_limit is a nonzero integer l  0, then only those prime ideals mathfrak p with l leq deg(mathfrak p) will be returned. Note that in this case it may happen that pmathcal O is not the product of the mathfrak p_i^e_i.\n\n\n\n"
+    "text": "prime_decomposition(O::NfAbsOrd,\n                    p::Integer,\n                    degree_limit::Int = 0,\n                    lower_limit::Int = 0) -> Array{Tuple{NfOrdIdl, Int}, 1}\n\nReturns an array of tuples (mathfrak p_ie_i) such that p mathcal O is the product of the mathfrak p_i^e_i and mathfrak p_i neq mathfrak p_j for i neq j.\n\n\n\nIf degree_limit is a nonzero integer k  0, then only those prime ideals mathfrak p with deg(mathfrak p) leq k will be returned. Similarly if \\lower_limit is a nonzero integer l  0, then only those prime ideals mathfrak p with l leq deg(mathfrak p) will be returned. Note that in this case it may happen that pmathcal O is not the product of the mathfrak p_i^e_i.\n\n\n\n"
 },
 
 {
@@ -1109,7 +1109,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.prime_decomposition",
     "category": "method",
-    "text": "\n\nprime_decomposition(O::NfAbsOrd,\n                    p::Integer,\n                    degree_limit::Int = 0,\n                    lower_limit::Int = 0) -> Array{Tuple{NfOrdIdl, Int}, 1}\n\nReturns an array of tuples (mathfrak p_ie_i) such that p mathcal O is the product of the mathfrak p_i^e_i and mathfrak p_i neq mathfrak p_j for i neq j.\n\n\n\nIf degree_limit is a nonzero integer k  0, then only those prime ideals mathfrak p with deg(mathfrak p) leq k will be returned. Similarly if \\lower_limit is a nonzero integer l  0, then only those prime ideals mathfrak p with l leq deg(mathfrak p) will be returned. Note that in this case it may happen that pmathcal O is not the product of the mathfrak p_i^e_i.\n\n\n\n"
+    "text": "prime_decomposition(O::NfAbsOrd,\n                    p::Integer,\n                    degree_limit::Int = 0,\n                    lower_limit::Int = 0) -> Array{Tuple{NfOrdIdl, Int}, 1}\n\nReturns an array of tuples (mathfrak p_ie_i) such that p mathcal O is the product of the mathfrak p_i^e_i and mathfrak p_i neq mathfrak p_j for i neq j.\n\n\n\nIf degree_limit is a nonzero integer k  0, then only those prime ideals mathfrak p with deg(mathfrak p) leq k will be returned. Similarly if \\lower_limit is a nonzero integer l  0, then only those prime ideals mathfrak p with l leq deg(mathfrak p) will be returned. Note that in this case it may happen that pmathcal O is not the product of the mathfrak p_i^e_i.\n\n\n\n"
 },
 
 {
@@ -1117,7 +1117,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.factor",
     "category": "method",
-    "text": "\n\nfactor(A::NfOrdIdl) -> Dict{NfOrdIdl, Int}\n\nComputes the prime ideal factorization A as a dictionary, the keys being the prime ideal divisors: If lp = factor_dict(A), then keys(lp) are the prime ideal divisors of A and lp[P] is the P-adic valuation of A for all P in keys(lp).\n\n\n\n"
+    "text": "factor(A::NfOrdIdl) -> Dict{NfOrdIdl, Int}\n\nComputes the prime ideal factorization A as a dictionary, the keys being the prime ideal divisors: If lp = factor_dict(A), then keys(lp) are the prime ideal divisors of A and lp[P] is the P-adic valuation of A for all P in keys(lp).\n\n\n\n"
 },
 
 {
@@ -1141,7 +1141,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Base.:==",
     "category": "method",
-    "text": "\n\n==(x::NfAbsOrdIdl, y::NfAbsOrdIdl)\n\nReturns whether x and y are equal.\n\n\n\n"
+    "text": "==(x::NfAbsOrdIdl, y::NfAbsOrdIdl)\n\nReturns whether x and y are equal.\n\n\n\n"
 },
 
 {
@@ -1149,7 +1149,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Base.:+",
     "category": "method",
-    "text": "\n\n+(x::NfOrdIdl, y::NfOrdIdl)\n\nReturns x + y.\n\n\n\n"
+    "text": "+(x::NfOrdIdl, y::NfOrdIdl)\n\nReturns x + y.\n\n\n\n"
 },
 
 {
@@ -1165,7 +1165,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "AbstractAlgebra.Generic.divexact",
     "category": "method",
-    "text": "\n\ndivexact(A::NfOrdIdl, B::NfOrdIdl) -> NfOrdIdl\n\nReturns AB^-1 assuming that AB^-1 is again an integral ideal.\n\n\n\n"
+    "text": "divexact(A::NfOrdIdl, B::NfOrdIdl) -> NfOrdIdl\n\nReturns AB^-1 assuming that AB^-1 is again an integral ideal.\n\n\n\n"
 },
 
 {
@@ -1173,7 +1173,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "AbstractAlgebra.Generic.divides",
     "category": "method",
-    "text": "\n\ndivides(A::NfOrdIdl, B::NfOrdIdl)\n\nChecks if B divides A\n\n\n\n"
+    "text": "divides(A::NfOrdIdl, B::NfOrdIdl)\n\nChecks if B divides A\n\n\n\n"
 },
 
 {
@@ -1189,7 +1189,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Base.gcd",
     "category": "method",
-    "text": "\n\ngcd(A::NfOrdIdl, B::NfOrdIdl) -> NfOrdIdl The gcd or sum (A+B).\n\n\n\n"
+    "text": "gcd(A::NfOrdIdl, B::NfOrdIdl) -> NfOrdIdl The gcd or sum (A+B).\n\n\n\n"
 },
 
 {
@@ -1197,7 +1197,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Base.gcd",
     "category": "method",
-    "text": "\n\ngcd(A::NfOrdIdl, p::fmpz) -> NfOrdIdl The gcd or sum (A + pO).\n\n\n\n"
+    "text": "gcd(A::NfOrdIdl, p::fmpz) -> NfOrdIdl The gcd or sum (A + pO).\n\n\n\n"
 },
 
 {
@@ -1221,7 +1221,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Base.in",
     "category": "method",
-    "text": "\n\nin(x::NfOrdElem, y::NfAbsOrdIdl)\nin(x::nf_elem, y::NfAbsOrdIdl)\nin(x::fmpz, y::NfAbsOrdIdl)\n\nReturns whether x is contained in y.\n\n\n\n"
+    "text": "in(x::NfOrdElem, y::NfAbsOrdIdl)\nin(x::nf_elem, y::NfAbsOrdIdl)\nin(x::fmpz, y::NfAbsOrdIdl)\n\nReturns whether x is contained in y.\n\n\n\n"
 },
 
 {
@@ -1245,7 +1245,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.isinvertible",
     "category": "method",
-    "text": "\n\nisinvertible(A::NfAbsOrdIdl) -> Bool, NfOrdFracIdl\n\nReturns true and an inverse of A or false and an ideal B such that A*B subsetneq order(A), if A is not invertible.\n\n\n\n"
+    "text": "isinvertible(A::NfAbsOrdIdl) -> Bool, NfOrdFracIdl\n\nReturns true and an inverse of A or false and an ideal B such that A*B subsetneq order(A), if A is not invertible.\n\n\n\n"
 },
 
 {
@@ -1253,7 +1253,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Base.isone",
     "category": "method",
-    "text": "\n\nisone(A::NfAbsOrdIdl) -> Bool\nisunit(A::NfAbsOrdIdl) -> Bool\n\nTests if A is the trivial ideal generated by 1.\n\n\n\n"
+    "text": "isone(A::NfAbsOrdIdl) -> Bool\nisunit(A::NfAbsOrdIdl) -> Bool\n\nTests if A is the trivial ideal generated by 1.\n\n\n\n"
 },
 
 {
@@ -1397,7 +1397,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "AbstractAlgebra.Generic.order",
     "category": "method",
-    "text": "\n\norder(I::NfAbsOrdIdl) -> NfOrd\n\nReturns the order of I.\n\n\n\n"
+    "text": "order(I::NfAbsOrdIdl) -> NfOrd\n\nReturns the order of I.\n\n\n\n"
 },
 
 {
@@ -1405,7 +1405,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.nf",
     "category": "method",
-    "text": "\n\nnf(x::NfAbsOrdIdl) -> AnticNumberField\n\nReturns the number field, of which x is an integral ideal.\n\n\n\n"
+    "text": "nf(x::NfAbsOrdIdl) -> AnticNumberField\n\nReturns the number field, of which x is an integral ideal.\n\n\n\n"
 },
 
 {
@@ -1413,7 +1413,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.basis",
     "category": "method",
-    "text": "\n\nbasis(A::NfAbsOrdIdl) -> Array{NfOrdElem, 1}\n\nReturns the basis of A.\n\n\n\n"
+    "text": "basis(A::NfAbsOrdIdl) -> Array{NfOrdElem, 1}\n\nReturns the basis of A.\n\n\n\n"
 },
 
 {
@@ -1421,7 +1421,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.basis_mat",
     "category": "method",
-    "text": "\n\nbasis_mat(A::NfAbsOrdIdl) -> fmpz_mat\n\nReturns the basis matrix of A.\n\n\n\n"
+    "text": "basis_mat(A::NfAbsOrdIdl) -> fmpz_mat\n\nReturns the basis matrix of A.\n\n\n\n"
 },
 
 {
@@ -1429,7 +1429,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.basis_mat_inv",
     "category": "method",
-    "text": "basis_mat_inv(O::NfOrd) -> FakeFmpqMat\n\nReturns the inverse of the basis matrix of mathcal O.\n\n\n\n\n\nbasis_mat_inv(A::NfAbsOrdIdl) -> fmpz_mat\n\nReturns the inverse basis matrix of A.\n\n\n\n"
+    "text": "basis_mat_inv(O::NfOrd) -> FakeFmpqMat\n\nReturns the inverse of the basis matrix of mathcal O.\n\n\n\nbasis_mat_inv(A::NfAbsOrdIdl) -> fmpz_mat\n\nReturns the inverse basis matrix of A.\n\n\n\n"
 },
 
 {
@@ -1437,7 +1437,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.assure_has_basis_mat_inv",
     "category": "method",
-    "text": "\n\nbasis_mat_inv(A::NfAbsOrdIdl) -> FakeFmpqMat\n\nReturns the inverse of the basis matrix of A.\n\n\n\n"
+    "text": "basis_mat_inv(A::NfAbsOrdIdl) -> FakeFmpqMat\n\nReturns the inverse of the basis matrix of A.\n\n\n\n"
 },
 
 {
@@ -1445,7 +1445,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.has_basis",
     "category": "method",
-    "text": "\n\nhas_basis(A::NfAbsOrdIdl) -> Bool\n\nReturns whether A has a basis already computed.\n\n\n\n"
+    "text": "has_basis(A::NfAbsOrdIdl) -> Bool\n\nReturns whether A has a basis already computed.\n\n\n\n"
 },
 
 {
@@ -1453,7 +1453,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.has_basis_mat",
     "category": "method",
-    "text": "\n\nhas_basis_mat(A::NfAbsOrdIdl) -> Bool\n\nReturns whether A knows its basis matrix.\n\n\n\n"
+    "text": "has_basis_mat(A::NfAbsOrdIdl) -> Bool\n\nReturns whether A knows its basis matrix.\n\n\n\n"
 },
 
 {
@@ -1461,7 +1461,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.has_2_elem",
     "category": "method",
-    "text": "\n\nhas_2_elem(A::NfAbsOrdIdl) -> Bool\n\nReturns whether A is generated by two elements.\n\n\n\n"
+    "text": "has_2_elem(A::NfAbsOrdIdl) -> Bool\n\nReturns whether A is generated by two elements.\n\n\n\n"
 },
 
 {
@@ -1469,7 +1469,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.has_2_elem_normal",
     "category": "method",
-    "text": "\n\nhas_2_elem_normal(A::NfAbsOrdIdl) -> Bool\n\nReturns whether A has normal two element generators.\n\n\n\n"
+    "text": "has_2_elem_normal(A::NfAbsOrdIdl) -> Bool\n\nReturns whether A has normal two element generators.\n\n\n\n"
 },
 
 {
@@ -1477,7 +1477,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.has_weakly_normal",
     "category": "method",
-    "text": "\n\nhas_weakly_normal(A::NfAbsOrdIdl) -> Bool\n\nReturns whether A has weakly normal two element generators.\n\n\n\n"
+    "text": "has_weakly_normal(A::NfAbsOrdIdl) -> Bool\n\nReturns whether A has weakly normal two element generators.\n\n\n\n"
 },
 
 {
@@ -1485,7 +1485,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.has_princ_gen_special",
     "category": "method",
-    "text": "\n\nhas_basis_princ_gen_special(A::NfAbsOrdIdl) -> Bool\n\nReturns whether A knows if it is generated by a rational integer.\n\n\n\n"
+    "text": "has_basis_princ_gen_special(A::NfAbsOrdIdl) -> Bool\n\nReturns whether A knows if it is generated by a rational integer.\n\n\n\n"
 },
 
 {
@@ -1509,7 +1509,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Base.minimum",
     "category": "method",
-    "text": "\n\nminimum(A::NfAbsOrdIdl) -> fmpz\n\nReturns the smallest nonnegative element in A cap mathbf Z.\n\n\n\n"
+    "text": "minimum(A::NfAbsOrdIdl) -> fmpz\n\nReturns the smallest nonnegative element in A cap mathbf Z.\n\n\n\n"
 },
 
 {
@@ -1517,7 +1517,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.has_minimum",
     "category": "method",
-    "text": "\n\nhas_minimum(A::NfAbsOrdIdl) -> Bool\n\nReturns whether A knows its mininum.\n\n\n\n"
+    "text": "has_minimum(A::NfAbsOrdIdl) -> Bool\n\nReturns whether A knows its mininum.\n\n\n\n"
 },
 
 {
@@ -1525,7 +1525,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "LinearAlgebra.norm",
     "category": "method",
-    "text": "\n\nnorm(A::NfAbsOrdIdl) -> fmpz\n\nReturns the norm of A, that is, the cardinality of mathcal OA, where mathcal O is the order of A.\n\n\n\n\n\nnorm(a::NfRelOrdFracIdl{T, S}) -> S\n\nReturns the norm of a\n\n\n\n"
+    "text": "norm(A::NfAbsOrdIdl) -> fmpz\n\nReturns the norm of A, that is, the cardinality of mathcal OA, where mathcal O is the order of A.\n\n\n\nnorm(a::NfRelOrdFracIdl{T, S}) -> S\n\nReturns the norm of a\n\n\n\n"
 },
 
 {
@@ -1533,7 +1533,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.has_norm",
     "category": "method",
-    "text": "\n\nhas_norm(A::NfAbsOrdIdl) -> Bool\n\nReturns whether A knows its norm.\n\n\n\n"
+    "text": "has_norm(A::NfAbsOrdIdl) -> Bool\n\nReturns whether A knows its norm.\n\n\n\n"
 },
 
 {
@@ -1549,7 +1549,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Nemo.isprime",
     "category": "method",
-    "text": "\n\nisprime(A::NfOrdIdl) -> Bool\n\nReturns whether A is a prime ideal.\n\n\n\n"
+    "text": "isprime(A::NfOrdIdl) -> Bool\n\nReturns whether A is a prime ideal.\n\n\n\n"
 },
 
 {
@@ -1557,7 +1557,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.isprime_known",
     "category": "method",
-    "text": "\n\nisprime_known(A::NfOrdIdl) -> Bool\n\nReturns whether A knows if it is prime.\n\n\n\n"
+    "text": "isprime_known(A::NfOrdIdl) -> Bool\n\nReturns whether A knows if it is prime.\n\n\n\n"
 },
 
 {
@@ -1565,7 +1565,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.splitting_type",
     "category": "method",
-    "text": "\n\nsplitting_type(P::NfOrdIdl) -> Int, Int\n\nThe ramification index and inertia degree of the prime ideal P. First value is the ramificatio index, the second the degree of P.\n\n\n\n"
+    "text": "splitting_type(P::NfOrdIdl) -> Int, Int\n\nThe ramification index and inertia degree of the prime ideal P. First value is the ramificatio index, the second the degree of P.\n\n\n\n"
 },
 
 {
@@ -1573,7 +1573,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.isramified",
     "category": "method",
-    "text": "\n\nisramified(O::NfOrd, p::Int) -> Bool\n\nReturns whether the integer p is ramified in mathcal O. It is assumed that p is prime.\n\n\n\n"
+    "text": "isramified(O::NfOrd, p::Int) -> Bool\n\nReturns whether the integer p is ramified in mathcal O. It is assumed that p is prime.\n\n\n\n"
 },
 
 {
@@ -1581,7 +1581,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "Hecke.ramification_index",
     "category": "method",
-    "text": "\n\nramification_index(P::NfOrdIdl) -> Int\n\nThe ramification index of the prime-ideal P.\n\n\n\n"
+    "text": "ramification_index(P::NfOrdIdl) -> Int\n\nThe ramification index of the prime-ideal P.\n\n\n\n"
 },
 
 {
@@ -1589,7 +1589,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "AbstractAlgebra.Generic.degree",
     "category": "method",
-    "text": "\n\ndegree(P::NfOrdIdl) -> Int\n\nThe inertia degree of the prime-ideal P.\n\n\n\ndegree(A::ClassField) The degree of A over its base field, ie. the size of the defining ideal group.\n\n\n\n"
+    "text": "degree(P::NfOrdIdl) -> Int\n\nThe inertia degree of the prime-ideal P.\n\n\n\ndegree(A::ClassField) The degree of A over its base field, ie. the size of the defining ideal group.\n\n\n\n"
 },
 
 {
@@ -1597,7 +1597,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "AbstractAlgebra.Generic.valuation",
     "category": "method",
-    "text": "\n\nvaluation(a::nf_elem, p::NfOrdIdl) -> fmpz\nvaluation(a::NfOrdElem, p::NfOrdIdl) -> fmpz\nvaluation(a::fmpz, p::NfOrdIdl) -> fmpz\n\nComputes the mathfrak p-adic valuation of a, that is, the largest i such that a is contained in mathfrak p^i.\n\n\n\n"
+    "text": "valuation(a::nf_elem, p::NfOrdIdl) -> fmpz\nvaluation(a::NfOrdElem, p::NfOrdIdl) -> fmpz\nvaluation(a::fmpz, p::NfOrdIdl) -> fmpz\n\nComputes the mathfrak p-adic valuation of a, that is, the largest i such that a is contained in mathfrak p^i.\n\n\n\n"
 },
 
 {
@@ -1605,7 +1605,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "AbstractAlgebra.Generic.valuation",
     "category": "method",
-    "text": "\n\nvaluation(a::nf_elem, p::NfOrdIdl) -> fmpz\nvaluation(a::NfOrdElem, p::NfOrdIdl) -> fmpz\nvaluation(a::fmpz, p::NfOrdIdl) -> fmpz\n\nComputes the mathfrak p-adic valuation of a, that is, the largest i such that a is contained in mathfrak p^i.\n\n\n\n"
+    "text": "valuation(a::nf_elem, p::NfOrdIdl) -> fmpz\nvaluation(a::NfOrdElem, p::NfOrdIdl) -> fmpz\nvaluation(a::fmpz, p::NfOrdIdl) -> fmpz\n\nComputes the mathfrak p-adic valuation of a, that is, the largest i such that a is contained in mathfrak p^i.\n\n\n\n"
 },
 
 {
@@ -1613,7 +1613,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "AbstractAlgebra.Generic.valuation",
     "category": "method",
-    "text": "\n\nvaluation(A::NfOrdIdl, p::NfOrdIdl) -> fmpz\n\nComputes the mathfrak p-adic valuation of A, that is, the largest i such that A is contained in mathfrak p^i.\n\n\n\n"
+    "text": "valuation(A::NfOrdIdl, p::NfOrdIdl) -> fmpz\n\nComputes the mathfrak p-adic valuation of A, that is, the largest i such that A is contained in mathfrak p^i.\n\n\n\n"
 },
 
 {
@@ -1629,7 +1629,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Ideals",
     "title": "AbstractAlgebra.Generic.valuation",
     "category": "method",
-    "text": "\n\nvaluation(a::nf_elem, p::NfOrdIdl) -> fmpz\nvaluation(a::NfOrdElem, p::NfOrdIdl) -> fmpz\nvaluation(a::fmpz, p::NfOrdIdl) -> fmpz\n\nComputes the mathfrak p-adic valuation of a, that is, the largest i such that a is contained in mathfrak p^i.\n\n\n\n"
+    "text": "valuation(a::nf_elem, p::NfOrdIdl) -> fmpz\nvaluation(a::NfOrdElem, p::NfOrdIdl) -> fmpz\nvaluation(a::fmpz, p::NfOrdIdl) -> fmpz\n\nComputes the mathfrak p-adic valuation of a, that is, the largest i such that a is contained in mathfrak p^i.\n\n\n\n"
 },
 
 {
@@ -1677,7 +1677,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Fractional ideals",
     "title": "Hecke.frac_ideal",
     "category": "method",
-    "text": "\n\nfrac_ideal(O::NfOrd, A::fmpz_mat, b::fmpz, A_in_hnf::Bool = false) -> NfOrdFracIdl\n\nCreates the fractional ideal of mathcal O with basis matrix Ab. If Ainhnf is set, then it is assumed that A is already in lower left HNF.\n\n\n\n"
+    "text": "frac_ideal(O::NfOrd, A::fmpz_mat, b::fmpz, A_in_hnf::Bool = false) -> NfOrdFracIdl\n\nCreates the fractional ideal of mathcal O with basis matrix Ab. If Ainhnf is set, then it is assumed that A is already in lower left HNF.\n\n\n\n"
 },
 
 {
@@ -1685,7 +1685,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Fractional ideals",
     "title": "Hecke.frac_ideal",
     "category": "method",
-    "text": "\n\nfrac_ideal(O::NfOrd, A::fmpz_mat, b::fmpz, A_in_hnf::Bool = false) -> NfOrdFracIdl\n\nCreates the fractional ideal of mathcal O with basis matrix Ab. If Ainhnf is set, then it is assumed that A is already in lower left HNF.\n\n\n\n"
+    "text": "frac_ideal(O::NfOrd, A::fmpz_mat, b::fmpz, A_in_hnf::Bool = false) -> NfOrdFracIdl\n\nCreates the fractional ideal of mathcal O with basis matrix Ab. If Ainhnf is set, then it is assumed that A is already in lower left HNF.\n\n\n\n"
 },
 
 {
@@ -1693,7 +1693,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Fractional ideals",
     "title": "Hecke.frac_ideal",
     "category": "method",
-    "text": "\n\nfrac_ideal(O::NfOrd, A::FakeFmpqMat, A_in_hnf::Bool = false) -> NfOrdFracIdl\n\nCreates the fractional ideal of mathcal O with basis matrix A. If Ainhnf is set, then it is assumed that the numerator of A is already in lower left HNF.\n\n\n\n"
+    "text": "frac_ideal(O::NfOrd, A::FakeFmpqMat, A_in_hnf::Bool = false) -> NfOrdFracIdl\n\nCreates the fractional ideal of mathcal O with basis matrix A. If Ainhnf is set, then it is assumed that the numerator of A is already in lower left HNF.\n\n\n\n"
 },
 
 {
@@ -1701,7 +1701,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Fractional ideals",
     "title": "Hecke.frac_ideal",
     "category": "method",
-    "text": "\n\nfrac_ideal(O::NfOrd, I::NfOrdIdl) -> NfOrdFracIdl\n\nTurns the ideal I into a fractional ideal of mathcal O.\n\n\n\n"
+    "text": "frac_ideal(O::NfOrd, I::NfOrdIdl) -> NfOrdFracIdl\n\nTurns the ideal I into a fractional ideal of mathcal O.\n\n\n\n"
 },
 
 {
@@ -1709,7 +1709,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Fractional ideals",
     "title": "Hecke.frac_ideal",
     "category": "method",
-    "text": "\n\nfrac_ideal(O::NfOrd, I::NfOrdIdl, b::fmpz) -> NfOrdFracIdl\n\nCreates the fractional ideal Ib of mathcal O.\n\n\n\n"
+    "text": "frac_ideal(O::NfOrd, I::NfOrdIdl, b::fmpz) -> NfOrdFracIdl\n\nCreates the fractional ideal Ib of mathcal O.\n\n\n\n"
 },
 
 {
@@ -1717,7 +1717,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Fractional ideals",
     "title": "Hecke.frac_ideal",
     "category": "method",
-    "text": "\n\nfrac_ideal(O::NfOrd, a::nf_elem) -> NfOrdFracIdl\n\nCreates the principal fractional ideal (a) of mathcal O.\n\n\n\n"
+    "text": "frac_ideal(O::NfOrd, a::nf_elem) -> NfOrdFracIdl\n\nCreates the principal fractional ideal (a) of mathcal O.\n\n\n\n"
 },
 
 {
@@ -1725,7 +1725,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Fractional ideals",
     "title": "Hecke.frac_ideal",
     "category": "method",
-    "text": "\n\nfrac_ideal(O::NfOrd, a::NfOrdElem) -> NfOrdFracIdl\n\nCreates the principal fractional ideal (a) of mathcal O.\n\n\n\n"
+    "text": "frac_ideal(O::NfOrd, a::NfOrdElem) -> NfOrdFracIdl\n\nCreates the principal fractional ideal (a) of mathcal O.\n\n\n\n"
 },
 
 {
@@ -1733,7 +1733,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Fractional ideals",
     "title": "Base.inv",
     "category": "method",
-    "text": "\n\ninv(A::NfAbsOrdIdl) -> NfOrdFracIdl\n\nComputes the inverse of A, that is, the fractional ideal B such that AB = mathcal O_K.\n\n\n\n\n\n  inv(a::NfRelOrdIdl) -> NfRelOrdFracIdl\n  inv(a::NfRelOrdFracIdl) -> NfRelOrdFracIdl\n\nComputes the inverse of a, that is, the fractional ideal b such that ab = O, where O is the ambient order of a. O must be maximal.\n\n\n\n"
+    "text": "inv(A::NfAbsOrdIdl) -> NfOrdFracIdl\n\nComputes the inverse of A, that is, the fractional ideal B such that AB = mathcal O_K.\n\n\n\n  inv(a::NfRelOrdIdl) -> NfRelOrdFracIdl\n  inv(a::NfRelOrdFracIdl) -> NfRelOrdFracIdl\n\nComputes the inverse of a, that is, the fractional ideal b such that ab = O, where O is the ambient order of a. O must be maximal.\n\n\n\n"
 },
 
 {
@@ -1749,7 +1749,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Fractional ideals",
     "title": "Base.:==",
     "category": "method",
-    "text": "\n\n==(x::NfOrdFracIdl, y::NfOrdFracIdl) -> Bool\n\nReturns whether x and y are equal.\n\n\n\n"
+    "text": "==(x::NfOrdFracIdl, y::NfOrdFracIdl) -> Bool\n\nReturns whether x and y are equal.\n\n\n\n"
 },
 
 {
@@ -1757,7 +1757,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Fractional ideals",
     "title": "Base.inv",
     "category": "method",
-    "text": "\n\ninv(A::NfOrdFracIdl) -> NfOrdFracIdl\n\nReturns the fractional ideal B such that AB = mathcal O.\n\n\n\n"
+    "text": "inv(A::NfOrdFracIdl) -> NfOrdFracIdl\n\nReturns the fractional ideal B such that AB = mathcal O.\n\n\n\n"
 },
 
 {
@@ -1765,7 +1765,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Fractional ideals",
     "title": "Hecke.integral_split",
     "category": "method",
-    "text": "\n\nintegral_split(A::NfOrdFracIdl) -> NfOrdIdl, NfOrdIdl\n\nComputes the unique coprime integral ideals N and D s.th. A = ND^-1\n\n\n\n"
+    "text": "integral_split(A::NfOrdFracIdl) -> NfOrdIdl, NfOrdIdl\n\nComputes the unique coprime integral ideals N and D s.th. A = ND^-1\n\n\n\n"
 },
 
 {
@@ -1789,7 +1789,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Fractional ideals",
     "title": "Hecke.basis_mat",
     "category": "method",
-    "text": "\n\nbasis_mat(I::NfOrdFracIdl) -> FakeFmpqMat\n\nReturns the basis matrix of I with respect to the basis of the order.\n\n\n\n"
+    "text": "basis_mat(I::NfOrdFracIdl) -> FakeFmpqMat\n\nReturns the basis matrix of I with respect to the basis of the order.\n\n\n\n"
 },
 
 {
@@ -1797,7 +1797,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Fractional ideals",
     "title": "Hecke.basis_mat_inv",
     "category": "method",
-    "text": "\n\nbasis_mat_inv(I::NfOrdFracIdl) -> FakeFmpqMat\n\nReturns the inverse of the basis matrix of I.\n\n\n\n"
+    "text": "basis_mat_inv(I::NfOrdFracIdl) -> FakeFmpqMat\n\nReturns the inverse of the basis matrix of I.\n\n\n\n"
 },
 
 {
@@ -1805,7 +1805,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Fractional ideals",
     "title": "Hecke.basis",
     "category": "method",
-    "text": "\n\nbasis(I::NfOrdFracIdl) -> Array{nf_elem, 1}\n\nReturns the mathbf Z-basis of I.\n\n\n\n"
+    "text": "basis(I::NfOrdFracIdl) -> Array{nf_elem, 1}\n\nReturns the mathbf Z-basis of I.\n\n\n\n"
 },
 
 {
@@ -1813,7 +1813,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Fractional ideals",
     "title": "LinearAlgebra.norm",
     "category": "method",
-    "text": "\n\nnorm(I::NfOrdFracIdl) -> fmpq\n\nReturns the norm of I\n\n\n\n"
+    "text": "norm(I::NfOrdFracIdl) -> fmpq\n\nReturns the norm of I\n\n\n\n"
 },
 
 {
@@ -2029,7 +2029,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Class Field Theory",
     "title": "Hecke.conductor",
     "category": "method",
-    "text": "\n\nconductor(C::Hecke.ClassField) -> NfOrdIdl, Array{InfPlc,1}\n\nReturn the conductor of the abelian extension corresponding to C ***\n\n\n\n"
+    "text": "conductor(C::Hecke.ClassField) -> NfOrdIdl, Array{InfPlc,1}\n\nReturn the conductor of the abelian extension corresponding to C\n\n\n\n"
 },
 
 {
@@ -2053,7 +2053,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Class Field Theory",
     "title": "Hecke.isconductor",
     "category": "method",
-    "text": "\n\nisconductor(C::Hecke.ClassField, m::NfOrdIdl, inf_plc::Array{InfPlc,1}=InfPlc[]; check) -> NfOrdIdl, Array{InfPlc,1}\n\nChecks if m, inf_plc is the conductor of the abelian extension corresponding to C. If check is false, it assumes that the  given modulus is a multiple of the conductor. This is generically faster than computing the conductor. ***\n\n\n\n"
+    "text": "isconductor(C::Hecke.ClassField, m::NfOrdIdl, inf_plc::Array{InfPlc,1}=InfPlc[]; check) -> NfOrdIdl, Array{InfPlc,1}\n\nChecks if m, inf_plc is the conductor of the abelian extension corresponding to C. If check is false, it assumes that the  given modulus is a multiple of the conductor. This is generically faster than computing the conductor.\n\n\n\n"
 },
 
 {
@@ -2461,7 +2461,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Factored Elements",
     "title": "AbstractAlgebra.Generic.evaluate",
     "category": "method",
-    "text": "\n\nevaluate{T}(x::FacElem{T}) -> T\n\nExpands or evaluates the factored element, i.e. actually computes the value.  Does \"square-and-multiply\" on the exponent vectors.\n\n\n\n"
+    "text": "evaluate{T}(x::FacElem{T}) -> T\n\nExpands or evaluates the factored element, i.e. actually computes the value.  Does \"square-and-multiply\" on the exponent vectors.\n\n\n\n"
 },
 
 {
@@ -2469,7 +2469,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Factored Elements",
     "title": "AbstractAlgebra.Generic.evaluate",
     "category": "method",
-    "text": "\n\nevaluate(x::FacElem{fmpq}) -> fmpq\nevaluate(x::FacElem{fmpz}) -> fmpz\n\nExpands or evaluates the factored element, i.e. actually computes the the element.  Works by first obtaining a simplified version of the power product into coprime base elements.\n\n\n\n"
+    "text": "evaluate(x::FacElem{fmpq}) -> fmpq\nevaluate(x::FacElem{fmpz}) -> fmpz\n\nExpands or evaluates the factored element, i.e. actually computes the the element.  Works by first obtaining a simplified version of the power product into coprime base elements.\n\n\n\n"
 },
 
 {
@@ -2477,7 +2477,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Factored Elements",
     "title": "AbstractAlgebra.Generic.evaluate",
     "category": "method",
-    "text": "\n\nevaluate{T}(x::FacElem{T}) -> T\n\nExpands or evaluates the factored element, i.e. actually computes the value.  Does \"square-and-multiply\" on the exponent vectors.\n\n\n\n"
+    "text": "evaluate{T}(x::FacElem{T}) -> T\n\nExpands or evaluates the factored element, i.e. actually computes the value.  Does \"square-and-multiply\" on the exponent vectors.\n\n\n\n"
 },
 
 {
@@ -2485,7 +2485,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Factored Elements",
     "title": "Hecke.evaluate_naive",
     "category": "method",
-    "text": "\n\nevaluate_naive{T}(x::FacElem{T}) -> T\n\nExpands or evaluates the factored element, i.e. actually computes the value. Uses the obvious naive algorithm. Faster for input in finite rings.\n\n\n\n"
+    "text": "evaluate_naive{T}(x::FacElem{T}) -> T\n\nExpands or evaluates the factored element, i.e. actually computes the value. Uses the obvious naive algorithm. Faster for input in finite rings.\n\n\n\n"
 },
 
 {
@@ -2549,7 +2549,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Factored Elements",
     "title": "Hecke.factor_coprime",
     "category": "method",
-    "text": "factorcoprime(a::FacElem{nfelem, AnticNumberField}, I::NfOrdIdlSet) -> Dict{NfOrdIdl, fmpz} Factors the rincipal ideal generated by a into coprimes by computing a coprime basis from the principal ideals in the factorisation of a.\n\n\n\n"
+    "text": "factor_coprime(a::FacElem{nf_elem, AnticNumberField}, I::NfOrdIdlSet) -> Dict{NfOrdIdl, fmpz}\n\nFactors the rincipal ideal generated by a into coprimes by computing a coprime basis from the principal ideals in the factorisation of a.\n\n\n\n"
 },
 
 {
@@ -2581,7 +2581,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Factored Elements",
     "title": "Hecke.signs",
     "category": "method",
-    "text": "\n\nsigns(a::nf_elem)          -> Dict{InfPlc, Int}\nsigns(a::FacElem{nf_elem}) -> Dict{InfPlc, Int}\n\nThis function returns a dictionary of the signs of a at all infinite places of the ambient number field. The keys are infinite places of the ambient number field. The value is 1 if the sign is positive and -1 if the sign is negative.\n\n\n\n"
+    "text": "signs(a::nf_elem)          -> Dict{InfPlc, Int}\nsigns(a::FacElem{nf_elem}) -> Dict{InfPlc, Int}\n\nThis function returns a dictionary of the signs of a at all infinite places of the ambient number field. The keys are infinite places of the ambient number field. The value is 1 if the sign is positive and -1 if the sign is negative.\n\n\n\n"
 },
 
 {
@@ -2589,7 +2589,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Factored Elements",
     "title": "Hecke.signs",
     "category": "method",
-    "text": "\n\nsigns(a::nf_elem, l::Vector{InfPlc})          -> Dict{InfPlc, Int}\nsigns(a::FacElem{nf_elem}, l::Vector{InfPlc}) -> Dict{InfPlc, Int}\n\nThis function returns a dictionary of the signs of a at places in l. The keys are the elements of l. The value is 1 if the sign is positive and -1 if the sign is negative. The result will contain as many signs as there are real places contained in l.\n\n\n\n"
+    "text": "signs(a::nf_elem, l::Vector{InfPlc})          -> Dict{InfPlc, Int}\nsigns(a::FacElem{nf_elem}, l::Vector{InfPlc}) -> Dict{InfPlc, Int}\n\nThis function returns a dictionary of the signs of a at places in l. The keys are the elements of l. The value is 1 if the sign is positive and -1 if the sign is negative. The result will contain as many signs as there are real places contained in l.\n\n\n\n"
 },
 
 {
@@ -2597,7 +2597,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Factored Elements",
     "title": "Base.sign",
     "category": "method",
-    "text": "\n\nsign(a::nf_elem, P::InfPlc)          -> Int\nsign(a::FacElem{nf_elem}, P::InfPlc) -> Int\n\nThis function returns the sign of a at the place P. The value is 1 if the sign is positive and -1 if the sign is negative.\n\n\n\n"
+    "text": "sign(a::nf_elem, P::InfPlc)          -> Int\nsign(a::FacElem{nf_elem}, P::InfPlc) -> Int\n\nThis function returns the sign of a at the place P. The value is 1 if the sign is positive and -1 if the sign is negative.\n\n\n\n"
 },
 
 {
@@ -2605,7 +2605,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Factored Elements",
     "title": "Nemo.ispositive",
     "category": "method",
-    "text": "\n\nispositive(a::nf_elem, P::InfPlc)          -> Bool\nispositive(a::FacElem{nf_elem}, P::InfPlc) -> Bool\n\nReturns whether the element a is positive at the embedding corresponding to P. The place P must be real.\n\n\n\n"
+    "text": "ispositive(a::nf_elem, P::InfPlc)          -> Bool\nispositive(a::FacElem{nf_elem}, P::InfPlc) -> Bool\n\nReturns whether the element a is positive at the embedding corresponding to P. The place P must be real.\n\n\n\n"
 },
 
 {
@@ -2613,7 +2613,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Factored Elements",
     "title": "Nemo.ispositive",
     "category": "method",
-    "text": "\n\nispositive(a::nf_elem, l::Vector{InfPlc})          -> Bool\nispositive(a::FacElem{nf_elem}, l::Vector{InfPlc}) -> Bool\n\nReturns whether the element a is positive at the embeddings corresponding to the real places of l.\n\n\n\n"
+    "text": "ispositive(a::nf_elem, l::Vector{InfPlc})          -> Bool\nispositive(a::FacElem{nf_elem}, l::Vector{InfPlc}) -> Bool\n\nReturns whether the element a is positive at the embeddings corresponding to the real places of l.\n\n\n\n"
 },
 
 {
@@ -2621,7 +2621,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Factored Elements",
     "title": "Hecke.istotally_positive",
     "category": "method",
-    "text": "\n\nistotally_positive(a::nf_elem)          -> Bool\nistotally_positive(a::FacElem{nf_elem}) -> Bool\n\nReturns whether the element a is totally positive, that is, whether it is positive at all places of the ambient number field.\n\n\n\n"
+    "text": "istotally_positive(a::nf_elem)          -> Bool\nistotally_positive(a::FacElem{nf_elem}) -> Bool\n\nReturns whether the element a is totally positive, that is, whether it is positive at all places of the ambient number field.\n\n\n\n"
 },
 
 {
@@ -2669,7 +2669,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Factored Elements",
     "title": "Hecke.modular_proj",
     "category": "method",
-    "text": "\n\nmodularproj(a::FacElem{nfelem, AnticNumberField}, me::modularenv) -> Array{fqnmod, 1}\n\nGiven an algebraic number a in factored form and data \\code{me} as computed by \\code{modular_init}, project a onto the residue class fields.\n\n\n\n"
+    "text": "modularproj(a::FacElem{nfelem, AnticNumberField}, me::modularenv) -> Array{fqnmod, 1}\n\nGiven an algebraic number a in factored form and data \\code{me} as computed by \\code{modular_init}, project a onto the residue class fields.\n\n\n\n"
 },
 
 {
