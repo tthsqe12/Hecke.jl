@@ -54,6 +54,10 @@ using LinearAlgebra, Markdown, InteractiveUtils, Libdl, Distributed, Printf, Spa
 
 import AbstractAlgebra
 
+import AbstractAlgebra.Generic: Mat
+
+export Mat
+
 import LinearAlgebra: dot, istriu, nullspace
 
 import SparseArrays: nnz
