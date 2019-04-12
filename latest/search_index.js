@@ -205,7 +205,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Number Fields",
     "title": "Hecke.absolute_field",
     "category": "method",
-    "text": "absolute_field(K::NfRel{nf_elem}, cached::Bool = false) -> AnticNumberField, Map, Map\n\nGiven an extension KkQ, find an isomorphic extensino of Q.\n\n\n\nabsolute_field(K::NfRel{NfRelElem}, cached::Bool = false) -> NfRel, Map, Map\n\nGiven an extension EKk, find an isomorphic extension of k. In a tower, only the top-most steps are collapsed.\n\n\n\n"
+    "text": "absolute_field(K::NfRel{nf_elem}, cached::Bool = false) -> AnticNumberField, Map, Map\n\nGiven an extension KkQ, find an isomorphic extension of Q.\n\n\n\nabsolute_field(K::NfRel{NfRelElem}, cached::Bool = false) -> NfRel, Map, Map\n\nGiven an extension EKk, find an isomorphic extension of k. In a tower, only the top-most steps are collapsed.\n\n\n\n"
 },
 
 {
@@ -573,7 +573,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Orders",
     "title": "Hecke.ring_of_multipliers",
     "category": "method",
-    "text": "ring_of_multipliers(I::NfAbsOrdIdl) -> NfOrd\n\nComputes the order (I  I), which is the set of all x in K with xI subseteq I.\n\n\n\nring_of_multipliers(a::NfRelOrdIdl) -> NfRelOrd\n\nComputes the order (a  a), which is the set of all x in K with xa subseteq a, where K is the ambient number field of a.\n\n\n\n"
+    "text": "ring_of_multipliers(I::NfAbsOrdIdl) -> NfAbsOrd\n\nComputes the order (I  I), which is the set of all x in K with xI subseteq I.\n\n\n\nring_of_multipliers(a::NfRelOrdIdl) -> NfRelOrd\n\nComputes the order (a  a), which is the set of all x in K with xa subseteq a, where K is the ambient number field of a.\n\n\n\n"
 },
 
 {
@@ -1013,7 +1013,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Elements",
     "title": "AbstractAlgebra.Generic.minpoly",
     "category": "method",
-    "text": "minpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(S::Ring, M::MatAlgElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(a::NfAbsOrdElem) -> fmpz_poly\n\nminpoly(a::NfAbsOrdElem, FlintZZ) -> fmpz_poly\n\nThe minimal polynomial of a.    \n\n\n\n"
+    "text": "minpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(S::Ring, M::MatAlgElem{T}, charpoly_only::Bool = false) where {T <: RingElement}\n\nReturns the minimal polynomial p of the matrix M. The polynomial ring S of the resulting polynomial must be supplied and the matrix must be square.\n\n\n\nminpoly(a::NfAbsOrdElem) -> fmpz_poly\n\n::NfAbsOrdElem) in Hecke at /home/sircana/.julia/dev/Hecke/src/NfOrd/Elem.jl:751     minpoly(a::NfAbsOrdElem, FlintZZ) -> fmpz_poly The minimal polynomial of a.    \n\n\n\n"
 },
 
 {
