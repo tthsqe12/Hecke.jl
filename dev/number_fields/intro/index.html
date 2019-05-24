@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hecke">
+    <meta name="author" content="Tommy Hofmann">
+    
+    <link rel="../../img/favicon.ico">
+
+    
+    <title>Number fields - Hecke</title>
+    
+
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+    <link href="../../css/highlight.min.css" rel="stylesheet">
+    <link href="../../assets/Documenter.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../..">Hecke</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">Number fields</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Orders <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../orders/introduction/">Introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../orders/orders/">Basics</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../orders/elements/">Elements</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../orders/ideals/">Ideals</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../orders/frac_ideals/">Fractional Ideals</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Abelian groups <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../abelian/introduction/">Introduction</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Class fields <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../class_fields/intro/">Introduction</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../FacElem/">Factored Elements</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../sparse/intro/">Sparse Linear Algebra</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../..">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../../orders/introduction/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/thofma/Hecke.jl/edit/master/docs/number_fields/intro.md">Edit on Hecke.jl</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#number-fields">Number Fields</a></li>
+            <li class="second-level"><a href="#introduction">Introduction</a></li>
+                
+            <li class="second-level"><a href="#absolute-simple-fields">Absolute Simple Fields</a></li>
+                
+                <li class="third-level"><a href="#creation">Creation</a></li>
+                <li class="third-level"><a href="#example">Example</a></li>
+            <li class="second-level"><a href="#absolute-non-simple-fields">Absolute Non-Simple Fields</a></li>
+                
+                <li class="third-level"><a href="#creation_1">Creation</a></li>
+                <li class="third-level"><a href="#example_1">Example</a></li>
+                <li class="third-level"><a href="#conversion">Conversion</a></li>
+            <li class="second-level"><a href="#simple-relative-fields">Simple Relative Fields</a></li>
+                
+                <li class="third-level"><a href="#creation_2">Creation</a></li>
+                <li class="third-level"><a href="#conversion_1">Conversion</a></li>
+            <li class="second-level"><a href="#non-simple-relative-fields">Non-Simple Relative Fields</a></li>
+                
+                <li class="third-level"><a href="#creation_3">Creation</a></li>
+                <li class="third-level"><a href="#conversion_2">Conversion</a></li>
+            <li class="second-level"><a href="#implicit-relative-extensions">Implicit Relative Extensions</a></li>
+                
+            <li class="second-level"><a href="#invariants">Invariants</a></li>
+                
+            <li class="second-level"><a href="#elements">Elements</a></li>
+                
+                <li class="third-level"><a href="#creation_4">Creation</a></li>
+                <li class="third-level"><a href="#invariants_1">Invariants</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<p><a id='Number-Fields-1'></a></p>
+<h1 id="number-fields">Number Fields</h1>
+<p><a id='NumberFieldsLink-1'></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>This chapter deals with number fields. Number fields, in Hecke, come in several different types:</p>
+<ul>
+<li><code>AnticNumberField</code>: a finite simple extension of the rational numbers <script type="math/tex">Q</script>
+</li>
+<li><code>NfAbsNS</code>: a finite extension of <script type="math/tex">Q</script> given by several polynomials.</li>
+</ul>
+<p>We will refer to this as a non-simple field - even though mathematically  we can find a primitive elements.</p>
+<ul>
+<li><code>NfRel</code>: a finite simple extension of a number field. This is   actually parametried by the (element) type of the coefficient field.  The complete type of an extension of an absolute field (<code>AnticNumberField</code>)  is <code>NfRel{nf_elem}</code>. The next extension thus will be  <code>NfRel{NfRelElem{nf_elem}}</code>.</li>
+<li><code>NfRel_ns</code>: extensions of number fields given by several polynomials.  This too will be refered to as a non-simple field.</li>
+</ul>
+<p>The simple types <code>AnticNumberField</code> and <code>NfRel</code> are also calle simple fields in the rest of this document, <code>NfRel</code> and <code>NfRel_ns</code> are referred to as relative extensions while <code>AnticNumberField</code> and <code>NfAbsNS</code> are called absolute.</p>
+<p>Internally, simple fields are essentially just (univariate) polynomial quotients in a dense representation, while non-simple fields are multivariate quotient rings, thus have a sparse presentation. In general, simple fields allow much faster arithmetic, while  the non-simple fields give easy access to large degree fields.</p>
+<p><a id='Absolute-Simple-Fields-1'></a></p>
+<h2 id="absolute-simple-fields">Absolute Simple Fields</h2>
+<p>The most basic number field type is that of <code>AnticNumberField</code>. Internally this is essentially represented as a unvariate quotient with the arithmetic provided by the antic-c-library and implemented in Nemo.</p>
+<p><a id='Creation-1'></a></p>
+<h3 id="creation">Creation</h3>
+<p>Number fields are mostly created using <code>NumberField</code>, but also using <code>number_field</code>.</p>
+<p>Many of the constructors have arguments of type <code>Symbol</code> or <code>AbstractString</code>, if used, they define the appearance in printing, and printing only. The named parameter <code>check</code> can be <code>true</code> or <code>false, the default being</code>true`. This parameter controlls is the polynomial defining the number field is tested for irreducibility or not. Given that this can be potentially  very time consuiming if the degree if large, one can omit this test. Note however, that the behaviour of Hecke is undefined if a reducible polynomial is used to define a <em>field</em>.</p>
+<p>The named boolean parameter <code>cached</code> is inherited from the underlying Nemo system. Two number fields defined using the same polynomial from the identical polynomial ring and the same (identical) symbol/ string will be identical if <code>cached == true</code> and different if <code>cached == false</code>.</p>
+<p><a id='Nemo.NumberField-Tuple{fmpq_poly}' href='#Nemo.NumberField-Tuple{fmpq_poly}'>#</a>
+<strong><code>Nemo.NumberField</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">NumberField(f::fmpq_poly; cached::Bool = true, check::Bool = true)
+</code></pre>
+
+<p>The number field Q[x]/f generated by f.</p>
+<p><a id='Hecke.cyclotomic_field-Tuple{Int64}' href='#Hecke.cyclotomic_field-Tuple{Int64}'>#</a>
+<strong><code>Hecke.cyclotomic_field</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">cyclotomic_field(n::Int) -&gt; AnticNumberField, nf_elem
+</code></pre>
+
+<p>The <script type="math/tex">n</script>-th cyclotomic field defined by the <script type="math/tex">n</script>-the cyclotomic polynomial.</p>
+<p><a id='Hecke.wildanger_field-Tuple{Int64,fmpz}' href='#Hecke.wildanger_field-Tuple{Int64,fmpz}'>#</a>
+<strong><code>Hecke.wildanger_field</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">wildanger_field(n::Int, B::fmpz) -&gt; AnticNumberField, nf_elem
+wildanger_field(n::Int, B::Integer) -&gt; AnticNumberField, nf_elem
+</code></pre>
+
+<p>Returns the field with defining polynomial <script type="math/tex">x^n + \sum_{i=0}^{n-1} (-1)^{n-i}Bx^i</script>. These fields tend to have non-trivial class groups.</p>
+<p><a id='Hecke.pure_extension-Tuple{Int64,Integer}' href='#Hecke.pure_extension-Tuple{Int64,Integer}'>#</a>
+<strong><code>Hecke.pure_extension</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">pure_extension(n::Int, gen::Integer; cached::Bool = true, check::Bool = true) -&gt; AnticNumberField, nf_elem
+pure_extension(n::Int, gen::fmpz; cached::Bool = true, check::Bool = true) -&gt; AnticNumberField, nf_elem
+</code></pre>
+
+<p>The number field with defining polynomial <script type="math/tex">x^n-gen</script>.</p>
+<p><a id='Example-1'></a></p>
+<h3 id="example">Example</h3>
+<pre><code class="julia-repl">
+julia&gt; Qx, x = PolynomialRing(FlintQQ, &quot;x&quot;);
+
+julia&gt; K, a = NumberField(x^2 - 10, &quot;a&quot;);
+</code></pre>
+
+<p><a id='Absolute-Non-Simple-Fields-1'></a></p>
+<h2 id="absolute-non-simple-fields">Absolute Non-Simple Fields</h2>
+<p><a id='Creation-2'></a></p>
+<h3 id="creation_1">Creation</h3>
+<p><a id='Nemo.NumberField' href='#Nemo.NumberField'>#</a>
+<strong><code>Nemo.NumberField</code></strong> &mdash; <em>Function</em>.</p>
+<pre><code class="julia">number_field(f::Array{fmpq_poly, 1}, s::String=&quot;_\$&quot;) -&gt; NfAbsNS
+</code></pre>
+
+<p>Let <script type="math/tex">f = (f_1, \ldots, f_n)</script> be univariate rational polynomials, then we construct   <script type="math/tex">K = Q[t_1, \ldots, t_n]/\langle f_1(t_1), \ldots, f_n(t_n)\rangle</script> The ideal bust be maximal, however, this is not tested.</p>
+<p><a id='Example-2'></a></p>
+<h3 id="example_1">Example</h3>
+<pre><code class="julia-repl">
+julia&gt; Qx, x = PolynomialRing(FlintQQ, &quot;x&quot;);
+
+julia&gt; K, g = number_field([x^2-2, x^2-3, x^2-5])
+(Non-simple number field with defining polynomials fmpq_mpoly[_$1^2 - 2, _$2^2 - 3, _$3^2 - 5], NfAbsNSElem[_$1, _$2, _$3])
+
+julia&gt; g[1]^2
+2
+
+julia&gt; minpoly(g[1] + g[2])
+x^4-10*x^2+1
+</code></pre>
+
+<p><a id='Conversion-1'></a></p>
+<h3 id="conversion">Conversion</h3>
+<p><a id='Hecke.simple_extension-Tuple{NfAbsNS}' href='#Hecke.simple_extension-Tuple{NfAbsNS}'>#</a>
+<strong><code>Hecke.simple_extension</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">simple_extension(K::NfAbsNS) -&gt; AnticNumberField, Map
+</code></pre>
+
+<p>For a non-simple extension <script type="math/tex">K</script> of <script type="math/tex">Q</script>, find a primitive element and thus an isomorphic simple extension of <script type="math/tex">Q</script>. The map realises this isomorphism.</p>
+<p><a id='Simple-Relative-Fields-1'></a></p>
+<h2 id="simple-relative-fields">Simple Relative Fields</h2>
+<p><a id='Creation-3'></a></p>
+<h3 id="creation_2">Creation</h3>
+<p><a id='Nemo.NumberField-Tuple{AbstractAlgebra.Generic.Poly}' href='#Nemo.NumberField-Tuple{AbstractAlgebra.Generic.Poly}'>#</a>
+<strong><code>Nemo.NumberField</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">NumberField(f::Generic.Poly{T}, s::String; cached::Bool = false, check::Bool = false) where T
+</code></pre>
+
+<p>Given an irreducible polynomial <script type="math/tex">f</script> over some number field <script type="math/tex">K</script>, create the field <script type="math/tex">K[t]/f</script>. <script type="math/tex">f</script> must be irreducible - although this is not tested.</p>
+<pre><code>NumberField(f::Generic.Poly{T}; cached::Bool = false, check::Bool = false) where T
+</code></pre>
+
+<p>Given an irreducible polynomial <script type="math/tex">f</script> over some number field <script type="math/tex">K</script>, create the field <script type="math/tex">K[t]/f</script>. <script type="math/tex">f</script> must be irreducible - although this is not tested.</p>
+<pre><code class="julia">number_field(f::Array{Generic.Poly{T}, 1}, s::String=&quot;_\$&quot;) where T -&gt; NfRel_ns
+</code></pre>
+
+<p>Given polynomials <script type="math/tex">f = (f_1, \ldots, f_n)</script> over some number field <script type="math/tex">k</script>, construct <script type="math/tex">K = k[t_1, \ldots, t_n]/\langle f_1(t_1), \ldots, f_n(t_n)\rangle</script> The ideal in the quotient must be maximal - although this is not tested.</p>
+<pre><code>NumberField(CF::ClassField) -&gt; Hecke.NfRel_ns{Nemo.nf_elem}
+</code></pre>
+
+<p>Given a (formal) abelian extension, compute the class field by finding defining polynomials for all prime power cyclic subfields. Note, by type this is always a non-simple extension.</p>
+<p><a id='Nemo.NumberField-Tuple{AbstractAlgebra.Generic.Poly,String}' href='#Nemo.NumberField-Tuple{AbstractAlgebra.Generic.Poly,String}'>#</a>
+<strong><code>Nemo.NumberField</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">NumberField(f::Generic.Poly{T}, s::String; cached::Bool = false, check::Bool = false) where T
+</code></pre>
+
+<p>Given an irreducible polynomial <script type="math/tex">f</script> over some number field <script type="math/tex">K</script>, create the field <script type="math/tex">K[t]/f</script>. <script type="math/tex">f</script> must be irreducible - although this is not tested.</p>
+<p><a id='Conversion-2'></a></p>
+<h3 id="conversion_1">Conversion</h3>
+<p><a id='Hecke.absolute_field-Tuple{Hecke.NfRel{nf_elem}}' href='#Hecke.absolute_field-Tuple{Hecke.NfRel{nf_elem}}'>#</a>
+<strong><code>Hecke.absolute_field</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">absolute_field(K::NfRel{nf_elem}, cached::Bool = false) -&gt; AnticNumberField, Map, Map
+</code></pre>
+
+<p>Given an extension <script type="math/tex">K/k/Q</script>, find an isomorphic extension of <script type="math/tex">Q</script>.</p>
+<pre><code class="julia">absolute_field(K::NfRel{NfRelElem}, cached::Bool = false) -&gt; NfRel, Map, Map
+</code></pre>
+
+<p>Given an extension <script type="math/tex">E/K/k</script>, find an isomorphic extension of <script type="math/tex">k</script>. In a tower, only the top-most steps are collapsed.</p>
+<p><a id='Hecke.absolute_field-Tuple{Hecke.NfRel{Hecke.NfRelElem}}' href='#Hecke.absolute_field-Tuple{Hecke.NfRel{Hecke.NfRelElem}}'>#</a>
+<strong><code>Hecke.absolute_field</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">absolute_field(K::NfRel{NfRelElem}, cached::Bool = false) -&gt; NfRel, Map, Map
+</code></pre>
+
+<p>Given an extension <script type="math/tex">E/K/k</script>, find an isomorphic extension of <script type="math/tex">k</script>. In a tower, only the top-most steps are collapsed.</p>
+<p><a id='Non-Simple-Relative-Fields-1'></a></p>
+<h2 id="non-simple-relative-fields">Non-Simple Relative Fields</h2>
+<p><a id='Creation-4'></a></p>
+<h3 id="creation_3">Creation</h3>
+<p><a id='Nemo.NumberField-Union{Tuple{Array{Poly{T},1}}, Tuple{T}, Tuple{Array{Poly{T},1},String}} where T' href='#Nemo.NumberField-Union{Tuple{Array{Poly{T},1}}, Tuple{T}, Tuple{Array{Poly{T},1},String}} where T'>#</a>
+<strong><code>Nemo.NumberField</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">number_field(f::Array{Generic.Poly{T}, 1}, s::String=&quot;_\$&quot;) where T -&gt; NfRel_ns
+</code></pre>
+
+<p>Given polynomials <script type="math/tex">f = (f_1, \ldots, f_n)</script> over some number field <script type="math/tex">k</script>, construct <script type="math/tex">K = k[t_1, \ldots, t_n]/\langle f_1(t_1), \ldots, f_n(t_n)\rangle</script> The ideal in the quotient must be maximal - although this is not tested.</p>
+<p><a id='Conversion-3'></a></p>
+<h3 id="conversion_2">Conversion</h3>
+<p><a id='Hecke.simple_extension-Tuple{NfRel_ns}' href='#Hecke.simple_extension-Tuple{NfRel_ns}'>#</a>
+<strong><code>Hecke.simple_extension</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">simple_extension(K::NfRel_ns{nf_elem}) -&gt; NfRel, Map
+</code></pre>
+
+<p>Compute a simple field L as an extension of the base field of K and an isomorphism between L and K </p>
+<p><a id='Hecke.simple_extension-Tuple{NfRel_ns{nf_elem},FlintRationalField}' href='#Hecke.simple_extension-Tuple{NfRel_ns{nf_elem},FlintRationalField}'>#</a>
+<strong><code>Hecke.simple_extension</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">simple_extension(K::NfRel_ns{nf_elem}, FlintQQ) -&gt; AnticNumberField, Map, Map
+
+absolute_field(K::NfRel_ns{nf_elem}) -&gt; AnticNumberField, Map, Map
+</code></pre>
+
+<p>Compute an isomorphic field as an extension of <script type="math/tex">Q</script> together with the isomorphism  (1st map) and the embedding of the base field (2nd map).</p>
+<p><a id='Implicit-Relative-Extensions-1'></a></p>
+<h2 id="implicit-relative-extensions">Implicit Relative Extensions</h2>
+<p>Given two absolute fields <script type="math/tex">K</script> and <script type="math/tex">k</script> as well as an embedding <script type="math/tex">\phi:k \to K</script> we can regard <script type="math/tex">K</script> as an extension on <script type="math/tex">k</script>, hence invariante of <script type="math/tex">K</script> can be investigated relative to <script type="math/tex">k</script> rathern than over <script type="math/tex">Q</script>. Here we list functions achieving this without actually computing <script type="math/tex">K</script> as an extension of <script type="math/tex">k</script>.</p>
+<p><a id='Base.minimum-Union{Tuple{T}, Tuple{T,NfAbsOrdIdl{AnticNumberField,nf_elem}}} where T<:(Map{AnticNumberField,AnticNumberField,S,T} where T where S)' href='#Base.minimum-Union{Tuple{T}, Tuple{T,NfAbsOrdIdl{AnticNumberField,nf_elem}}} where T<:(Map{AnticNumberField,AnticNumberField,S,T} where T where S)'>#</a>
+<strong><code>Base.minimum</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">minimum(m::T, I::NfOrdIdl) where T &lt;: Map{AnticNumberField, AnticNumberField} -&gt; NfOrdIdl
+</code></pre>
+
+<p>Given an embedding <script type="math/tex">m:k\to K</script> of number fields and an integral ideal in <script type="math/tex">K</script>, find the  intersect <script type="math/tex">I \cap \Z_k</script>.</p>
+<p><a id='LinearAlgebra.norm-Union{Tuple{T}, Tuple{T,NfAbsOrdIdl{AnticNumberField,nf_elem}}} where T<:(Map{AnticNumberField,AnticNumberField,S,T} where T where S)' href='#LinearAlgebra.norm-Union{Tuple{T}, Tuple{T,NfAbsOrdIdl{AnticNumberField,nf_elem}}} where T<:(Map{AnticNumberField,AnticNumberField,S,T} where T where S)'>#</a>
+<strong><code>LinearAlgebra.norm</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">norm(m::T, I::NfOrdIdl) where T &lt;: Map{AnticNumberField, AnticNumberField} -&gt; NfOrdIdl
+</code></pre>
+
+<p>Given an embedding <script type="math/tex">m:k\to K</script> of number fields and an integral ideal in <script type="math/tex">K</script>, find the norm <script type="math/tex">N_{K/k}(I)</script>.</p>
+<p><a id='LinearAlgebra.norm-Union{Tuple{T}, Tuple{T,nf_elem}} where T<:(Map{AnticNumberField,AnticNumberField,S,T} where T where S)' href='#LinearAlgebra.norm-Union{Tuple{T}, Tuple{T,nf_elem}} where T<:(Map{AnticNumberField,AnticNumberField,S,T} where T where S)'>#</a>
+<strong><code>LinearAlgebra.norm</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">norm(m::T, a::nf_elem) where T &lt;: Map{AnticNumberField, AnticNumberField} -&gt; nf_elem
+</code></pre>
+
+<p>Given an embedding <script type="math/tex">m:k\to K</script> of number fields and an element in <script type="math/tex">K</script>, find the norm <script type="math/tex">N_{K/k}(a)</script>.</p>
+<p><a id='AbstractAlgebra.Generic.discriminant-Tuple{Map,NfAbsOrd{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.Generic.discriminant-Tuple{Map,NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>AbstractAlgebra.Generic.discriminant</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">discriminant(m::Map, R::NfOrd) -&gt; NfOrdIdl
+</code></pre>
+
+<p>The discriminant ideal of <script type="math/tex">R</script> over the maximal order of the domain of the map <script type="math/tex">m</script>,  that is, the ideal generated by all norms of differents of elements in <script type="math/tex">R</script>.</p>
+<p><a id='Hecke.NfAbsOrdIdlSet' href='#Hecke.NfAbsOrdIdlSet'>#</a>
+<strong><code>Hecke.NfAbsOrdIdlSet</code></strong> &mdash; <em>Type</em>.</p>
+<pre><code class="julia">(::NfAbsOrdIdlSet)(m::Map, I::NfOrdIdl) -&gt; NfOrdIdl
+</code></pre>
+
+<p>Given an embedding <script type="math/tex">m:k\to K</script> of number fields and an ideal <script type="math/tex">I</script> in <script type="math/tex">k</script>, find the ideal above <script type="math/tex">I</script> in <script type="math/tex">K</script>.</p>
+<p><a id='Invariants-1'></a></p>
+<h2 id="invariants">Invariants</h2>
+<p><a id='AbstractAlgebra.Generic.degree-Tuple{AnticNumberField}' href='#AbstractAlgebra.Generic.degree-Tuple{AnticNumberField}'>#</a>
+<strong><code>AbstractAlgebra.Generic.degree</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">degree(a::AnticNumberField)
+</code></pre>
+
+<blockquote>
+<p>Return the degree of the given number field, i.e. the degree of its defining polynomial.</p>
+</blockquote>
+<p><a id='Hecke.basis-Tuple{AnticNumberField}' href='#Hecke.basis-Tuple{AnticNumberField}'>#</a>
+<strong><code>Hecke.basis</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">basis(K::AnticNumberField) -&gt; Vector{nf_elem}
+</code></pre>
+
+<p>Returns the power basis of <script type="math/tex">K</script>, that is, the elements <script type="math/tex">1,a,\dotsc,a^{d - 1}</script>, where <script type="math/tex">d</script> is the degree of <script type="math/tex">K</script>.</p>
+<p><a id='AbstractAlgebra.Generic.discriminant-Tuple{AnticNumberField}' href='#AbstractAlgebra.Generic.discriminant-Tuple{AnticNumberField}'>#</a>
+<strong><code>AbstractAlgebra.Generic.discriminant</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">discriminant(K::AnticNumberField) -&gt; fmpq
+discriminant(K::NfRel) -&gt;
+</code></pre>
+
+<p>The discriminant of the defining polynomial of <script type="math/tex">K</script> {\bf not} the discriminant  of the maximal order.</p>
+<p><a id='Elements-1'></a></p>
+<h2 id="elements">Elements</h2>
+<p><a id='Creation-5'></a></p>
+<h3 id="creation_4">Creation</h3>
+<p><a id='Nemo.AnticNumberField' href='#Nemo.AnticNumberField'>#</a>
+<strong><code>Nemo.AnticNumberField</code></strong> &mdash; <em>Type</em>.</p>
+<pre><code class="julia">(a::AnticNumberField)()
+</code></pre>
+
+<blockquote>
+<p>Return an empty (0) element.</p>
+</blockquote>
+<pre><code>(a::AnticNumberField)(c::Int)
+</code></pre>
+
+<blockquote>
+<p>Return <script type="math/tex">c</script> as an element in <script type="math/tex">a</script>.</p>
+</blockquote>
+<p><a id='Invariants-2'></a></p>
+<h3 id="invariants_1">Invariants</h3>
+<p><a id='LinearAlgebra.norm-Tuple{nf_elem}' href='#LinearAlgebra.norm-Tuple{nf_elem}'>#</a>
+<strong><code>LinearAlgebra.norm</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">norm(a::nf_elem)
+</code></pre>
+
+<blockquote>
+<p>Return the absolute norm of <script type="math/tex">a</script>. The result will be a rational number.</p>
+</blockquote>
+<p><a id='AbstractAlgebra.Generic.minpoly-Tuple{nf_elem}' href='#AbstractAlgebra.Generic.minpoly-Tuple{nf_elem}'>#</a>
+<strong><code>AbstractAlgebra.Generic.minpoly</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">minpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T &lt;: FieldElement}
+</code></pre>
+
+<blockquote>
+<p>Returns the minimal polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">S</script> of the resulting polynomial must be supplied and the matrix must be square.</p>
+</blockquote>
+<pre><code>minpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T &lt;: RingElement}
+</code></pre>
+
+<blockquote>
+<p>Returns the minimal polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">S</script> of the resulting polynomial must be supplied and the matrix must be square.</p>
+</blockquote>
+<pre><code>minpoly(S::Ring, M::MatAlgElem{T}, charpoly_only::Bool = false) where {T &lt;: RingElement}
+</code></pre>
+
+<blockquote>
+<p>Returns the minimal polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">S</script> of the resulting polynomial must be supplied and the matrix must be square.</p>
+</blockquote>
+<p><a id='AbstractAlgebra.Generic.charpoly-Tuple{nf_elem}' href='#AbstractAlgebra.Generic.charpoly-Tuple{nf_elem}'>#</a>
+<strong><code>AbstractAlgebra.Generic.charpoly</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">charpoly(V::Ring, Y::Generic.MatrixElem{T}) where {T &lt;: RingElement}
+</code></pre>
+
+<blockquote>
+<p>Returns the characteristic polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">R</script> of the resulting polynomial must be supplied and the matrix is assumed to be square.</p>
+</blockquote>
+<p><a id='Base.denominator-Tuple{nf_elem}' href='#Base.denominator-Tuple{nf_elem}'>#</a>
+<strong><code>Base.denominator</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">denominator(a::nf_elem)
+</code></pre>
+
+<blockquote>
+<p>Return the denominator of the polynomial representation of the given number field element.</p>
+</blockquote>
+<p><a id='Base.numerator-Tuple{nf_elem}' href='#Base.numerator-Tuple{nf_elem}'>#</a>
+<strong><code>Base.numerator</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">numerator(a::nf_elem) -&gt; nf_elem
+</code></pre>
+
+<p>For an element <script type="math/tex">a\in K = Q[t]/f</script> write <script type="math/tex">a</script> as <script type="math/tex">b/d</script> with <script type="math/tex">b\in Z[t]</script>, <script type="math/tex">\deg(a) = \deg(b)</script> and <script type="math/tex">d>0</script> minimal in <script type="math/tex">Z</script>. This function returns <script type="math/tex">b</script>.</p>
+<p><a id='AbstractAlgebra.Generic.isunit-Tuple{nf_elem}' href='#AbstractAlgebra.Generic.isunit-Tuple{nf_elem}'>#</a>
+<strong><code>AbstractAlgebra.Generic.isunit</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">isunit(a::nf_elem)
+</code></pre>
+
+<blockquote>
+<p>Return <code>true</code> if the given number field element is invertible, i.e. nonzero, otherwise return <code>false</code>.</p>
+</blockquote></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+
+        
+        
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="../../assets/mathjaxhelper.js"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

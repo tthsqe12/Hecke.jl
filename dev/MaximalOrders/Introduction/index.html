@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hecke">
+    <meta name="author" content="Tommy Hofmann">
+    
+    <link rel="../../img/favicon.ico">
+
+    
+    <title>Introduction - Hecke</title>
+    
+
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+    <link href="../../css/highlight.min.css" rel="stylesheet">
+    <link href="../../assets/Documenter.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../..">Hecke</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../number_fields/intro/">Number fields</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Orders <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../orders/introduction/">Introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../orders/orders/">Basics</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../orders/elements/">Elements</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../orders/ideals/">Ideals</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../orders/frac_ideals/">Fractional Ideals</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Abelian groups <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../abelian/introduction/">Introduction</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Class fields <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../class_fields/intro/">Introduction</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../FacElem/">Factored Elements</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../sparse/intro/">Sparse Linear Algebra</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/thofma/Hecke.jl/edit/master/docs/MaximalOrders/Introduction.md">Edit on Hecke.jl</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#maximal-order">Maximal Order</a></li>
+            <li class="second-level"><a href="#introduction">Introduction</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<p><a id='Maximal-Order-1'></a></p>
+<h1 id="maximal-order">Maximal Order</h1>
+<p><a id='Introduction-1'></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>In Hecke, maximal orders (aka ring of integers), due to their special properties normal orders don't share, come with their own type <code>NfMaximalOrder</code>.  While the elements have type <code>NfOrderElem</code>, the ideals and fractional ideals have types <code>NfMaximalOrderIdeal</code> and <code>NfMaximalOrderFracIdeal</code> respectively.</p>
+<p>While theoretically a number field contains a unique maximal order (the set of all integral elements), for technical reasons in Hecke a number field admits multiple maximal orders, which are uniquely determined by the number field and a chosen integral basis.</p>
+<p>Let <script type="math/tex">K</script> be a number field of degree <script type="math/tex">d</script> with primitive element <script type="math/tex">\alpha</script> and <script type="math/tex">\mathcal O</script> a maximal order <script type="math/tex">K</script> with <script type="math/tex">\mathbf{Z}</script>-basis <script type="math/tex">(\omega_1,\dotsc,\omega_d)</script>. The <em>basis matrix</em> of <script type="math/tex">\mathcal O</script> is the unique matrix <script type="math/tex">M_{\mathcal O} \in \operatorname{Mat}_{d \times d}(\mathbf{Q})</script> such that <script type="math/tex; mode=display">\begin{align} \begin{pmatrix} \omega*1 \\ \omega*2 \\ \vdots \\ \omega*d \end{pmatrix} = M*{\mathcal O} \begin{pmatrix} 1 \\ \alpha \\ \vdots \\ \alpha^{d - 1} \end{pmatrix}. \end{align}</script> If <script type="math/tex">\beta</script> is an element of <script type="math/tex">\mathcal O</script>, we call the unique integers <script type="math/tex">(x_1,\dotsc,x_d) \in \mathbf Z^d</script> with <script type="math/tex; mode=display">\begin{align} \beta = \sum*{i=1}^d x*i \omega_i \end{align}</script> the <em>coefficients</em> of <script type="math/tex">\beta</script> with respect to <script type="math/tex">\mathcal O</script> or just the <em>coefficient vector</em>.</p>
+<p>For an ideal <script type="math/tex">I</script> of <script type="math/tex">\mathcal O</script>, a <em>basis matrix</em> of <script type="math/tex">I</script> is a matrix <script type="math/tex">M \in \operatorname{Mat}_{d \times d}(\mathbf{Z})</script>, such that the elements <script type="math/tex">(\alpha_1,\dotsc,\alpha_d)</script> definied by <script type="math/tex; mode=display">\begin{align} \begin{pmatrix} \alpha*1 \\ \alpha*2 \\ \vdots \\ \alpha*d \end{pmatrix} = M*{\mathcal O} \begin{pmatrix} \omega*1 \\ \omega*2 \\ \vdots \\ \omega_d \end{pmatrix} \end{align}</script> form a <script type="math/tex">\mathbf{Z}</script>-basis of <script type="math/tex">I</script>.</p></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+
+        
+        
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="../../assets/mathjaxhelper.js"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

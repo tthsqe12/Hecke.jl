@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hecke">
+    <meta name="author" content="Tommy Hofmann">
+    
+    <link rel="../../img/favicon.ico">
+
+    
+    <title>Sparse Linear Algebra - Hecke</title>
+    
+
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+    <link href="../../css/highlight.min.css" rel="stylesheet">
+    <link href="../../assets/Documenter.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../..">Hecke</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../number_fields/intro/">Number fields</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Orders <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../orders/introduction/">Introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../orders/orders/">Basics</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../orders/elements/">Elements</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../orders/ideals/">Ideals</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../orders/frac_ideals/">Fractional Ideals</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Abelian groups <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../abelian/introduction/">Introduction</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Class fields <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../class_fields/intro/">Introduction</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../FacElem/">Factored Elements</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Sparse Linear Algebra</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../../FacElem/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a rel="next" >
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/thofma/Hecke.jl/edit/master/docs/sparse/intro.md">Edit on Hecke.jl</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#sparse-linear-algebra">Sparse linear algebra</a></li>
+            <li class="second-level"><a href="#introduction">Introduction</a></li>
+                
+            <li class="second-level"><a href="#sparse-rows">Sparse rows</a></li>
+                
+                <li class="third-level"><a href="#creation">Creation</a></li>
+                <li class="third-level"><a href="#basic-operations">Basic operations</a></li>
+                <li class="third-level"><a href="#change-of-base-ring">Change of base ring</a></li>
+                <li class="third-level"><a href="#maximum-minimum-and-2-norm">Maximum, minimum and 2-norm</a></li>
+                <li class="third-level"><a href="#functionality-for-integral-sparse-rows">Functionality for integral sparse rows</a></li>
+            <li class="second-level"><a href="#sparse-matrices">Sparse matrices</a></li>
+                
+                <li class="third-level"><a href="#construction">Construction</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<p><a id='Sparse-linear-algebra-1'></a></p>
+<h1 id="sparse-linear-algebra">Sparse linear algebra</h1>
+<p><a id='Introduction-1'></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>This chapter deals with sparse linear algebra over commutative rings and fields.</p>
+<p>Sparse linear algebra, that is, linear algebra with sparse matrices,  plays an important role in various algorithms in algebraic number theory. For example, it is one of the key ingredients in the computation of class groups and discrete logarithms using index calculus methods.</p>
+<p><a id='Sparse-rows-1'></a></p>
+<h2 id="sparse-rows">Sparse rows</h2>
+<p>Building blocks for sparse matrices are sparse rows, which are modelled by objects of type \texttt{SRow}. More precisely, the type is of parametrized form objects of type <code>SRow</code>. More precisely, the type is of parametrized form <code>SRow{T}</code>, where <code>T</code> is the element type of the base ring <script type="math/tex">R</script>. For example, <code>SRow{fmpz}</code> is the type for sparse rows over the integers.</p>
+<p>It is important to note that sparse rows do not have a fixed number of columns, that is, they represent elements of <script type="math/tex">\{ (x_i)_i \in R^{\mathbb{N}} \mid x_i = 0 \text{ for almost all }i\}</script>. In particular any two sparse rows over the same base ring can be added.</p>
+<p><a id='Creation-1'></a></p>
+<h3 id="creation">Creation</h3>
+<p><a id='Hecke.sparse_row-Tuple{FlintIntegerRing,Array{Tuple{Int64,fmpz},1}}' href='#Hecke.sparse_row-Tuple{FlintIntegerRing,Array{Tuple{Int64,fmpz},1}}'>#</a>
+<strong><code>Hecke.sparse_row</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">sparse_row(R::Ring, J::Vector{Tuple{Int, T}}) -&gt; SRow{T}
+</code></pre>
+
+<blockquote>
+<p>Constructs the sparse row <script type="math/tex">(a_i)_i</script> with <script type="math/tex">a_{i_j} = x_j</script>, where <script type="math/tex">J = (i_j, x_j)_j</script>. The elements <script type="math/tex">x_i</script> must belong to the ring <script type="math/tex">R</script>.</p>
+</blockquote>
+<p><a id='Hecke.sparse_row-Tuple{FlintIntegerRing,Array{Tuple{Int64,Int64},1}}' href='#Hecke.sparse_row-Tuple{FlintIntegerRing,Array{Tuple{Int64,Int64},1}}'>#</a>
+<strong><code>Hecke.sparse_row</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">sparse_row(R::Ring, J::Vector{Tuple{Int, T}}) -&gt; SRow{T}
+</code></pre>
+
+<blockquote>
+<p>Constructs the sparse row <script type="math/tex">(a_i)_i</script> with <script type="math/tex">a_{i_j} = x_j</script>, where <script type="math/tex">J = (i_j, x_j)_j</script>. The elements <script type="math/tex">x_i</script> must belong to the ring <script type="math/tex">R</script>.</p>
+</blockquote>
+<pre><code>sparse_row(R::Ring, J::Vector{Tuple{Int, Int}}) -&gt; SRow
+</code></pre>
+
+<p>Constructs the sparse row <script type="math/tex">(a_i)_i</script> over <script type="math/tex">R</script> with <script type="math/tex">a_{i_j} = x_j</script>, where <script type="math/tex">J = (i_j, x_j)_j</script>.</p>
+<p><a id='Hecke.sparse_row-Tuple{FlintIntegerRing,Array{Int64,1},Array{fmpz,1}}' href='#Hecke.sparse_row-Tuple{FlintIntegerRing,Array{Int64,1},Array{fmpz,1}}'>#</a>
+<strong><code>Hecke.sparse_row</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">sparse_row(R::Ring, J::Vector{Int}, V::Vector{T}) -&gt; SRow{T}
+</code></pre>
+
+<p>Constructs the sparse row <script type="math/tex">(a_i)_i</script> over <script type="math/tex">R</script> with <script type="math/tex">a_{i_j} = x_j</script>, where <script type="math/tex">J = (i_j)_j</script> and <script type="math/tex">V = (x_j)_j</script>.</p>
+<p><a id='Basic-operations-1'></a></p>
+<h3 id="basic-operations">Basic operations</h3>
+<p><a id='Base.:==-Tuple{SRow{fmpz},SRow{fmpz}}' href='#Base.:==-Tuple{SRow{fmpz},SRow{fmpz}}'>#</a>
+<strong><code>Base.:==</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">==(x::SRow, y::SRow)
+</code></pre>
+
+<p>Checks whether <script type="math/tex">x</script> and <script type="math/tex">y</script> are the same sparse row, that is, whether <script type="math/tex">x</script> and <script type="math/tex">y</script> have the same non-zero entries.</p>
+<p><a id='Base.:+-Tuple{SRow{fmpz},SRow{fmpz}}' href='#Base.:+-Tuple{SRow{fmpz},SRow{fmpz}}'>#</a>
+<strong><code>Base.:+</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">+(A::SRow, B::SRow) -&gt; SRow
+</code></pre>
+
+<p>Returns the sum of <script type="math/tex">A</script> and <script type="math/tex">B</script>.</p>
+<p><a id='Base.getindex-Tuple{SRow{fmpz},Int64}' href='#Base.getindex-Tuple{SRow{fmpz},Int64}'>#</a>
+<strong><code>Base.getindex</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">getindex(A::SRow, j::Int) -&gt; RingElem
+</code></pre>
+
+<p>Given a sparse row <script type="math/tex">(a_i)_{i}</script> and an index <script type="math/tex">j</script> return <script type="math/tex">a_j</script>.</p>
+<p><a id='Base.:*-Tuple{fmpz,SRow{fmpz}}' href='#Base.:*-Tuple{fmpz,SRow{fmpz}}'>#</a>
+<strong><code>Base.:*</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">*(b::T, A::SRow{T}) -&gt; SRow
+</code></pre>
+
+<p>Return the sparse row obtained by multiplying all elements of <script type="math/tex">A</script> by <script type="math/tex">b</script>.</p>
+<p><a id='Base.div-Tuple{SRow{fmpz},fmpz}' href='#Base.div-Tuple{SRow{fmpz},fmpz}'>#</a>
+<strong><code>Base.div</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">div(A::SRow{T}, b::T) -&gt; SRow
+</code></pre>
+
+<p>Return the sparse row obtained by dividing all elements of <script type="math/tex">A</script> by <script type="math/tex">b</script> using <code>div</code>.</p>
+<p><a id='AbstractAlgebra.Generic.divexact-Tuple{SRow{fmpz},fmpz}' href='#AbstractAlgebra.Generic.divexact-Tuple{SRow{fmpz},fmpz}'>#</a>
+<strong><code>AbstractAlgebra.Generic.divexact</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">divexact(A::SRow{T}, b::T) -&gt; SRow
+</code></pre>
+
+<p>Return the sparse row obtained by dividing all elements of <script type="math/tex">A</script> by <script type="math/tex">b</script> using <code>divexact</code>.</p>
+<p><a id='Hecke.add_scaled_row-Tuple{SRow{fmpz},SRow{fmpz},fmpz}' href='#Hecke.add_scaled_row-Tuple{SRow{fmpz},SRow{fmpz},fmpz}'>#</a>
+<strong><code>Hecke.add_scaled_row</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">add_scaled_row(A::SRow{T}, B::SRow{T}, c::T) -&gt; SRow{T}
+</code></pre>
+
+<p>Returns the row <script type="math/tex">c A + B</script>.</p>
+<p><a id='Change-of-base-ring-1'></a></p>
+<h3 id="change-of-base-ring">Change of base ring</h3>
+<p><a id='Hecke.change_ring-Tuple{SRow{fmpz},FlintIntegerRing}' href='#Hecke.change_ring-Tuple{SRow{fmpz},FlintIntegerRing}'>#</a>
+<strong><code>Hecke.change_ring</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">change_ring(A::SRow, R::Ring) -&gt; SRow
+</code></pre>
+
+<p>Create a new sparse row by coercing all elements into the ring <script type="math/tex">R</script>.</p>
+<p><a id='Maximum,-minimum-and-2-norm-1'></a></p>
+<h3 id="maximum-minimum-and-2-norm">Maximum, minimum and 2-norm</h3>
+<p><a id='Base.maximum-Tuple{SRow{fmpz}}' href='#Base.maximum-Tuple{SRow{fmpz}}'>#</a>
+<strong><code>Base.maximum</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">maximum(A::SRow{T}) -&gt; T
+</code></pre>
+
+<p>Returns the largest entry of <script type="math/tex">A</script>.</p>
+<p><a id='Base.minimum-Tuple{SRow{fmpz}}' href='#Base.minimum-Tuple{SRow{fmpz}}'>#</a>
+<strong><code>Base.minimum</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">minimum(A::SRow{T}) -&gt; T
+</code></pre>
+
+<p>Returns the smallest entry of <script type="math/tex">A</script>.</p>
+<p><a id='Hecke.norm2-Tuple{SRow{fmpz}}' href='#Hecke.norm2-Tuple{SRow{fmpz}}'>#</a>
+<strong><code>Hecke.norm2</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">norm2(A::SRow{T} -&gt; T
+</code></pre>
+
+<p>Returns <script type="math/tex">A \cdot A^t</script>.</p>
+<p><a id='Functionality-for-integral-sparse-rows-1'></a></p>
+<h3 id="functionality-for-integral-sparse-rows">Functionality for integral sparse rows</h3>
+<p><a id='Nemo.lift-Tuple{SRow{Nemo.nmod}}' href='#Nemo.lift-Tuple{SRow{Nemo.nmod}}'>#</a>
+<strong><code>Nemo.lift</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">lift(A::SRow{nmod}) -&gt; SRow{fmpz}
+</code></pre>
+
+<p>Return the sparse row obtained by lifting all entries in <script type="math/tex">A</script>.</p>
+<p><a id='Hecke.mod!-Tuple{SRow{fmpz},fmpz}' href='#Hecke.mod!-Tuple{SRow{fmpz},fmpz}'>#</a>
+<strong><code>Hecke.mod!</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">mod!(A::SRow{fmpz}, n::fmpz) -&gt; SRow{fmpz}
+</code></pre>
+
+<p>Inplace reduction of all entries of <script type="math/tex">A</script> modulo <script type="math/tex">n</script> to the positive residue system.</p>
+<p><a id='Hecke.mod_sym!-Tuple{SRow{fmpz},fmpz}' href='#Hecke.mod_sym!-Tuple{SRow{fmpz},fmpz}'>#</a>
+<strong><code>Hecke.mod_sym!</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">mod_sym!(A::SRow{fmpz}, n::fmpz) -&gt; SRow{fmpz}
+</code></pre>
+
+<p>Inplace reduction of all entries of <script type="math/tex">A</script> modulo <script type="math/tex">n</script> to the symmetric residue system.</p>
+<p><a id='Base.maximum-Tuple{typeof(abs),SRow{fmpz}}' href='#Base.maximum-Tuple{typeof(abs),SRow{fmpz}}'>#</a>
+<strong><code>Base.maximum</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">maximum(abs, A::SRow{fmpz}) -&gt; fmpz
+</code></pre>
+
+<p>Returns the largest, in absolute value, entry of <script type="math/tex">A</script>.</p>
+<p><a id='Sparse-matrices-1'></a></p>
+<h2 id="sparse-matrices">Sparse matrices</h2>
+<p>Let <script type="math/tex">R</script> be a commutative ring. Sparse matrices with base ring <script type="math/tex">R</script> are modlled by objects of type <code>SMat</code>. More precisely, the type is of parametrized form <code>SRow{T}</code>, where <code>T</code> is the element type of the base ring. For example, <code>SMat{fmpz}</code> is the type for sparse matrices over the integers.</p>
+<p>In constrast to sparse rows, sparse matrices have a fixed number of rows and columns, that is, they represent elements of the matrices space <script type="math/tex">\mathrm{Mat}_{n\times m}(R)</script>. Internally, sparse matrices are implemented as an array of sparse rows.  As a consequence, Unlike their dense counterparts, sparse matrices have a mutable number of rows and it is very performant to add additional rows.</p>
+<p><a id='Construction-1'></a></p>
+<h3 id="construction">Construction</h3></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+
+        
+        
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="../../assets/mathjaxhelper.js"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hecke">
+    <meta name="author" content="Tommy Hofmann">
+    
+    <link rel="../../img/favicon.ico">
+
+    
+    <title>Basics - Hecke</title>
+    
+
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+    <link href="../../css/highlight.min.css" rel="stylesheet">
+    <link href="../../assets/Documenter.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../..">Hecke</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../number_fields/intro/">Number fields</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Orders <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../introduction/">Introduction</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Basics</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../elements/">Elements</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../ideals/">Ideals</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../frac_ideals/">Fractional Ideals</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Abelian groups <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../abelian/introduction/">Introduction</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Class fields <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../class_fields/intro/">Introduction</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../FacElem/">Factored Elements</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../sparse/intro/">Sparse Linear Algebra</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../introduction/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../elements/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/thofma/Hecke.jl/edit/master/docs/orders/orders.md">Edit on Hecke.jl</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#orders">Orders</a></li>
+            <li class="second-level"><a href="#creation-and-basic-properties">Creation and basic properties</a></li>
+                
+                <li class="third-level"><a href="#example">Example</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<p><a id='Orders-1'></a></p>
+<h1 id="orders">Orders</h1>
+<p>Orders, ie. unitary subrings that are free <script type="math/tex">Z</script>-modules of rank equal to the degree of the number field, are at the core of the arithmetic of number fields. In Hecke, orders are always represented using the module structure, be it the <script type="math/tex">Z</script>-module structure for orders in absolute fields, of the structure as a module over the maximal order of the base field in the case of relative extensions. In this chapter we only deal with orders in absolute fields. There are more general definitions of orders in number fields available, but those are (currently) not implemented in Hecke.</p>
+<p>Among all orders in a fixed field, there is a unique maximal one, called the maximal order, or ring of integers of the field. It is well known that this is the only order that is a Dedekind domain, hence has a rich ideal structure as well. The maximal order is also the integral closure of <script type="math/tex">Z</script> in the number field and can also be interpreted as a normalisation of any other order.</p>
+<p><a id='Creation-and-basic-properties-1'></a></p>
+<h2 id="creation-and-basic-properties">Creation and basic properties</h2>
+<p><a id='Hecke.Order-Tuple{AnticNumberField,Array{nf_elem,1}}' href='#Hecke.Order-Tuple{AnticNumberField,Array{nf_elem,1}}'>#</a>
+<strong><code>Hecke.Order</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">Order(B::Array{nf_elem, 1}; check::Bool = true, cached::Bool = true) -&gt; NfOrd
+</code></pre>
+
+<p>Returns the order generated <script type="math/tex">B</script>. If <code>check</code> is set, it is checked whether <script type="math/tex">B</script> defines an order. If <code>isbasis</code> is set, then elements are assumed to form a <script type="math/tex">\Z</script>-basis.</p>
+<p><a id='Hecke.Order-Tuple{AnticNumberField,FakeFmpqMat}' href='#Hecke.Order-Tuple{AnticNumberField,FakeFmpqMat}'>#</a>
+<strong><code>Hecke.Order</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">Order(K::AnticNumberField, A::FakeFmpqMat; check::Bool = true) -&gt; NfOrd
+</code></pre>
+
+<p>Returns the order which has basis matrix <script type="math/tex">A</script> with respect to the power basis of <script type="math/tex">K</script>. If <code>check</code> is set, it is checked whether <script type="math/tex">A</script> defines an order.</p>
+<p><a id='Hecke.Order-Tuple{Hecke.NfOrdFracIdl}' href='#Hecke.Order-Tuple{Hecke.NfOrdFracIdl}'>#</a>
+<strong><code>Hecke.Order</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">Order(K::AnticNumberField, A::fmpz_mat, check::Bool = true) -&gt; NfOrd
+</code></pre>
+
+<p>Returns the order which has basis matrix <script type="math/tex">A</script> with respect to the power basis of <script type="math/tex">K</script>. If <code>check</code> is set, it is checked whether <script type="math/tex">A</script> defines an order.</p>
+<pre><code>  Order(K::RelativeExtension, M::PMat) -&gt; NfRelOrd
+</code></pre>
+
+<p>Returns the order which has basis pseudo-matrix <script type="math/tex">M</script> with respect to the power basis of <script type="math/tex">K</script>.</p>
+<p><a id='Hecke.EquationOrder-Tuple{AnticNumberField}' href='#Hecke.EquationOrder-Tuple{AnticNumberField}'>#</a>
+<strong><code>Hecke.EquationOrder</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">EquationOrder(K::NfAbs) -&gt; NfAbsOrd
+</code></pre>
+
+<p>Returns the equation order of the absolute number field <script type="math/tex">K</script>.</p>
+<p><a id='Hecke.MaximalOrder-Tuple{AnticNumberField}' href='#Hecke.MaximalOrder-Tuple{AnticNumberField}'>#</a>
+<strong><code>Hecke.MaximalOrder</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">maximal_order(K::Union{AnticNumberField, NfAbsNS}; discriminant::fmpz, ramified_primes::Vector{fmpz}) -&gt; NfAbsOrd
+</code></pre>
+
+<p>Returns the maximal order of <script type="math/tex">K</script>. Additional information can be supplied if they are already known, as the ramified primes or the discriminant of the maximal order.  </p>
+<p><strong>Example</strong></p>
+<pre><code class="julia-repl">julia&gt; Qx, xx = FlintQQ[&quot;x&quot;];
+julia&gt; K, a = NumberField(x^3 + 2, &quot;a&quot;);
+julia&gt; O = MaximalOrder(K);
+</code></pre>
+
+<p><a id='Hecke.MaximalOrder-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}' href='#Hecke.MaximalOrder-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>Hecke.MaximalOrder</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">maximal_order(O::NfAbsOrd; index_divisors::Vector{fmpz}, discriminant::fmpz, ramified_primes::Vector{fmpz}) -&gt; NfAbsOrd
+</code></pre>
+
+<p>Returns the maximal order of the number field that contains <script type="math/tex">O</script>. Additional information can be supplied if they are already known, as the ramified primes, the discriminant of the maximal order or a set of integers dividing the index of <script type="math/tex">O</script> in the maximal order.</p>
+<p><a id='Hecke.maximal_order-Tuple{AnticNumberField}' href='#Hecke.maximal_order-Tuple{AnticNumberField}'>#</a>
+<strong><code>Hecke.maximal_order</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">maximal_order(O::NfAbsOrd; index_divisors::Vector{fmpz}, discriminant::fmpz, ramified_primes::Vector{fmpz}) -&gt; NfAbsOrd
+</code></pre>
+
+<p>Returns the maximal order of the number field that contains <script type="math/tex">O</script>. Additional information can be supplied if they are already known, as the ramified primes, the discriminant of the maximal order or a set of integers dividing the index of <script type="math/tex">O</script> in the maximal order.</p>
+<pre><code class="julia">maximal_order(K::Union{AnticNumberField, NfAbsNS}; discriminant::fmpz, ramified_primes::Vector{fmpz}) -&gt; NfAbsOrd
+</code></pre>
+
+<p>Returns the maximal order of <script type="math/tex">K</script>. Additional information can be supplied if they are already known, as the ramified primes or the discriminant of the maximal order.  </p>
+<p><strong>Example</strong></p>
+<pre><code class="julia-repl">julia&gt; Qx, xx = FlintQQ[&quot;x&quot;];
+julia&gt; K, a = NumberField(x^3 + 2, &quot;a&quot;);
+julia&gt; O = MaximalOrder(K);
+</code></pre>
+
+<p><a id='Nemo.lll-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}' href='#Nemo.lll-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>Nemo.lll</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">lll(M::NfOrd) -&gt; NfOrd
+</code></pre>
+
+<p>The same order, but with the basis now being LLL reduced wrt. the Minkowski metric.</p>
+<p>By Chistov's fundamental theorem, the computation of the maximal order is basically as hard as the factorisation of the discriminant. In order to help the computer, Hecke also provides the following signatures:</p>
+<div class="admonition warning">
+<p class="admonition-title">Missing docstring.</p>
+<p>Missing docstring for <code>maximal_order(::AnticNumberField, ::Array{fmpz, 1})</code>. Check Documenter's build log for details.</p>
+</div>
+<p>It is also possible the execute the steps individually:</p>
+<p><a id='Hecke.pradical-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz}' href='#Hecke.pradical-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz}'>#</a>
+<strong><code>Hecke.pradical</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">pradical(O::NfOrd, p::{fmpz|Integer}) -&gt; NfAbsOrdIdl
+</code></pre>
+
+<p>Given a prime number <script type="math/tex">p</script>, this function returns the <script type="math/tex">p</script>-radical <script type="math/tex">\sqrt{p\mathcal O}</script> of <script type="math/tex">\mathcal O</script>, which is just <script type="math/tex">\{ x \in \mathcal O \mid \exists k \in \mathbf Z_{\geq 0} \colon x^k \in p\mathcal O \}</script>. It is not checked that <script type="math/tex">p</script> is prime.</p>
+<p><a id='Hecke.ring_of_multipliers-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.ring_of_multipliers-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>Hecke.ring_of_multipliers</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">ring_of_multipliers(I::NfAbsOrdIdl) -&gt; NfAbsOrd
+</code></pre>
+
+<p>Computes the order <script type="math/tex">(I : I)</script>, which is the set of all <script type="math/tex">x \in K</script> with <script type="math/tex">xI \subseteq I</script>.</p>
+<pre><code>ring_of_multipliers(a::NfRelOrdIdl) -&gt; NfRelOrd
+</code></pre>
+
+<p>Computes the order <script type="math/tex">(a : a)</script>, which is the set of all <script type="math/tex">x \in K</script> with <script type="math/tex">xa \subseteq a</script>, where <script type="math/tex">K</script> is the ambient number field of <script type="math/tex">a</script>.</p>
+<p><a id='Example-1'></a></p>
+<h3 id="example">Example</h3>
+<pre><code class="julia-repl">
+julia&gt; Qx, x = PolynomialRing(FlintQQ, &quot;x&quot;);
+
+julia&gt; K, a = NumberField(x^2 - 2, &quot;a&quot;);
+
+julia&gt; O = EquationOrder(K)
+Order of Number field over Rational Field with defining polynomial x^2-2
+with Z-basis NfAbsOrdElem{AnticNumberField,nf_elem}[1, a]
+</code></pre>
+
+<p><a id='Base.parent-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}' href='#Base.parent-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>Base.parent</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">parent(O::NfAbsOrd) -&gt; NfOrdSet
+</code></pre>
+
+<p>Returns the parent of <script type="math/tex">\mathcal O</script>, that is, the set of orders of the ambient number field.</p>
+<p><a id='Hecke.isequation_order-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}' href='#Hecke.isequation_order-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>Hecke.isequation_order</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">isequation_order(O::NfAbsOrd) -&gt; Bool
+</code></pre>
+
+<p>Returns whether <script type="math/tex">\mathcal O</script> is the equation order of the ambient number field <script type="math/tex">K</script>.</p>
+<p><a id='Nemo.signature-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}' href='#Nemo.signature-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>Nemo.signature</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">signature(O::NfOrd) -&gt; Tuple{Int, Int}
+</code></pre>
+
+<p>Returns the signature of the ambient number field of <script type="math/tex">\mathcal O</script>.</p>
+<p><a id='Hecke.nf-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}' href='#Hecke.nf-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>Hecke.nf</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">nf(O::NfAbsOrd) -&gt; AnticNumberField
+</code></pre>
+
+<p>Returns the ambient number field of <script type="math/tex">\mathcal O</script>.</p>
+<p><a id='AbstractAlgebra.Generic.degree-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.Generic.degree-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>AbstractAlgebra.Generic.degree</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">degree(O::NfOrd) -&gt; Int
+</code></pre>
+
+<p>Returns the degree of <script type="math/tex">\mathcal O</script>.</p>
+<p>degree(A::ClassField) The degree of <script type="math/tex">A</script> over its base field, ie. the size of the defining ideal group.</p>
+<p><a id='Hecke.basis-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}' href='#Hecke.basis-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>Hecke.basis</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">basis(O::NfOrd) -&gt; Array{NfOrdElem, 1}
+</code></pre>
+
+<p>Returns the <script type="math/tex">\mathbf Z</script>-basis of <script type="math/tex">\mathcal O</script>.</p>
+<p><a id='Hecke.basis-Tuple{NfAbsOrd{AnticNumberField,nf_elem},AnticNumberField}' href='#Hecke.basis-Tuple{NfAbsOrd{AnticNumberField,nf_elem},AnticNumberField}'>#</a>
+<strong><code>Hecke.basis</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">basis(O::NfOrd, K::AnticNumberField) -&gt; Array{nf_elem, 1}
+</code></pre>
+
+<p>Returns the <script type="math/tex">\mathbf Z</script>-basis elements of <script type="math/tex">\mathcal O</script> as elements of the ambient number field.</p>
+<p><a id='Hecke.basis_mat-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}' href='#Hecke.basis_mat-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>Hecke.basis_mat</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">basis_mat(O::NfOrd) -&gt; FakeFmpqMat
+</code></pre>
+
+<p>Returns the basis matrix of <script type="math/tex">\mathcal O</script> with respect to the power basis of the ambient number field.</p>
+<p><a id='Hecke.basis_mat_inv-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}' href='#Hecke.basis_mat_inv-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>Hecke.basis_mat_inv</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">basis_mat_inv(O::NfOrd) -&gt; FakeFmpqMat
+</code></pre>
+
+<p>Returns the inverse of the basis matrix of <script type="math/tex">\mathcal O</script>.</p>
+<pre><code>basis_mat_inv(A::NfAbsOrdIdl) -&gt; fmpz_mat
+</code></pre>
+
+<p>Returns the inverse basis matrix of <script type="math/tex">A</script>.</p>
+<p><a id='AbstractAlgebra.Generic.discriminant-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.Generic.discriminant-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>AbstractAlgebra.Generic.discriminant</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">discriminant(O::NfOrd) -&gt; fmpz
+</code></pre>
+
+<p>Returns the discriminant of <script type="math/tex">\mathcal O</script>.</p>
+<pre><code class="julia">discriminant(B::Array{NfAbsOrdElem, 1}) -&gt; fmpz
+</code></pre>
+
+<p>Returns the discriminant of the family <script type="math/tex">B</script>.</p>
+<p><a id='Hecke.gen_index-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}' href='#Hecke.gen_index-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>Hecke.gen_index</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">gen_index(O::NfOrd) -&gt; fmpq
+</code></pre>
+
+<p>Returns the generalized index of <script type="math/tex">\mathcal O</script> with respect to the equation order of the ambient number field.</p>
+<p><a id='Hecke.index-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}' href='#Hecke.index-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>Hecke.index</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">index(O::NfOrd) -&gt; fmpz
+</code></pre>
+
+<p>Assuming that the order <script type="math/tex">\mathcal O</script> contains the equation order <script type="math/tex">\mathbf Z[\alpha]</script> of the ambient number field, this function returns the index <script type="math/tex">[ \mathcal O : \mathbf Z]</script>.</p>
+<p><a id='Hecke.isindex_divisor-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz}' href='#Hecke.isindex_divisor-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz}'>#</a>
+<strong><code>Hecke.isindex_divisor</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">isindex_divisor(O::NfOrd, d::fmpz) -&gt; Bool
+isindex_divisor(O::NfOrd, d::Int) -&gt; Bool
+</code></pre>
+
+<p>Returns whether <script type="math/tex">d</script> is a divisor of the index of <script type="math/tex">\mathcal O</script>. It is assumed that <script type="math/tex">\mathcal O</script> contains the equation order of the ambient number field.</p>
+<p><a id='Hecke.minkowski_mat-Tuple{NfAbsOrd{AnticNumberField,nf_elem},Int64}' href='#Hecke.minkowski_mat-Tuple{NfAbsOrd{AnticNumberField,nf_elem},Int64}'>#</a>
+<strong><code>Hecke.minkowski_mat</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">minkowski_mat(O::NfOrd, abs_tol::Int = 64) -&gt; arb_mat
+</code></pre>
+
+<p>Returns the Minkowski matrix of <script type="math/tex">\mathcal O</script>.  Thus if <script type="math/tex">\mathcal O</script> has degree <script type="math/tex">d</script>, then the result is a matrix in <script type="math/tex">\operatorname{Mat}_{d\times d}(\mathbf R)</script>. The entries of the matrix are real balls of type <code>arb</code> with radius less then <code>2^-abs_tol</code>.</p>
+<p><a id='Base.in-Tuple{nf_elem,NfAbsOrd{AnticNumberField,nf_elem}}' href='#Base.in-Tuple{nf_elem,NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>Base.in</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">in(a::nf_elem, O::NfOrd) -&gt; Bool
+</code></pre>
+
+<p>Checks whether <script type="math/tex">a</script> lies in <script type="math/tex">\mathcal O</script>.</p>
+<p><a id='Base.denominator-Tuple{nf_elem,NfAbsOrd{AnticNumberField,nf_elem}}' href='#Base.denominator-Tuple{nf_elem,NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>Base.denominator</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">denominator(a::nf_elem, O::NfOrd) -&gt; fmpz
+</code></pre>
+
+<p>Returns the smallest positive integer <script type="math/tex">k</script> such that <script type="math/tex">k \cdot a</script> is contained in <script type="math/tex">\mathcal O</script>.</p>
+<p><a id='Hecke.norm_change_const-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}' href='#Hecke.norm_change_const-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>Hecke.norm_change_const</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">norm_change_const(O::NfOrd) -&gt; (Float64, Float64)
+</code></pre>
+
+<p>Returns <script type="math/tex">(c_1, c_2) \in \mathbf R_{>0}^2</script> such that for all <script type="math/tex">x = \sum_{i=1}^d x_i \omega_i \in \mathcal O</script> we have <script type="math/tex">T_2(x) \leq c_1 \cdot \sum_i^d x_i^2</script> and <script type="math/tex">\sum_i^d x_i^2 \leq c_2 \cdot T_2(x)</script>, where <script type="math/tex">(\omega_i)_i</script> is the <script type="math/tex">\mathbf Z</script>-basis of <script type="math/tex">\mathcal O</script>.</p>
+<p><a id='Hecke.trace_matrix-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}' href='#Hecke.trace_matrix-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>Hecke.trace_matrix</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">trace_matrix(O::NfOrd) -&gt; fmpz_mat
+</code></pre>
+
+<p>Returns the trace matrix of <code>\mathcal O</code>, that is, the matrix <script type="math/tex">(\operatorname{tr}_{K/\mathbf Q}(b_i \cdot b_j))_{1 \leq i, j \leq d}</script>.</p>
+<p><a id='Base.:+-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrd{AnticNumberField,nf_elem}}' href='#Base.:+-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>Base.:+</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">+(R::NfOrd, S::NfOrd) -&gt; NfOrd
+</code></pre>
+
+<p>Given two orders <script type="math/tex">R</script>, <script type="math/tex">S</script> of <script type="math/tex">K</script>, this function returns the smallest order containing both <script type="math/tex">R</script> and <script type="math/tex">S</script>. It is assumed that <script type="math/tex">R</script>, <script type="math/tex">S</script> contain the ambient equation order and have coprime index.</p>
+<p><a id='Hecke.poverorder-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz}' href='#Hecke.poverorder-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz}'>#</a>
+<strong><code>Hecke.poverorder</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">poverorder(O::NfOrd, p::fmpz) -&gt; NfOrd
+poverorder(O::NfOrd, p::Integer) -&gt; NfOrd
+</code></pre>
+
+<p>This function tries to find an order that is locally larger than <script type="math/tex">\mathcal O</script> at the prime <script type="math/tex">p</script>: If <script type="math/tex">p</script> divides the index <script type="math/tex">[ \mathcal O_K : \mathcal O]</script>, this function will return an order <script type="math/tex">R</script> such that <script type="math/tex">v_p([ \mathcal O_K : R]) < v_p([ \mathcal O_K : \mathcal O])</script>. Otherwise <script type="math/tex">\mathcal O</script> is returned.</p>
+<p><a id='Hecke.pmaximal_overorder-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz}' href='#Hecke.pmaximal_overorder-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz}'>#</a>
+<strong><code>Hecke.pmaximal_overorder</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code class="julia">pmaximal_overorder(O::NfOrd, p::fmpz) -&gt; NfOrd
+pmaximal_overorder(O::NfOrd, p::Integer) -&gt; NfOrd
+</code></pre>
+
+<p>This function finds a <script type="math/tex">p</script>-maximal order <script type="math/tex">R</script> containing <script type="math/tex">\mathcal O</script>. That is, the index <script type="math/tex">[ \mathcal O_K : R]</script> is not divisible by <script type="math/tex">p</script>.</p></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+
+        
+        
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="../../assets/mathjaxhelper.js"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
