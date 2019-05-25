@@ -1,224 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hecke">
-    <meta name="author" content="Tommy Hofmann">
-    
-    <link rel="../../img/favicon.ico">
-
-    
-    <title>Ideals - Hecke</title>
-    
-
-    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
-    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="../../css/base.min.css" rel="stylesheet">
-    <link href="../../css/cinder.min.css" rel="stylesheet">
-    <link href="../../css/highlight.min.css" rel="stylesheet">
-    <link href="../../assets/Documenter.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-        <![endif]-->
-
-    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-    <script>
-    WebFont.load({
-        google: {
-            families: ['Open Sans', 'PT Sans']
-        }
-    });
-    </script>
-
-    
-
-     
-</head>
-
-<body>
-
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            
-
-            <!-- Main title -->
-
-            <a class="navbar-brand" href="../..">Hecke</a>
-        </div>
-
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                
-                
-                    <li >
-                        <a href="../..">Home</a>
-                    </li>
-                
-                
-                
-                    <li >
-                        <a href="../../number_fields/intro/">Number fields</a>
-                    </li>
-                
-                
-                
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Orders <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../introduction/">Introduction</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../orders/">Basics</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../elements/">Elements</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Ideals</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../frac_ideals/">Fractional Ideals</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Abelian groups <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../abelian/introduction/">Introduction</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Class fields <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../class_fields/intro/">Introduction</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../FacElem/">Factored Elements</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../sparse/intro/">Sparse Linear Algebra</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                            <i class="fas fa-search"></i> Search
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="../elements/">
-                            <i class="fas fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="next" href="../frac_ideals/">
-                            Next <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/thofma/Hecke.jl/edit/master/docs/orders/ideals.md">Edit on Hecke.jl</a>
-                    </li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-    <div class="container">
-        
-        
-        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#ideals">Ideals</a></li>
-            <li class="second-level"><a href="#creation">Creation</a></li>
-                
-            <li class="second-level"><a href="#arithmetic">Arithmetic</a></li>
-                
-            <li class="second-level"><a href="#class-group">Class Group</a></li>
-                
-            <li class="second-level"><a href="#miscaellenous">Miscaellenous</a></li>
-                
-            <li class="second-level"><a href="#quotient-rings">Quotient Rings</a></li>
-                
-    </ul>
-</div></div>
-        <div class="col-md-9" role="main">
-
-<p><a id='Ideals-1'></a></p>
+<!doctype html><html lang="en" class="no-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Hecke"><meta name="author" content="Tommy Hofmann"><meta name="lang:clipboard.copy" content="Copy to clipboard"><meta name="lang:clipboard.copied" content="Copied to clipboard"><meta name="lang:search.language" content="en"><meta name="lang:search.pipeline.stopwords" content="True"><meta name="lang:search.pipeline.trimmer" content="True"><meta name="lang:search.result.none" content="No matching documents"><meta name="lang:search.result.one" content="1 matching document"><meta name="lang:search.result.other" content="# matching documents"><meta name="lang:search.tokenizer" content="[\s\-\.]+"><link rel="shortcut icon" href="../../assets/images/favicon.png"><meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.3.1"><title>Ideals - Hecke</title><link rel="stylesheet" href="../../assets/stylesheets/application.4031d38b.css"><link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css"><meta name="theme-color" content="#546e7a"><script src="../../assets/javascripts/modernizr.74668098.js"></script><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=swap"><style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style><link rel="stylesheet" href="../../assets/fonts/material-icons.css"><link rel="stylesheet" href="../../assets/Documenter.css"><link rel="stylesheet" href="../../css/extra.css"></head><body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="bluey-grey"><svg class="md-svg"><defs><svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg></defs></svg> <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off"> <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off"> <label class="md-overlay" data-md-component="overlay" for="__drawer"></label><a href="#ideals" tabindex="1" class="md-skip">Skip to content </a><header class="md-header" data-md-component="header"><nav class="md-header-nav md-grid"><div class="md-flex"><div class="md-flex__cell md-flex__cell--shrink"><a href="../.." title="Hecke" class="md-header-nav__button md-logo"><i class="md-icon"></i></a></div><div class="md-flex__cell md-flex__cell--shrink"><label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label></div><div class="md-flex__cell md-flex__cell--stretch"><div class="md-flex__ellipsis md-header-nav__title" data-md-component="title"><span class="md-header-nav__topic">Hecke</span><span class="md-header-nav__topic">Ideals</span></div></div><div class="md-flex__cell md-flex__cell--shrink"><label class="md-icon md-icon--search md-header-nav__button" for="__search"></label><div class="md-search" data-md-component="search" role="dialog"><label class="md-search__overlay" for="__search"></label><div class="md-search__inner" role="search"><form class="md-search__form" name="search"><input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active"> <label class="md-icon md-search__icon" for="__search"></label> <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">&#xE5CD;</button></form><div class="md-search__output"><div class="md-search__scrollwrap" data-md-scrollfix><div class="md-search-result" data-md-component="result"><div class="md-search-result__meta">Type to start searching</div><ol class="md-search-result__list"></ol></div></div></div></div></div></div><div class="md-flex__cell md-flex__cell--shrink"><div class="md-header-nav__source"><a href="https://github.com/thofma/Hecke.jl/" title="Go to repository" class="md-source" data-md-source="github"><div class="md-source__icon"><svg viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#__github" width="24" height="24"></use></svg></div><div class="md-source__repository">Hecke.jl</div></a></div></div></div></nav></header><div class="md-container"><main class="md-main"><div class="md-main__inner md-grid" data-md-component="container"><div class="md-sidebar md-sidebar--primary" data-md-component="navigation"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner"><nav class="md-nav md-nav--primary" data-md-level="0"><label class="md-nav__title md-nav__title--site" for="__drawer"><a href="../.." title="Hecke" class="md-nav__button md-logo"><i class="md-icon"></i></a>Hecke</label><div class="md-nav__source"><a href="https://github.com/thofma/Hecke.jl/" title="Go to repository" class="md-source" data-md-source="github"><div class="md-source__icon"><svg viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#__github" width="24" height="24"></use></svg></div><div class="md-source__repository">Hecke.jl</div></a></div><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../.." title="Home" class="md-nav__link">Home</a></li><li class="md-nav__item"><a href="../../number_fields/intro/" title="Number fields" class="md-nav__link">Number fields</a></li><li class="md-nav__item md-nav__item--active md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked><label class="md-nav__link" for="nav-3">Orders</label><nav class="md-nav" data-md-component="collapsible" data-md-level="1"><label class="md-nav__title" for="nav-3">Orders</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../introduction/" title="Introduction" class="md-nav__link">Introduction</a></li><li class="md-nav__item"><a href="../orders/" title="Basics" class="md-nav__link">Basics</a></li><li class="md-nav__item"><a href="../elements/" title="Elements" class="md-nav__link">Elements</a></li><li class="md-nav__item md-nav__item--active"><input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc"><label class="md-nav__link md-nav__link--active" for="__toc">Ideals</label><a href="./" title="Ideals" class="md-nav__link md-nav__link--active">Ideals</a><nav class="md-nav md-nav--secondary"><label class="md-nav__title" for="__toc">Table of contents</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="#creation" title="Creation" class="md-nav__link">Creation</a></li><li class="md-nav__item"><a href="#arithmetic" title="Arithmetic" class="md-nav__link">Arithmetic</a></li><li class="md-nav__item"><a href="#class-group" title="Class Group" class="md-nav__link">Class Group</a></li><li class="md-nav__item"><a href="#miscaellenous" title="Miscaellenous" class="md-nav__link">Miscaellenous</a></li><li class="md-nav__item"><a href="#quotient-rings" title="Quotient Rings" class="md-nav__link">Quotient Rings</a></li></ul></nav></li><li class="md-nav__item"><a href="../frac_ideals/" title="Fractional Ideals" class="md-nav__link">Fractional Ideals</a></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4"><label class="md-nav__link" for="nav-4">Abelian groups</label><nav class="md-nav" data-md-component="collapsible" data-md-level="1"><label class="md-nav__title" for="nav-4">Abelian groups</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../abelian/introduction/" title="Introduction" class="md-nav__link">Introduction</a></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5"><label class="md-nav__link" for="nav-5">Class fields</label><nav class="md-nav" data-md-component="collapsible" data-md-level="1"><label class="md-nav__title" for="nav-5">Class fields</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../class_fields/intro/" title="Introduction" class="md-nav__link">Introduction</a></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6"><label class="md-nav__link" for="nav-6">Misc</label><nav class="md-nav" data-md-component="collapsible" data-md-level="1"><label class="md-nav__title" for="nav-6">Misc</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../FacElem/" title="Factored Elements" class="md-nav__link">Factored Elements</a></li><li class="md-nav__item"><a href="../../sparse/intro/" title="Sparse Linear Algebra" class="md-nav__link">Sparse Linear Algebra</a></li></ul></nav></li></ul></nav></div></div></div><div class="md-sidebar md-sidebar--secondary" data-md-component="toc"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner"><nav class="md-nav md-nav--secondary"><label class="md-nav__title" for="__toc">Table of contents</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="#creation" title="Creation" class="md-nav__link">Creation</a></li><li class="md-nav__item"><a href="#arithmetic" title="Arithmetic" class="md-nav__link">Arithmetic</a></li><li class="md-nav__item"><a href="#class-group" title="Class Group" class="md-nav__link">Class Group</a></li><li class="md-nav__item"><a href="#miscaellenous" title="Miscaellenous" class="md-nav__link">Miscaellenous</a></li><li class="md-nav__item"><a href="#quotient-rings" title="Quotient Rings" class="md-nav__link">Quotient Rings</a></li></ul></nav></div></div></div><div class="md-content"><article class="md-content__inner md-typeset"><a href="https://github.com/thofma/Hecke.jl/edit/master/docs/orders/ideals.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a><p><a id='Ideals-1'></a></p>
 <h1 id="ideals">Ideals</h1>
 <p>(Integral) ideals in orders are always free <script type="math/tex">Z</script>-module of the same rank as the order, hence have a representation via a <script type="math/tex">Z</script>-basis. This can be made unique by normalising the corresponding matrix to be in reduced row echelon form  (HNF).</p>
 <p>For ideals in maximal orders <script type="math/tex">Z_K</script>, we also have a second presentation coming from the <script type="math/tex">Z_K</script> module structure and the fact that <script type="math/tex">Z_K</script> is a Dedekind ring: ideals can be generated by 2 elements, one of which can be any non-zero element in the ideal.</p>
@@ -229,69 +9,69 @@
 <h2 id="creation">Creation</h2>
 <p><a id='Hecke.ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz}' href='#Hecke.ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz}'>#</a>
 <strong><code>Hecke.ideal</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">ideal(O::NfOrd, a::fmpz) -&gt; NfAbsOrdIdl
-ideal(O::NfOrd, a::Integer) -&gt; NfAbsOrdIdl
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">a</span><span class="o">::</span><span class="n">fmpz</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrdIdl</span>
+<span class="n">ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">a</span><span class="o">::</span><span class="kt">Integer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrdIdl</span>
+</pre></div>
 
 <p>Returns the ideal of <script type="math/tex">\mathcal O</script> which is generated by <script type="math/tex">a</script>.</p>
 <p><a id='Hecke.ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz_mat}' href='#Hecke.ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz_mat}'>#</a>
 <strong><code>Hecke.ideal</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">ideal(O::NfOrd, x::fmpz_mat, check::Bool = false, x_in_hnf::Bool = false) -&gt; NfAbsOrdIdl
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">x</span><span class="o">::</span><span class="n">fmpz_mat</span><span class="p">,</span> <span class="n">check</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">x_in_hnf</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrdIdl</span>
+</pre></div>
 
 <p>Creates the ideal of <script type="math/tex">\mathcal O</script> with basis matrix <script type="math/tex">x</script>. If check is set, then it is checked whether <script type="math/tex">x</script> defines an ideal (expensive). If x<em>in</em>hnf is set, then it is assumed that <script type="math/tex">x</script> is already in lower left HNF.</p>
 <p><a id='Hecke.ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdElem{AnticNumberField,nf_elem}}' href='#Hecke.ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdElem{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.ideal</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">ideal(O::NfOrd, x::NfOrdElem) -&gt; NfAbsOrdIdl
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">x</span><span class="o">::</span><span class="n">NfOrdElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrdIdl</span>
+</pre></div>
 
 <p>Creates the principal ideal <script type="math/tex">(x)</script> of <script type="math/tex">\mathcal O</script>.</p>
 <p><a id='Hecke.ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz,NfAbsOrdElem{AnticNumberField,nf_elem}}' href='#Hecke.ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz,NfAbsOrdElem{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.ideal</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">ideal(O::NfOrd, x::fmpz, y::NfOrdElem) -&gt; NfAbsOrdIdl
-ideal(O::NfOrd, x::Integer, y::NfOrdElem) -&gt; NfAbsOrdIdl
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">x</span><span class="o">::</span><span class="n">fmpz</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">NfOrdElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrdIdl</span>
+<span class="n">ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">x</span><span class="o">::</span><span class="kt">Integer</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">NfOrdElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrdIdl</span>
+</pre></div>
 
 <p>Creates the ideal <script type="math/tex">(x, y)</script> of <script type="math/tex">\mathcal O</script>.</p>
 <p><a id='Hecke.ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdIdl}' href='#Hecke.ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdIdl}'>#</a>
 <strong><code>Hecke.ideal</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">ideal(O::NfOrd, I::NfAbsOrdIdl) -&gt; NfOrdFracIdl
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="nb">I</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
+</pre></div>
 
 <p>The fractional ideal of <script type="math/tex">O</script> generated by a Z-basis of <script type="math/tex">I</script>.</p>
 <p><a id='Base.:*-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdElem{AnticNumberField,nf_elem}}' href='#Base.:*-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdElem{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Base.:*</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">*(O::NfOrd, x::NfOrdElem) -&gt; NfAbsOrdIdl
-*(x::NfOrdElem, O::NfOrd) -&gt; NfAbsOrdIdl
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="o">*</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">x</span><span class="o">::</span><span class="n">NfOrdElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrdIdl</span>
+<span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">NfOrdElem</span><span class="p">,</span> <span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrdIdl</span>
+</pre></div>
 
 <p>Returns the principal ideal <script type="math/tex">(x)</script> of <script type="math/tex">\mathcal O</script>.</p>
 <p><a id='Hecke.prime_decomposition-Tuple{NfAbsOrd{AnticNumberField,nf_elem},Integer}' href='#Hecke.prime_decomposition-Tuple{NfAbsOrd{AnticNumberField,nf_elem},Integer}'>#</a>
 <strong><code>Hecke.prime_decomposition</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">prime_decomposition(O::NfAbsOrd,
-                    p::Integer,
-                    degree_limit::Int = 0,
-                    lower_limit::Int = 0) -&gt; Array{Tuple{NfOrdIdl, Int}, 1}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">prime_decomposition</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfAbsOrd</span><span class="p">,</span>
+                    <span class="n">p</span><span class="o">::</span><span class="kt">Integer</span><span class="p">,</span>
+                    <span class="n">degree_limit</span><span class="o">::</span><span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                    <span class="n">lower_limit</span><span class="o">::</span><span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Tuple</span><span class="p">{</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="kt">Int</span><span class="p">},</span> <span class="mi">1</span><span class="p">}</span>
+</pre></div>
 
 <p>Returns an array of tuples <script type="math/tex">(\mathfrak p_i,e_i)</script> such that <script type="math/tex">p \mathcal O</script> is the product of the <script type="math/tex">\mathfrak p_i^{e_i}</script> and <script type="math/tex">\mathfrak p_i \neq \mathfrak p_j</script> for <script type="math/tex">i \neq j</script>.</p>
 <blockquote></blockquote>
 <p>If <code>degree_limit</code> is a nonzero integer <script type="math/tex">k > 0</script>, then only those prime ideals <script type="math/tex">\mathfrak p</script> with <script type="math/tex">\deg(\mathfrak p) \leq k</script> will be returned. Similarly if <code>\lower_limit</code> is a nonzero integer <script type="math/tex">l > 0</script>, then only those prime ideals <script type="math/tex">\mathfrak p</script> with <script type="math/tex">l \leq \deg(\mathfrak p)</script> will be returned. Note that in this case it may happen that <script type="math/tex">p\mathcal O</script> is not the product of the <script type="math/tex">\mathfrak p_i^{e_i}</script>.</p>
 <p><a id='Hecke.prime_decomposition-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz}' href='#Hecke.prime_decomposition-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz}'>#</a>
 <strong><code>Hecke.prime_decomposition</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">prime_decomposition(O::NfAbsOrd,
-                    p::Integer,
-                    degree_limit::Int = 0,
-                    lower_limit::Int = 0) -&gt; Array{Tuple{NfOrdIdl, Int}, 1}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">prime_decomposition</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfAbsOrd</span><span class="p">,</span>
+                    <span class="n">p</span><span class="o">::</span><span class="kt">Integer</span><span class="p">,</span>
+                    <span class="n">degree_limit</span><span class="o">::</span><span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                    <span class="n">lower_limit</span><span class="o">::</span><span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Tuple</span><span class="p">{</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="kt">Int</span><span class="p">},</span> <span class="mi">1</span><span class="p">}</span>
+</pre></div>
 
 <p>Returns an array of tuples <script type="math/tex">(\mathfrak p_i,e_i)</script> such that <script type="math/tex">p \mathcal O</script> is the product of the <script type="math/tex">\mathfrak p_i^{e_i}</script> and <script type="math/tex">\mathfrak p_i \neq \mathfrak p_j</script> for <script type="math/tex">i \neq j</script>.</p>
 <blockquote></blockquote>
 <p>If <code>degree_limit</code> is a nonzero integer <script type="math/tex">k > 0</script>, then only those prime ideals <script type="math/tex">\mathfrak p</script> with <script type="math/tex">\deg(\mathfrak p) \leq k</script> will be returned. Similarly if <code>\lower_limit</code> is a nonzero integer <script type="math/tex">l > 0</script>, then only those prime ideals <script type="math/tex">\mathfrak p</script> with <script type="math/tex">l \leq \deg(\mathfrak p)</script> will be returned. Note that in this case it may happen that <script type="math/tex">p\mathcal O</script> is not the product of the <script type="math/tex">\mathfrak p_i^{e_i}</script>.</p>
 <p><a id='Hecke.factor-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.factor-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.factor</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">factor(A::NfOrdIdl) -&gt; Dict{NfOrdIdl, Int}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">factor</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Dict</span><span class="p">{</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="kt">Int</span><span class="p">}</span>
+</pre></div>
 
 <p>Computes the prime ideal factorization <script type="math/tex">A</script> as a dictionary, the keys being the prime ideal divisors: If <code>lp = factor_dict(A)</code>, then <code>keys(lp)</code> are the prime ideal divisors of A and <code>lp[P]</code> is the <code>P</code>-adic valuation of <code>A</code> for all <code>P</code> in <code>keys(lp)</code>.</p>
 <p><a id='Hecke.factor-Tuple{nf_elem,Hecke.NfAbsOrdIdlSet{AnticNumberField,nf_elem}}' href='#Hecke.factor-Tuple{nf_elem,Hecke.NfAbsOrdIdlSet{AnticNumberField,nf_elem}}'>#</a>
@@ -301,39 +81,39 @@ ideal(O::NfOrd, x::Integer, y::NfOrdElem) -&gt; NfAbsOrdIdl
 <h2 id="arithmetic">Arithmetic</h2>
 <p><a id='Base.:==-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Base.:==-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Base.:==</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">==(x::NfAbsOrdIdl, y::NfAbsOrdIdl)
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="o">==</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span>
+</pre></div>
 
 <p>Returns whether <script type="math/tex">x</script> and <script type="math/tex">y</script> are equal.</p>
 <p><a id='Base.:+-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Base.:+-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Base.:+</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">+(x::NfOrdIdl, y::NfOrdIdl)
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="o">+</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span>
+</pre></div>
 
 <p>Returns <script type="math/tex">x + y</script>.</p>
 <p><a id='Base.:*-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Base.:*-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Base.:*</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">*(x::NfOrdIdl, y::NfOrdIdl)
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span>
+</pre></div>
 
 <p>Returns <script type="math/tex">x \cdot y</script>.</p>
 <p><a id='AbstractAlgebra.Generic.divexact-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.Generic.divexact-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>AbstractAlgebra.Generic.divexact</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">divexact(A::NfOrdIdl, B::NfOrdIdl) -&gt; NfOrdIdl
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">divexact</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="n">B</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdIdl</span>
+</pre></div>
 
 <p>Returns <script type="math/tex">AB^{-1}</script> assuming that <script type="math/tex">AB^{-1}</script> is again an integral ideal.</p>
 <p><a id='AbstractAlgebra.Generic.divides-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.Generic.divides-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>AbstractAlgebra.Generic.divides</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">divides(A::NfOrdIdl, B::NfOrdIdl)
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">divides</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="n">B</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span>
+</pre></div>
 
 <p>Checks if B divides A</p>
 <p><a id='Base.lcm-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Base.lcm-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Base.lcm</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">intersect(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
-lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">intersect</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdIdl</span>
+<span class="n">lcm</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdIdl</span>
+</pre></div>
 
 <p>Returns <script type="math/tex">x \cap y</script>.</p>
 <p><a id='Base.gcd-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Base.gcd-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
@@ -344,50 +124,50 @@ lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
 <p>gcd(A::NfOrdIdl, p::fmpz) -&gt; NfOrdIdl The gcd or sum (A + pO).</p>
 <p><a id='Base.intersect-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Base.intersect-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Base.intersect</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">intersect(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
-lcm(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdIdl
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">intersect</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdIdl</span>
+<span class="n">lcm</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdIdl</span>
+</pre></div>
 
 <p>Returns <script type="math/tex">x \cap y</script>.</p>
 <p><a id='Hecke.colon-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.colon-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.colon</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">colon(a::NfAbsOrdIdl, b::NfAbsOrdIdl) -&gt; NfOrdFracIdl
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">colon</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">,</span> <span class="n">b</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
+</pre></div>
 
 <p>The ideal <script type="math/tex">(a:b) = \{x \in K | xb \subseteq a\} = \hom(b, a)</script> where <script type="math/tex">K</script> is the number field.</p>
 <p><a id='Base.in-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdIdl}' href='#Base.in-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdIdl}'>#</a>
 <strong><code>Base.in</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">in(x::NfOrdElem, y::NfAbsOrdIdl)
-in(x::nf_elem, y::NfAbsOrdIdl)
-in(x::fmpz, y::NfAbsOrdIdl)
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="kp">in</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">NfOrdElem</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span>
+<span class="kp">in</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">nf_elem</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span>
+<span class="kp">in</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">fmpz</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span>
+</pre></div>
 
 <p>Returns whether <script type="math/tex">x</script> is contained in <script type="math/tex">y</script>.</p>
 <p><a id='Hecke.ispower-Tuple{NfAbsOrdIdl,Int64}' href='#Hecke.ispower-Tuple{NfAbsOrdIdl,Int64}'>#</a>
 <strong><code>Hecke.ispower</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">ispower(A::NfAbsOrdIdl, n::Int) -&gt; Bool, NfAbsOrdIdl
-ispower(A::NfOrdFracIdl, n::Int) -&gt; Bool, NfOrdFracIdl
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">ispower</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">,</span> <span class="n">n</span><span class="o">::</span><span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span><span class="p">,</span> <span class="n">NfAbsOrdIdl</span>
+<span class="n">ispower</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfOrdFracIdl</span><span class="p">,</span> <span class="n">n</span><span class="o">::</span><span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span><span class="p">,</span> <span class="n">NfOrdFracIdl</span>
+</pre></div>
 
 <p>Computes, if possible, an ideal <script type="math/tex">B</script> s.th. <script type="math/tex">B^n==A</script> holds. In this case, {{{true}}} and <script type="math/tex">B</script> are returned.</p>
 <p><a id='Hecke.ispower-Tuple{NfAbsOrdIdl}' href='#Hecke.ispower-Tuple{NfAbsOrdIdl}'>#</a>
 <strong><code>Hecke.ispower</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">ispower(I::NfAbsOrdIdl) -&gt; Int, NfAbsOrdIdl
-ispower(a::NfOrdFracIdl) -&gt; Int, NfOrdFracIdl
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">ispower</span><span class="p">(</span><span class="nb">I</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">NfAbsOrdIdl</span>
+<span class="n">ispower</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfOrdFracIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">NfOrdFracIdl</span>
+</pre></div>
 
 <p>Writes <script type="math/tex">a = r^e</script> with <script type="math/tex">e</script> maximal. Note: <script type="math/tex">1 = 1^0</script>.</p>
 <p><a id='Hecke.isinvertible-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.isinvertible-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.isinvertible</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">isinvertible(A::NfAbsOrdIdl) -&gt; Bool, NfOrdFracIdl
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">isinvertible</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span><span class="p">,</span> <span class="n">NfOrdFracIdl</span>
+</pre></div>
 
 <p>Returns true and an inverse of <script type="math/tex">A</script> or false and an ideal <script type="math/tex">B</script> such that <script type="math/tex">A*B \subsetneq order(A)</script>, if <script type="math/tex">A</script> is not invertible.</p>
 <p><a id='Base.isone-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Base.isone-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Base.isone</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">isone(A::NfAbsOrdIdl) -&gt; Bool
-isunit(A::NfAbsOrdIdl) -&gt; Bool
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">isone</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">isunit</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+</pre></div>
 
 <p>Tests if <script type="math/tex">A</script> is the trivial ideal generated by <script type="math/tex">1</script>.</p>
 <p><a id='Class-Group-1'></a></p>
@@ -395,30 +175,29 @@ isunit(A::NfAbsOrdIdl) -&gt; Bool
 <p>The group of invertable ideals in any order forms a group and the principal ideals a subgroup.  The finite quotient is called class group for maximal orders and Picard group or ring class group in general.</p>
 <p><a id='Hecke.class_group-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}' href='#Hecke.class_group-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.class_group</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">class_group(O::NfOrd; bound = -1, method = 3, redo = false, large = 1000) -&gt; GrpAbFinGen, Map
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">class_group</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">;</span> <span class="n">bound</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">redo</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">large</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GrpAbFinGen</span><span class="p">,</span> <span class="n">Map</span>
+</pre></div>
 
 <p>Returns a group <script type="math/tex">A</script> and a map <script type="math/tex">f</script> from <script type="math/tex">A</script> to the set of ideals of <script type="math/tex">O</script>. The inverse of the map is the projection onto the group of ideals modulo the  group of principal ideals. \texttt{redo} allows to trigger a re-computation, thus avoiding the cache. \texttt{bound}, when given, is the bound for the factor base.</p>
 <p><a id='Hecke.class_group-Tuple{AnticNumberField}' href='#Hecke.class_group-Tuple{AnticNumberField}'>#</a>
 <strong><code>Hecke.class_group</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">class_group(K::AnticNumberField) -&gt; GrpAbFinGen, Map
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">class_group</span><span class="p">(</span><span class="n">K</span><span class="o">::</span><span class="n">AnticNumberField</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GrpAbFinGen</span><span class="p">,</span> <span class="n">Map</span>
+</pre></div>
 
 <p>Shortcut for {{{class<em>group(maximal</em>order(K))}}}: returns the class group as an abelian group and a map from this group to the set of ideals of the maximal order.</p>
 <p><a id='Hecke.picard_group-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}' href='#Hecke.picard_group-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.picard_group</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">  picard_group(O::NfOrd) -&gt; GrpAbFinGen, MapClassGrp
-</code></pre>
+<div class="codehilite"><pre><span></span>  <span class="n">picard_group</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GrpAbFinGen</span><span class="p">,</span> <span class="n">MapClassGrp</span>
+</pre></div>
 
 <p>Returns the Picard group of O and a map from the group in the set of (invertible) ideals of O.</p>
 <p><a id='Hecke.ring_class_group-Tuple{NfAbsOrd}' href='#Hecke.ring_class_group-Tuple{NfAbsOrd}'>#</a>
 <strong><code>Hecke.ring_class_group</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">ring_class_group(O::NfAbsOrd)
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">ring_class_group</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfAbsOrd</span><span class="p">)</span>
+</pre></div>
 
 <p>The ring class group (Picard group) of <script type="math/tex">O</script>.    </p>
-<pre><code class="julia-repl">
-julia&gt; k, a = wildanger_field(3, 13);
+<div class="codehilite"><pre><span></span>julia&gt; k, a = wildanger_field(3, 13);
 
 julia&gt; zk = maximal_order(k);
 
@@ -474,7 +253,7 @@ with components
 [5]
 
 julia&gt; mc(c[1])
-&lt;2, 3//2*_$^2 + 2*_$ + 7//2&gt;
+&lt;2, 3//2*_$^2 + 3//2&gt;
 Norm: 2
 Minimum: 2
 basis_mat
@@ -487,7 +266,7 @@ julia&gt; order(c[1])
 9
 
 julia&gt; mc(c[1])^Int(order(c[1]))
-&lt;32, 45616403435015994675//2*_$^2 - 22636933952473144831*_$ + 49386866379765370909//2&gt;
+&lt;32, 16521184280351827467//2*_$^2 - 8198562999464506071*_$ + 17886756934959371397//2&gt;
 Norm: 512
 Minimum: 32
 two normal wrt: 2
@@ -497,50 +276,50 @@ Element of
 GrpAb: Z/9
 with components
 [0]
-</code></pre>
+</pre></div>
 
 <p>The class group, or more precisely the information used to compute it also allows for principal ideal testing and related tasks.  In general, due to the size of the objetcs, the <code>fac_elem</code> versions are more effcient.</p>
 <p><a id='Hecke.isprincipal-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.isprincipal-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.isprincipal</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">isprincipal(A::NfOrdIdl) -&gt; Bool, NfOrdElem
-isprincipal(A::NfOrdFracIdl) -&gt; Bool, NfOrdElem
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">isprincipal</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span><span class="p">,</span> <span class="n">NfOrdElem</span>
+<span class="n">isprincipal</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfOrdFracIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span><span class="p">,</span> <span class="n">NfOrdElem</span>
+</pre></div>
 
 <p>Tests if <script type="math/tex">A</script> is principal and returns <script type="math/tex">(\mathtt{true}, \alpha)</script> if <script type="math/tex">A = \langle \alpha\rangle</script> of <script type="math/tex">(\mathtt{false}, 1)</script> otherwise.  </p>
 <p><a id='Hecke.isprincipal_fac_elem-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.isprincipal_fac_elem-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.isprincipal_fac_elem</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">isprincipal_fac_elem(A::NfOrdIdl) -&gt; Bool, FacElem{nf_elem, NumberField}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">isprincipal_fac_elem</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span><span class="p">,</span> <span class="n">FacElem</span><span class="p">{</span><span class="n">nf_elem</span><span class="p">,</span> <span class="n">NumberField</span><span class="p">}</span>
+</pre></div>
 
 <p>Tests if <script type="math/tex">A</script> is principal and returns <script type="math/tex">(\mathtt{true}, \alpha)</script> if <script type="math/tex">A = \langle \alpha\rangle</script> of <script type="math/tex">(\mathtt{false}, 1)</script> otherwise.   The generator will be in factored form.</p>
 <p><a id='Hecke.power_class-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},fmpz}' href='#Hecke.power_class-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},fmpz}'>#</a>
 <strong><code>Hecke.power_class</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">power_class(A::NfOrdIdl, e::fmpz) -&gt; NfOrdIdl
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">power_class</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="nb">e</span><span class="o">::</span><span class="n">fmpz</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdIdl</span>
+</pre></div>
 
 <p>Computes a (small) ideal in the same class as <script type="math/tex">A^e</script>
 </p>
 <p><a id='Hecke.power_product_class-Tuple{Array{NfAbsOrdIdl{AnticNumberField,nf_elem},1},Array{fmpz,1}}' href='#Hecke.power_product_class-Tuple{Array{NfAbsOrdIdl{AnticNumberField,nf_elem},1},Array{fmpz,1}}'>#</a>
 <strong><code>Hecke.power_product_class</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">power_product_class(A::Array{NfOrdIdl, 1}, e::Array{fmpz, 1}) -&gt; NfOrdIdl
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">power_product_class</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="nb">e</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">fmpz</span><span class="p">,</span> <span class="mi">1</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">NfOrdIdl</span>
+</pre></div>
 
 <p>Computes a (small) ideal in the same class as <script type="math/tex">\prod A_i^{e_i}</script>.</p>
 <p><a id='Hecke.power_reduce2-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},fmpz}' href='#Hecke.power_reduce2-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},fmpz}'>#</a>
 <strong><code>Hecke.power_reduce2</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">power_reduce2(A::NfOrdIdl, e::fmpz) -&gt; NfOrdIdl, FacElem{nf_elem}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">power_reduce2</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="nb">e</span><span class="o">::</span><span class="n">fmpz</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdIdl</span><span class="p">,</span> <span class="n">FacElem</span><span class="p">{</span><span class="n">nf_elem</span><span class="p">}</span>
+</pre></div>
 
 <p>Computes <script type="math/tex">B</script> and <script type="math/tex">\alpha</script> in factored form, such that <script type="math/tex">\alpha B = A^e</script>
 <script type="math/tex">B</script> has small norm.</p>
 <p><a id='Hecke.class_group_ideal_relation-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},Hecke.ClassGrpCtx}' href='#Hecke.class_group_ideal_relation-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},Hecke.ClassGrpCtx}'>#</a>
 <strong><code>Hecke.class_group_ideal_relation</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">class_group_ideal_relation(I::NfOrdIdl, c::ClassGrpCtx) -&gt; nf_elem, SRow{fmpz}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">class_group_ideal_relation</span><span class="p">(</span><span class="nb">I</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="n">c</span><span class="o">::</span><span class="n">ClassGrpCtx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">nf_elem</span><span class="p">,</span> <span class="n">SRow</span><span class="p">{</span><span class="n">fmpz</span><span class="p">}</span>
+</pre></div>
 
 <p>Finds a number field element <script type="math/tex">\alpha</script> such that <script type="math/tex">\alpha I</script> factors over the factor base in <script type="math/tex">c</script>.</p>
-<pre><code class="julia-repl">julia&gt; I = mc(c[1])
-&lt;2, 3//2*_$^2 + 2*_$ + 7//2&gt;
+<div class="codehilite"><pre><span></span>julia&gt; I = mc(c[1])
+&lt;2, 3//2*_$^2 + 3//2&gt;
 Norm: 2
 Minimum: 2
 basis_mat
@@ -553,7 +332,7 @@ julia&gt; Hecke.isprincipal(I)
 (false, 1)
 
 julia&gt; I = I^Int(order(c[1]))
-&lt;32, 45616403435015994675//2*_$^2 - 22636933952473144831*_$ + 49386866379765370909//2&gt;
+&lt;32, 16521184280351827467//2*_$^2 - 8198562999464506071*_$ + 17886756934959371397//2&gt;
 Norm: 512
 Minimum: 32
 two normal wrt: 2
@@ -563,47 +342,47 @@ julia&gt; Hecke.isprincipal(I)
 
 julia&gt; Hecke.isprincipal_fac_elem(I)
 (true, Factored element with data
-Dict(_$+38=&gt;83,_$+1=&gt;35,5=&gt;-36,3//2*_$^2 - 10*_$ - 61//2=&gt;-42,_$^2 - 2*_$ - 2=&gt;84,7=&gt;-84,_$+2=&gt;-52,-13//2*_$^2 + 81*_$ - 47//2=&gt;21,-1//2*_$^2 + 9*_$ + 33//2=&gt;21,_$-4=&gt;1,11=&gt;26,_$^2 + 1*_$ + 2=&gt;36,_$+5=&gt;-229,107=&gt;-83,_$-16=&gt;83,_$-35=&gt;83,1=&gt;1))
-</code></pre>
+Dict(_$+38=&gt;41,_$+1=&gt;35,5=&gt;-15,_$^2 - 2*_$ - 2=&gt;42,7=&gt;-42,_$+2=&gt;-52,1//2*_$^2 - 5*_$ + 3//2=&gt;21,_$-4=&gt;-20,11=&gt;26,_$^2 + 1*_$ + 2=&gt;15,_$+5=&gt;-124,107=&gt;-41,_$-16=&gt;41,_$-35=&gt;41,1=&gt;1))
+</pre></div>
 
 <p>The computation of <script type="math/tex">S</script>-units is also tied to the class group:</p>
 <p><a id='Hecke.unit_group-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}' href='#Hecke.unit_group-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.unit_group</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">unit_group(O::NfOrd) -&gt; GrpAbFinGen, Map
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">unit_group</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GrpAbFinGen</span><span class="p">,</span> <span class="n">Map</span>
+</pre></div>
 
 <p>Returns a group <script type="math/tex">U</script> and an isomorphism map <script type="math/tex">f \colon U \to \mathcal O^\times</script>. A set of fundamental units of <script type="math/tex">\mathcal O</script> can be obtained via <code>[ f(U[1+i]) for i in 1:unit_rank(O) ]</code>. <code>f(U[1])</code> will give a generator for the torsion subgroup.</p>
 <p><a id='Hecke.unit_group_fac_elem-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}' href='#Hecke.unit_group_fac_elem-Tuple{NfAbsOrd{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.unit_group_fac_elem</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">unit_group_fac_elem(O::NfOrd) -&gt; GrpAbFinGen, Map
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">unit_group_fac_elem</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GrpAbFinGen</span><span class="p">,</span> <span class="n">Map</span>
+</pre></div>
 
 <p>Returns a group <script type="math/tex">U</script> and an isomorphism map <script type="math/tex">f \colon U \to \mathcal O^\times</script>. A set of fundamental units of <script type="math/tex">\mathcal O</script> can be obtained via <code>[ f(U[1+i]) for i in 1:unit_rank(O) ]</code>. <code>f(U[1])</code> will give a generator for the torsion subgroup. All elements will be returned in factored form.</p>
 <p><a id='Hecke.sunit_group-Tuple{Array{NfAbsOrdIdl{AnticNumberField,nf_elem},1}}' href='#Hecke.sunit_group-Tuple{Array{NfAbsOrdIdl{AnticNumberField,nf_elem},1}}'>#</a>
 <strong><code>Hecke.sunit_group</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">sunit_group(I::Array{NfOrdIdl, 1}) -&gt; GrpAb, Map
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">sunit_group</span><span class="p">(</span><span class="nb">I</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="mi">1</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">GrpAb</span><span class="p">,</span> <span class="n">Map</span>
+</pre></div>
 
 <p>For an array <script type="math/tex">I</script> of (coprime prime) ideals, find the <script type="math/tex">S</script>-unit group defined by <script type="math/tex">I</script>, ie. the group of non-zero field elements which are only divisible by ideals in <script type="math/tex">I</script>.</p>
 <p><a id='Hecke.sunit_group_fac_elem-Tuple{Array{NfAbsOrdIdl{AnticNumberField,nf_elem},1}}' href='#Hecke.sunit_group_fac_elem-Tuple{Array{NfAbsOrdIdl{AnticNumberField,nf_elem},1}}'>#</a>
 <strong><code>Hecke.sunit_group_fac_elem</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">sunit_group_fac_elem(I::Array{NfOrdIdl, 1}) -&gt; GrpAb, Map
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">sunit_group_fac_elem</span><span class="p">(</span><span class="nb">I</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="mi">1</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">GrpAb</span><span class="p">,</span> <span class="n">Map</span>
+</pre></div>
 
 <p>For an array <script type="math/tex">I</script> of (coprime prime) ideals, find the <script type="math/tex">S</script>-unit group defined by <script type="math/tex">I</script>, ie. the group of non-zero field elements which are only divisible by ideals in <script type="math/tex">I</script>. The map will return elements in factored form.</p>
 <p><a id='Hecke.sunit_mod_units_group_fac_elem-Tuple{Array{NfAbsOrdIdl{AnticNumberField,nf_elem},1}}' href='#Hecke.sunit_mod_units_group_fac_elem-Tuple{Array{NfAbsOrdIdl{AnticNumberField,nf_elem},1}}'>#</a>
 <strong><code>Hecke.sunit_mod_units_group_fac_elem</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">sunit_mod_units_group_fac_elem(I::Array{NfOrdIdl, 1}) -&gt; GrpAb, Map
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">sunit_mod_units_group_fac_elem</span><span class="p">(</span><span class="nb">I</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="mi">1</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">GrpAb</span><span class="p">,</span> <span class="n">Map</span>
+</pre></div>
 
 <p>For an array <script type="math/tex">I</script> of (coprime prime) ideals, find the <script type="math/tex">S</script>-unit group defined by <script type="math/tex">I</script>, ie. the group of non-zero field elements which are only divisible by ideals in <script type="math/tex">I</script> modulo the units of the field. The map will return elements in factored form.</p>
-<pre><code class="julia-repl">julia&gt; u, mu = unit_group(zk)
+<div class="codehilite"><pre><span></span>julia&gt; u, mu = unit_group(zk)
 (GrpAb: Z/2 x Z, UnitGroup map of Maximal order of Number field over Rational Field with defining polynomial x^3-13*x^2+13*x-13
 with basis nf_elem[1, _$, 1//2*_$^2 + 1//2]
 )
 
 julia&gt; mu(u[2])
-_$-12
+_$^2 - 1*_$ + 1
 
 julia&gt; u, mu = unit_group_fac_elem(zk)
 (GrpAb: Z/2 x Z, UnitGroup map of Factored elements over Number field over Rational Field with defining polynomial x^3-13*x^2+13*x-13
@@ -611,20 +390,20 @@ julia&gt; u, mu = unit_group_fac_elem(zk)
 
 julia&gt; mu(u[2])
 Factored element with data
-Dict(_$+38=&gt;3,3//2*_$^2 - 10*_$ - 61//2=&gt;-2,_$^2 - 2*_$ - 2=&gt;3,7=&gt;-3,_$+2=&gt;-2,-13//2*_$^2 + 81*_$ - 47//2=&gt;1,-1//2*_$^2 + 9*_$ + 33//2=&gt;1,11=&gt;1,_$+5=&gt;-7,107=&gt;-3,_$-16=&gt;3,_$-35=&gt;3)
+Dict(_$+38=&gt;-1,5=&gt;-1,_$^2 - 2*_$ - 2=&gt;-1,7=&gt;1,_$+2=&gt;2,1//2*_$^2 - 5*_$ + 3//2=&gt;-1,_$-4=&gt;1,11=&gt;-1,_$^2 + 1*_$ + 2=&gt;1,_$+5=&gt;2,107=&gt;1,_$-16=&gt;-1,_$-35=&gt;-1)
 
 julia&gt; evaluate(ans)
-_$-12
+_$^2 - 1*_$ + 1
 
 julia&gt; lp = factor(6*zk)
 Dict{NfAbsOrdIdl{AnticNumberField,nf_elem},Int64} with 4 entries:
-  &lt;3, _$^2 + 1&gt;         =&gt; 1
-  &lt;2, 3//2*_$^2 + 1//2&gt; =&gt; 1
-  &lt;2, 5//2*_$^2 + 1//2&gt; =&gt; 2
-  &lt;3, _$-1&gt;             =&gt; 1
+  &lt;3, _$^2 + 1&gt;                =&gt; 1
+  &lt;2, 3//2*_$^2 + 1//2&gt;        =&gt; 1
+  &lt;2, 3//2*_$^2 + 2*_$ + 3//2&gt; =&gt; 2
+  &lt;3, _$-1&gt;                    =&gt; 1
 
 julia&gt; s, ms = Hecke.sunit_group(collect(keys(lp)))
-(GrpAb: Z/2 x Z^5, SUnits  map of Number field over Rational Field with defining polynomial x^3-13*x^2+13*x-13 for NfAbsOrdIdl{AnticNumberField,nf_elem}[&lt;3, _$^2 + 1&gt;, &lt;2, 3//2*_$^2 + 1//2&gt;, &lt;2, 5//2*_$^2 + 1//2&gt;, &lt;3, _$-1&gt;]
+(GrpAb: Z/2 x Z^5, SUnits  map of Number field over Rational Field with defining polynomial x^3-13*x^2+13*x-13 for NfAbsOrdIdl{AnticNumberField,nf_elem}[&lt;3, _$^2 + 1&gt;, &lt;2, 3//2*_$^2 + 1//2&gt;, &lt;2, 3//2*_$^2 + 2*_$ + 3//2&gt;, &lt;3, _$-1&gt;]
 )
 
 julia&gt; ms(s[4])
@@ -635,212 +414,212 @@ julia&gt; norm(ans)
 
 julia&gt; factor(numerator(ans))
 1 * 2 * 3^2
-</code></pre>
+</pre></div>
 
 <p><a id='Miscaellenous-1'></a></p>
 <h2 id="miscaellenous">Miscaellenous</h2>
 <p><a id='AbstractAlgebra.Generic.order-Tuple{NfAbsOrdIdl}' href='#AbstractAlgebra.Generic.order-Tuple{NfAbsOrdIdl}'>#</a>
 <strong><code>AbstractAlgebra.Generic.order</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">order(I::NfAbsOrdIdl) -&gt; NfOrd
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">order</span><span class="p">(</span><span class="nb">I</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrd</span>
+</pre></div>
 
 <p>Returns the order of <script type="math/tex">I</script>.</p>
 <p><a id='Hecke.nf-Tuple{NfAbsOrdIdl}' href='#Hecke.nf-Tuple{NfAbsOrdIdl}'>#</a>
 <strong><code>Hecke.nf</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">nf(x::NfAbsOrdIdl) -&gt; AnticNumberField
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">nf</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AnticNumberField</span>
+</pre></div>
 
 <p>Returns the number field, of which <script type="math/tex">x</script> is an integral ideal.</p>
 <p><a id='Hecke.basis-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.basis-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.basis</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">basis(A::NfAbsOrdIdl) -&gt; Array{NfOrdElem, 1}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">basis</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Array</span><span class="p">{</span><span class="n">NfOrdElem</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span>
+</pre></div>
 
 <p>Returns the basis of A.</p>
 <p><a id='Hecke.basis_mat-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.basis_mat-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.basis_mat</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">basis_mat(A::NfAbsOrdIdl) -&gt; fmpz_mat
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">basis_mat</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz_mat</span>
+</pre></div>
 
 <p>Returns the basis matrix of <script type="math/tex">A</script>.</p>
 <p><a id='Hecke.basis_mat_inv-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.basis_mat_inv-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.basis_mat_inv</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">basis_mat_inv(O::NfOrd) -&gt; FakeFmpqMat
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">basis_mat_inv</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FakeFmpqMat</span>
+</pre></div>
 
 <p>Returns the inverse of the basis matrix of <script type="math/tex">\mathcal O</script>.</p>
-<pre><code>basis_mat_inv(A::NfAbsOrdIdl) -&gt; fmpz_mat
-</code></pre>
+<div class="codehilite"><pre><span></span>basis_mat_inv(A::NfAbsOrdIdl) -&gt; fmpz_mat
+</pre></div>
 
 <p>Returns the inverse basis matrix of <script type="math/tex">A</script>.</p>
 <p><a id='Hecke.assure_has_basis_mat_inv-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.assure_has_basis_mat_inv-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.assure_has_basis_mat_inv</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">basis_mat_inv(A::NfAbsOrdIdl) -&gt; FakeFmpqMat
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">basis_mat_inv</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FakeFmpqMat</span>
+</pre></div>
 
 <p>Returns the inverse of the basis matrix of <script type="math/tex">A</script>.</p>
 <p><a id='Hecke.has_basis-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.has_basis-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.has_basis</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">has_basis(A::NfAbsOrdIdl) -&gt; Bool
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">has_basis</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+</pre></div>
 
 <p>Returns whether A has a basis already computed.</p>
 <p><a id='Hecke.has_basis_mat-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.has_basis_mat-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.has_basis_mat</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">has_basis_mat(A::NfAbsOrdIdl) -&gt; Bool
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">has_basis_mat</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+</pre></div>
 
 <p>Returns whether <script type="math/tex">A</script> knows its basis matrix.</p>
 <p><a id='Hecke.has_2_elem-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.has_2_elem-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.has_2_elem</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">has_2_elem(A::NfAbsOrdIdl) -&gt; Bool
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">has_2_elem</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+</pre></div>
 
 <p>Returns whether <script type="math/tex">A</script> is generated by two elements.</p>
 <p><a id='Hecke.has_2_elem_normal-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.has_2_elem_normal-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.has_2_elem_normal</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">has_2_elem_normal(A::NfAbsOrdIdl) -&gt; Bool
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">has_2_elem_normal</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+</pre></div>
 
 <p>Returns whether <script type="math/tex">A</script> has normal two element generators.</p>
 <p><a id='Hecke.has_weakly_normal-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.has_weakly_normal-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.has_weakly_normal</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">has_weakly_normal(A::NfAbsOrdIdl) -&gt; Bool
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">has_weakly_normal</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+</pre></div>
 
 <p>Returns whether <script type="math/tex">A</script> has weakly normal two element generators.</p>
 <p><a id='Hecke.has_princ_gen_special-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.has_princ_gen_special-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.has_princ_gen_special</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">has_basis_princ_gen_special(A::NfAbsOrdIdl) -&gt; Bool
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">has_basis_princ_gen_special</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+</pre></div>
 
 <p>Returns whether <script type="math/tex">A</script> knows if it is generated by a rational integer.</p>
 <p><a id='Hecke.principal_gen-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.principal_gen-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.principal_gen</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">principal_gen(A::NfOrdIdl) -&gt; NfOrdElem
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">principal_gen</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdElem</span>
+</pre></div>
 
 <p>For a principal ideal <script type="math/tex">A</script>, find a generator.</p>
 <p><a id='Hecke.principal_gen_fac_elem-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.principal_gen_fac_elem-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.principal_gen_fac_elem</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">principal_gen_fac_elem(A::NfOrdIdl) -&gt; FacElem{nf_elem, NumberField}
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">principal_gen_fac_elem</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FacElem</span><span class="p">{</span><span class="n">nf_elem</span><span class="p">,</span> <span class="n">NumberField</span><span class="p">}</span>
+</pre></div>
 
 <p>For a principal ideal <script type="math/tex">A</script>, find a generator in factored form.</p>
 <p><a id='Base.minimum-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Base.minimum-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Base.minimum</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">minimum(A::NfAbsOrdIdl) -&gt; fmpz
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">minimum</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz</span>
+</pre></div>
 
 <p>Returns the smallest nonnegative element in <script type="math/tex">A \cap \mathbf Z</script>.</p>
 <p><a id='Hecke.has_minimum-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.has_minimum-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.has_minimum</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">has_minimum(A::NfAbsOrdIdl) -&gt; Bool
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">has_minimum</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+</pre></div>
 
 <p>Returns whether <script type="math/tex">A</script> knows its mininum.</p>
 <p><a id='LinearAlgebra.norm-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#LinearAlgebra.norm-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>LinearAlgebra.norm</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">norm(A::NfAbsOrdIdl) -&gt; fmpz
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">norm</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz</span>
+</pre></div>
 
 <p>Returns the norm of <script type="math/tex">A</script>, that is, the cardinality of <script type="math/tex">\mathcal O/A</script>, where <script type="math/tex">\mathcal O</script> is the order of <script type="math/tex">A</script>.</p>
-<pre><code>norm(a::NfRelOrdFracIdl{T, S}) -&gt; S
-</code></pre>
+<div class="codehilite"><pre><span></span>norm(a::NfRelOrdFracIdl{T, S}) -&gt; S
+</pre></div>
 
 <p>Returns the norm of <script type="math/tex">a</script>
 </p>
 <p><a id='Hecke.has_norm-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.has_norm-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.has_norm</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">has_norm(A::NfAbsOrdIdl) -&gt; Bool
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">has_norm</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+</pre></div>
 
 <p>Returns whether <script type="math/tex">A</script> knows its norm.</p>
 <p><a id='Hecke.idempotents-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.idempotents-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.idempotents</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">idempotents(x::NfOrdIdl, y::NfOrdIdl) -&gt; NfOrdElem, NfOrdElem
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">idempotents</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdElem</span><span class="p">,</span> <span class="n">NfOrdElem</span>
+</pre></div>
 
 <p>Returns a tuple <code>(e, f)</code> consisting of elements <code>e in x</code>, <code>f in y</code> such that <code>1 = e + f</code>.</p>
 <blockquote></blockquote>
 <p>If the ideals are not coprime, an error is raised.</p>
 <p><a id='Nemo.isprime-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Nemo.isprime-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Nemo.isprime</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">isprime(A::NfOrdIdl) -&gt; Bool
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">isprime</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+</pre></div>
 
 <p>Returns whether <script type="math/tex">A</script> is a prime ideal.</p>
 <p><a id='Hecke.isprime_known-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.isprime_known-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.isprime_known</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">isprime_known(A::NfOrdIdl) -&gt; Bool
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">isprime_known</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+</pre></div>
 
 <p>Returns whether <script type="math/tex">A</script> knows if it is prime.</p>
 <p><a id='Hecke.splitting_type-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.splitting_type-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.splitting_type</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">splitting_type(P::NfOrdIdl) -&gt; Int, Int
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">splitting_type</span><span class="p">(</span><span class="n">P</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span>
+</pre></div>
 
 <p>The ramification index and inertia degree of the prime ideal <script type="math/tex">P</script>. First value is the ramificatio index, the second the degree of <script type="math/tex">P</script>.</p>
 <p><a id='Hecke.isramified-Tuple{NfAbsOrd{AnticNumberField,nf_elem},Union{Int64, fmpz}}' href='#Hecke.isramified-Tuple{NfAbsOrd{AnticNumberField,nf_elem},Union{Int64, fmpz}}'>#</a>
 <strong><code>Hecke.isramified</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">isramified(O::NfOrd, p::Int) -&gt; Bool
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">isramified</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">p</span><span class="o">::</span><span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+</pre></div>
 
 <p>Returns whether the integer <script type="math/tex">p</script> is ramified in <script type="math/tex">\mathcal O</script>. It is assumed that <script type="math/tex">p</script> is prime.</p>
 <p><a id='Hecke.ramification_index-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.ramification_index-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.ramification_index</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">ramification_index(P::NfOrdIdl) -&gt; Int
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">ramification_index</span><span class="p">(</span><span class="n">P</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+</pre></div>
 
 <p>The ramification index of the prime-ideal <script type="math/tex">P</script>.</p>
 <p><a id='AbstractAlgebra.Generic.degree-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.Generic.degree-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>AbstractAlgebra.Generic.degree</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">degree(P::NfOrdIdl) -&gt; Int
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">degree</span><span class="p">(</span><span class="n">P</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+</pre></div>
 
 <p>The inertia degree of the prime-ideal <script type="math/tex">P</script>.</p>
 <p>degree(A::ClassField) The degree of <script type="math/tex">A</script> over its base field, ie. the size of the defining ideal group.</p>
 <p><a id='AbstractAlgebra.Generic.valuation-Tuple{nf_elem,NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.Generic.valuation-Tuple{nf_elem,NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>AbstractAlgebra.Generic.valuation</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">valuation(a::nf_elem, p::NfOrdIdl) -&gt; fmpz
-valuation(a::NfOrdElem, p::NfOrdIdl) -&gt; fmpz
-valuation(a::fmpz, p::NfOrdIdl) -&gt; fmpz
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">valuation</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">nf_elem</span><span class="p">,</span> <span class="n">p</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz</span>
+<span class="n">valuation</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfOrdElem</span><span class="p">,</span> <span class="n">p</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz</span>
+<span class="n">valuation</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">fmpz</span><span class="p">,</span> <span class="n">p</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz</span>
+</pre></div>
 
 <p>Computes the <script type="math/tex">\mathfrak p</script>-adic valuation of <script type="math/tex">a</script>, that is, the largest <script type="math/tex">i</script> such that <script type="math/tex">a</script> is contained in <script type="math/tex">\mathfrak p^i</script>.</p>
 <p><a id='AbstractAlgebra.Generic.valuation-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.Generic.valuation-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>AbstractAlgebra.Generic.valuation</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">valuation(a::nf_elem, p::NfOrdIdl) -&gt; fmpz
-valuation(a::NfOrdElem, p::NfOrdIdl) -&gt; fmpz
-valuation(a::fmpz, p::NfOrdIdl) -&gt; fmpz
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">valuation</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">nf_elem</span><span class="p">,</span> <span class="n">p</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz</span>
+<span class="n">valuation</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfOrdElem</span><span class="p">,</span> <span class="n">p</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz</span>
+<span class="n">valuation</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">fmpz</span><span class="p">,</span> <span class="n">p</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz</span>
+</pre></div>
 
 <p>Computes the <script type="math/tex">\mathfrak p</script>-adic valuation of <script type="math/tex">a</script>, that is, the largest <script type="math/tex">i</script> such that <script type="math/tex">a</script> is contained in <script type="math/tex">\mathfrak p^i</script>.</p>
 <p><a id='AbstractAlgebra.Generic.valuation-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.Generic.valuation-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>AbstractAlgebra.Generic.valuation</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">valuation(A::NfOrdIdl, p::NfOrdIdl) -&gt; fmpz
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">valuation</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="n">p</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz</span>
+</pre></div>
 
 <p>Computes the <script type="math/tex">\mathfrak p</script>-adic valuation of <script type="math/tex">A</script>, that is, the largest <script type="math/tex">i</script> such that <script type="math/tex">A</script> is contained in <script type="math/tex">\mathfrak p^i</script>.</p>
 <p><a id='AbstractAlgebra.Generic.valuation-Tuple{Integer,NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.Generic.valuation-Tuple{Integer,NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>AbstractAlgebra.Generic.valuation</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">valuation(a::Integer, p::NfOrdIdl) -&gt; fmpz
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">valuation</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="kt">Integer</span><span class="p">,</span> <span class="n">p</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz</span>
+</pre></div>
 
 <p>Computes the <script type="math/tex">\mathfrak p</script>-adic valuation of <script type="math/tex">a</script>, that is, the largest <script type="math/tex">i</script> such that <script type="math/tex">a</script> is contained in <script type="math/tex">\mathfrak p^i</script>.</p>
 <p><a id='AbstractAlgebra.Generic.valuation-Tuple{fmpz,NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.Generic.valuation-Tuple{fmpz,NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>AbstractAlgebra.Generic.valuation</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">valuation(a::nf_elem, p::NfOrdIdl) -&gt; fmpz
-valuation(a::NfOrdElem, p::NfOrdIdl) -&gt; fmpz
-valuation(a::fmpz, p::NfOrdIdl) -&gt; fmpz
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">valuation</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">nf_elem</span><span class="p">,</span> <span class="n">p</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz</span>
+<span class="n">valuation</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfOrdElem</span><span class="p">,</span> <span class="n">p</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz</span>
+<span class="n">valuation</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">fmpz</span><span class="p">,</span> <span class="n">p</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz</span>
+</pre></div>
 
 <p>Computes the <script type="math/tex">\mathfrak p</script>-adic valuation of <script type="math/tex">a</script>, that is, the largest <script type="math/tex">i</script> such that <script type="math/tex">a</script> is contained in <script type="math/tex">\mathfrak p^i</script>.</p>
 <p><a id='AbstractAlgebra.Generic.valuation-Tuple{Hecke.NfOrdFracIdl,NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.Generic.valuation-Tuple{Hecke.NfOrdFracIdl,NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>AbstractAlgebra.Generic.valuation</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">valuation(A::NfOrdFracIdl, p::NfOrdIdl)
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">valuation</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfOrdFracIdl</span><span class="p">,</span> <span class="n">p</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span>
+</pre></div>
 
 <p>The valuation of <script type="math/tex">A</script> at <script type="math/tex">p</script>.</p>
 <p><a id='Quotient-Rings-1'></a></p>
@@ -851,116 +630,26 @@ valuation(a::fmpz, p::NfOrdIdl) -&gt; fmpz
 </div>
 <p><a id='AbstractAlgebra.ResidueRing-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.ResidueRing-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>AbstractAlgebra.ResidueRing</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">ResidueRing(O::NfOrd, I::NfOrdIdl) -&gt; NfOrdQuoRing
-ResidueRing(O::AlgAssAbsOrd, I::AlgAssAbsOrdIdl) -&gt; AbsOrdQuoRing
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">ResidueRing</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="nb">I</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdQuoRing</span>
+<span class="n">ResidueRing</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">AlgAssAbsOrd</span><span class="p">,</span> <span class="nb">I</span><span class="o">::</span><span class="n">AlgAssAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AbsOrdQuoRing</span>
+</pre></div>
 
 <p>The quotient ring <script type="math/tex">O</script> modulo <script type="math/tex">I</script> as a new ring.</p>
 <p><a id='AbstractAlgebra.ResidueField-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem},Bool}' href='#AbstractAlgebra.ResidueField-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem},Bool}'>#</a>
 <strong><code>AbstractAlgebra.ResidueField</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">ResidueField(O::NfOrd, P::NfOrdIdl, check::Bool = true) -&gt; Field, Map
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">ResidueField</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">P</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="n">check</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Field</span><span class="p">,</span> <span class="n">Map</span>
+</pre></div>
 
 <p>Returns the residue field of the prime ideal <script type="math/tex">P</script> together with th projection map. If <code>check</code> is true, the ideal is checked for  being prime.</p>
 <p><a id='Base.mod-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdIdl}' href='#Base.mod-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdIdl}'>#</a>
 <strong><code>Base.mod</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">mod(x::NfOrdElem, I::NfAbsOrdIdl)
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">mod</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">NfOrdElem</span><span class="p">,</span> <span class="nb">I</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span>
+</pre></div>
 
 <p>Returns the unique element <script type="math/tex">y</script> of the ambient order of <script type="math/tex">x</script> with <script type="math/tex">x \equiv y \bmod I</script> and the following property: If <script type="math/tex">a_1,\dotsc,a_d \in \Z_{\geq 1}</script> are the diagonal entries of the unique HNF basis matrix of <script type="math/tex">I</script> and <script type="math/tex">(b_1,\dotsc,b_d)</script> is the coefficient vector of <script type="math/tex">y</script>, then <script type="math/tex">0 \leq b_i < a_i</script> for <script type="math/tex">1 \leq i \leq d</script>.</p>
 <p><a id='AbstractAlgebra.crt-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.crt-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem},NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>AbstractAlgebra.crt</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">crt(r1::NfOrdElem, i1::NfOrdIdl, r2::NfOrdElem, i2::NfOrdIdl) -&gt; NfOrdElem
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">crt</span><span class="p">(</span><span class="n">r1</span><span class="o">::</span><span class="n">NfOrdElem</span><span class="p">,</span> <span class="n">i1</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="n">r2</span><span class="o">::</span><span class="n">NfOrdElem</span><span class="p">,</span> <span class="n">i2</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdElem</span>
+</pre></div>
 
-<p>Find <script type="math/tex">x</script> s.th <script type="math/tex">x \equiv r1 \bmod i1</script> and <script type="math/tex">x \equiv r2 \bmod i2</script> using (((idempotents)))</p></div>
-        
-        
-    </div>
-
-    <footer class="col-md-12 text-center">
-        
-        <hr>
-        <p>
-        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
-
-        
-        
-    </footer>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="../../js/bootstrap-3.0.3.min.js"></script>
-    <script src="../../js/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script>var base_url = "../.."</script>
-    
-    <script src="../../js/base.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
-    <script src="../../assets/mathjaxhelper.js"></script>
-    <script src="../../search/main.js"></script>
-
-    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div>
-    </body>
-
-</html>
+<p>Find <script type="math/tex">x</script> s.th <script type="math/tex">x \equiv r1 \bmod i1</script> and <script type="math/tex">x \equiv r2 \bmod i2</script> using (((idempotents)))</p></article></div></div></main><footer class="md-footer"><div class="md-footer-nav"><nav class="md-footer-nav__inner md-grid"><a href="../elements/" title="Elements" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev"><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-back md-footer-nav__button"></i></div><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Previous</span>Elements</span></div></a><a href="../frac_ideals/" title="Fractional Ideals" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next"><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Next</span>Fractional Ideals</span></div><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i></div></a></nav></div><div class="md-footer-meta md-typeset"><div class="md-footer-meta__inner md-grid"><div class="md-footer-copyright">powered by <a href="https://www.mkdocs.org">MkDocs</a> and <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></div><div class="md-footer-social"><link rel="stylesheet" href="../../assets/fonts/font-awesome.css"> <a href="https://github.com/thofma" class="md-footer-social__link fa fa-github"></a> </div></div></div></footer></div><script src="../../assets/javascripts/application.b260a35d.js"></script><script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script><script src="../../assets/mathjaxhelper.js"></script></body></html>
