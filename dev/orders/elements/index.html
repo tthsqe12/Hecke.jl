@@ -240,11 +240,7 @@
 <h2 id="basic-properties">Basic properties</h2>
 <p><a id='Base.parent-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}' href='#Base.parent-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Base.parent</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">parent(a::NfAbsOrdElem) -&gt; NfOrd
-</code></pre>
-
-<p>Returns the order of which <script type="math/tex">a</script> is an element.</p>
-<pre><code>parent(g::perm{T}) where T = PermGroup
+<pre><code class="julia">parent(g::perm{T}) where T = PermGroup
 </code></pre>
 
 <blockquote>
@@ -269,6 +265,10 @@ true
 <blockquote>
 <p>Return the parent object of the given matrix.</p>
 </blockquote>
+<pre><code>parent(a::NfAbsOrdElem) -&gt; NfOrd
+</code></pre>
+
+<p>Returns the order of which <script type="math/tex">a</script> is an element.</p>
 <p><a id='Hecke.elem_in_nf-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}' href='#Hecke.elem_in_nf-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.elem_in_nf</code></strong> &mdash; <em>Method</em>.</p>
 <pre><code class="julia">elem_in_nf(a::NfAbsOrdElem) -&gt; nf_elem
@@ -321,23 +321,7 @@ true
 <h2 id="arithmetic">Arithmetic</h2>
 <p><a id='Base.:--Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}' href='#Base.:--Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Base.:-</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">-(x::NfAbsOrdElem) -&gt; NfAbsOrdElem
-</code></pre>
-
-<p>Returns the additive inverse of <script type="math/tex">x</script>.</p>
-<pre><code>-(A::SMat, B::SMat) -&gt; SMat
-</code></pre>
-
-<p>Return the difference <script type="math/tex">A - B</script>.</p>
-<pre><code>-(A::SRow, B::SRow) -&gt; SRow
-</code></pre>
-
-<p>Returns the difference of <script type="math/tex">A</script> and <script type="math/tex">B</script>.</p>
-<pre><code>-(A::SRow) -&gt; SRow
-</code></pre>
-
-<p>Returns the negative of <script type="math/tex">A</script>.</p>
-<pre><code>-(a::AbstractAlgebra.ResElem{T}, b::AbstractAlgebra.ResElem{T}) where {T &lt;: RingElement}
+<pre><code class="julia">-(a::AbstractAlgebra.ResElem{T}, b::AbstractAlgebra.ResElem{T}) where {T &lt;: RingElement}
 </code></pre>
 
 <blockquote>
@@ -439,6 +423,22 @@ true
 <blockquote>
 <p>Return <script type="math/tex">a - b</script>.</p>
 </blockquote>
+<pre><code>-(x::NfAbsOrdElem) -&gt; NfAbsOrdElem
+</code></pre>
+
+<p>Returns the additive inverse of <script type="math/tex">x</script>.</p>
+<pre><code>-(A::SMat, B::SMat) -&gt; SMat
+</code></pre>
+
+<p>Return the difference <script type="math/tex">A - B</script>.</p>
+<pre><code>-(A::SRow, B::SRow) -&gt; SRow
+</code></pre>
+
+<p>Returns the difference of <script type="math/tex">A</script> and <script type="math/tex">B</script>.</p>
+<pre><code>-(A::SRow) -&gt; SRow
+</code></pre>
+
+<p>Returns the negative of <script type="math/tex">A</script>.</p>
 <p><a id='Base.:+-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdElem{AnticNumberField,nf_elem}}' href='#Base.:+-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdElem{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Base.:+</code></strong> &mdash; <em>Method</em>.</p>
 <pre><code class="julia">+(x::NfAbsOrdElem, y::NfAbsOrdElem) -&gt; NfAbsOrdElem
@@ -544,11 +544,7 @@ true
 <p>Return the <script type="math/tex">T_2</script>-norm of <script type="math/tex">x</script>. The radius of the result will be less than <code>2^-abs_tol</code>.</p>
 <p><a id='AbstractAlgebra.Generic.minpoly-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.Generic.minpoly-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>AbstractAlgebra.Generic.minpoly</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">minpoly(a::NfAbsOrdElem) -&gt; fmpz_poly
-</code></pre>
-
-<p>::NfAbsOrdElem) in Hecke at /home/sircana/.julia/dev/Hecke/src/NfOrd/Elem.jl:751     minpoly(a::NfAbsOrdElem, FlintZZ) -&gt; fmpz_poly The minimal polynomial of <script type="math/tex">a</script>.    </p>
-<pre><code>minpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T &lt;: RingElement}
+<pre><code class="julia">minpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T &lt;: RingElement}
 </code></pre>
 
 <blockquote>
@@ -560,20 +556,24 @@ true
 <blockquote>
 <p>Returns the minimal polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">S</script> of the resulting polynomial must be supplied and the matrix must be square.</p>
 </blockquote>
-<p><a id='AbstractAlgebra.Generic.charpoly-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.Generic.charpoly-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}'>#</a>
-<strong><code>AbstractAlgebra.Generic.charpoly</code></strong> &mdash; <em>Method</em>.</p>
-<pre><code class="julia">charpoly(a::NfAbsOrdElem) -&gt; fmpz_poly
-
-charpoly(a::NfAbsOrdElem, FlintZZ) -&gt; fmpz_poly
+<pre><code>minpoly(a::NfAbsOrdElem) -&gt; fmpz_poly
 </code></pre>
 
-<p>The characteristic polynomial of <script type="math/tex">a</script>.    </p>
+<p>::NfAbsOrdElem) in Hecke at /home/sircana/.julia/dev/Hecke/src/NfOrd/Elem.jl:751     minpoly(a::NfAbsOrdElem, FlintZZ) -&gt; fmpz_poly The minimal polynomial of <script type="math/tex">a</script>.    </p>
+<p><a id='AbstractAlgebra.Generic.charpoly-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.Generic.charpoly-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>AbstractAlgebra.Generic.charpoly</code></strong> &mdash; <em>Method</em>.</p>
 <pre><code class="julia">charpoly(V::Ring, Y::Generic.MatrixElem{T}) where {T &lt;: RingElement}
 </code></pre>
 
 <blockquote>
 <p>Returns the characteristic polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">R</script> of the resulting polynomial must be supplied and the matrix is assumed to be square.</p>
-</blockquote></div>
+</blockquote>
+<pre><code>charpoly(a::NfAbsOrdElem) -&gt; fmpz_poly
+
+charpoly(a::NfAbsOrdElem, FlintZZ) -&gt; fmpz_poly
+</code></pre>
+
+<p>The characteristic polynomial of <script type="math/tex">a</script>.    </p></div>
         
         
     </div>
