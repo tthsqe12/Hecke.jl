@@ -22,11 +22,7 @@
 <h2 id="basic-properties">Basic properties</h2>
 <p><a id='Base.parent-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}' href='#Base.parent-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Base.parent</code></strong> &mdash; <em>Method</em>.</p>
-<div class="codehilite"><pre><span></span><span class="n">parent</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfAbsOrdElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrd</span>
-</pre></div>
-
-<p>Returns the order of which <script type="math/tex">a</script> is an element.</p>
-<div class="codehilite"><pre><span></span>parent(g::perm{T}) where T = PermGroup
+<div class="codehilite"><pre><span></span><span class="n">parent</span><span class="p">(</span><span class="n">g</span><span class="o">::</span><span class="n">perm</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span> <span class="o">=</span> <span class="n">PermGroup</span>
 </pre></div>
 
 <blockquote>
@@ -51,6 +47,10 @@ true
 <blockquote>
 <p>Return the parent object of the given matrix.</p>
 </blockquote>
+<div class="codehilite"><pre><span></span>parent(a::NfAbsOrdElem) -&gt; NfOrd
+</pre></div>
+
+<p>Returns the order of which <script type="math/tex">a</script> is an element.</p>
 <p><a id='Hecke.elem_in_nf-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}' href='#Hecke.elem_in_nf-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Hecke.elem_in_nf</code></strong> &mdash; <em>Method</em>.</p>
 <div class="codehilite"><pre><span></span><span class="n">elem_in_nf</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfAbsOrdElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">nf_elem</span>
@@ -89,7 +89,13 @@ true
 <p>Returns the one element of <script type="math/tex">\mathcal O</script>.</p>
 <p><a id='Base.iszero-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}' href='#Base.iszero-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Base.iszero</code></strong> &mdash; <em>Method</em>.</p>
-<div class="codehilite"><pre><span></span><span class="n">iszero</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<div class="codehilite"><pre><span></span><span class="n">iszero</span><span class="p">(</span><span class="n">v</span><span class="o">::</span><span class="n">AbstractAlgebra</span><span class="o">.</span><span class="n">FPModuleElem</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span> <span class="o">&lt;:</span> <span class="n">RingElement</span>
+</pre></div>
+
+<blockquote>
+<p>Return true if <script type="math/tex">v</script> is the zero element of the module <script type="math/tex">M</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>iszero(a::NfOrd) -&gt; Bool
 </pre></div>
 
 <p>Tests if <script type="math/tex">a</script> is zero.</p>
@@ -103,23 +109,7 @@ true
 <h2 id="arithmetic">Arithmetic</h2>
 <p><a id='Base.:--Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}' href='#Base.:--Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Base.:-</code></strong> &mdash; <em>Method</em>.</p>
-<div class="codehilite"><pre><span></span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">NfAbsOrdElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrdElem</span>
-</pre></div>
-
-<p>Returns the additive inverse of <script type="math/tex">x</script>.</p>
-<div class="codehilite"><pre><span></span>-(A::SMat, B::SMat) -&gt; SMat
-</pre></div>
-
-<p>Return the difference <script type="math/tex">A - B</script>.</p>
-<div class="codehilite"><pre><span></span>-(A::SRow, B::SRow) -&gt; SRow
-</pre></div>
-
-<p>Returns the difference of <script type="math/tex">A</script> and <script type="math/tex">B</script>.</p>
-<div class="codehilite"><pre><span></span>-(A::SRow) -&gt; SRow
-</pre></div>
-
-<p>Returns the negative of <script type="math/tex">A</script>.</p>
-<div class="codehilite"><pre><span></span>-(a::AbstractAlgebra.ResElem{T}, b::AbstractAlgebra.ResElem{T}) where {T &lt;: RingElement}
+<div class="codehilite"><pre><span></span><span class="o">-</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">AbstractAlgebra</span><span class="o">.</span><span class="n">ResElem</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">b</span><span class="o">::</span><span class="n">AbstractAlgebra</span><span class="o">.</span><span class="n">ResElem</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span> <span class="o">&lt;:</span> <span class="n">RingElement</span><span class="p">}</span>
 </pre></div>
 
 <blockquote>
@@ -221,6 +211,22 @@ true
 <blockquote>
 <p>Return <script type="math/tex">a - b</script>.</p>
 </blockquote>
+<div class="codehilite"><pre><span></span>-(x::NfAbsOrdElem) -&gt; NfAbsOrdElem
+</pre></div>
+
+<p>Returns the additive inverse of <script type="math/tex">x</script>.</p>
+<div class="codehilite"><pre><span></span>-(A::SMat, B::SMat) -&gt; SMat
+</pre></div>
+
+<p>Return the difference <script type="math/tex">A - B</script>.</p>
+<div class="codehilite"><pre><span></span>-(A::SRow, B::SRow) -&gt; SRow
+</pre></div>
+
+<p>Returns the difference of <script type="math/tex">A</script> and <script type="math/tex">B</script>.</p>
+<div class="codehilite"><pre><span></span>-(A::SRow) -&gt; SRow
+</pre></div>
+
+<p>Returns the negative of <script type="math/tex">A</script>.</p>
 <p><a id='Base.:+-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdElem{AnticNumberField,nf_elem}}' href='#Base.:+-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem},NfAbsOrdElem{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>Base.:+</code></strong> &mdash; <em>Method</em>.</p>
 <div class="codehilite"><pre><span></span><span class="o">+</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">NfAbsOrdElem</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">NfAbsOrdElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrdElem</span>
@@ -326,11 +332,7 @@ true
 <p>Return the <script type="math/tex">T_2</script>-norm of <script type="math/tex">x</script>. The radius of the result will be less than <code>2^-abs_tol</code>.</p>
 <p><a id='AbstractAlgebra.Generic.minpoly-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.Generic.minpoly-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}'>#</a>
 <strong><code>AbstractAlgebra.Generic.minpoly</code></strong> &mdash; <em>Method</em>.</p>
-<div class="codehilite"><pre><span></span><span class="n">minpoly</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfAbsOrdElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz_poly</span>
-</pre></div>
-
-<p>::NfAbsOrdElem) in Hecke at /home/sircana/.julia/dev/Hecke/src/NfOrd/Elem.jl:751     minpoly(a::NfAbsOrdElem, FlintZZ) -&gt; fmpz_poly The minimal polynomial of <script type="math/tex">a</script>.    </p>
-<div class="codehilite"><pre><span></span>minpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T &lt;: RingElement}
+<div class="codehilite"><pre><span></span><span class="n">minpoly</span><span class="p">(</span><span class="n">S</span><span class="o">::</span><span class="n">Ring</span><span class="p">,</span> <span class="n">M</span><span class="o">::</span><span class="n">MatElem</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">charpoly_only</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span> <span class="o">&lt;:</span> <span class="n">RingElement</span><span class="p">}</span>
 </pre></div>
 
 <blockquote>
@@ -342,17 +344,21 @@ true
 <blockquote>
 <p>Returns the minimal polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">S</script> of the resulting polynomial must be supplied and the matrix must be square.</p>
 </blockquote>
-<p><a id='AbstractAlgebra.Generic.charpoly-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.Generic.charpoly-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}'>#</a>
-<strong><code>AbstractAlgebra.Generic.charpoly</code></strong> &mdash; <em>Method</em>.</p>
-<div class="codehilite"><pre><span></span><span class="n">charpoly</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfAbsOrdElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz_poly</span>
-
-<span class="n">charpoly</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfAbsOrdElem</span><span class="p">,</span> <span class="n">FlintZZ</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz_poly</span>
+<div class="codehilite"><pre><span></span>minpoly(a::NfAbsOrdElem) -&gt; fmpz_poly
 </pre></div>
 
-<p>The characteristic polynomial of <script type="math/tex">a</script>.    </p>
+<p>::NfAbsOrdElem) in Hecke at /home/sircana/.julia/dev/Hecke/src/NfOrd/Elem.jl:751     minpoly(a::NfAbsOrdElem, FlintZZ) -&gt; fmpz_poly The minimal polynomial of <script type="math/tex">a</script>.    </p>
+<p><a id='AbstractAlgebra.Generic.charpoly-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}' href='#AbstractAlgebra.Generic.charpoly-Tuple{NfAbsOrdElem{AnticNumberField,nf_elem}}'>#</a>
+<strong><code>AbstractAlgebra.Generic.charpoly</code></strong> &mdash; <em>Method</em>.</p>
 <div class="codehilite"><pre><span></span><span class="n">charpoly</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="n">Ring</span><span class="p">,</span> <span class="n">Y</span><span class="o">::</span><span class="n">Generic</span><span class="o">.</span><span class="n">MatrixElem</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span> <span class="o">&lt;:</span> <span class="n">RingElement</span><span class="p">}</span>
 </pre></div>
 
 <blockquote>
 <p>Returns the characteristic polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">R</script> of the resulting polynomial must be supplied and the matrix is assumed to be square.</p>
-</blockquote></article></div></div></main><footer class="md-footer"><div class="md-footer-nav"><nav class="md-footer-nav__inner md-grid"><a href="../orders/" title="Basics" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev"><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-back md-footer-nav__button"></i></div><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Previous</span>Basics</span></div></a><a href="../ideals/" title="Ideals" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next"><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Next</span>Ideals</span></div><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i></div></a></nav></div><div class="md-footer-meta md-typeset"><div class="md-footer-meta__inner md-grid"><div class="md-footer-copyright">powered by <a href="https://www.mkdocs.org">MkDocs</a> and <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></div><div class="md-footer-social"><link rel="stylesheet" href="../../assets/fonts/font-awesome.css"> <a href="https://github.com/thofma" class="md-footer-social__link fa fa-github"></a> </div></div></div></footer></div><script src="../../assets/javascripts/application.b260a35d.js"></script><script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script><script src="../../assets/mathjaxhelper.js"></script></body></html>
+</blockquote>
+<div class="codehilite"><pre><span></span>charpoly(a::NfAbsOrdElem) -&gt; fmpz_poly
+
+charpoly(a::NfAbsOrdElem, FlintZZ) -&gt; fmpz_poly
+</pre></div>
+
+<p>The characteristic polynomial of <script type="math/tex">a</script>.    </p></article></div></div></main><footer class="md-footer"><div class="md-footer-nav"><nav class="md-footer-nav__inner md-grid"><a href="../orders/" title="Basics" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev"><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-back md-footer-nav__button"></i></div><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Previous</span>Basics</span></div></a><a href="../ideals/" title="Ideals" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next"><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Next</span>Ideals</span></div><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i></div></a></nav></div><div class="md-footer-meta md-typeset"><div class="md-footer-meta__inner md-grid"><div class="md-footer-copyright">powered by <a href="https://www.mkdocs.org">MkDocs</a> and <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></div><div class="md-footer-social"><link rel="stylesheet" href="../../assets/fonts/font-awesome.css"> <a href="https://github.com/thofma" class="md-footer-social__link fa fa-github"></a> </div></div></div></footer></div><script src="../../assets/javascripts/application.b260a35d.js"></script><script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script><script src="../../assets/mathjaxhelper.js"></script></body></html>

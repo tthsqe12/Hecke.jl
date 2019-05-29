@@ -252,7 +252,7 @@ x^4-10*x^2+1
 <blockquote>
 <p>Returns the minimal polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">S</script> of the resulting polynomial must be supplied and the matrix must be square.</p>
 </blockquote>
-<div class="codehilite"><pre><span></span>minpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T &lt;: RingElement}
+<div class="codehilite"><pre><span></span><span class="n">minpoly</span><span class="p">(</span><span class="n">S</span><span class="o">::</span><span class="n">Ring</span><span class="p">,</span> <span class="n">M</span><span class="o">::</span><span class="n">MatElem</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">charpoly_only</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span> <span class="o">&lt;:</span> <span class="n">RingElement</span><span class="p">}</span>
 </pre></div>
 
 <blockquote>
