@@ -4,50 +4,42 @@
 <p>Fractional ideals are represented as an integral ideal and an additional denominator. They are of type <code>NfOrdFracIdl</code>.</p>
 <p><a id='Creation-1'></a></p>
 <h2 id="creation">Creation</h2>
-<p><a id='Hecke.frac_ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz_mat}' href='#Hecke.frac_ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz_mat}'>#</a>
-<strong><code>Hecke.frac_ideal</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">frac_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">A</span><span class="o">::</span><span class="n">fmpz_mat</span><span class="p">,</span> <span class="n">b</span><span class="o">::</span><span class="n">fmpz</span><span class="p">,</span> <span class="n">A_in_hnf</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
 </pre></div>
 
 <p>Creates the fractional ideal of <script type="math/tex">\mathcal O</script> with basis matrix <script type="math/tex">A/b</script>. If A<em>in</em>hnf is set, then it is assumed that <script type="math/tex">A</script> is already in lower left HNF.</p>
-<p><a id='Hecke.frac_ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz_mat,fmpz}' href='#Hecke.frac_ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},fmpz_mat,fmpz}'>#</a>
-<strong><code>Hecke.frac_ideal</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">frac_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">A</span><span class="o">::</span><span class="n">fmpz_mat</span><span class="p">,</span> <span class="n">b</span><span class="o">::</span><span class="n">fmpz</span><span class="p">,</span> <span class="n">A_in_hnf</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
 </pre></div>
 
 <p>Creates the fractional ideal of <script type="math/tex">\mathcal O</script> with basis matrix <script type="math/tex">A/b</script>. If A<em>in</em>hnf is set, then it is assumed that <script type="math/tex">A</script> is already in lower left HNF.</p>
-<p><a id='Hecke.frac_ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},FakeFmpqMat}' href='#Hecke.frac_ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},FakeFmpqMat}'>#</a>
-<strong><code>Hecke.frac_ideal</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">frac_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">A</span><span class="o">::</span><span class="n">FakeFmpqMat</span><span class="p">,</span> <span class="n">A_in_hnf</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
 </pre></div>
 
 <p>Creates the fractional ideal of <script type="math/tex">\mathcal O</script> with basis matrix <script type="math/tex">A</script>. If A<em>in</em>hnf is set, then it is assumed that the numerator of <script type="math/tex">A</script> is already in lower left HNF.</p>
-<p><a id='Hecke.frac_ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Hecke.frac_ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
-<strong><code>Hecke.frac_ideal</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">frac_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="nb">I</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
 </pre></div>
 
 <p>Turns the ideal <script type="math/tex">I</script> into a fractional ideal of <script type="math/tex">\mathcal O</script>.</p>
-<p><a id='Hecke.frac_ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem},fmpz}' href='#Hecke.frac_ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdIdl{AnticNumberField,nf_elem},fmpz}'>#</a>
-<strong><code>Hecke.frac_ideal</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">frac_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="nb">I</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="n">b</span><span class="o">::</span><span class="n">fmpz</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
 </pre></div>
 
 <p>Creates the fractional ideal <script type="math/tex">I/b</script> of <script type="math/tex">\mathcal O</script>.</p>
-<p><a id='Hecke.frac_ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},nf_elem}' href='#Hecke.frac_ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},nf_elem}'>#</a>
-<strong><code>Hecke.frac_ideal</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">frac_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">a</span><span class="o">::</span><span class="n">nf_elem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
 </pre></div>
 
 <p>Creates the principal fractional ideal <script type="math/tex">(a)</script> of <script type="math/tex">\mathcal O</script>.</p>
-<p><a id='Hecke.frac_ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdElem{AnticNumberField,nf_elem}}' href='#Hecke.frac_ideal-Tuple{NfAbsOrd{AnticNumberField,nf_elem},NfAbsOrdElem{AnticNumberField,nf_elem}}'>#</a>
-<strong><code>Hecke.frac_ideal</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">frac_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">a</span><span class="o">::</span><span class="n">NfOrdElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
 </pre></div>
 
 <p>Creates the principal fractional ideal <script type="math/tex">(a)</script> of <script type="math/tex">\mathcal O</script>.</p>
-<p><a id='Base.inv-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}' href='#Base.inv-Tuple{NfAbsOrdIdl{AnticNumberField,nf_elem}}'>#</a>
-<strong><code>Base.inv</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
 </pre></div>
 
@@ -59,20 +51,17 @@
 <p>Computes the inverse of <script type="math/tex">a</script>, that is, the fractional ideal <script type="math/tex">b</script> such that <script type="math/tex">ab = O</script>, where <script type="math/tex">O</script> is the ambient order of <script type="math/tex">a</script>. <script type="math/tex">O</script> must be maximal.</p>
 <p><a id='Arithmetic-1'></a></p>
 <h2 id="arithmetic">Arithmetic</h2>
-<p><a id='Base.:==-Tuple{Hecke.NfOrdFracIdl,Hecke.NfOrdFracIdl}' href='#Base.:==-Tuple{Hecke.NfOrdFracIdl,Hecke.NfOrdFracIdl}'>#</a>
-<strong><code>Base.:==</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="o">==</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">NfOrdFracIdl</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">NfOrdFracIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
 </pre></div>
 
 <p>Returns whether <script type="math/tex">x</script> and <script type="math/tex">y</script> are equal.</p>
-<p><a id='Base.inv-Tuple{Hecke.NfOrdFracIdl}' href='#Base.inv-Tuple{Hecke.NfOrdFracIdl}'>#</a>
-<strong><code>Base.inv</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfOrdFracIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
 </pre></div>
 
 <p>Returns the fractional ideal <script type="math/tex">B</script> such that <script type="math/tex">AB = \mathcal O</script>.</p>
-<p><a id='Hecke.integral_split-Tuple{Hecke.NfOrdFracIdl}' href='#Hecke.integral_split-Tuple{Hecke.NfOrdFracIdl}'>#</a>
-<strong><code>Hecke.integral_split</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">integral_split</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfOrdFracIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdIdl</span><span class="p">,</span> <span class="n">NfOrdIdl</span>
 </pre></div>
 
@@ -80,32 +69,27 @@
 </p>
 <p><a id='Miscaellenous-1'></a></p>
 <h2 id="miscaellenous">Miscaellenous</h2>
-<p><a id='AbstractAlgebra.Generic.order-Tuple{Hecke.NfOrdFracIdl}' href='#AbstractAlgebra.Generic.order-Tuple{Hecke.NfOrdFracIdl}'>#</a>
-<strong><code>AbstractAlgebra.Generic.order</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">order</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfOrdFracIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrd</span>
 </pre></div>
 
 <p>The order that was used to define the ideal <script type="math/tex">a</script>.</p>
-<p><a id='Hecke.basis_mat-Tuple{Hecke.NfOrdFracIdl}' href='#Hecke.basis_mat-Tuple{Hecke.NfOrdFracIdl}'>#</a>
-<strong><code>Hecke.basis_mat</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">basis_mat</span><span class="p">(</span><span class="nb">I</span><span class="o">::</span><span class="n">NfOrdFracIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FakeFmpqMat</span>
 </pre></div>
 
 <p>Returns the basis matrix of <script type="math/tex">I</script> with respect to the basis of the order.</p>
-<p><a id='Hecke.basis_mat_inv-Tuple{Hecke.NfOrdFracIdl}' href='#Hecke.basis_mat_inv-Tuple{Hecke.NfOrdFracIdl}'>#</a>
-<strong><code>Hecke.basis_mat_inv</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">basis_mat_inv</span><span class="p">(</span><span class="nb">I</span><span class="o">::</span><span class="n">NfOrdFracIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FakeFmpqMat</span>
 </pre></div>
 
 <p>Returns the inverse of the basis matrix of <script type="math/tex">I</script>.</p>
-<p><a id='Hecke.basis-Tuple{Hecke.NfOrdFracIdl}' href='#Hecke.basis-Tuple{Hecke.NfOrdFracIdl}'>#</a>
-<strong><code>Hecke.basis</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">basis</span><span class="p">(</span><span class="nb">I</span><span class="o">::</span><span class="n">NfOrdFracIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Array</span><span class="p">{</span><span class="n">nf_elem</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span>
 </pre></div>
 
 <p>Returns the <script type="math/tex">\mathbf Z</script>-basis of <script type="math/tex">I</script>.</p>
-<p><a id='LinearAlgebra.norm-Tuple{Hecke.NfOrdFracIdl}' href='#LinearAlgebra.norm-Tuple{Hecke.NfOrdFracIdl}'>#</a>
-<strong><code>LinearAlgebra.norm</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">norm</span><span class="p">(</span><span class="nb">I</span><span class="o">::</span><span class="n">NfOrdFracIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpq</span>
 </pre></div>
 

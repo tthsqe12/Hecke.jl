@@ -10,16 +10,14 @@
 <p>It is important to note that sparse rows do not have a fixed number of columns, that is, they represent elements of <script type="math/tex">\{ (x_i)_i \in R^{\mathbb{N}} \mid x_i = 0 \text{ for almost all }i\}</script>. In particular any two sparse rows over the same base ring can be added.</p>
 <p><a id='Creation-1'></a></p>
 <h3 id="creation">Creation</h3>
-<p><a id='Hecke.sparse_row-Tuple{FlintIntegerRing,Array{Tuple{Int64,fmpz},1}}' href='#Hecke.sparse_row-Tuple{FlintIntegerRing,Array{Tuple{Int64,fmpz},1}}'>#</a>
-<strong><code>Hecke.sparse_row</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">sparse_row</span><span class="p">(</span><span class="n">R</span><span class="o">::</span><span class="n">Ring</span><span class="p">,</span> <span class="n">J</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Tuple</span><span class="p">{</span><span class="kt">Int</span><span class="p">,</span> <span class="n">T</span><span class="p">}})</span> <span class="o">-&gt;</span> <span class="n">SRow</span><span class="p">{</span><span class="n">T</span><span class="p">}</span>
 </pre></div>
 
 <blockquote>
 <p>Constructs the sparse row <script type="math/tex">(a_i)_i</script> with <script type="math/tex">a_{i_j} = x_j</script>, where <script type="math/tex">J = (i_j, x_j)_j</script>. The elements <script type="math/tex">x_i</script> must belong to the ring <script type="math/tex">R</script>.</p>
 </blockquote>
-<p><a id='Hecke.sparse_row-Tuple{FlintIntegerRing,Array{Tuple{Int64,Int64},1}}' href='#Hecke.sparse_row-Tuple{FlintIntegerRing,Array{Tuple{Int64,Int64},1}}'>#</a>
-<strong><code>Hecke.sparse_row</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">sparse_row</span><span class="p">(</span><span class="n">R</span><span class="o">::</span><span class="n">Ring</span><span class="p">,</span> <span class="n">J</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Tuple</span><span class="p">{</span><span class="kt">Int</span><span class="p">,</span> <span class="n">T</span><span class="p">}})</span> <span class="o">-&gt;</span> <span class="n">SRow</span><span class="p">{</span><span class="n">T</span><span class="p">}</span>
 </pre></div>
 
@@ -30,106 +28,90 @@
 </pre></div>
 
 <p>Constructs the sparse row <script type="math/tex">(a_i)_i</script> over <script type="math/tex">R</script> with <script type="math/tex">a_{i_j} = x_j</script>, where <script type="math/tex">J = (i_j, x_j)_j</script>.</p>
-<p><a id='Hecke.sparse_row-Tuple{FlintIntegerRing,Array{Int64,1},Array{fmpz,1}}' href='#Hecke.sparse_row-Tuple{FlintIntegerRing,Array{Int64,1},Array{fmpz,1}}'>#</a>
-<strong><code>Hecke.sparse_row</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">sparse_row</span><span class="p">(</span><span class="n">R</span><span class="o">::</span><span class="n">Ring</span><span class="p">,</span> <span class="n">J</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Int</span><span class="p">},</span> <span class="n">V</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">SRow</span><span class="p">{</span><span class="n">T</span><span class="p">}</span>
 </pre></div>
 
 <p>Constructs the sparse row <script type="math/tex">(a_i)_i</script> over <script type="math/tex">R</script> with <script type="math/tex">a_{i_j} = x_j</script>, where <script type="math/tex">J = (i_j)_j</script> and <script type="math/tex">V = (x_j)_j</script>.</p>
 <p><a id='Basic-operations-1'></a></p>
 <h3 id="basic-operations">Basic operations</h3>
-<p><a id='Base.:==-Tuple{SRow{fmpz},SRow{fmpz}}' href='#Base.:==-Tuple{SRow{fmpz},SRow{fmpz}}'>#</a>
-<strong><code>Base.:==</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="o">==</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">SRow</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">SRow</span><span class="p">)</span>
 </pre></div>
 
 <p>Checks whether <script type="math/tex">x</script> and <script type="math/tex">y</script> are the same sparse row, that is, whether <script type="math/tex">x</script> and <script type="math/tex">y</script> have the same non-zero entries.</p>
-<p><a id='Base.:+-Tuple{SRow{fmpz},SRow{fmpz}}' href='#Base.:+-Tuple{SRow{fmpz},SRow{fmpz}}'>#</a>
-<strong><code>Base.:+</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="o">+</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SRow</span><span class="p">,</span> <span class="n">B</span><span class="o">::</span><span class="n">SRow</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SRow</span>
 </pre></div>
 
 <p>Returns the sum of <script type="math/tex">A</script> and <script type="math/tex">B</script>.</p>
-<p><a id='Base.getindex-Tuple{SRow{fmpz},Int64}' href='#Base.getindex-Tuple{SRow{fmpz},Int64}'>#</a>
-<strong><code>Base.getindex</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">getindex</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SRow</span><span class="p">,</span> <span class="n">j</span><span class="o">::</span><span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RingElem</span>
 </pre></div>
 
 <p>Given a sparse row <script type="math/tex">(a_i)_{i}</script> and an index <script type="math/tex">j</script> return <script type="math/tex">a_j</script>.</p>
-<p><a id='Base.:*-Tuple{fmpz,SRow{fmpz}}' href='#Base.:*-Tuple{fmpz,SRow{fmpz}}'>#</a>
-<strong><code>Base.:*</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="o">*</span><span class="p">(</span><span class="n">b</span><span class="o">::</span><span class="n">T</span><span class="p">,</span> <span class="n">A</span><span class="o">::</span><span class="n">SRow</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">SRow</span>
 </pre></div>
 
 <p>Return the sparse row obtained by multiplying all elements of <script type="math/tex">A</script> by <script type="math/tex">b</script>.</p>
-<p><a id='Base.div-Tuple{SRow{fmpz},fmpz}' href='#Base.div-Tuple{SRow{fmpz},fmpz}'>#</a>
-<strong><code>Base.div</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">div</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SRow</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">b</span><span class="o">::</span><span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SRow</span>
 </pre></div>
 
 <p>Return the sparse row obtained by dividing all elements of <script type="math/tex">A</script> by <script type="math/tex">b</script> using <code>div</code>.</p>
-<p><a id='AbstractAlgebra.Generic.divexact-Tuple{SRow{fmpz},fmpz}' href='#AbstractAlgebra.Generic.divexact-Tuple{SRow{fmpz},fmpz}'>#</a>
-<strong><code>AbstractAlgebra.Generic.divexact</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">divexact</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SRow</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">b</span><span class="o">::</span><span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SRow</span>
 </pre></div>
 
 <p>Return the sparse row obtained by dividing all elements of <script type="math/tex">A</script> by <script type="math/tex">b</script> using <code>divexact</code>.</p>
-<p><a id='Hecke.add_scaled_row-Tuple{SRow{fmpz},SRow{fmpz},fmpz}' href='#Hecke.add_scaled_row-Tuple{SRow{fmpz},SRow{fmpz},fmpz}'>#</a>
-<strong><code>Hecke.add_scaled_row</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">add_scaled_row</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SRow</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">B</span><span class="o">::</span><span class="n">SRow</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">c</span><span class="o">::</span><span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SRow</span><span class="p">{</span><span class="n">T</span><span class="p">}</span>
 </pre></div>
 
 <p>Returns the row <script type="math/tex">c A + B</script>.</p>
 <p><a id='Change-of-base-ring-1'></a></p>
 <h3 id="change-of-base-ring">Change of base ring</h3>
-<p><a id='Hecke.change_ring-Tuple{SRow{fmpz},FlintIntegerRing}' href='#Hecke.change_ring-Tuple{SRow{fmpz},FlintIntegerRing}'>#</a>
-<strong><code>Hecke.change_ring</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">change_ring</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SRow</span><span class="p">,</span> <span class="n">R</span><span class="o">::</span><span class="n">Ring</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SRow</span>
 </pre></div>
 
 <p>Create a new sparse row by coercing all elements into the ring <script type="math/tex">R</script>.</p>
 <p><a id='Maximum,-minimum-and-2-norm-1'></a></p>
 <h3 id="maximum-minimum-and-2-norm">Maximum, minimum and 2-norm</h3>
-<p><a id='Base.maximum-Tuple{SRow{fmpz}}' href='#Base.maximum-Tuple{SRow{fmpz}}'>#</a>
-<strong><code>Base.maximum</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">maximum</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SRow</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">T</span>
 </pre></div>
 
 <p>Returns the largest entry of <script type="math/tex">A</script>.</p>
-<p><a id='Base.minimum-Tuple{SRow{fmpz}}' href='#Base.minimum-Tuple{SRow{fmpz}}'>#</a>
-<strong><code>Base.minimum</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">minimum</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SRow</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">T</span>
 </pre></div>
 
 <p>Returns the smallest entry of <script type="math/tex">A</script>.</p>
-<p><a id='Hecke.norm2-Tuple{SRow{fmpz}}' href='#Hecke.norm2-Tuple{SRow{fmpz}}'>#</a>
-<strong><code>Hecke.norm2</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">norm2</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SRow</span><span class="p">{</span><span class="n">T</span><span class="p">}</span> <span class="o">-&gt;</span> <span class="n">T</span>
 </pre></div>
 
 <p>Returns <script type="math/tex">A \cdot A^t</script>.</p>
 <p><a id='Functionality-for-integral-sparse-rows-1'></a></p>
 <h3 id="functionality-for-integral-sparse-rows">Functionality for integral sparse rows</h3>
-<p><a id='Nemo.lift-Tuple{SRow{Nemo.nmod}}' href='#Nemo.lift-Tuple{SRow{Nemo.nmod}}'>#</a>
-<strong><code>Nemo.lift</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">lift</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SRow</span><span class="p">{</span><span class="n">nmod</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">SRow</span><span class="p">{</span><span class="n">fmpz</span><span class="p">}</span>
 </pre></div>
 
 <p>Return the sparse row obtained by lifting all entries in <script type="math/tex">A</script>.</p>
-<p><a id='Hecke.mod!-Tuple{SRow{fmpz},fmpz}' href='#Hecke.mod!-Tuple{SRow{fmpz},fmpz}'>#</a>
-<strong><code>Hecke.mod!</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">mod!</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SRow</span><span class="p">{</span><span class="n">fmpz</span><span class="p">},</span> <span class="n">n</span><span class="o">::</span><span class="n">fmpz</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SRow</span><span class="p">{</span><span class="n">fmpz</span><span class="p">}</span>
 </pre></div>
 
 <p>Inplace reduction of all entries of <script type="math/tex">A</script> modulo <script type="math/tex">n</script> to the positive residue system.</p>
-<p><a id='Hecke.mod_sym!-Tuple{SRow{fmpz},fmpz}' href='#Hecke.mod_sym!-Tuple{SRow{fmpz},fmpz}'>#</a>
-<strong><code>Hecke.mod_sym!</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">mod_sym!</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SRow</span><span class="p">{</span><span class="n">fmpz</span><span class="p">},</span> <span class="n">n</span><span class="o">::</span><span class="n">fmpz</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SRow</span><span class="p">{</span><span class="n">fmpz</span><span class="p">}</span>
 </pre></div>
 
 <p>Inplace reduction of all entries of <script type="math/tex">A</script> modulo <script type="math/tex">n</script> to the symmetric residue system.</p>
-<p><a id='Base.maximum-Tuple{typeof(abs),SRow{fmpz}}' href='#Base.maximum-Tuple{typeof(abs),SRow{fmpz}}'>#</a>
-<strong><code>Base.maximum</code></strong> &mdash; <em>Method</em>.</p>
+<hr />
 <div class="codehilite"><pre><span></span><span class="n">maximum</span><span class="p">(</span><span class="n">abs</span><span class="p">,</span> <span class="n">A</span><span class="o">::</span><span class="n">SRow</span><span class="p">{</span><span class="n">fmpz</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">fmpz</span>
 </pre></div>
 
