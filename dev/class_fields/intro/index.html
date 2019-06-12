@@ -127,8 +127,8 @@ Relative maximal order of non-simple Relative number field over
 Number field over Rational Field with defining polynomial x^2-10
  with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[_$1^2+(-2)]
 with pseudo-basis
-(1, 1//1 * &lt;1, 2*a+3&gt;)
-(_$1+(a), 1//4 * &lt;2, a&gt;)
+(1, 1//1 * &lt;1, a+1&gt;)
+(_$1+(a), 1//4 * &lt;2, 3*a+2&gt;)
 
 julia&gt; isone(discriminant(ZK))
 true
@@ -160,13 +160,17 @@ true
 <div class="codehilite"><pre><span></span><span class="n">degree</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">ClassField</span><span class="p">)</span>
 </pre></div>
 
-<blockquote>
 <p>The degree of <script type="math/tex">A</script> over its base field, ie. the size of the defining ideal group.</p>
-</blockquote>
 <hr />
-<p>base_ring(A::ClassField) The maximal order of the field that <script type="math/tex">A</script> is defined over.</p>
+<div class="codehilite"><pre><span></span><span class="n">base_ring</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">ClassField</span><span class="p">)</span>
+</pre></div>
+
+<p>The maximal order of the field that <script type="math/tex">A</script> is defined over.</p>
 <hr />
-<p>base_field(A::ClassField) The number field that <script type="math/tex">A</script> is defined over.</p>
+<div class="codehilite"><pre><span></span><span class="n">base_field</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">ClassField</span><span class="p">)</span>
+</pre></div>
+
+<p>The number field that <script type="math/tex">A</script> is defined over.</p>
 <hr />
 <div class="codehilite"><pre><span></span><span class="n">discriminant</span><span class="p">(</span><span class="n">C</span><span class="o">::</span><span class="n">ClassField</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdIdl</span>
 </pre></div>
