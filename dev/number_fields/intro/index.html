@@ -1015,14 +1015,17 @@ x^4-10*x^2+1
 <p><a id='Creation-3'></a></p>
 <h3 id="creation_2">Creation</h3>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">NumberField</span><span class="p">(</span><span class="n">f</span><span class="o">::</span><span class="n">Generic</span><span class="o">.</span><span class="n">Poly</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">s</span><span class="o">::</span><span class="n">String</span><span class="p">;</span> <span class="n">cached</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">check</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="n">where</span> <span class="n">T</span>
+<div class="codehilite"><pre><span></span><span class="n">NumberField</span><span class="p">(</span><span class="n">f</span><span class="o">::</span><span class="n">Poly</span><span class="p">{</span><span class="n">NumFieldElem</span><span class="p">},</span> <span class="n">s</span><span class="o">::</span><span class="n">String</span><span class="p">;</span>
+            <span class="n">cached</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">check</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NumField</span><span class="p">,</span> <span class="n">NumFieldElem</span>
 </pre></div>
 
-<p>Given an irreducible polynomial <script type="math/tex">f</script> over some number field <script type="math/tex">K</script>, create the field <script type="math/tex">K[t]/f</script>. <script type="math/tex">f</script> must be irreducible - although this is not tested.</p>
+<blockquote>
+<p>Given an irreducible polynomial <script type="math/tex">f \in K[t]</script> over some number field <script type="math/tex">K</script>, this function creates the simple number field <script type="math/tex">L = K[t]/(f)</script> and returns <script type="math/tex">(L, b)</script>, where <script type="math/tex">b</script> is the class of <script type="math/tex">t</script> in <script type="math/tex">L</script>. The string <code>s</code> is used only for printing the primitive element <script type="math/tex">b</script>.</p>
+<p>Testing that <script type="math/tex">f</script> is irreducible can be disabled by setting the ketword argument to <code>false</code>.</p>
+</blockquote>
 <div class="codehilite"><pre><span></span>NumberField(f::Generic.Poly{T}; cached::Bool = false, check::Bool = false) where T
 </pre></div>
 
-<p>Given an irreducible polynomial <script type="math/tex">f</script> over some number field <script type="math/tex">K</script>, create the field <script type="math/tex">K[t]/f</script>. <script type="math/tex">f</script> must be irreducible - although this is not tested.</p>
 <div class="codehilite"><pre><span></span><span class="n">number_field</span><span class="p">(</span><span class="n">f</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">Generic</span><span class="o">.</span><span class="n">Poly</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="mi">1</span><span class="p">},</span> <span class="n">s</span><span class="o">::</span><span class="n">String</span><span class="o">=</span><span class="s">&quot;_</span><span class="se">\$</span><span class="s">&quot;</span><span class="p">)</span> <span class="n">where</span> <span class="n">T</span> <span class="o">-&gt;</span> <span class="n">NfRel_ns</span>
 </pre></div>
 
@@ -1032,10 +1035,14 @@ x^4-10*x^2+1
 
 <p>Given a (formal) abelian extension, compute the class field by finding defining polynomials for all prime power cyclic subfields. Note, by type this is always a non-simple extension.</p>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">NumberField</span><span class="p">(</span><span class="n">f</span><span class="o">::</span><span class="n">Generic</span><span class="o">.</span><span class="n">Poly</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">s</span><span class="o">::</span><span class="n">String</span><span class="p">;</span> <span class="n">cached</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">check</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="n">where</span> <span class="n">T</span>
+<div class="codehilite"><pre><span></span><span class="n">NumberField</span><span class="p">(</span><span class="n">f</span><span class="o">::</span><span class="n">Poly</span><span class="p">{</span><span class="n">NumFieldElem</span><span class="p">},</span> <span class="n">s</span><span class="o">::</span><span class="n">String</span><span class="p">;</span>
+            <span class="n">cached</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">check</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NumField</span><span class="p">,</span> <span class="n">NumFieldElem</span>
 </pre></div>
 
-<p>Given an irreducible polynomial <script type="math/tex">f</script> over some number field <script type="math/tex">K</script>, create the field <script type="math/tex">K[t]/f</script>. <script type="math/tex">f</script> must be irreducible - although this is not tested.</p>
+<blockquote>
+<p>Given an irreducible polynomial <script type="math/tex">f \in K[t]</script> over some number field <script type="math/tex">K</script>, this function creates the simple number field <script type="math/tex">L = K[t]/(f)</script> and returns <script type="math/tex">(L, b)</script>, where <script type="math/tex">b</script> is the class of <script type="math/tex">t</script> in <script type="math/tex">L</script>. The string <code>s</code> is used only for printing the primitive element <script type="math/tex">b</script>.</p>
+<p>Testing that <script type="math/tex">f</script> is irreducible can be disabled by setting the ketword argument to <code>false</code>.</p>
+</blockquote>
 <p><a id='Conversion-2'></a></p>
 <h3 id="conversion_1">Conversion</h3>
 <hr />
@@ -1159,13 +1166,19 @@ x^4-10*x^2+1
 <p>Return the absolute norm of <script type="math/tex">a</script>. The result will be a rational number.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">minpoly</span><span class="p">(</span><span class="n">S</span><span class="o">::</span><span class="n">Ring</span><span class="p">,</span> <span class="n">M</span><span class="o">::</span><span class="n">MatElem</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">charpoly_only</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span> <span class="o">&lt;:</span> <span class="n">FieldElement</span><span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="n">minpoly</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NumFieldElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Poly</span>
+</pre></div>
+
+<blockquote>
+<p>Given a number field element <code>a</code> of a number field <code>K</code>, this function returns the minimal polynomial of <code>a</code> over the base field of <code>K</code>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>minpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T &lt;: FieldElement}
 </pre></div>
 
 <blockquote>
 <p>Returns the minimal polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">S</script> of the resulting polynomial must be supplied and the matrix must be square.</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><span class="n">minpoly</span><span class="p">(</span><span class="n">S</span><span class="o">::</span><span class="n">Ring</span><span class="p">,</span> <span class="n">M</span><span class="o">::</span><span class="n">MatElem</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">charpoly_only</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span> <span class="o">&lt;:</span> <span class="n">RingElement</span><span class="p">}</span>
+<div class="codehilite"><pre><span></span>minpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T &lt;: RingElement}
 </pre></div>
 
 <blockquote>
@@ -1178,7 +1191,13 @@ x^4-10*x^2+1
 <p>Returns the minimal polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">S</script> of the resulting polynomial must be supplied and the matrix must be square.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">charpoly</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="n">Ring</span><span class="p">,</span> <span class="n">Y</span><span class="o">::</span><span class="n">Generic</span><span class="o">.</span><span class="n">MatrixElem</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span> <span class="o">&lt;:</span> <span class="n">RingElement</span><span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="n">charpoly</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NumFieldElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Poly</span>
+</pre></div>
+
+<blockquote>
+<p>Given a number field element <code>a</code> of a number field <code>K</code>, this function returns the characteristic polynomial of <code>a</code> over the base field of <code>K</code>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>charpoly(V::Ring, Y::Generic.MatrixElem{T}) where {T &lt;: RingElement}
 </pre></div>
 
 <blockquote>
