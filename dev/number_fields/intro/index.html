@@ -1166,13 +1166,19 @@ x^4-10*x^2+1
 <p>Return the absolute norm of <script type="math/tex">a</script>. The result will be a rational number.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">minpoly</span><span class="p">(</span><span class="n">S</span><span class="o">::</span><span class="n">Ring</span><span class="p">,</span> <span class="n">M</span><span class="o">::</span><span class="n">MatElem</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">charpoly_only</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span> <span class="o">&lt;:</span> <span class="n">FieldElement</span><span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="n">minpoly</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NumFieldElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Poly</span>
+</pre></div>
+
+<blockquote>
+<p>Given a number field element <code>a</code> of a number field <code>K</code>, this function returns the minimal polynomial of <code>a</code> over the base field of <code>K</code>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>minpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T &lt;: FieldElement}
 </pre></div>
 
 <blockquote>
 <p>Returns the minimal polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">S</script> of the resulting polynomial must be supplied and the matrix must be square.</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><span class="n">minpoly</span><span class="p">(</span><span class="n">S</span><span class="o">::</span><span class="n">Ring</span><span class="p">,</span> <span class="n">M</span><span class="o">::</span><span class="n">MatElem</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">charpoly_only</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span> <span class="o">&lt;:</span> <span class="n">RingElement</span><span class="p">}</span>
+<div class="codehilite"><pre><span></span>minpoly(S::Ring, M::MatElem{T}, charpoly_only::Bool = false) where {T &lt;: RingElement}
 </pre></div>
 
 <blockquote>
@@ -1184,24 +1190,18 @@ x^4-10*x^2+1
 <blockquote>
 <p>Returns the minimal polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">S</script> of the resulting polynomial must be supplied and the matrix must be square.</p>
 </blockquote>
-<div class="codehilite"><pre><span></span>minpoly(a::NumFieldElem) -&gt; Poly
-</pre></div>
-
-<blockquote>
-<p>Given a number field element <code>a</code> of a number field <code>K</code>, this function returns the minimal polynomial of <code>a</code> over the base field of <code>K</code>.</p>
-</blockquote>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">charpoly</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="n">Ring</span><span class="p">,</span> <span class="n">Y</span><span class="o">::</span><span class="n">Generic</span><span class="o">.</span><span class="n">MatrixElem</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span> <span class="o">&lt;:</span> <span class="n">RingElement</span><span class="p">}</span>
-</pre></div>
-
-<blockquote>
-<p>Returns the characteristic polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">R</script> of the resulting polynomial must be supplied and the matrix is assumed to be square.</p>
-</blockquote>
-<div class="codehilite"><pre><span></span>charpoly(a::NumFieldElem) -&gt; Poly
+<div class="codehilite"><pre><span></span><span class="n">charpoly</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NumFieldElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Poly</span>
 </pre></div>
 
 <blockquote>
 <p>Given a number field element <code>a</code> of a number field <code>K</code>, this function returns the characteristic polynomial of <code>a</code> over the base field of <code>K</code>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>charpoly(V::Ring, Y::Generic.MatrixElem{T}) where {T &lt;: RingElement}
+</pre></div>
+
+<blockquote>
+<p>Returns the characteristic polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">R</script> of the resulting polynomial must be supplied and the matrix is assumed to be square.</p>
 </blockquote>
 <hr />
 <div class="codehilite"><pre><span></span><span class="n">denominator</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">nf_elem</span><span class="p">)</span>
