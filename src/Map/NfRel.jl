@@ -31,6 +31,50 @@
 #  Copyright (C) 2017 Tommy Hofmann, Claus Fieker
 #
 ################################################################################
+
+mutable struct NfRelToNff{T, S} <: Map{NfRel{T}, S, HeckeMap, NfRelToNff{T, S}}
+  header::MapHeader{NfRel{T}, S}
+
+  function NfRelToNff(K::NfRel{T}, L::U, a, b, c::NfRelElem{T}) where {T, U}
+    # let K/k, k absolute number field
+    # k -> L, gen(k) -> a
+    # K -> L, gen(K) -> b
+    # L -> K, gen(L) -> c
+
+    k = base_field(K)
+    Ly, y = PolynomialRing(L, cached = false)
+    R = parent(k.pol)
+    S = parent(L.pol)
+
+    function image(x::NfRelElem{T})
+      # x is an element of K
+      f = data(x)
+      # First evaluate the coefficients of f at a to get a polynomial over L
+      # Then evaluate at b
+      r = Vector{nf_elem}(undef, degree(f)+1)
+      for  i = 0:degree(f)
+        r[i+1] = evaluate(R(coeff(f, i)), a)
+      end
+      return evaluate(Ly(r), b)
+    end
+
+    function preimage(x)
+      # x is an element of L
+      f = S(x)
+      res = evaluate(f, c)
+      return res
+    end
+
+    z = new{T, U}()
+    z.header = MapHeader(K, L, image, preimage)
+    return z
+  end
+end
+
+function show(io::IO, h::NfRelToNff)
+  println(io, "Morphism between ", domain(h), "\nand ", codomain(h))
+end
+
 mutable struct NfRelToNf <: Map{NfRel{nf_elem}, AnticNumberField, HeckeMap, NfRelToNf}
   header::MapHeader{NfRel{nf_elem}, AnticNumberField}
 
@@ -148,7 +192,7 @@ mutable struct NfRelToNfRelRel{T} <: Map{NfRel{T}, NfRel{NfRelElem{T}}, HeckeMap
   end
 end
 
-function show(io::IO, h::NfRelRelToNfRel)
+function show(io::IO, h::NfRelToNfRelRel)
   println(io, "Morphism between ", domain(h), "\nand ", codomain(h))
 end
 

@@ -441,9 +441,13 @@ end
 Given an extension $K/k/Q$, find an isomorphic extension of $Q$.
 """
 function absolute_field(K::NfRel{nf_elem}, cached::Bool = false)
+  return collapse_last_layer(K, cached)
+end
+
+function collapse_last_layer(K::NfRel{nf_elem}, cached::Bool = false)
   Ka, a, b, c = _absolute_field(K, cached)
   #return Ka, NfRelToNf(K, Ka, a, b, c), hom(base_ring(K), Ka, a, check = false)
-  return Ka, NfToNfRel(Ka, K, a, b, c), hom(base_field(K), Ka, a, check = false)
+  return Ka, NfToNfRel2(Ka, K, a, b, c), hom(base_field(K), Ka, a, check = false)
 end
 
 @doc Markdown.doc"""
@@ -455,7 +459,6 @@ function absolute_field(K::NfRel{NfRelElem{T}}, cached::Bool = false) where T
   Ka, a, b, c = _absolute_field(K)
   return Ka, NfRelToNfRelRel(Ka, K, a, b, c), hom(base_field(K), Ka, a, check = false)
 end
-
 
 #Trager: p4, Algebraic Factoring and Rational Function Integration
 function _absolute_field(K::NfRel, cached::Bool = false)

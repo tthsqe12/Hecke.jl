@@ -88,6 +88,49 @@ parent(f::NfToNfMor) = NfMorSet(domain(f))
 #
 ################################################################################
 
+mutable struct NfToNfRel2{S, T} <: Map{S, NfRel{T}, HeckeMap, NfToNfRel2{T}}
+  header::MapHeader{S, NfRel{T}}
+
+  function NfToNfRel2(L::SS, K::NfRel{T}, a, b, c::NfRelElem{T}) where {SS, T}
+    # let K/k, k absolute number field
+    # k -> L, gen(k) -> a
+    # K -> L, gen(K) -> b
+    # L -> K, gen(L) -> c
+
+    k = K.base_ring
+    Ly, y = PolynomialRing(L, cached = false)
+    R = parent(k.pol)
+    S = parent(L.pol)
+
+    function image(x)
+      # x is an element of L
+      f = S(x)
+      res = evaluate(f, c)
+      return res
+    end
+
+    function preimage(x::NfRelElem{T})
+      # x is an element of K
+      f = data(x)
+      # First evaluate the coefficients of f at a to get a polynomial over L
+      # Then evaluate at b
+      r = Vector{nf_elem}(undef, degree(f) + 1)
+      for  i = 0:degree(f)
+        r[i+1] = evaluate(R(coeff(f, i)), a)
+      end
+      return evaluate(Ly(r), b)
+    end
+
+    z = new{SS, T}()
+    z.header = MapHeader(L, K, image, preimage)
+    return z
+  end
+end
+
+function show(io::IO, h::NfToNfRel2)
+  println(io, "Morphism between ", domain(h), "\nand ", codomain(h))
+end
+
 mutable struct NfToNfRel <: Map{AnticNumberField, NfRel{nf_elem}, HeckeMap, NfToNfRel}
   header::MapHeader{AnticNumberField, NfRel{nf_elem}}
 

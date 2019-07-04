@@ -730,7 +730,7 @@ end
 #
 ################################################################################
 
-function relative_order(O::NfOrd, m::NfToNfRel)
+function relative_order(O::NfOrd, m)
   L = codomain(m)
   Labs = domain(m)
   @assert nf(O) == Labs
