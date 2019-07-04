@@ -481,6 +481,9 @@ function _check_order(O::AlgAssAbsOrd)
       end
     end
   end
+  if !(one(algebra(O)) in O) return
+    false
+  end
   return true
 end
 

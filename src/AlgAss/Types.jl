@@ -269,8 +269,13 @@ mutable struct AlgAssAbsOrd{S, T} <: Ring
     # "Default" constructor with default values.
     r = AlgAssAbsOrd{S}(A)
     @assert length(basis) == r.dim
-    r.basis_alg = basis
     r.basis_mat = basis_mat(basis)
+    #r.basis_mat = hnf!(basis_mat(basis), :lowerleft)
+    r.basis_alg = basis
+    #r.basis_alg = Vector{elem_type(A)}(undef, length(basis))
+    #for i in 1:length(basis)
+    #  r.basis_alg[i] = sum(r.basis_mat[i, j] * A.basis[j] for j in 1:length(basis))
+    #end
     r.tcontain = FakeFmpqMat(zero_matrix(FlintZZ, 1, dim(A)))
     return r
   end

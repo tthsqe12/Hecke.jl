@@ -221,7 +221,7 @@ function _minimal_overorders_nonrecursive_meataxe(O, M)
     return orders
   end
   B = mA.bottom_snf_basis
-  @assert isone(B[1])
+  #@assert isone(B[1])
   if iscommutative(M)
     autos = Vector{GrpAbFinGenMap}(undef, degree(O) - 1)
   else
@@ -303,7 +303,7 @@ function _minimal_poverorders_in_ring_of_multipliers(O, P, excess = Int[0], use_
   B = mA.bottom_snf_basis
   d = degree(O)
   K = _algebra(O)
-  @assert isone(B[1])
+  #@assert isone(B[1])
   if use_powering
     autos = Vector{GrpAbFinGenMap}(undef, d)
     autos[d] = induce(mA, x -> x^p)
@@ -339,8 +339,8 @@ function _minimal_poverorders_in_ring_of_multipliers(O, P, excess = Int[0], use_
     if q == 2
       continue
     else
-      subs = subgroups(A, subtype = [Int(p) for j in 1:Int(f*(Int(q) - 1))], fun = (G, z) -> sub(G, z, false))
-      for s in subs
+      subs1 = subgroups(A, subtype = [Int(p) for j in 1:Int(f*(Int(q) - 1))], fun = (G, z) -> sub(G, z, false))
+      for s in subs1
         T = image(s[2], false)
         G = domain(T[2])
         new_element = 0
@@ -393,7 +393,7 @@ function _minimal_poverorders_in_ring_of_multipliers(O, P, excess = Int[0], use_
       excess[] = excess[] + 1
       continue
     end
-    L = Order(K, bL, check = false, cached = false)
+    L = Order(K, hnf!(bL, :lowerleft), check = false, cached = false)
     push!(orders, L)
   end
   
@@ -419,7 +419,7 @@ function _minimal_poverorders_at_2(O::NfOrd, P::NfOrdIdl, excess = Int[])
   end
   
   f = valuation(norm(P), 2)
-  @assert isone(B[1])
+  #@assert isone(B[1])
   autos = Vector{GrpAbFinGenMap}(undef, d)
   # We skip the first basis element, since it acts trivially
   for i in 1:(d - 1)
@@ -605,7 +605,7 @@ function new_overorders(O)
       @show length(orders), length(new_p)
       kk = 1
       for O1 in orders
-        @time for O2 in new_p
+        for O2 in new_p
           orders1[kk] = sum_as_Z_modules(O1, O2, z)
           kk += 1
         end
@@ -747,7 +747,7 @@ function poverorders_one_step_generic(O, p::fmpz)
   B = mA.bottom_snf_basis
   d = degree(O)
   K = _algebra(O)
-  @assert isone(B[1])
+  #@assert isone(B[1])
   
   if iscommutative(M)
     autos = Vector{GrpAbFinGenMap}(undef, degree(O) - 1)
@@ -1076,7 +1076,7 @@ function poverorders_nonrecursive_meataxe(O, p::fmpz, N = pmaximal_overorder(O, 
   B = mA.bottom_snf_basis
   d = degree(O)
   K = _algebra(O)
-  @assert isone(B[1])
+  #@assert isone(B[1])
   
   if iscommutative(M)
     autos = Vector{GrpAbFinGenMap}(undef, degree(O) - 1)
@@ -1545,6 +1545,7 @@ end
 
 #P is a prime ideal in a order contained in O
 #Computes the set of prime ideals lying over P
+
 function prime_ideals_over(O, P)
   #@assert isprime(P)
   O1 = order(P)
@@ -1615,22 +1616,17 @@ function _overorders_via_idempotent_splitting(M)
     bases = Vector{Vector{elem_type(A)}}(undef, length(orders))
     for (i, O) in enumerate(orders)
       bases[i] = [ mB(_elem_in_algebra(b)) for b in basis(O) ]
-      for b in basis(O)
-        @show minpoly(_elem_in_algebra(b))
-      end
-      for b in bases[i]
-        @assert isintegral(b)
-      end
     end
 
     push!(oorders, bases)
   end
 
+  println("Computing all products ... ")
+
   res = Vector{typeof(M)}(undef, prod(length(oorders[i]) for i in 1:length(oorders)))
 
   I = Iterators.product(oorders...)
-  for (j, i) in enumerate(I)
-    @show i
+  @time for (j, i) in enumerate(I)
     H = hnf!(basis_mat(vcat(i...)))
     res[j] = Order(A, H)
   end
