@@ -713,14 +713,16 @@
 </pre></div>
 
 <p>Given a modulus with finite part <script type="math/tex">m</script> and infinite part <script type="math/tex">inf_plc</script>, it returns the Ray Class Group <script type="math/tex">Cl_m</script>. If <script type="math/tex">n_quo</script> is given,  it will return the quotient of the Ray Class Group by n</p>
-<div class="admonition warning">
-<p class="admonition-title">Missing docstring.</p>
-<p>Missing docstring for <code>class_group(O::Hecke.NfAbsOrd{Nemo.AnticNumberField,Nemo.nf_elem}; bound, method, redo, unit_method, large)</code>. Check Documenter's build log for details.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Missing docstring.</p>
-<p>Missing docstring for <code>class_group(K::Nemo.AnticNumberField)</code>. Check Documenter's build log for details.</p>
-</div>
+<hr />
+<div class="codehilite"><pre><span></span><span class="n">class_group</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">;</span> <span class="n">bound</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">redo</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">large</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GrpAbFinGen</span><span class="p">,</span> <span class="n">Map</span>
+</pre></div>
+
+<p>Returns a group <script type="math/tex">A</script> and a map <script type="math/tex">f</script> from <script type="math/tex">A</script> to the set of ideals of <script type="math/tex">O</script>. The inverse of the map is the projection onto the group of ideals modulo the  group of principal ideals. \texttt{redo} allows to trigger a re-computation, thus avoiding the cache. \texttt{bound}, when given, is the bound for the factor base.</p>
+<hr />
+<div class="codehilite"><pre><span></span><span class="n">class_group</span><span class="p">(</span><span class="n">K</span><span class="o">::</span><span class="n">AnticNumberField</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GrpAbFinGen</span><span class="p">,</span> <span class="n">Map</span>
+</pre></div>
+
+<p>Shortcut for {{{class<em>group(maximal</em>order(K))}}}: returns the class group as an abelian group and a map from this group to the set of ideals of the maximal order.</p>
 <hr />
 <div class="codehilite"><pre><span></span><span class="n">norm_group</span><span class="p">(</span><span class="n">f</span><span class="o">::</span><span class="n">Nemo</span><span class="o">.</span><span class="n">PolyElem</span><span class="p">,</span> <span class="n">mR</span><span class="o">::</span><span class="n">Hecke</span><span class="o">.</span><span class="n">MapRayClassGrp</span><span class="p">,</span> <span class="n">isabelian</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span> <span class="n">of_closure</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hecke</span><span class="o">.</span><span class="n">FinGenGrpAb</span><span class="p">,</span> <span class="n">Hecke</span><span class="o">.</span><span class="n">FinGenGrpAbMap</span>
 
@@ -830,7 +832,7 @@ Relative maximal order of non-simple Relative number field over
 Number field over Rational Field with defining polynomial x^2-10
  with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[_$1^2+(-2)]
 with pseudo-basis
-(1, 1//1 * &lt;1, 2*a+1&gt;)
+(1, 1//1 * &lt;1, 1&gt;)
 (_$1+(a), 1//4 * &lt;2, 3*a+2&gt;)
 
 julia&gt; isone(discriminant(ZK))
