@@ -785,18 +785,15 @@
 <p><a id='Creation-1'></a></p>
 <h3 id="creation">Creation</h3>
 <hr />
-<div class="codehilite"><pre><span></span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">AnticNumberField</span><span class="p">)()</span>
+<div class="codehilite"><pre><span></span><span class="n">gen</span><span class="p">(</span><span class="n">L</span><span class="o">::</span><span class="n">SimpleNumField</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NumFieldElem</span>
 </pre></div>
 
-<blockquote>
-<p>Return an empty (0) element.</p>
-</blockquote>
-<div class="codehilite"><pre><span></span>(a::AnticNumberField)(c::Int)
+<p>Given a simple number field <script type="math/tex">L = K[x]/(x)</script> over <script type="math/tex">K</script>, this functions returns the class of <script type="math/tex">x</script>, which is the canonical primitive element of <script type="math/tex">L</script> over <script type="math/tex">K</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><span class="n">gens</span><span class="p">(</span><span class="n">L</span><span class="o">::</span><span class="n">NonSimpleNumField</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Vector</span><span class="p">{</span><span class="n">NumFieldElem</span><span class="p">}</span>
 </pre></div>
 
-<blockquote>
-<p>Return <script type="math/tex">c</script> as an element in <script type="math/tex">a</script>.</p>
-</blockquote>
+<p>Given a non-simple number field <script type="math/tex">L = K[x_1,\dotsc,x_n]/(f_1,\dotsc,f_n)</script> over <script type="math/tex">K</script>, this functions returns the list <script type="math/tex">\bar x_1,\dotsc,\bar x_n</script>.</p>
 <p><a id='Predicates-1'></a></p>
 <h3 id="predicates">Predicates</h3>
 <hr />
@@ -807,65 +804,30 @@
 <p><a id='Invariants-1'></a></p>
 <h3 id="invariants">Invariants</h3>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">nf_elem</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NumFieldElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NumFieldElem</span>
 </pre></div>
 
-<blockquote>
-<p>Return the absolute norm of <script type="math/tex">a</script>. The result will be a rational number.</p>
-</blockquote>
+<p>Returns the norm of an element <script type="math/tex">a</script> of a number field extension <code>L/K</code>. This will be an element of <code>K</code>.</p>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">minpoly</span><span class="p">(</span><span class="n">S</span><span class="o">::</span><span class="n">Ring</span><span class="p">,</span> <span class="n">M</span><span class="o">::</span><span class="n">MatElem</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">charpoly_only</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span> <span class="o">&lt;:</span> <span class="n">FieldElement</span><span class="p">}</span>
-</pre></div>
-
-<blockquote>
-<p>Returns the minimal polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">S</script> of the resulting polynomial must be supplied and the matrix must be square.</p>
-</blockquote>
-<div class="codehilite"><pre><span></span><span class="n">minpoly</span><span class="p">(</span><span class="n">S</span><span class="o">::</span><span class="n">Ring</span><span class="p">,</span> <span class="n">M</span><span class="o">::</span><span class="n">MatElem</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">charpoly_only</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span> <span class="o">&lt;:</span> <span class="n">RingElement</span><span class="p">}</span>
-</pre></div>
-
-<blockquote>
-<p>Returns the minimal polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">S</script> of the resulting polynomial must be supplied and the matrix must be square.</p>
-</blockquote>
-<div class="codehilite"><pre><span></span>minpoly(S::Ring, M::MatAlgElem{T}, charpoly_only::Bool = false) where {T &lt;: RingElement}
-</pre></div>
-
-<blockquote>
-<p>Returns the minimal polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">S</script> of the resulting polynomial must be supplied and the matrix must be square.</p>
-</blockquote>
-<div class="codehilite"><pre><span></span>minpoly(a::NumFieldElem) -&gt; Poly
+<div class="codehilite"><pre><span></span><span class="n">minpoly</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NumFieldElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PolyElem</span>
 </pre></div>
 
 <p>Given a number field element <code>a</code> of a number field <code>K</code>, this function returns the minimal polynomial of <code>a</code> over the base field of <code>K</code>.</p>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">charpoly</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="n">Ring</span><span class="p">,</span> <span class="n">Y</span><span class="o">::</span><span class="n">Generic</span><span class="o">.</span><span class="n">MatrixElem</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span> <span class="o">&lt;:</span> <span class="n">RingElement</span><span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="n">absolute_minpoly</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NumFieldElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PolyElem</span>
 </pre></div>
 
-<blockquote>
-<p>Returns the characteristic polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">R</script> of the resulting polynomial must be supplied and the matrix is assumed to be square.</p>
-</blockquote>
-<div class="codehilite"><pre><span></span>charpoly(a::NumFieldElem) -&gt; Poly
+<p>Given a number field element <code>a</code> of a number field <code>K</code>, this function returns the minimal polynomial of <code>a</code> over the rationals <script type="math/tex">\mathbf{Q}</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><span class="n">charpoly</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NumFieldElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PolyElem</span>
 </pre></div>
 
 <p>Given a number field element <code>a</code> of a number field <code>K</code>, this function returns the characteristic polynomial of <code>a</code> over the base field of <code>K</code>.</p>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">denominator</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">nf_elem</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">absolute_charpoly</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NumFieldElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PolyElem</span>
 </pre></div>
 
-<blockquote>
-<p>Return the denominator of the polynomial representation of the given number field element.</p>
-</blockquote>
-<hr />
-<div class="codehilite"><pre><span></span><span class="n">numerator</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">nf_elem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">nf_elem</span>
-</pre></div>
-
-<p>For an element <script type="math/tex">a\in K = Q[t]/f</script> write <script type="math/tex">a</script> as <script type="math/tex">b/d</script> with <script type="math/tex">b\in Z[t]</script>, <script type="math/tex">\deg(a) = \deg(b)</script> and <script type="math/tex">d>0</script> minimal in <script type="math/tex">Z</script>. This function returns <script type="math/tex">b</script>.</p>
-<hr />
-<div class="codehilite"><pre><span></span><span class="n">isunit</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">nf_elem</span><span class="p">)</span>
-</pre></div>
-
-<blockquote>
-<p>Return <code>true</code> if the given number field element is invertible, i.e. nonzero, otherwise return <code>false</code>.</p>
-</blockquote>
+<p>Given a number field element <code>a</code> of a number field <code>K</code>, this function returns the characteristic polynomial of <code>a</code> over the rationals <script type="math/tex">\mathbf{Q}</script>.</p>
 <p><a id='Implicit-Relative-Extensions-1'></a></p>
 <h2 id="implicit-relative-extensions">Implicit Relative Extensions</h2>
 <p>Given two absolute fields <script type="math/tex">K</script> and <script type="math/tex">k</script> as well as an embedding <script type="math/tex">\phi:k \to K</script> we can regard <script type="math/tex">K</script> as an extension on <script type="math/tex">k</script>, hence invariante of <script type="math/tex">K</script> can be investigated relative to <script type="math/tex">k</script> rathern than over <script type="math/tex">Q</script>. Here we list functions achieving this without actually computing <script type="math/tex">K</script> as an extension of <script type="math/tex">k</script>.</p>
