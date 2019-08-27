@@ -182,13 +182,19 @@
         
   
   
+    
+    
+  
+  
     <li class="md-tabs__item">
       
-        <a href="../../number_fields/intro/" title="Documentation" class="md-tabs__link md-tabs__link--active">
+        <a href="../../number_fields/intro/" title="Documentation" class="md-tabs__link">
           Documentation
         </a>
       
     </li>
+  
+
   
 
       
@@ -266,10 +272,70 @@
           
 
 
-  <li class="md-nav__item">
-    <a href="../../number_fields/intro/" title="Number fields" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
       Number fields
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Number fields
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../number_fields/intro/" title="Introduction" class="md-nav__link">
+      Introduction
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../number_fields/basics/" title="Creation and basics" class="md-nav__link">
+      Creation and basics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../number_fields/elements/" title="Elements" class="md-nav__link">
+      Elements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../number_fields/internal/" title="Internals" class="md-nav__link">
+      Internals
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -842,18 +908,10 @@ Class field defined mod (&lt;1, 1&gt;, InfPlc[]) of structure Abelian group with
 <p>The algorithm employed is based on Kummer-theory and requires the addition of a suitable root of unity. Progress can be monitored by setting {{{set<em>verbose</em>level(:ClassField, n)}}} where <script type="math/tex">0\le n\le 3</script>
 </p>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">NumberField</span><span class="p">(</span><span class="n">f</span><span class="o">::</span><span class="n">Poly</span><span class="p">{</span><span class="n">NumFieldElem</span><span class="p">},</span> <span class="n">s</span><span class="o">::</span><span class="n">String</span><span class="p">;</span>
-            <span class="n">cached</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">check</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NumField</span><span class="p">,</span> <span class="n">NumFieldElem</span>
+<div class="codehilite"><pre><span></span><span class="n">NumberField</span><span class="p">(</span><span class="n">f</span><span class="o">::</span><span class="n">Generic</span><span class="o">.</span><span class="n">Poly</span><span class="p">{</span><span class="n">T</span><span class="p">};</span> <span class="n">cached</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">check</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="n">where</span> <span class="n">T</span>
 </pre></div>
 
-<blockquote>
-<p>Given an irreducible polynomial <script type="math/tex">f \in K[t]</script> over some number field <script type="math/tex">K</script>, this function creates the simple number field <script type="math/tex">L = K[t]/(f)</script> and returns <script type="math/tex">(L, b)</script>, where <script type="math/tex">b</script> is the class of <script type="math/tex">t</script> in <script type="math/tex">L</script>. The string <code>s</code> is used only for printing the primitive element <script type="math/tex">b</script>.</p>
-<p>Testing that <script type="math/tex">f</script> is irreducible can be disabled by setting the ketword argument to <code>false</code>.</p>
-</blockquote>
-<div class="codehilite"><pre><span></span>NumberField(f::Generic.Poly{T}; cached::Bool = false, check::Bool = false) where T
-</pre></div>
-
-<div class="codehilite"><pre><span></span><span class="n">number_field</span><span class="p">(</span><span class="n">f</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">Generic</span><span class="o">.</span><span class="n">Poly</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="mi">1</span><span class="p">},</span> <span class="n">s</span><span class="o">::</span><span class="n">String</span><span class="o">=</span><span class="s">&quot;_</span><span class="se">\$</span><span class="s">&quot;</span><span class="p">)</span> <span class="n">where</span> <span class="n">T</span> <span class="o">-&gt;</span> <span class="n">NfRel_ns</span>
+<div class="codehilite"><pre><span></span>number_field(f::Array{Generic.Poly{T}, 1}, s::String=&quot;_\$&quot;) where T -&gt; NfRel_ns
 </pre></div>
 
 <p>Given polynomials <script type="math/tex">f = (f_1, \ldots, f_n)</script> over some number field <script type="math/tex">k</script>, construct <script type="math/tex">K = k[t_1, \ldots, t_n]/\langle f_1(t_1), \ldots, f_n(t_n)\rangle</script> The ideal in the quotient must be maximal - although this is not tested.</p>
@@ -880,8 +938,8 @@ Relative maximal order of non-simple Relative number field over
 Number field over Rational Field with defining polynomial x^2-10
  with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[_$1^2+(-2)]
 with pseudo-basis
-(1, 1//1 * &lt;1, 2*a+1&gt;)
-(_$1+(a), 1//4 * &lt;2, a&gt;)
+(1, 1//1 * &lt;1, a+3&gt;)
+(_$1+(a), 1//4 * &lt;2, 3*a&gt;)
 
 julia&gt; isone(discriminant(ZK))
 true

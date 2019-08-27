@@ -182,13 +182,19 @@
         
   
   
+    
+    
+  
+  
     <li class="md-tabs__item">
       
-        <a href="../../number_fields/intro/" title="Documentation" class="md-tabs__link md-tabs__link--active">
+        <a href="../../number_fields/intro/" title="Documentation" class="md-tabs__link">
           Documentation
         </a>
       
     </li>
+  
+
   
 
       
@@ -266,10 +272,70 @@
           
 
 
-  <li class="md-nav__item">
-    <a href="../../number_fields/intro/" title="Number fields" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
       Number fields
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Number fields
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../number_fields/intro/" title="Introduction" class="md-nav__link">
+      Introduction
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../number_fields/basics/" title="Creation and basics" class="md-nav__link">
+      Creation and basics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../number_fields/elements/" title="Elements" class="md-nav__link">
+      Elements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../number_fields/internal/" title="Internals" class="md-nav__link">
+      Internals
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -744,17 +810,16 @@ K \longrightarrow \mathbf R^{d}, \ \alpha \longmapsto (\sigma_1(\alpha),\dotsc,\
 julia&gt; K, a = NumberField(x^2 - 10, &quot;a&quot;);
 
 julia&gt; E = EquationOrder(K)
-Order of Number field over Rational Field with defining polynomial x^2-10
-with Z-basis NfAbsOrdElem{AnticNumberField,nf_elem}[1, a]
+Maximal order of Number field over Rational Field with defining polynomial x^2-10
+with basis nf_elem[1, a]
 
 julia&gt; Z_K = MaximalOrder(K)
 Maximal order of Number field over Rational Field with defining polynomial x^2-10
 with basis nf_elem[1, a]
 
 julia&gt; conductor(E)
-Ideal of (Order of Number field over Rational Field with defining polynomial x^2-10
-with Z-basis NfAbsOrdElem{AnticNumberField,nf_elem}[1, a])
-with basis matrix
+&lt;no 2-elts present&gt;
+basis_mat
 [1 0]
 [0 1]
 
@@ -823,7 +888,7 @@ julia&gt; [ mFp(x) for x = basis(Z_K)]
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../number_fields/intro/" title="Number fields" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../number_fields/internal/" title="Internals" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -832,7 +897,7 @@ julia&gt; [ mFp(x) for x = basis(Z_K)]
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Number fields
+                Internals
               </span>
             </div>
           </a>

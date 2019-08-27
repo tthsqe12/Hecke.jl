@@ -182,13 +182,19 @@
         
   
   
+    
+    
+  
+  
     <li class="md-tabs__item">
       
-        <a href="../../number_fields/intro/" title="Documentation" class="md-tabs__link md-tabs__link--active">
+        <a href="../../number_fields/intro/" title="Documentation" class="md-tabs__link">
           Documentation
         </a>
       
     </li>
+  
+
   
 
       
@@ -266,10 +272,70 @@
           
 
 
-  <li class="md-nav__item">
-    <a href="../../number_fields/intro/" title="Number fields" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
       Number fields
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Number fields
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../number_fields/intro/" title="Introduction" class="md-nav__link">
+      Introduction
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../number_fields/basics/" title="Creation and basics" class="md-nav__link">
+      Creation and basics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../number_fields/elements/" title="Elements" class="md-nav__link">
+      Elements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../number_fields/internal/" title="Internals" class="md-nav__link">
+      Internals
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -895,6 +961,26 @@ with components
  Element of
 GrpAb: Z/9
 with components
+[4]
+ Element of
+GrpAb: Z/9
+with components
+[4]
+ Element of
+GrpAb: Z/9
+with components
+[5]
+ Element of
+GrpAb: Z/9
+with components
+[3]
+ Element of
+GrpAb: Z/9
+with components
+[2]
+ Element of
+GrpAb: Z/9
+with components
 [7]
  Element of
 GrpAb: Z/9
@@ -903,49 +989,29 @@ with components
  Element of
 GrpAb: Z/9
 with components
-[8]
- Element of
-GrpAb: Z/9
-with components
-[3]
- Element of
-GrpAb: Z/9
-with components
-[5]
- Element of
-GrpAb: Z/9
-with components
-[4]
- Element of
-GrpAb: Z/9
-with components
-[7]
- Element of
-GrpAb: Z/9
-with components
 [0]
  Element of
 GrpAb: Z/9
 with components
-[5]
+[2]
 
 julia&gt; mc(c[1])
-&lt;2, 3//2*_$^2 + 2*_$ + 7//2&gt;
+&lt;2, 3//2*_$^2 + 1//2&gt;
 Norm: 2
 Minimum: 2
 basis_mat
 [2 0 0]
 [1 1 0]
-[0 0 1]
+[1 0 1]
 two normal wrt: 2
 
 julia&gt; order(c[1])
 9
 
 julia&gt; mc(c[1])^Int(order(c[1]))
-&lt;32, 45616403435015994675//2*_$^2 - 22636933952473144831*_$ + 49386866379765370909//2&gt;
+&lt;512, 15850805895379398141//2*_$^2 - 7865890757002315674*_$ + 17160967849687022455//2&gt;
 Norm: 512
-Minimum: 32
+Minimum: 512
 two normal wrt: 2
 
 julia&gt; mc \ ans
@@ -990,30 +1056,30 @@ with components
 
 <p>Finds a number field element <script type="math/tex">\alpha</script> such that <script type="math/tex">\alpha I</script> factors over the factor base in <script type="math/tex">c</script>.</p>
 <div class="codehilite"><pre><span></span>julia&gt; I = mc(c[1])
-&lt;2, 3//2*_$^2 + 2*_$ + 7//2&gt;
+&lt;2, 3//2*_$^2 + 1//2&gt;
 Norm: 2
 Minimum: 2
 basis_mat
 [2 0 0]
 [1 1 0]
-[0 0 1]
+[1 0 1]
 two normal wrt: 2
 
 julia&gt; Hecke.isprincipal(I)
 (false, 1)
 
 julia&gt; I = I^Int(order(c[1]))
-&lt;32, 45616403435015994675//2*_$^2 - 22636933952473144831*_$ + 49386866379765370909//2&gt;
+&lt;512, 15850805895379398141//2*_$^2 - 7865890757002315674*_$ + 17160967849687022455//2&gt;
 Norm: 512
-Minimum: 32
+Minimum: 512
 two normal wrt: 2
 
 julia&gt; Hecke.isprincipal(I)
-(true, 1//2*_$^2 - 5*_$ - 17//2)
+(true, 1//2*_$^2 - 3*_$ + 9//2)
 
 julia&gt; Hecke.isprincipal_fac_elem(I)
 (true, Factored element with data
-Dict(_$+38=&gt;20,_$+1=&gt;35,5=&gt;6,_$^2 - 2*_$ - 2=&gt;21,7=&gt;-21,_$+2=&gt;-52,2*_$^2 - 15*_$ + 25=&gt;21,3=&gt;42,_$-4=&gt;1,11=&gt;26,_$^2 - 10*_$ - 12=&gt;21,-15//2*_$^2 + 102*_$ - 201//2=&gt;-42,_$^2 + 1*_$ + 2=&gt;-6,_$+5=&gt;-61,107=&gt;-20,_$-16=&gt;20,_$-35=&gt;20,1=&gt;1))
+Dict(_$+38=&gt;15,_$+1=&gt;35,3//2*_$^2 + 1//2=&gt;-2,5=&gt;-7,_$^2 - 2*_$ - 2=&gt;13,-1//2*_$^2 + 6*_$ - 3//2=&gt;12,1//2*_$^2 - 6*_$ + 7//2=&gt;-24,7=&gt;-13,_$+2=&gt;-20,_$-2=&gt;-2,_$+6=&gt;-2,3=&gt;24,11=&gt;10,_$^2 + 1*_$ + 2=&gt;7,_$+5=&gt;-57,107=&gt;-15,_$-16=&gt;15,31=&gt;2,_$-35=&gt;15,1=&gt;1))
 </pre></div>
 
 <p>The computation of <script type="math/tex">S</script>-units is also tied to the class group:</p>
@@ -1048,7 +1114,7 @@ with basis nf_elem[1, _$, 1//2*_$^2 + 1//2]
 )
 
 julia&gt; mu(u[2])
-_$-12
+-_$+12
 
 julia&gt; u, mu = unit_group_fac_elem(zk)
 (GrpAb: Z/2 x Z, UnitGroup map of Factored elements over Number field over Rational Field with defining polynomial x^3-13*x^2+13*x-13
@@ -1056,30 +1122,30 @@ julia&gt; u, mu = unit_group_fac_elem(zk)
 
 julia&gt; mu(u[2])
 Factored element with data
-Dict(_$+5=&gt;1,_$+2=&gt;-2,2*_$^2 - 15*_$ + 25=&gt;1,3=&gt;2,5=&gt;2,11=&gt;1,_$^2 - 10*_$ - 12=&gt;1,-15//2*_$^2 + 102*_$ - 201//2=&gt;-2,_$^2 + 1*_$ + 2=&gt;-2)
+Dict(_$+38=&gt;-1,5=&gt;2,_$^2 - 2*_$ - 2=&gt;-1,-1//2*_$^2 + 6*_$ - 3//2=&gt;1,1//2*_$^2 - 6*_$ + 7//2=&gt;-2,7=&gt;1,3=&gt;2,_$^2 + 1*_$ + 2=&gt;-2,_$+5=&gt;3,107=&gt;1,_$-16=&gt;-1,_$-35=&gt;-1)
 
 julia&gt; evaluate(ans)
-_$-12
+-_$+12
 
 julia&gt; lp = factor(6*zk)
 Dict{NfAbsOrdIdl{AnticNumberField,nf_elem},Int64} with 4 entries:
   &lt;3, _$^2 + 1&gt;                =&gt; 1
-  &lt;2, 5//2*_$^2 + 3*_$ + 5//2&gt; =&gt; 1
-  &lt;2, 5//2*_$^2 + 5//2&gt;        =&gt; 2
+  &lt;2, 1//2*_$^2 + 2*_$ + 7//2&gt; =&gt; 1
+  &lt;2, 1//2*_$^2 + 1//2&gt;        =&gt; 2
   &lt;3, _$-1&gt;                    =&gt; 1
 
 julia&gt; s, ms = Hecke.sunit_group(collect(keys(lp)))
-(GrpAb: Z/2 x Z^5, SUnits  map of Number field over Rational Field with defining polynomial x^3-13*x^2+13*x-13 for NfAbsOrdIdl{AnticNumberField,nf_elem}[&lt;3, _$^2 + 1&gt;, &lt;2, 5//2*_$^2 + 3*_$ + 5//2&gt;, &lt;2, 5//2*_$^2 + 5//2&gt;, &lt;3, _$-1&gt;]
+(GrpAb: Z/2 x Z^5, SUnits  map of Number field over Rational Field with defining polynomial x^3-13*x^2+13*x-13 for NfAbsOrdIdl{AnticNumberField,nf_elem}[&lt;3, _$^2 + 1&gt;, &lt;2, 1//2*_$^2 + 2*_$ + 7//2&gt;, &lt;2, 1//2*_$^2 + 1//2&gt;, &lt;3, _$-1&gt;]
 )
 
 julia&gt; ms(s[4])
--1//2*_$^2 + 6*_$ + 1//2
+1//2*_$^2 - 6*_$ - 1//2
 
 julia&gt; norm(ans)
-18
+-18
 
 julia&gt; factor(numerator(ans))
-1 * 2 * 3^2
+-1 * 2 * 3^2
 </pre></div>
 
 <p><a id='Miscaellenous-1'></a></p>
