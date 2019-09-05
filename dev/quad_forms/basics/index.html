@@ -808,12 +808,14 @@
 <div class="codehilite"><pre><span></span><span class="n">det</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="n">AbsSpace</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FieldElem</span>
 </pre></div>
 
-<p>Returns the determinant of the space <code>V</code>. In case <code>V</code> is Hermitian, the result is an element of the "smaller field".</p>
+<p>Returns the determinant of the space <code>V</code>.</p>
+<p>In case <code>V</code> is Hermitian, the result is an element of the fixed field.</p>
 <hr />
 <div class="codehilite"><pre><span></span><span class="n">discriminant</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="n">AbsSpace</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FieldElem</span>
 </pre></div>
 
-<p>Returns the discriminant of the space <code>V</code>. In case <code>V</code> is Hermitian, the result is an element of the "smaller field".</p>
+<p>Returns the discriminant of the space <code>V</code>.</p>
+<p>In case <code>V</code> is Hermitian, the result is an element of the "smaller field".</p>
 <p><a id='Inner-products-and-diagonalization-1'></a></p>
 <h2 id="inner-products-and-diagonalization">Inner products and diagonalization</h2>
 <hr />
@@ -841,6 +843,7 @@
 </pre></div>
 
 <p>Returns a vector of elements <script type="math/tex">a_1,\dotsc,a_n</script> such that <code>V</code> is isometric to the diagonal space <script type="math/tex">\langle a_1,\dotsc,a_n</script>.</p>
+<p>The elements will be contained in the fixed field of <code>V</code>.</p>
 <p><a id='Equivalence-1'></a></p>
 <h2 id="equivalence">Equivalence</h2>
 <hr />
@@ -863,7 +866,8 @@
       <span class="o">-&gt;</span> <span class="n">FieldElem</span><span class="p">,</span> <span class="kt">Dict</span><span class="p">{</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="kt">Int</span><span class="p">},</span> <span class="kt">Vector</span><span class="p">{</span><span class="kt">Tuple</span><span class="p">{</span><span class="n">InfPlc</span><span class="p">,</span> <span class="kt">Int</span><span class="p">}}</span>
 </pre></div>
 
-<p>Returns a triple <code>(d, H, I)</code> of invariants of <code>M</code>, which determine the equivalence class completely. The element <code>d</code> is the determinant of a Gram matrix, <code>H</code> contains the non-trivial Hasse invariants and <code>I</code> containes for each real place the negative index of inertia.</p>
+<p>Returns a triple <code>(d, H, I)</code> of invariants of <code>M</code>, which determine the equivalence class completely. The element <code>d</code> is the determinant of a Gram matrix, <code>H</code> contains the non-trivial Hasse invariants and <code>I</code> contains for each real place the negative index of inertia.</p>
+<p>Note that <code>d</code> is determined only modulo squares.</p>
 <hr />
 <div class="codehilite"><pre><span></span><span class="n">isequivalent</span><span class="p">(</span><span class="n">M</span><span class="o">::</span><span class="n">QuadSpace</span><span class="p">,</span> <span class="n">L</span><span class="o">::</span><span class="n">QuadSpace</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
 </pre></div>

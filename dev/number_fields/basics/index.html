@@ -825,15 +825,13 @@
 <hr />
 <p>Many of the constructors have arguments of type <code>Symbol</code> or <code>AbstractString</code>, if used, they define the appearance in printing, and printing only. The named parameter <code>check</code> can be <code>true</code> or <code>false</code>, the default being <code>true</code>. This parameter controlls is the polynomial defining the number field is tested for irreducibility or not. Given that this can be potentially  very time consuming if the degree if large, one can disable this test. Note however, that the behaviour of Hecke is undefined if a reducible polynomial is used to define a <em>field</em>.</p>
 <p>The named boolean parameter <code>cached</code> is inherited from the underlying Nemo system. Two number fields defined using the same polynomial from the identical polynomial ring and the same (identical) symbol/ string will be identical if <code>cached == true</code> and different if <code>cached == false</code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Example</p>
-<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Qx</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">FlintQQ</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">);</span>
+<details class="note"><summary>Example</summary><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Qx</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">FlintQQ</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">);</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">K</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">NumberField</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">)</span>
 <span class="p">(</span><span class="kt">Number</span> <span class="n">field</span> <span class="n">over</span> <span class="kt">Rational</span> <span class="n">Field</span> <span class="n">with</span> <span class="n">defining</span> <span class="n">polynomial</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 </pre></div>
 
-</div>
+</details>
 <p><a id='Creation-of-non-simple-number-fields-1'></a></p>
 <h3 id="creation-of-non-simple-number-fields">Creation of non-simple number fields</h3>
 <hr />
@@ -844,9 +842,7 @@
 <p>Given a list <script type="math/tex">f</script> of univariate polynomials <script type="math/tex">f_1, \ldots, f_n \in K[x]</script> over some number field <script type="math/tex">K</script>, constructs the extension <script type="math/tex">K[x_1, \ldots, x_n]/(f_1(x_1), \ldots, f_n(x_n))</script>.</p>
 <p>The extensions <script type="math/tex">K[x]/(f_i)</script> must be linearly disjoint or equivalently the ideal <script type="math/tex">(f_1(x_1),\dotsc,f_n(x_n))</script> must be maximal (although this is not tested).</p>
 <hr />
-<div class="admonition note">
-<p class="admonition-title">Example</p>
-<div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Qx</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">FlintQQ</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">);</span>
+<details class="note"><summary>Example</summary><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Qx</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">FlintQQ</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">);</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">K</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">number_field</span><span class="p">([</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">-</span><span class="mi">5</span><span class="p">])</span>
 <span class="p">(</span><span class="n">Non</span><span class="o">-</span><span class="n">simple</span> <span class="n">number</span> <span class="n">field</span> <span class="n">with</span> <span class="n">defining</span> <span class="n">polynomials</span> <span class="n">fmpq_mpoly</span><span class="p">[</span><span class="n">_</span><span class="o">$</span><span class="mi">1</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">_</span><span class="o">$</span><span class="mi">2</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">3</span><span class="p">,</span> <span class="n">_</span><span class="o">$</span><span class="mi">3</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span><span class="p">],</span> <span class="n">NfAbsNSElem</span><span class="p">[</span><span class="n">_</span><span class="o">$</span><span class="mi">1</span><span class="p">,</span> <span class="n">_</span><span class="o">$</span><span class="mi">2</span><span class="p">,</span> <span class="n">_</span><span class="o">$</span><span class="mi">3</span><span class="p">])</span>
@@ -858,7 +854,7 @@
 <span class="n">x</span><span class="o">^</span><span class="mi">4</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span>
 </pre></div>
 
-</div>
+</details>
 <p><a id='Conversion-1'></a></p>
 <h3 id="conversion">Conversion</h3>
 <hr />
