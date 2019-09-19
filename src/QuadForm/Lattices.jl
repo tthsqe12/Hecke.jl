@@ -64,7 +64,7 @@ function quadratic_lattice(K::NumField, B::PMat; gram_ambient_space = nothing, g
   end
   if gram_ambient_space === nothing && gram !== nothing
     z = QuadLat{typeof(K), typeof(gram), typeof(B)}()
-    z.pmat = P
+    z.pmat = B
     z.gram = gram
     z.base_algebra = K
     return z
@@ -100,6 +100,40 @@ function quadratic_lattice(K::NumField, B::MatElem; gram_ambient_space = nothing
   end
 end
 
+@doc Markdown.doc"""
+    quadratic_lattice(V::QuadSpace, B::PMat) -> QuadLat
+
+Given a quadratic space $V$ and a pseudo-matrix $B$, returns the quadratic lattice
+spanned by the pseudo-matrix $B$ inside $V$.
+"""
+function lattice(V::QuadSpace, B::PMat)
+  K = base_ring(V)
+  z = QuadLat{typeof(K), typeof(gram_matrix(V)), typeof(B)}()
+  z.pmat = B
+  z.gram = gram_matrix(V, matrix(B))
+  z.base_algebra = K
+  z.space = V
+  return z
+end
+
+@doc Markdown.doc"""
+    quadratic_lattice(V::QuadSpace, B::MatElem) -> QuadLat
+
+Given a quadratic space $V$ and a matrix $B$, returns the quadratic lattice
+spanned by the rows of $B$ inside $V$.
+"""
+function lattice(V::QuadSpace, B::MatElem)
+  K = base_ring(V)
+  pmat = pseudo_matrix(B)
+  z = QuadLat{typeof(K), typeof(gram_matrix(V)), typeof(pmat)}()
+  z.pmat = pmat
+  z.gram = gram_matrix(V, B)
+  z.base_algebra = K
+  z.space = V
+  return z
+end
+
+# Hermitian lattices
 mutable struct HermLat{S, T, U, V, W} <: AbsLat{S}
   space::HermSpace{S, T, U, W}
   pmat::V
@@ -218,6 +252,59 @@ function hermitian_lattice(K::NumField, B::MatElem; gram_ambient_space = nothing
   end
 end
 
+@doc Markdown.doc"""
+    hermitian_lattice(V::HermSpace, B::PMat) -> HermLat
+
+Given a hermitian space $V$ and a pseudo-matrix $B$, returns the hermitian lattice
+spanned by the pseudo-matrix $B$ inside $V$.
+"""
+function lattice(V::HermSpace, B::PMat)
+  K = base_ring(V)
+  gram = gram_matrix(V, matrix(B))
+  z = HermLat{typeof(K), typeof(base_field(K)), typeof(gram), typeof(B), morphism_type(typeof(K))}()
+  z.pmat = B
+  z.gram = gram
+  z.base_algebra = base_ring(V)
+  z.involution = involution(V)
+  z.space = V
+  return z
+end
+
+@doc Markdown.doc"""
+    hermitian_lattice(V::QuadSpace, B::MatElem) -> HermLat
+
+Given a Hermitian space $V$ and a matrix $B$, returns the Hermitian lattice
+spanned by the rows of $B$ inside $V$.
+"""
+function lattice(V::HermSpace, B::MatElem)
+  K = base_ring(V)
+  gram = gram_matrix(V, B)
+  pmat = pseudo_matrix(B)
+  z = HermLat{typeof(K), typeof(base_field(K)), typeof(gram), typeof(pmat), morphism_type(typeof(K))}()
+  z.pmat = pmat
+  z.gram = gram
+  z.base_algebra = base_ring(V)
+  z.involution = involution(V)
+  z.space = V
+  return z
+end
+
+@doc Markdown.doc"""
+    lattice(V::HermSpace) -> HermLat
+
+Given a Hermitian space $V$, returns the Hermitian lattice with trivial basis
+matrix.
+"""
+lattice(V::HermSpace) = lattice(V, identity_matrix(base_ring(V), rank(V)))
+
+@doc Markdown.doc"""
+    lattice(V::QuadSpace) -> QuadLat
+
+Given a quadratic space $V$, returns the quadratic lattice with trivial basis
+matrix.
+"""
+lattice(V::QuadSpace) = lattice(V, identity_matrix(base_ring(V), rank(V)))
+
 ################################################################################
 #
 #  String I/O
@@ -227,13 +314,13 @@ end
 function Base.show(io::IO, L::QuadLat)
   println(io, "Quadratic lattice of rank $(rank(L)) and degree $(degree(L))")
   println(io, "over")
-  print(io, base_algebra(L))
+  print(IOContext(io, :compact => true), base_ring(L))
 end
 
 function Base.show(io::IO, L::HermLat)
   println(io, "Hermitian lattice of rank $(rank(L)) and degree $(degree(L))")
   println(io, "over")
-  print(io, base_algebra(L))
+  print(IOContext(io, :compact => true), base_ring(L))
 end
 
 ################################################################################
@@ -345,8 +432,6 @@ basis_matrix(L::AbsLat) = matrix(pseudo_matrix(L))
 
 # I don't know if I like those names.
 base_field(L::AbsLat) = L.base_algebra
-
-base_algebra(L::AbsLat) = L.base_algebra
 
 base_ring(L::AbsLat) = base_ring(L.pmat)
 
@@ -891,8 +976,8 @@ also the prime ideals dividing $2$ are included.
 """
 function bad_primes(L::AbsLat; even::Bool = false)
   s = scale(L)
-  f = factor(scale(L))
-  ff = factor(volume(L))
+  f = factor(norm(scale(L)))
+  ff = factor(norm(volume(L)))
   for (p, e) in ff
     f[p] = 0
   end
@@ -1040,6 +1125,105 @@ function jordan_decomposition(L::QuadLat, p)
 end
 
 function jordan_decomposition(L::HermLat, p)
+  R = base_ring(L)
+  aut = involution(L)
+  even = 2 in p
+
+  S = local_basis_matrix(L, p)
+
+  D = prime_decomposition(R, p)
+  split = length(D) == 2
+  ram = D[1][2] == 2
+  n = rank(L)
+
+  P = D[1]
+
+  if split
+    # I need a p-uniformizer
+    pi = elem_in_nf(uniformizer(P))
+    @assert valuation(pi, D[2]) == 0
+  elseif ram
+    pi = elem_in_nf(uniformizer(P))
+  else
+    pi = elem_in_nf(uniformizer(p))
+    su = even ? special_unit(P) : one(nf(order(P)))
+  end
+
+
+
+
+  #P:= D[1];
+  #if split then
+  #  pi:= MyWeakApproximation(D, [1,0]);
+  #elif ram then
+  #  pi:= PrimitiveElement(P);
+  #else
+  #  pi:= Type(p) eq RngIntElt select p else R ! PrimitiveElement(p);
+  #  su:= even select SpecialUnit(P) else 1;
+  #end if;
+
+  #oldval:= Infinity();
+  #Blocks:= []; Exponents:= [];
+
+  #F:= L`Form;
+  #k:= 1;
+  #while k le n do
+  #  G:= S * F * InternalConjugate(L, S);
+  #  X:= [ Valuation(G[i,i], P): i in [k..n] ];
+
+  #  m, ii:= Minimum( X ); ii +:= k-1;
+  #  pair:= <ii, ii>;
+  #  for i,j in [k..n] do
+  #    tmp:= Valuation(G[i,j], P);
+  #    if tmp lt m then m:= tmp; pair:= <i,j>; end if;
+  #  end for;
+  #  if m ne oldval then Append(~Blocks, k); oldval:= m; Append(~Exponents, m); end if;
+  #  i,j:= Explode(pair);
+
+  #  if (i ne j) and not (ram and (even or IsOdd(m))) then
+  #    a:= G[i,j];
+  #    if split then
+  #      lambda:= Valuation( pi*a, P ) eq m select pi else aut(pi);
+  #    elif ram then
+  #      assert IsEven(m);
+  #      lambda:= Norm(pi)^(m div 2) / a; 
+  #    else
+  #      lambda:= pi^m / a * su;
+  #    end if;
+  #    S[i] +:= aut(lambda) * S[j];
+  #    G:= S * F * InternalConjugate(L, S);
+  #    assert Valuation(G[i,i], P) eq m;
+  #    j:= i;
+  #  end if;
+
+  #  if i ne j then
+  #    assert i lt j;
+  #    SwapRows(~S, i, k);
+  #    SwapRows(~S, j, k+1);
+  #    SF:= S*F;
+  #    X1:= Eltseq(SF * InternalConjugate(L, S[k  ]));
+  #    X2:= Eltseq(SF * InternalConjugate(L, S[k+1]));
+  #    for l in [k+2..n] do
+  #      den:= Norm(X2[k])-X1[k]*X2[k+1];
+  #      S[l] -:= (X2[l]*X1[k+1]-X1[l]*X2[k+1])/den*S[k] + (X1[l]*X2[k] -X2[l]*X1[k])/den*S[k+1];
+  #    end for;
+  #    k+:= 2;
+  #  else
+  #    SwapRows(~S, i, k);
+  #    X:= Eltseq(S * F * InternalConjugate(L, S[k]));
+  #    for l in [k+1..n] do S[l] -:= X[l]/X[k] * S[k]; end for;
+  #    k+:= 1;
+  #  end if;
+  #end while;
+
+  #if not ram then
+  #  G:= S * F * InternalConjugate(L, S);
+  #  assert IsDiagonal(G);
+  #end if;
+
+  #Append(~Blocks, n+1);
+  #Matrices:= [* RowSubmatrix(S, Blocks[i], Blocks[i+1] - Blocks[i]) : i in [1..#Blocks-1] *];
+  #return Matrices, [* m*F*InternalConjugate(L, m): m in Matrices *], Exponents;
   throw(NotImplemented())
 end
 
@@ -1093,7 +1277,7 @@ function genus_symbol(L::QuadLat, p::NfOrdIdl; uniformizer = zero(order(p)))
       throw(error("Wrong uniformizer"))
     end
   else
-    unif = Hecke.uniformizer(p)
+    unif = elem_in_nf(Hecke.uniformizer(p))
   end
 
   if minimum(p) != 2
@@ -1426,3 +1610,55 @@ function islocal_norm(K::NfRel{T}, a::T, P) where {T} # ideal of parent(a)
   return hilbert_symbol(a, bQ, P) == 1
 end
 
+# Return a local unit u (that is, valuation(u, P) = 0) with trace zero.
+# P must be even and inert (P is lying over p)
+function _special_unit(P, p)
+  @assert ramification_index(P) == 1
+  @assert 2 in p
+  R = order(P)
+  E = nf(R)
+  @assert degree(E) == 2
+  x = gen(E)
+  x = x - trace(x)//2
+  a = coeff(x^2, 0)
+  K = base_field(E)
+  pi = E(elem_in_nf(uniformizer(p)))
+  v = valuation(a, p)
+  if v != 0
+    @assert iseven(v)
+    a = a//pi^v
+    x = x//pi^(div(v, 2))
+  end
+  k, h = ResidueField(order(p), p)
+  hex = extend(h, K)
+  t = hex \ sqrt(hex(a))
+  a = a//t^2
+  x = x//t
+  w = valuation(a - 1, p)
+  e = valuation(order(p)(2), p)
+  while w < 2*e
+    @assert iseven(w)
+    s = sqrt(h((a - 1)//pi^w))
+    t = 1 + (hex \ s) * pi^(div(w, 2))
+    a = a//t^2
+    x = x//t
+    w = valuation(a - 1, p)
+  end
+  @assert w == 2 * e
+  u = (1 + x)//2
+  @assert trace(u) == 1
+  @assert valuation(u, P) == 0
+  return u
+end
+
+function sqrt(a::fq)
+  Rt, t = PolynomialRing(parent(a), "t", cached = false)
+  r = roots(t^2 - a)
+  if length(r) > 0
+    return r[1]
+  else
+    error("not root")
+  end
+end
+
+ramification_index(P) = P.splitting_type[1]
