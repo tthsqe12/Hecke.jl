@@ -733,9 +733,9 @@
 <p>We will refer to this as a non-simple field - even though mathematically  we can find a primitive elements.</p>
 <ul>
 <li><code>NfRel</code>: a finite simple extension of a number field. This is   actually parametried by the (element) type of the coefficient field.  The complete type of an extension of an absolute field (<code>AnticNumberField</code>)  is <code>NfRel{nf_elem}</code>. The next extension thus will be  <code>NfRel{NfRelElem{nf_elem}}</code>.</li>
-<li><code>NfRel_ns</code>: extensions of number fields given by several polynomials.  This too will be refered to as a non-simple field.</li>
+<li><code>NfRelNS</code>: extensions of number fields given by several polynomials.  This too will be refered to as a non-simple field.</li>
 </ul>
-<p>The simple types <code>AnticNumberField</code> and <code>NfRel</code> are also calle simple fields in the rest of this document, <code>NfRel</code> and <code>NfRel_ns</code> are referred to as relative extensions while <code>AnticNumberField</code> and <code>NfAbsNS</code> are called absolute.</p>
+<p>The simple types <code>AnticNumberField</code> and <code>NfRel</code> are also calle simple fields in the rest of this document, <code>NfRel</code> and <code>NfRelNS</code> are referred to as relative extensions while <code>AnticNumberField</code> and <code>NfAbsNS</code> are called absolute.</p>
 <p>Internally, simple fields are essentially just (univariate) polynomial quotients in a dense representation, while non-simple fields are multivariate quotient rings, thus have a sparse presentation. In general, simple fields allow much faster arithmetic, while  the non-simple fields give easy access to large degree fields.</p>
 <p><a id='Absolute-Simple-Fields-1'></a></p>
 <h2 id="absolute-simple-fields">Absolute Simple Fields</h2>

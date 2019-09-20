@@ -763,37 +763,37 @@
 <p><a id='Creation-1'></a></p>
 <h2 id="creation">Creation</h2>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">frac_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">A</span><span class="o">::</span><span class="n">fmpz_mat</span><span class="p">,</span> <span class="n">b</span><span class="o">::</span><span class="n">fmpz</span><span class="p">,</span> <span class="n">A_in_hnf</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
+<div class="codehilite"><pre><span></span><span class="n">fractional_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">A</span><span class="o">::</span><span class="n">fmpz_mat</span><span class="p">,</span> <span class="n">b</span><span class="o">::</span><span class="n">fmpz</span><span class="p">,</span> <span class="n">A_in_hnf</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
 </pre></div>
 
 <p>Creates the fractional ideal of <script type="math/tex">\mathcal O</script> with basis matrix <script type="math/tex">A/b</script>. If A<em>in</em>hnf is set, then it is assumed that <script type="math/tex">A</script> is already in lower left HNF.</p>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">frac_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">A</span><span class="o">::</span><span class="n">fmpz_mat</span><span class="p">,</span> <span class="n">b</span><span class="o">::</span><span class="n">fmpz</span><span class="p">,</span> <span class="n">A_in_hnf</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
+<div class="codehilite"><pre><span></span><span class="n">fractional_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">A</span><span class="o">::</span><span class="n">fmpz_mat</span><span class="p">,</span> <span class="n">b</span><span class="o">::</span><span class="n">fmpz</span><span class="p">,</span> <span class="n">A_in_hnf</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
 </pre></div>
 
 <p>Creates the fractional ideal of <script type="math/tex">\mathcal O</script> with basis matrix <script type="math/tex">A/b</script>. If A<em>in</em>hnf is set, then it is assumed that <script type="math/tex">A</script> is already in lower left HNF.</p>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">frac_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">A</span><span class="o">::</span><span class="n">FakeFmpqMat</span><span class="p">,</span> <span class="n">A_in_hnf</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
+<div class="codehilite"><pre><span></span><span class="n">fractional_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">A</span><span class="o">::</span><span class="n">FakeFmpqMat</span><span class="p">,</span> <span class="n">A_in_hnf</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
 </pre></div>
 
 <p>Creates the fractional ideal of <script type="math/tex">\mathcal O</script> with basis matrix <script type="math/tex">A</script>. If A<em>in</em>hnf is set, then it is assumed that the numerator of <script type="math/tex">A</script> is already in lower left HNF.</p>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">frac_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="nb">I</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
+<div class="codehilite"><pre><span></span><span class="n">fractional_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="nb">I</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
 </pre></div>
 
 <p>Turns the ideal <script type="math/tex">I</script> into a fractional ideal of <script type="math/tex">\mathcal O</script>.</p>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">frac_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="nb">I</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="n">b</span><span class="o">::</span><span class="n">fmpz</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
+<div class="codehilite"><pre><span></span><span class="n">fractional_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="nb">I</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="n">b</span><span class="o">::</span><span class="n">fmpz</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
 </pre></div>
 
 <p>Creates the fractional ideal <script type="math/tex">I/b</script> of <script type="math/tex">\mathcal O</script>.</p>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">frac_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">a</span><span class="o">::</span><span class="n">nf_elem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
+<div class="codehilite"><pre><span></span><span class="n">fractional_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">a</span><span class="o">::</span><span class="n">nf_elem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
 </pre></div>
 
 <p>Creates the principal fractional ideal <script type="math/tex">(a)</script> of <script type="math/tex">\mathcal O</script>.</p>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">frac_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">a</span><span class="o">::</span><span class="n">NfOrdElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
+<div class="codehilite"><pre><span></span><span class="n">fractional_ideal</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">a</span><span class="o">::</span><span class="n">NfOrdElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdFracIdl</span>
 </pre></div>
 
 <p>Creates the principal fractional ideal <script type="math/tex">(a)</script> of <script type="math/tex">\mathcal O</script>.</p>
