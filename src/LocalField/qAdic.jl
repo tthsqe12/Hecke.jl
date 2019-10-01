@@ -126,6 +126,14 @@ function setcoeff!(x::qadic, i::Int, y::UInt)
            (Ref{qadic}, Int, Ref{padic}, Ref{FlintQadicField}), x, i, Y, parent(x))
 end
 
+
+function coefficient_ring(Q::FlintQadicField)
+  return FlintPadicField(prime(Q), precision(Q))
+end
+coefficient_field(Q::FlintQadicField) = coefficient_ring(Q)
+
+
+
 ################################################################################
 #
 #  Lifting and residue fields
@@ -227,24 +235,6 @@ function lift(x::fq_nmod_poly, Kt)
 end
 
 
-function lift_reco(::FlintRationalField, a::padic; reco::Bool = false)
-  if reco
-    u, v, N = getUnit(a)
-    R = parent(a)
-    fl, c, d = rational_reconstruction(u, prime(R, N-v))
-    !fl && return nothing
-    
-    x = FlintQQ(c, d)
-    if v < 0
-      return x//prime(R, -v)
-    else
-      return x*prime(R, v)
-    end
-  else
-    return lift(FlintQQ, a)
-  end
-end
-
 ################################################################################
 #
 #  Misc
@@ -258,15 +248,11 @@ end
 
 uniformizer(Q::FlintQadicField) = Q(prime(Q))
 
-uniformizer(Q::FlintPadicField) = Q(prime(Q))
-Base.precision(Q::FlintPadicField) = Q.prec_max
-
 nrows(A::Array{T, 2}) where {T} = size(A)[1]
 ncols(A::Array{T, 2}) where {T} = size(A)[2]
 
 import Base.^
 ^(a::qadic, b::qadic) = exp(b*log(a))
-^(a::padic, b::padic) = exp(b*log(a))
 
 import Base.//
 //(a::qadic, b::qadic) = divexact(a, b)
