@@ -1073,6 +1073,12 @@ true
 
 <p>Returns the norm of <script type="math/tex">a</script>
 </p>
+<div class="codehilite"><pre><span></span>norm(a::AlgAssAbsOrdIdl, O::AlgAssAbsOrd; copy::Bool = true) -&gt; fmpq
+</pre></div>
+
+<blockquote>
+<p>Returns the norm of <script type="math/tex">a</script> considered as an (possibly fractional) ideal of <script type="math/tex">O</script>.</p>
+</blockquote>
 <div class="codehilite"><pre><span></span>norm(a::AlgAssRelOrdIdl{S, T}, O::AlgAssRelOrd{S, T}; copy::Bool = true)
   where { S, T } -&gt; T
 </pre></div>
