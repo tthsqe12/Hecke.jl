@@ -847,12 +847,11 @@
 <p><a id='Creation-of-non-simple-number-fields-1'></a></p>
 <h3 id="creation-of-non-simple-number-fields">Creation of non-simple number fields</h3>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">NumberField</span><span class="p">(</span><span class="n">f</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">PolyElem</span><span class="p">{</span><span class="o">&lt;:</span><span class="n">NumFieldElem</span><span class="p">}},</span> <span class="n">s</span><span class="o">::</span><span class="n">String</span><span class="o">=</span><span class="s">&quot;_</span><span class="se">\$</span><span class="s">&quot;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">NumberField</span><span class="p">(</span><span class="n">f</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">PolyElem</span><span class="p">{</span><span class="o">&lt;:</span><span class="n">NumFieldElem</span><span class="p">}},</span> <span class="n">s</span><span class="o">::</span><span class="n">String</span><span class="o">=</span><span class="s">&quot;_</span><span class="se">\$</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">check</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span>
                                           <span class="o">-&gt;</span> <span class="n">NumField</span><span class="p">,</span> <span class="kt">Vector</span><span class="p">{</span><span class="n">NumFieldElem</span><span class="p">}</span>
 </pre></div>
 
-<p>Given a list <script type="math/tex">f</script> of univariate polynomials <script type="math/tex">f_1, \ldots, f_n \in K[x]</script> over some number field <script type="math/tex">K</script>, constructs the extension <script type="math/tex">K[x_1, \ldots, x_n]/(f_1(x_1), \ldots, f_n(x_n))</script>.</p>
-<p>The extensions <script type="math/tex">K[x]/(f_i)</script> must be linearly disjoint or equivalently the ideal <script type="math/tex">(f_1(x_1),\dotsc,f_n(x_n))</script> must be maximal (although this is not tested).</p>
+<p>Given a list <script type="math/tex">f_1, \ldots, f_n</script> of univariate polynomials in <script type="math/tex">K[x]</script> over some number field <script type="math/tex">K</script>, constructs the extension <script type="math/tex">K[x_1, \ldots, x_n]/(f_1(x_1), \ldots, f_n(x_n))</script>.</p>
 <hr />
 <details class="note"><summary>Example</summary><div class="codehilite"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Qx</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">FlintQQ</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">);</span>
 
@@ -878,7 +877,7 @@
 <div class="codehilite"><pre><span></span><span class="n">simple_extension</span><span class="p">(</span><span class="n">L</span><span class="o">::</span><span class="n">NonSimpleNumField</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SimpleNumField</span><span class="p">,</span> <span class="n">Map</span>
 </pre></div>
 
-<p>Given a non-simple extension <script type="math/tex">L/K</script>, this function computes a simple extension <script type="math/tex">M/K</script> and an <script type="math/tex">K</script>-linear isomorphism <script type="math/tex">M \to L</script>.</p>
+<p>Given a non-simple extension <script type="math/tex">L/K</script>, this function computes a simple extension <script type="math/tex">M/K</script> and a <script type="math/tex">K</script>-linear isomorphism <script type="math/tex">M \to L</script>.</p>
 <p><a id='Invariants-1'></a></p>
 <h3 id="invariants">Invariants</h3>
 <hr />

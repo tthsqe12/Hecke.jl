@@ -771,14 +771,14 @@
 
 <p>Returns the order which has basis matrix <script type="math/tex">A</script> with respect to the power basis of <script type="math/tex">K</script>. If <code>check</code> is set, it is checked whether <script type="math/tex">A</script> defines an order.</p>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">Order</span><span class="p">(</span><span class="n">K</span><span class="o">::</span><span class="n">AnticNumberField</span><span class="p">,</span> <span class="n">A</span><span class="o">::</span><span class="n">fmpz_mat</span><span class="p">,</span> <span class="n">check</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrd</span>
-</pre></div>
-
-<p>Returns the order which has basis matrix <script type="math/tex">A</script> with respect to the power basis of <script type="math/tex">K</script>. If <code>check</code> is set, it is checked whether <script type="math/tex">A</script> defines an order.</p>
-<div class="codehilite"><pre><span></span>  Order(K::NumField, M::PMat) -&gt; NfRelOrd
+<div class="codehilite"><pre><span></span>  <span class="n">Order</span><span class="p">(</span><span class="n">K</span><span class="o">::</span><span class="n">NumField</span><span class="p">,</span> <span class="n">M</span><span class="o">::</span><span class="n">PMat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfRelOrd</span>
 </pre></div>
 
 <p>Returns the order which has basis pseudo-matrix <script type="math/tex">M</script> with respect to the power basis of <script type="math/tex">K</script>.</p>
+<div class="codehilite"><pre><span></span>Order(K::AnticNumberField, A::fmpz_mat, check::Bool = true) -&gt; NfOrd
+</pre></div>
+
+<p>Returns the order which has basis matrix <script type="math/tex">A</script> with respect to the power basis of <script type="math/tex">K</script>. If <code>check</code> is set, it is checked whether <script type="math/tex">A</script> defines an order.</p>
 <div class="codehilite"><pre><span></span>Order(A::AbsAlgAss{&lt;: NumFieldElem}, M::PMat{&lt;: NumFieldElem, T})
   -&gt; AlgAssRelOrd
 </pre></div>
@@ -787,15 +787,15 @@
 <p>Returns the order of <script type="math/tex">A</script> with basis pseudo-matrix <script type="math/tex">M</script>.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">EquationOrder</span><span class="p">(</span><span class="n">K</span><span class="o">::</span><span class="n">NfAbs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrd</span>
-</pre></div>
-
-<p>Returns the equation order of the absolute number field <script type="math/tex">K</script>.</p>
-<div class="codehilite"><pre><span></span>  EquationOrder(L::NumField) -&gt; NfRelOrd
-  equation_order(L::NumField) -&gt; NfRelOrd
+<div class="codehilite"><pre><span></span>  <span class="n">EquationOrder</span><span class="p">(</span><span class="n">L</span><span class="o">::</span><span class="n">NumField</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfRelOrd</span>
+  <span class="n">equation_order</span><span class="p">(</span><span class="n">L</span><span class="o">::</span><span class="n">NumField</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfRelOrd</span>
 </pre></div>
 
 <p>Returns the equation order of the number field <script type="math/tex">L</script>.</p>
+<div class="codehilite"><pre><span></span>EquationOrder(K::NfAbs) -&gt; NfAbsOrd
+</pre></div>
+
+<p>Returns the equation order of the absolute number field <script type="math/tex">K</script>.</p>
 <hr />
 <div class="codehilite"><pre><span></span><span class="n">maximal_order</span><span class="p">(</span><span class="n">K</span><span class="o">::</span><span class="kt">Union</span><span class="p">{</span><span class="n">AnticNumberField</span><span class="p">,</span> <span class="n">NfAbsNS</span><span class="p">};</span> <span class="n">discriminant</span><span class="o">::</span><span class="n">fmpz</span><span class="p">,</span> <span class="n">ramified_primes</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">fmpz</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrd</span>
 </pre></div>
@@ -813,24 +813,24 @@ julia&gt; O = MaximalOrder(K);
 
 <p>Returns the maximal order of the number field that contains <script type="math/tex">O</script>. Additional information can be supplied if they are already known, as the ramified primes, the discriminant of the maximal order or a set of integers dividing the index of <script type="math/tex">O</script> in the maximal order.</p>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">maximal_order</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfAbsOrd</span><span class="p">;</span> <span class="n">index_divisors</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">fmpz</span><span class="p">},</span> <span class="n">discriminant</span><span class="o">::</span><span class="n">fmpz</span><span class="p">,</span> <span class="n">ramified_primes</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">fmpz</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrd</span>
-</pre></div>
-
-<p>Returns the maximal order of the number field that contains <script type="math/tex">O</script>. Additional information can be supplied if they are already known, as the ramified primes, the discriminant of the maximal order or a set of integers dividing the index of <script type="math/tex">O</script> in the maximal order.</p>
-<div class="codehilite"><pre><span></span><span class="n">maximal_order</span><span class="p">(</span><span class="n">K</span><span class="o">::</span><span class="kt">Union</span><span class="p">{</span><span class="n">AnticNumberField</span><span class="p">,</span> <span class="n">NfAbsNS</span><span class="p">};</span> <span class="n">discriminant</span><span class="o">::</span><span class="n">fmpz</span><span class="p">,</span> <span class="n">ramified_primes</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">fmpz</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrd</span>
-</pre></div>
-
-<p>Returns the maximal order of <script type="math/tex">K</script>. Additional information can be supplied if they are already known, as the ramified primes or the discriminant of the maximal order.</p>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span>julia&gt; Qx, xx = FlintQQ[&quot;x&quot;];
-julia&gt; K, a = NumberField(x^3 + 2, &quot;a&quot;);
-julia&gt; O = MaximalOrder(K);
-</pre></div>
-
-<div class="codehilite"><pre><span></span>  maximal_order(L::NumField) -&gt; NfRelOrd
+<div class="codehilite"><pre><span></span>  <span class="n">maximal_order</span><span class="p">(</span><span class="n">L</span><span class="o">::</span><span class="n">NumField</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfRelOrd</span>
 </pre></div>
 
 <p>Returns the maximal order of <script type="math/tex">L</script>.</p>
+<div class="codehilite"><pre><span></span><span class="n">maximal_order</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfAbsOrd</span><span class="p">;</span> <span class="n">index_divisors</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">fmpz</span><span class="p">},</span> <span class="n">discriminant</span><span class="o">::</span><span class="n">fmpz</span><span class="p">,</span> <span class="n">ramified_primes</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">fmpz</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrd</span>
+</pre></div>
+
+<p>Returns the maximal order of the number field that contains <script type="math/tex">O</script>. Additional information can be supplied if they are already known, as the ramified primes, the discriminant of the maximal order or a set of integers dividing the index of <script type="math/tex">O</script> in the maximal order.</p>
+<div class="codehilite"><pre><span></span><span class="n">maximal_order</span><span class="p">(</span><span class="n">K</span><span class="o">::</span><span class="kt">Union</span><span class="p">{</span><span class="n">AnticNumberField</span><span class="p">,</span> <span class="n">NfAbsNS</span><span class="p">};</span> <span class="n">discriminant</span><span class="o">::</span><span class="n">fmpz</span><span class="p">,</span> <span class="n">ramified_primes</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">fmpz</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrd</span>
+</pre></div>
+
+<p>Returns the maximal order of <script type="math/tex">K</script>. Additional information can be supplied if they are already known, as the ramified primes or the discriminant of the maximal order.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span>julia&gt; Qx, xx = FlintQQ[&quot;x&quot;];
+julia&gt; K, a = NumberField(x^3 + 2, &quot;a&quot;);
+julia&gt; O = MaximalOrder(K);
+</pre></div>
+
 <hr />
 <div class="codehilite"><pre><span></span><span class="n">lll</span><span class="p">(</span><span class="n">M</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrd</span>
 </pre></div>
@@ -848,14 +848,14 @@ julia&gt; O = MaximalOrder(K);
 
 <p>Given a prime number <script type="math/tex">p</script>, this function returns the <script type="math/tex">p</script>-radical <script type="math/tex">\sqrt{p\mathcal O}</script> of <script type="math/tex">\mathcal O</script>, which is just <script type="math/tex">\{ x \in \mathcal O \mid \exists k \in \mathbf Z_{\geq 0} \colon x^k \in p\mathcal O \}</script>. It is not checked that <script type="math/tex">p</script> is prime.</p>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">ring_of_multipliers</span><span class="p">(</span><span class="nb">I</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrd</span>
-</pre></div>
-
-<p>Computes the order <script type="math/tex">(I : I)</script>, which is the set of all <script type="math/tex">x \in K</script> with <script type="math/tex">xI \subseteq I</script>.</p>
-<div class="codehilite"><pre><span></span>ring_of_multipliers(a::NfRelOrdIdl) -&gt; NfRelOrd
+<div class="codehilite"><pre><span></span><span class="n">ring_of_multipliers</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfRelOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfRelOrd</span>
 </pre></div>
 
 <p>Computes the order <script type="math/tex">(a : a)</script>, which is the set of all <script type="math/tex">x \in K</script> with <script type="math/tex">xa \subseteq a</script>, where <script type="math/tex">K</script> is the ambient number field of <script type="math/tex">a</script>.</p>
+<div class="codehilite"><pre><span></span>ring_of_multipliers(I::NfAbsOrdIdl) -&gt; NfAbsOrd
+</pre></div>
+
+<p>Computes the order <script type="math/tex">(I : I)</script>, which is the set of all <script type="math/tex">x \in K</script> with <script type="math/tex">xI \subseteq I</script>.</p>
 <h3 id="example">Example</h3>
 <div class="codehilite"><pre><span></span>julia&gt; Qx, x = PolynomialRing(FlintQQ, &quot;x&quot;);
 

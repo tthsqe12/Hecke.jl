@@ -1064,15 +1064,15 @@ true
 <p>Returns the trace of <script type="math/tex">a</script>.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfAbsOrdElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz</span>
-</pre></div>
-
-<p>Returns the norm of <script type="math/tex">a</script>.</p>
-<div class="codehilite"><pre><span></span>norm(a::NfRelOrdFracIdl{T, S}) -&gt; S
+<div class="codehilite"><pre><span></span><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfRelOrdFracIdl</span><span class="p">{</span><span class="n">T</span><span class="p">,</span> <span class="n">S</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">S</span>
 </pre></div>
 
 <p>Returns the norm of <script type="math/tex">a</script>
 </p>
+<div class="codehilite"><pre><span></span>norm(a::NfAbsOrdElem) -&gt; fmpz
+</pre></div>
+
+<p>Returns the norm of <script type="math/tex">a</script>.</p>
 <div class="codehilite"><pre><span></span>norm(a::AlgAssAbsOrdIdl, O::AlgAssAbsOrd; copy::Bool = true) -&gt; fmpq
 </pre></div>
 
