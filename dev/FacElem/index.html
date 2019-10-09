@@ -862,7 +862,7 @@ FacElem{B}(d::Dict{B, Integer}) -&gt; FacElem{B}
 
 <p>Computed a partial factorisation of <script type="math/tex">x</script>, ie. writes <script type="math/tex">x</script> as a product of pariwise coprime integral ideals.</p>
 <hr />
-<div class="codehilite"><pre><span></span> <span class="n">factor_coprime</span><span class="p">(</span><span class="n">Q</span><span class="o">::</span><span class="n">FacElem</span><span class="p">{</span><span class="n">NfOrdFracIdl</span><span class="p">,</span> <span class="n">NfOrdFracIdlSet</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">Dict</span><span class="p">{</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="kt">Int</span><span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="n">factor_coprime</span><span class="p">(</span><span class="n">Q</span><span class="o">::</span><span class="n">FacElem</span><span class="p">{</span><span class="n">NfOrdFracIdl</span><span class="p">,</span> <span class="n">NfOrdFracIdlSet</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">Dict</span><span class="p">{</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="kt">Int</span><span class="p">}</span>
 </pre></div>
 
 <p>A coprime factorisation of <script type="math/tex">Q</script>: each ideal in <script type="math/tex">Q</script> is split using \code{integral_split} and then a coprime basis is computed. This does {\bf not} use any factorisation.</p>
