@@ -520,20 +520,30 @@ function completion(K::AnticNumberField, ca::qadic)
   end
   # gen(K) -> conj(a, p)[i] -> a = sum a_i o^i
   # need o = sum o_i a^i
-  R, mR = ResidueField(parent(ca))
+    R, mR = ResidueField(parent(ca))
+
+    # Construct the array of powers of the primitive element.
   pa = [one(R), mR(ca)]
   d = degree(R)
   while length(pa) < d
     push!(pa, pa[end]*pa[2])
   end
+
+    # Solve a linear system to figure out how to express the root of the
+    # Conway Polynomial defining the completion in terms of the image of the
+    # primitive element of the number field $K$.
   m = matrix(GF(p), d, d, [coeff(pa[i], j-1) for j=1:d for i=1:d])
   o = matrix(GF(p), d, 1, [coeff(gen(R), j-1) for j=1:d])
   s = solve(m, o)
   @hassert :qAdic 1 m*s == o
-  a = K()
+
+    # Construct the Conway root in the residue field.
+    a = K()
   for i=1:d
     _num_setcoeff!(a, i-1, lift(s[i,1]))
   end
+
+    # Construct the derivative of the Conway root in the residue field.
   f = defining_polynomial(parent(ca), FlintZZ)
   fso = inv(derivative(f)(gen(R)))
   o = matrix(GF(p), d, 1, [coeff(fso, j-1) for j=1:d])
