@@ -1,5 +1,11 @@
 export completion, qAdicConj
 
+#########################################################################################
+#
+#   Newton lifting and root finding
+#
+#########################################################################################
+
 #XXX: valuation(Q(0)) == 0 !!!!!
 function newton_lift(f::fmpz_poly, r::qadic)
   Q = parent(r)
@@ -77,6 +83,13 @@ function roots(C::qAdicRootCtx, n::Int = 10)
   C.R = rt
   return rt
 end
+
+#########################################################################################
+#
+#   qAdic Conj structure
+#
+#########################################################################################
+
 
 @doc Markdown.doc"""
     qAdicConj(K::AnticNumberField, p::Int)
@@ -200,6 +213,12 @@ function _conjugates(a::nf_elem, C::qAdicConj, n::Int, op::Function)
   end
   return res
 end
+
+#########################################################################################
+#
+#   Stuff for regulators
+#
+#########################################################################################
 
 function _log(a::qadic)
   q = prime(parent(a))^degree(parent(a))
