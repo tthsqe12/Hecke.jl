@@ -1034,7 +1034,7 @@
 <div class="codehilite"><pre><span></span><span class="n">ismodular</span><span class="p">(</span><span class="n">L</span><span class="o">::</span><span class="n">AbsLat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span><span class="p">,</span> <span class="n">NfOrdFracIdl</span>
 </pre></div>
 
-<p>Returns whether <script type="math/tex">L</script> is modular. In this case, the second return value is a fractional ideal <script type="math/tex">\mathfrak a</script> such that <script type="math/tex">\mathfrak a L^\perp = L</script>, where <script type="math/tex">L^\perp</script> is the dual of <script type="math/tex">L</script>.</p>
+<p>Returns whether <script type="math/tex">L</script> is modular. In this case, the second return value is a fractional ideal <script type="math/tex">\mathfrak a</script> such that <script type="math/tex">\mathfrak a L^\# = L</script>, where <script type="math/tex">L^\#</script> is the dual of <script type="math/tex">L</script>.</p>
 <hr />
 <p><a id='Local-properties-1'></a></p>
 <h2 id="local-properties">Local properties</h2>
@@ -1065,17 +1065,6 @@
 
 <p>Returns a Jordan decomposition of the completition of <script type="math/tex">L</script> at <script type="math/tex">\mathfrak p</script>.</p>
 <p>The return value consists of three lists <script type="math/tex">(M_i)_i</script>, <script type="math/tex">(G_i)_i</script> and <script type="math/tex">(s_i)_i</script> of the same length <script type="math/tex">r</script>. The completions of the row spans of the matrices <script type="math/tex">M_i</script> yield a Jordan decomposition of <script type="math/tex">L_{\mathfrak{p}}</script> into modular sublattices <script type="math/tex">L_i</script> with gram matrices <script type="math/tex">G_i</script> and scale of <script type="math/tex">\mathfrak{p}</script>-adic valuation <script type="math/tex">s_i</script>.</p>
-<hr />
-<div class="codehilite"><pre><span></span><span class="n">genus_symbol</span><span class="p">(</span><span class="n">L</span><span class="o">::</span><span class="n">AbsLat</span><span class="p">,</span> <span class="n">p</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">;</span> <span class="n">uniformizer</span> <span class="o">=</span> <span class="n">uniformizer</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
-                                                              <span class="o">-&gt;</span> <span class="n">GenusSymbol</span>
-</pre></div>
-
-<p>Returns the genus symbol of <script type="math/tex">L</script> at the prime ideal <script type="math/tex">\mathfrak{p}</script>. One can specify which uniformizer to choose using the <code>uniformizer</code> keyword.</p>
-<hr />
-<div class="codehilite"><pre><span></span><span class="n">change_uniformizer</span><span class="p">(</span><span class="n">G</span><span class="o">::</span><span class="n">GenusSymbol</span><span class="p">,</span> <span class="n">a</span><span class="o">::</span><span class="n">NfOrdElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GenusSymbol</span>
-</pre></div>
-
-<p>Returns an equivalent? genus symbol with uniformizer <script type="math/tex">a</script>.</p>
 <hr />
 <div class="codehilite"><pre><span></span><span class="n">islocally_isometric</span><span class="p">(</span><span class="n">L</span><span class="o">::</span><span class="n">AbsLat</span><span class="p">,</span> <span class="n">M</span><span class="o">::</span><span class="n">AbsLat</span><span class="p">,</span> <span class="n">p</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
 </pre></div>
