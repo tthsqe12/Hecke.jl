@@ -549,6 +549,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#genera" class="md-nav__link">
+    Genera
+  </a>
+  
+</li>
+      
       
       
       
@@ -791,6 +798,13 @@
         <li class="md-nav__item">
   <a href="#local-properties" class="md-nav__link">
     Local properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#genera" class="md-nav__link">
+    Genera
   </a>
   
 </li>
@@ -1071,6 +1085,88 @@
 
 <p>Returns whether the completions of <script type="math/tex">L</script> and <script type="math/tex">M</script> at the prime ideal <script type="math/tex">\mathfrak{p}</script> are locally isometric.</p>
 <hr />
+<p><a id='Genera-1'></a></p>
+<h2 id="genera">Genera</h2>
+<p><a id='Creation-of-genera-from-lattices-1'></a></p>
+<h1 id="creation-of-genera-from-lattices">Creation of genera from lattices</h1>
+<hr />
+<div class="codehilite"><pre><span></span><span class="n">genus</span><span class="p">(</span><span class="n">L</span><span class="o">::</span><span class="n">HermLat</span><span class="p">,</span> <span class="n">p</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LocalGenusHerm</span>
+</pre></div>
+
+<p>Returns the genus of <script type="math/tex">L</script> at the prime ideal <script type="math/tex">\mathfrak p</script>.</p>
+<p>See [Kir16, Definition 8.3.1].</p>
+<hr />
+<div class="codehilite"><pre><span></span><span class="n">genus</span><span class="p">(</span><span class="n">L</span><span class="o">::</span><span class="n">HermLat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GenusHerm</span>
+</pre></div>
+
+<p>Given a Hermitian lattice, return the genus it belongs to.</p>
+<hr />
+<p><a id='Properties-of-genera-1'></a></p>
+<h1 id="properties-of-genera">Properties of genera</h1>
+<hr />
+<div class="codehilite"><pre><span></span><span class="n">rank</span><span class="p">(</span><span class="n">G</span><span class="o">::</span><span class="n">LocalGenusHerm</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+</pre></div>
+
+<p>Given a genus symbol <script type="math/tex">G</script>, return the rank of a lattice in <script type="math/tex">G</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><span class="n">rank</span><span class="p">(</span><span class="n">G</span><span class="o">::</span><span class="n">LocalGenusHerm</span><span class="p">,</span> <span class="n">i</span><span class="o">::</span><span class="kt">Int</span><span class="p">)</span>
+</pre></div>
+
+<p>Given a genus symbol for Hermitian lattices over <script type="math/tex">E/K</script>, return the rank of the <script type="math/tex">i</script>th Jordan block of <script type="math/tex">G</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><span class="n">ranks</span><span class="p">(</span><span class="n">G</span><span class="o">::</span><span class="n">LocalGenusHerm</span><span class="p">)</span>
+</pre></div>
+
+<p>Given a genus symbol for Hermitian lattices over <script type="math/tex">E/K</script>, return the ranks of the Jordan block of <script type="math/tex">G</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><span class="n">det</span><span class="p">(</span><span class="n">G</span><span class="o">::</span><span class="n">LocalGenusHerm</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+</pre></div>
+
+<p>Given a genus symbol <script type="math/tex">G</script>, return the determinant of a lattice in <script type="math/tex">G</script>. This will be <code>1</code> or <code>-1</code> depending on whether the determinant is a local norm or not.</p>
+<hr />
+<div class="codehilite"><pre><span></span><span class="n">det_representative</span><span class="p">(</span><span class="n">G</span><span class="o">::</span><span class="n">LocalGenusHerm</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NumFieldElem</span>
+</pre></div>
+
+<p>Return a representative for the norm class of the determinant of <script type="math/tex">G</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><span class="n">gram_matrix</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="n">AbsSpace</span><span class="p">,</span> <span class="n">M</span><span class="o">::</span><span class="n">MatElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MatElem</span>
+</pre></div>
+
+<p>Returns the gram matrix of the rows of <code>M</code>.</p>
+<div class="codehilite"><pre><span></span><span class="n">gram_matrix</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="n">AbsSpace</span><span class="p">,</span> <span class="n">S</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Vector</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">MatElem</span>
+</pre></div>
+
+<p>Returns the gram matrix of the sequence <code>S</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Missing docstring.</p>
+<p>Missing docstring for <code>gram_matrix(G::LocalGenusHerm, i::Int)</code>. Check Documenter's build log for details.</p>
+</div>
+<hr />
+<div class="codehilite"><pre><span></span><span class="n">primes</span><span class="p">(</span><span class="n">G</span><span class="o">::</span><span class="n">GenusHerm</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Vector</span><span class="p">{</span><span class="n">NfOrdIdl</span><span class="p">}</span>
+</pre></div>
+
+<p>Return the primes of a global genus symbol.</p>
+<hr />
+<p><a id='Check-if-lattice-is-contained-in-genus-1'></a></p>
+<h1 id="check-if-lattice-is-contained-in-genus">Check if lattice is contained in genus</h1>
+<hr />
+<div class="codehilite"><pre><span></span><span class="kp">in</span><span class="p">(</span><span class="n">L</span><span class="o">::</span><span class="n">HermLat</span><span class="p">,</span> <span class="n">G</span><span class="o">::</span><span class="n">LocalGenusHerm</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+</pre></div>
+
+<p>Test if the lattice <script type="math/tex">L</script> is contained in the local genus <script type="math/tex">G</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><span class="kp">in</span><span class="p">(</span><span class="n">L</span><span class="o">::</span><span class="n">HermLat</span><span class="p">,</span> <span class="n">G</span><span class="o">::</span><span class="n">LocalGenusHerm</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+</pre></div>
+
+<p>Test if the lattice <script type="math/tex">L</script> is contained in the local genus <script type="math/tex">G</script>.</p>
+<hr />
+<p><a id='Creating-representatives-1'></a></p>
+<h1 id="creating-representatives">Creating representatives</h1>
+<hr />
+<div class="codehilite"><pre><span></span><span class="n">representative</span><span class="p">(</span><span class="n">G</span><span class="o">::</span><span class="n">LocalGenusHerm</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HermLat</span>
+</pre></div>
+
+<p>Given a local genus, return a Hermitian lattice contained in this genus.</p>
                 
                   
                 
