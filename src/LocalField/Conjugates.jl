@@ -255,6 +255,17 @@ mutable struct qAdicConj
     end
 end
 
+function coeffs(a::qadic)
+    k = parent(a)
+    return [coeff(a,j) for j=0:degree(k)-1]
+end
+
+# TODO: Make this more consistent.
+function coeffs(a::eisf_elem)
+    return coefficients(a)
+end
+
+
 @doc Markdown.doc"""
     underdetermined_solve(A,b)
 Solves the equation `Ax=b`.
