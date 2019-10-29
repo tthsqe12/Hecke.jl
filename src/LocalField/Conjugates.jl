@@ -1,67 +1,4 @@
-export completion, qAdicConj
-
-#########################################################################################
-#
-#   Sharpening
-#
-#########################################################################################
-
-# Mock code to support changing precision on objects.
-
-# Given a polynomial over the rationals, and a new precision, mutate the Eisenstein
-# field so that the defining polynomial has coefficients with precision `new_prec`.
-function sharpen!(K::EisensteinField, g, new_prec)
-
-    # Note: The base field must also be sharpened in order for pre-existing elements
-    #       to live in the same field. This means other extensions defined over the
-    #       same base field are affected by the mutated!!!
-    #
-    #       For this reason. The base field has to be explicitly sharpened before
-    #       any sharpening of extensions occurs.
-    
-    # Extract the data that needs to be sharpened
-    Qp = base_ring(K)
-
-    if new_prec > Qp.prec_max
-        error("Base field must be explicitly sharpened to the desired precision prior "*
-              "to sharpening the extension. For more information, see the documentation.")
-    end
-
-    Rdat = K.data_ring
-    Rx   = Rdat.base_ring
-
-    # Sharpen
-    # NOTE: This causes a mutation in any object with a ref to Qp.
-    #       Perhaps a copy operation is advised.
-    Qp.prec_max = new_prec
-    gp = change_base_ring(Qp,g)(gen(Rx))
-
-    # Check depends on `a +O(p^n) == a + O(p^m)`. Satisfied in the present implementation.
-    if gp != K.pol
-        error("New polynomial does not refine coefficients of the existing defining polynomial.")
-    end
-    
-    Rdat.modulus = gp
-    K.pol = Rdat.modulus    
-    return
-end
-
-function sharpen!(K::FlintPadicField, new_prec)
-    K.prec_max = new_prec
-    return
-end
-
-function sharpen!(K::FlintQadicField, new_prec)
-    K.prec_max = new_prec
-    return
-end
-
-function sharpen_base!(K::EisensteinField, new_prec)
-    Q = base_ring(K)
-    @assert typeof(Q) <: FlintLocalField
-    sharpen!(Q, new_prec)
-    return
-end
+export qAdicConj
 
 
 #########################################################################################
@@ -309,7 +246,9 @@ end
 function sym_lift(a::padic)
     u = unit_part(a)
     p = prime(a.parent)
-    return mod_sym(u, p^precision(a))*FlintQQ(p)^valuation(a)
+    N = precision(a)
+    v = valuation(a)
+    return mod_sym(u, p^(N-v))*FlintQQ(p)^v
 end
 
 @doc Markdown.doc"""
@@ -344,150 +283,14 @@ function underdetermined_solve_first(A,b)
     return N[1:size(N,1)-1,ind]
 end
 
-#=
-Commentary on precisions:
 
-See the org file.
+## Temporary structure to record data cached so that a completion can be sharpened.
+## This should somehow be remembered by the maps to/from the completion instead.
 
-
-=#
-
-function new_completion(K::NumField{T} where T, P::NfOrdIdl; prec=10)
-
-    # Determine a polynomial over Kp_unram which annihilates pi.
-
-    # The method used here is to find a solution to `g(b) mod P^prec`, where
-    # the residue image of `b` is a (Conway) generator for the residue field.
-
-    # This is definitely not the best algorithm. In the unramified, non-index-divisor
-    # case, computing powers of `P` is trivial. However, in the other (likely important)
-    # cases, it is likely worthwhile to see if computing powers is also easy.
-    
-    @assert has_2_elem(P)
-    a  = gen(K)
-    p  = gens(P)[1]
-    pi = gens(P)[2]
-    max_order = maximal_order(K)
-
-    
-    # Determine ramification index.
-    e = ramification_index(P)
-    d = degree(K)
-
-    # Figure out the unramified part.
-    k,res = ResidueField(max_order,P)
-    f = degree(k)
-    Kp_unram = QadicField(p, f, prec)
-
-    # Lift the conway generator of the finite field to the number field.
-    function conway_gen_lift()
-        BO = basis(max_order)
-
-        A = matrix(coeffs.(res.(BO)))
-        b = matrix(coeffs(gen(k)))
-
-        y = underdetermined_solve_first(A,b)
-
-        # This is the lift of the generator of the Qadic subfield of the completion.
-        return sum([a*b for (a,b) in zip(BO,lift(y))])
-    end
-
-    delta = conway_gen_lift()
-    display(delta)    
-    delta_p = f==1 ? Kp_unram(1) : gen(Kp_unram)
-
-    # Construct the integer matrix encoding coordinates with respect to pi, delta modulo P^N.
-    # Basis elements for the local field and the ideal P^prec
-    BKp = [pi^i*delta^j for j=0:f-1 for i=0:e-1]
-    BPn = basis(P^prec)
-    local_basis_lift = hcat(matrix(coordinates.(BKp)), matrix(coordinates.(BPn)))
-
-    function construct_defining_polynomial()
-        N = underdetermined_solve_first(local_basis_lift, matrix([coordinates(pi^e)]))
-        RX,X = PolynomialRing(Kp_unram,"X")
-        
-        return X^e + sum(X^i*delta_p^j * N[i*f + j + 1] for j=0:f-1 for i=0:e-1 )
-    end
-
-    ##################################################
-    # Build the completion structure.
-    g = construct_defining_polynomial()
-    display(g)
-    Kp, Y = EisensteinField(g,"_\$")
-
-    ##################################################
-    # Compute the maps
-    
-    function image_of_nf_gen(a)
-        avec = matrix(FlintZZ, length(coeffs(a)), 1, coeffs(a))        
-        N = underdetermined_solve_first(local_basis_lift,avec)
-
-        return sum(Y^i*delta_p^j * N[i*f + j + 1] for j=0:f-1 for i=0:e-1)
-    end
-
-    img_nf_gen = image_of_nf_gen(a)
-    display(img_nf_gen)
-    
-    # Construct the forward map, embedding $K$ into its completion.
-    function inj(a::nf_elem)
-        return sum(coeffs(a)[j+1] * img_nf_gen^j for j=0:d-1)
-    end
-
-    # Construct the lifting map, from the completion back to $K$.
-    function lif(x::eisf_elem)
-        qadic_coeffs = coeffs(x)
-        return sum(pi^i * delta^j * K(sym_lift(coeffs(qadic_coeffs[i])[j+1]))
-                   for j=0:f-1 for i=0:length(qadic_coeffs)-1 )        
-    end
-
-    return (Kp,inj,lif)
-
-    #= PRECISION SHARPENING LOGIC.
-
-    #c = lift_root(f, a, b, p, 10)
-    #pc = fmpz(10)
-
-        if iszero(x)
-            return K(0)
-        end
-        if precision(x) > pc
-            #XXX this changes (c, pc) inplace as a cache
-            #probably should be done with a new map type that can
-            #store c, pc on the map.
-            d = lift_root(f, a, b, p, precision(x))
-
-            # Manipulate the values c, pc by the implicit pointers stored inside this function.
-            # Unfortunately this cannot be done at the julia level...
-            #ccall((:nf_elem_set, :libantic), Nothing,
-            #      (Ref{nf_elem}, Ref{nf_elem}, Ref{AnticNumberField}), c, d, K)
-            #ccall((:fmpz_set_si, :libflint), Nothing, (Ref{fmpz}, Cint), pc, precision(x))
-
-        elseif precision(x) < pc
-            d = mod_sym(c, p^precision(x))
-        else
-            d = c
-        end
-        n = x.length
-        r = K(lift(coeff(x, n-1)))
-        while n > 1
-            n -= 1
-            r = r*d + lift(coeff(x, n-1))
-        end
-        return r#*K(p)^valuation(x)
-        =#
-
-    
-    # Constructing the lifting map
-    # -- preimages of delta, pi needed
-    # -- mostly just a coefficient change/evaluation map
-    # -- AFTER sharpening, the result of a lift can be wildly different if the polynomial is
-    #    held constant.
-
-    # Constructing the embedding map
-    # -- mostly just sending the generator to the generator of the Eisenstein extension.
-    
-    # Using the nullspace, we now need to construct the map to Kp_unram
-    
+mutable struct CompletionMapData
+    dixon_bn
+    dixon_mat_inv_modpn
+    residue_field_map
 end
 
 #########################################################################################
@@ -979,4 +782,3 @@ function completion(K::AnticNumberField, ca::qadic)
   end
   return parent(ca), MapFromFunc(inj, lif, K, parent(ca))
 end
-
