@@ -233,11 +233,6 @@ function coeffs(a::qadic)
     return [coeff(a,j) for j=0:degree(k)-1]
 end
 
-# TODO: Make this more consistent.
-function coeffs(a::eisf_elem)
-    return coefficients(a)
-end
-
 function mod_sym(a,b)
     c = mod(a,b)
     return c < b/2 ? c : c-b
