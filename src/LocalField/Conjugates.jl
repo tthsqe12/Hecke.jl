@@ -267,6 +267,9 @@ end
 # Treatment is different in ramified versus unramified cases due to the extra structure.
 # i.e, a factorization method is present in the unramified case.
 
+
+# TODO: There should be versions of these functions that use preexisting completion maps.
+
 function embedding_classes(a, p)    
     K = parent(a)
 
@@ -288,21 +291,17 @@ function embedding_classes_ramified(a,p)
 end
 
 # function _conjugates(a::nf_elem, C::qAdicConj, n::Int, op::Function)
-function embedding_classes_unramified(a, C, precision=10)
+function embedding_classes_unramified(a, p::fmpz, precision=10)
 
-    # Extract prime from qAdic root context. Eventially this will be replaced in the final version.
-    p = C.C.p 
-    
     K = parent(a)
-
-    #TODO: determine the correct number of completions.
-    completions = [Hecke.completion(K,p,i) for i=1:2]
-    embeddings_up_to_equiv = [mp(a) for (field,mp) in completions]
+    completions = unramified_completions(K, p, prec=precision)
+    embeddings_up_to_equiv = [mp(a) for (field, mp) in completions]
     
-    #C = qAdicConj(K, Int(p))
-    #TODO: implement a proper Frobenius - with caching of the frobenius_a element
-
     return embeddings_up_to_equiv
+end
+
+function embedding_classes_unramified(a, p::Integer, precision=10)
+    embedding_classes_unramified(a, FlintZZ(p), precision=precision)
 end
 
 #########################################################################################
@@ -337,6 +336,8 @@ function conjugates(a::nf_elem, C::qAdicConj, n::Int = 10; flat::Bool = false, a
 end
 
 function expand(a::Array{qadic, 1}; all::Bool, flat::Bool, degs::Array{Int, 1}= Int[])
+# Expansion logic to apply frobenius to the partial result.
+#TODO: implement a proper Frobenius - with caching of the frobenius_a element
   re = qadic[]
   if all
     for ix = 1:length(a)
