@@ -292,7 +292,6 @@ end
 
 # function _conjugates(a::nf_elem, C::qAdicConj, n::Int, op::Function)
 function embedding_classes_unramified(a, p::fmpz, precision=10)
-
     K = parent(a)
     completions = unramified_completions(K, p, prec=precision)
     embeddings_up_to_equiv = [mp(a) for (field, mp) in completions]
@@ -367,11 +366,35 @@ function expand(a::Array{qadic, 1}; all::Bool, flat::Bool, degs::Array{Int, 1}= 
         push!(r, coeff(x, i-1))
       end
     end
-    return r
-  else
-    return re
   end
 end
+
+#function expand(a::Array{qadic, 1}; all::Bool, flat::Bool)
+
+function frobenius_orbit(a::qadic)
+    result = [a]
+    y = a
+    for i=2:degree(parent(a))
+        y = frobenius(y)
+        push!(result, y)
+    end
+    return result
+end
+
+# This interface is now obsolete. Use coeffs.(embedding_classes(a))
+# function flat(a::Array{qadic, 1})
+#   if flat
+#     r = padic[]
+#     for x = re
+#       for i=1:degree(parent(x))
+#         push!(r, coeff(x, i-1))
+#       end
+#     end
+#     return r
+#   else
+#     return re
+#   end
+# end
 
 
 #########################################################################################
