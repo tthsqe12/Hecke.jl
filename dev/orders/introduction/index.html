@@ -853,21 +853,13 @@ Minimum: 2
 two normal wrt: 2
 
 julia&gt; isprincipal(p)
-ERROR: MethodError: ^(::NfAbsOrdElem{AnticNumberField,nf_elem}, ::fmpz) is ambiguous. Candidates:
-  ^(a::T, n::fmpz) where T in Hecke.BitsMod at /home/travis/.julia/packages/Hecke/wZvM3/src/Misc/Integer.jl:1387
-  ^(x::NfAbsOrdElem, y::Union{Int64, fmpz}) in Hecke at /home/travis/.julia/packages/Hecke/wZvM3/src/NfOrd/Elem.jl:569
-Possible fix, define
-  ^(::NfAbsOrdElem, ::fmpz)
+(false, 1)
 
 julia&gt; fl, alpha = isprincipal(p^2)
-ERROR: MethodError: ^(::NfAbsOrdElem{AnticNumberField,nf_elem}, ::fmpz) is ambiguous. Candidates:
-  ^(a::T, n::fmpz) where T in Hecke.BitsMod at /home/travis/.julia/packages/Hecke/wZvM3/src/Misc/Integer.jl:1387
-  ^(x::NfAbsOrdElem, y::Union{Int64, fmpz}) in Hecke at /home/travis/.julia/packages/Hecke/wZvM3/src/NfOrd/Elem.jl:569
-Possible fix, define
-  ^(::NfAbsOrdElem, ::fmpz)
+(true, 1)
 
 julia&gt; norm(alpha)
-ERROR: UndefVarError: alpha not defined
+1
 </pre></div>
 
 <p>It is possible to work with residue fields as well:</p>
