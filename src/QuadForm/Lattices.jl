@@ -1675,6 +1675,8 @@ end
 # M_q for all other primes q}
 #
 
+global _debug = []
+
 function find_lattice(M::HermLat, L::HermLat, p)
   @assert base_ring(M) == base_ring(L)
   @show p
@@ -1786,7 +1788,11 @@ function find_lattice(M::HermLat, L::HermLat, p)
                  [(scale(c, i) - 2, rank(c, i), det(c, i)) for i in 1:length(c) if scale(c, i) >= 4]))
       push!(C, c)
     end
+    push!(_debug, (M, p))
     B, G, S = jordan_decomposition(M, p)
+    @show S
+    @show M
+    @show p
     @assert all(s in [-1, 0] for s in S)
     B0 = S[end] == 0 ? [ B[end][i, :] for i in 1:nrows(B[end]) ] : []
     B1 = S[1] == -1 ? [ B[1][i, :] for i in 1:nrows(B[1]) ] : []
@@ -1905,12 +1911,21 @@ function find_lattice(M::HermLat, L::HermLat, p)
         KM = map_entries(x -> E(h\x), KM)
         _new_pmat = _sum_modules(pseudo_matrix(KM * BM), pM)
         LL = lattice(ambient_space(M), _new_pmat)
+        #@show "trying $LL"
+        #@show ambient_space(LL)
+        #@show coefficient_ideals(pseudo_matrix(LL))
+        #@show matrix(pseudo_matrix(LL))
+        @show genus(X, p)
+        @show genus(LL, p)
         if islocally_isometric(X, LL, p)
+          println("found")
           break
         end
+        println("not found")
       end
     end
   end
+  @show p, LL
   @assert islocally_isometric(L, LL, p)
   return LL
 end
@@ -2337,6 +2352,9 @@ function _find_quaternion_algebra(b, P, I)
 
   _J = b * R
   _P = Dict{}()
+  for p in P
+    _P[p] = true
+  end
   for p in keys(factor(_J))
     _P[p] = true
   end
@@ -2349,6 +2367,9 @@ function _find_quaternion_algebra(b, P, I)
     end
   end
   F = Nemo.GF(2)
+  @show length(_P)
+  @show length(I)
+  @show n
   target = matrix(F, 1, length(_P) + length(I), vcat(fill(1, n), fill(0, length(_P) - n), fill(1, m), fill(0, length(I) - m)))
   if iszero(target)
     return one(K)
@@ -2521,7 +2542,12 @@ function _non_norm_rep(E, K, p)
       end
     end
   else
-    error("This dosses not make any sense!")
+    lP = prime_decomposition(maximal_order(E), p)
+    if length(lP) == 2
+      error("This dosses not make any sense!")
+    else
+      return elem_in_nf(p_uniformizer(p))
+     end
   end
 end
 
