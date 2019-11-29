@@ -253,8 +253,6 @@ end
 # Treatment is different in ramified versus unramified cases due to the extra structure.
 # i.e, a factorization method is present in the unramified case.
 
-
-
 function embedding_classes(a::nf_elem, p, prec=10)
     K = parent(a)
     comps = completions(K,p, prec)
