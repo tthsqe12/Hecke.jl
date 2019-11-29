@@ -121,23 +121,12 @@ for more details.)
 In order to maintain code consistency, as not all termology sources agree, we designate
 a special name for this circumstance.
 """
-<<<<<<< HEAD
-function fcontent(f::Generic.Poly{T}) where T <: FlintLocalFieldElem
-  K  = base_ring(f)
-  p = uniformizer(K)
-  v = valuation(coeff(f, 0))
-  for i = 1:degree(f)
-    v = min(v, valuation(coeff(f, i)))
-  end
-  return p^v
-=======
 function fcontent(f::Generic.Poly{T}) where T <: NALocalFieldElem
     K  = base_ring(f)
     pi = uniformizer(K)
     v  = valuation(pi)
     val,i = findmin(valuation.(coefficients(f)))
     return pi^(Integer(val//v))
->>>>>>> Added fcontent and fprimpart, with docs.
 end
 
 function fcontent(f::Generic.Poly{T}) where T <: FlintLocalFieldElem
@@ -241,10 +230,14 @@ end
 ################################################################################
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 function Nemo.precision(g::Generic.Poly{T}) where T <: Union{padic, qadic}
 =======
 function Nemo.prec(g::Generic.Poly{T}) where T <: FlintLocalFieldElem
 >>>>>>> Renamed _content to fcontent. Wrote some docs.
+=======
+function Nemo.prec(g::Generic.Poly{T}) where T <: NALocalFieldElem
+>>>>>>> Added type info to Eisenstein field struct.
   N = coeff(g, 0).N
   for i = 1:degree(g)
     N = min(N, coeff(g, i).N)
