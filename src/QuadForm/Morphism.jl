@@ -605,7 +605,7 @@ function auto(C)
   candidates = Vector{Vector{Int}}(undef, dim) # candidate list for the image of the i-th basis vector
 
   for i in 1:dim
-    candidates[i] = Vector{Int}(undef, C.fp_diagonal[i])
+    candidates[i] = zeros(Int, C.fp_diagonal[i])
   end
 
   x = Vector{Int}(undef, dim)
@@ -637,6 +637,7 @@ function auto(C)
     end
     @show C.fp_diagonal[step]
     @show x
+    @show candidates
     if C.fp_diagonal[step] > 1
       nC = cand(candidates[step], step, x, C, 0)#comb)
     else # there is only one candidates
@@ -644,6 +645,7 @@ function auto(C)
       nC = 1
     end
     @show nC
+    @show candidates
     orb = orbit(C.std_basis[step], 1, H, nH, C.V)
     C.orders[step] = length(orb)
     # delete the orbit of the step-th basis vector from the candidates
@@ -657,7 +659,11 @@ function auto(C)
       # try C.V[im] as the image of the step-th basis vector
       x[step] = im
       if step < dim
+        @show candidates
         if cand(candidates[step + 1], step + 1, x, C, 0) == C.fp_diagonal[step + 1]
+          @show candidates
+          @show "right before aut"
+          @show step + 1, x
           found = aut(step + 1, x, candidates, C, 0)#comb)
         else
           found = 0
@@ -755,6 +761,7 @@ end
 function aut(step, x, candidates, C, comb)
   dim = Hecke.dim(C)
   found = 0
+  @show step, x, candidates, C
   while candidates[step] != 0 && found == 0
     if step < dim
       @show x[step] = candidates[step][1]
@@ -777,6 +784,7 @@ function aut(step, x, candidates, C, comb)
 end
 
 function cand(candidates, I, x, C, comb)
+  @show candidates, I, x, C, comb
   DEP = 0 # this is bs
   dim = Hecke.dim(C)
   len = length(C.G) * DEP
@@ -824,13 +832,14 @@ function cand(candidates, I, x, C, comb)
     # vec is the vector of scalar products of V.v[j] with the first I base vectors
     #   x[1]...x[I] 
       
-      for k in 1:I
+      for k in 1:(I - 1)
+        @show x[k]
         xk = x[k]
         if xk > 0
-          vec[k] = (Vvj * C.G[i] * xk)[1, 1]
+          vec[k] = (Vvj * C.G[i] * C.V[xk]')[1, 1]
           #vec[k] = _dot_product(Vvj, C.v[i], xk)
         else
-          vec[k] = -(Vvj * C.G[i] * xk)[1, 1]
+          vec[k] = -(Vvj * C.G[i] * C.V[xk]')[1, 1]
           #vec[k] = -_dot_product(VVj, C.v[i], -xk)
         end
       end
@@ -994,6 +1003,7 @@ function cand(candidates, I, x, C, comb)
       end
     end
   end
+  @show candidates
   return nr
 end
 
@@ -1137,6 +1147,9 @@ function stab(I, C)
         @show orb, len
         orb[len] = im
         flag[im + n + 1] = true
+        @show w[orb[cnd] + n + 1]
+        @show H[i]
+        @show Int[_operate(w[orb[cnd] + n + 1][j], H[i], V) for j in 1:dim]
         w[im + n + 1] = Int[_operate(w[orb[cnd] + n + 1][j], H[i], V) for j in 1:dim]
       else
 #/* the image was already in the orbit */
