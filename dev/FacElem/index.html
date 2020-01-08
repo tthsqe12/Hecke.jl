@@ -942,7 +942,9 @@ FacElem{B}(d::Dict{B, Integer}) -&gt; FacElem{B}
 
 <p>Computes <script type="math/tex">B</script> and <script type="math/tex">\alpha</script> in factored form, such that <script type="math/tex">\alpha B = A</script>.</p>
 <hr />
-<p>modular<em>proj(a::FacElem{nf</em>elem, AnticNumberField}, me::modular<em>env) -&gt; Array{fq</em>nmod, 1}</p>
+<div class="codehilite"><pre><span></span><span class="n">modular_proj</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">FacElem</span><span class="p">{</span><span class="n">nf_elem</span><span class="p">,</span> <span class="n">AnticNumberField</span><span class="p">},</span> <span class="n">me</span><span class="o">::</span><span class="n">modular_env</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Array</span><span class="p">{</span><span class="n">fq_nmod</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span>
+</pre></div>
+
 <p>Given an algebraic number <script type="math/tex">a</script> in factored form and data \code{me} as computed by \code{modular_init}, project <script type="math/tex">a</script> onto the residue class fields.</p>
 <p><a id='Miscellaneous-1'></a></p>
 <h2 id="miscellaneous">Miscellaneous</h2>
