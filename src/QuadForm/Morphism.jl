@@ -98,6 +98,9 @@ function init(C::ZLatAutoCtx)
   end
 
   C.g = Vector{Vector{fmpz_mat}}(undef, dim(C))
+  for i in 1:dim(C)
+    C.g[i] = fmpz_mat[]
+  end
   C.ng = zeros(Int, dim(C))
   C.nsg = zeros(Int, dim(C))
   C.orders = Vector{Int}(undef, dim(C))
@@ -689,8 +692,10 @@ function auto(C)
         # a new generator has been found
         C.ng[step] += 1
         # append the new generator to C.>g[step]
+        @show "================================"
         @show C.g, step
         Gstep = resize!(C.g[step], C.ng[step])
+        @show C.g, step
         Gstep[C.ng[step]] = matgen(x, dim, C.per, C.V)
         C.g[step] = Gstep
         nH += 1
@@ -755,7 +760,20 @@ function auto(C)
       stab(step, C)
     end
   end
-  return C
+
+  # Extract generators
+  
+  gens = fmpz_mat[]
+
+  orde = prod(C.orders)
+
+  for i in 1:dim
+    for j in (C.nsg[i] + 1):C.ng[i]
+      push!(gens, C.g[i][j])
+    end
+  end
+
+  return gens, orde
 end
 
 function aut(step, x, candidates, C, comb)
@@ -839,7 +857,7 @@ function cand(candidates, I, x, C, comb)
           vec[k] = (Vvj * C.G[i] * C.V[xk]')[1, 1]
           #vec[k] = _dot_product(Vvj, C.v[i], xk)
         else
-          vec[k] = -(Vvj * C.G[i] * C.V[xk]')[1, 1]
+          vec[k] = -(Vvj * C.G[i] * C.V[-xk]')[1, 1]
           #vec[k] = -_dot_product(VVj, C.v[i], -xk)
         end
       end
@@ -1155,7 +1173,7 @@ function stab(I, C)
 #/* the image was already in the orbit */
         j = I
         while j <= dim
-          if _operate(w[orb[cnd] + n + 1][j], H[j], V) == w[im + n + 1][j]
+          if _operate(w[orb[cnd] + n + 1][j], H[i], V) == w[im + n + 1][j]
             break
           end
           j += 1
@@ -1181,7 +1199,8 @@ function stab(I, C)
             C.orders[j] = tmplen
             C.ng[j] = C.ng[j] + 1
             C.nsg[j] = C.nsg[j] + 1
-            @show C.g, j
+            @show C.g[j]
+            @show C.nsg[j]
             insert!(C.g[j], C.nsg[j], S)
 #/* the new generator is inserted as stabilizer element nr. nsg[j]-1 */
             nH += 1
@@ -1236,7 +1255,8 @@ function stabil(x1, x2, per, G, V)
   #@show XG * X2i, d
   #S = divexact(XG * X2i, d)
 # /* S = XG * X2^-1 */
-  b, S = can_solve(XG, X2, side = :left)
+  b, S = can_solve(X2, XG, side = :left)
+  @assert b
   @assert S * X2 == XG
   @show S
   return S
