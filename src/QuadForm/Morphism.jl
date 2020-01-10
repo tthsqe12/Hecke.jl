@@ -644,7 +644,7 @@ function auto(C)
     if C.fp_diagonal[step] > 1
       nC = cand(candidates[step], step, x, C, 0)#comb)
     else # there is only one candidates
-      candidates[step] = C.std_basis[step]
+      candidates[step] = [C.std_basis[step]]
       nC = 1
     end
     @show nC
@@ -760,14 +760,17 @@ function auto(C)
       stab(step, C)
     end
   end
+  return _get_generators(C)
+end
 
+function _get_generators(C)
   # Extract generators
   
   gens = fmpz_mat[]
 
   orde = prod(C.orders)
 
-  for i in 1:dim
+  for i in 1:dim(C)
     for j in (C.nsg[i] + 1):C.ng[i]
       push!(gens, C.g[i][j])
     end
@@ -1283,6 +1286,23 @@ function matgen(x, dim, per, v)
   return X
 end
 
+function assert_auto(C, order)
+  G, o = _get_generators(C)
+  if o != order
+    throw(error("Order $o. Expected $order"))
+  end
+
+  for g in G
+    for U in C.G
+      if g * U * g' != U
+        throw(error("Not an isometry.\nElement:\n $g\nGram matrix:\n$U"))
+      end
+    end
+  end
+  return true
+end
+
+
 #orbit(pt, npt, G, nG, V, orb)	/*****	computes the orbit of npt points in pt 
 #					under the nG matrices in G and puts the
 #					orbit in orb, allocates the memory for 
@@ -1320,3 +1340,30 @@ end
 #
 # Hecke.fingerprint(C)
 # reduce(hcat, [C.fp[:, i] for i in 1:8][C.per]) == [240 240 2160 240 240 240 240 240; 0 56 126 126 126 126 126 126; 0 0 27 27 72 72 72 72; 0 0 0 10 40 16 40 40; 0 0 0 0 8 8 24 24; 0 0 0 0 0 4 6 12; 0 0 0 0 0 0 3 6; 0 0 0 0 0 0 0 2]
+
+const lattices = [
+(([[2]]), 2), 
+# 2
+(([[1, 0], [0, 2]]), 4),
+(([[2, -1], [-1, 2]]), 12),
+# 3
+(([[2, 1, 0], [1, 2, 0], [0, 0, 26]]), 24),
+# 4
+(([[1, 0, 0, 0], [0, 2, -1, 1], [0, -1, 3, -1], [0, 1, -1, 3]]), 16),
+# 5
+(([[2, 1, 1, 1, -1], [1, 2, 1, 1, 0], [1, 1, 2, 1, -1], [1, 1, 1, 2, -1], [-1, 0, -1, -1, 2]]), 3840),
+(([[1, 0, 0, 0, 0], [0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [0, 0, 0, 2, 1], [0, 0, 0, 1, 3]]), 192),
+# 6
+(([[2, -1, 0, 0, 0, 0], [-1, 2, -1, 0, 0, 0], [0, -1, 2, -1, 0, -1], [0, 0, -1, 2, -1, 0], [0, 0, 0, -1, 2, 0], [0, 0, -1, 0, 0, 2]]), 103680),
+(([[1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0], [0, 0, 2, 1, 0, 1], [0, 0, 1, 3, 1, 1], [0, 0, 0, 1, 2, 1], [0, 0, 1, 1, 1, 3]]), 512)]
+
+function test_auto()
+  for (m, o) in lattices
+    n = length(m[1])
+    G = matrix(FlintZZ, n, n, reduce(vcat, m))
+    C = Hecke.ZLatAutoCtx([G]);
+    init(C)
+    auto(C)
+    assert_auto(C, o)
+  end
+end
