@@ -783,7 +783,7 @@ function aut(step, x, candidates, C, comb)
   dim = Hecke.dim(C)
   found = 0
   @show step, x, candidates, C
-  while candidates[step] != 0 && found == 0
+  while candidates[step][1] != 0 && found == 0
     if step < dim
       @show x[step] = candidates[step][1]
       #/* check, whether x[1]...x[step] is a partial automorphism and compute the candidates for x[step + 1]
@@ -795,7 +795,17 @@ function aut(step, x, candidates, C, comb)
       end
       orb = Int[x[step]]
       # delete the chosen vector from the list of candidates
-      delete(candidates[step], C.fp_diagonal[step], orb, 1)
+      #delete(candidates[step], C.fp_diagonal[step], orb, 1)
+      k = findfirst(isequal(x[step]), candidates[step])
+      #setdiff!(candidates[step], orb)
+      # This should be made faster to not always go to the end
+      # Actually I should copy the delete function
+      @show candidates[step], k
+      for i in (k + 1):length(candidates[step])
+        candidates[step][i - 1] = candidates[step][i]
+      end
+      candidates[step][end] = 0
+      @show candidates[step]
     else
       x[dim] = candidates[dim][1]
       found = 1
@@ -829,6 +839,7 @@ function cand(candidates, I, x, C, comb)
     Fxbase = zero_matrix(FlintZZ, rank, dim)
   end
   # candidates is the list for the candidates
+  @show C.fp_diagonal[I], length(candidates)
   for i in 1:C.fp_diagonal[I]
     candidates[i] = 0
   end
