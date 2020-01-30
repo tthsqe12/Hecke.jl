@@ -853,13 +853,13 @@ Minimum: 2
 two normal wrt: 2
 
 julia&gt; isprincipal(p)
-ERROR: UndefVarError: change_ring not defined
+(false, 1)
 
 julia&gt; fl, alpha = isprincipal(p^2)
-ERROR: UndefVarError: change_ring not defined
+(true, -2)
 
 julia&gt; norm(alpha)
-ERROR: UndefVarError: alpha not defined
+4
 </pre></div>
 
 <p>It is possible to work with residue fields as well:</p>
