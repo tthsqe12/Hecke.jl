@@ -808,12 +808,23 @@ K \longrightarrow \mathbf R^{d}, \ \alpha \longmapsto (\sigma_1(\alpha),\dotsc,\
 <h3 id="orders">Orders</h3>
 <p>If <script type="math/tex">K = \mathbf Q(\alpha)</script> is an absolute number field, then an <em>order</em> <script type="math/tex">\mathcal O</script> of <script type="math/tex">K</script> is a subring of the ring of integers <script type="math/tex">\mathcal O_K</script>, which is free of rank <script type="math/tex">[ K : \mathbf Q]</script> as a <script type="math/tex">\mathbf Z</script>-module. The natural order <script type="math/tex">\mathbf Z[\alpha]</script> is called the <em>equation order</em> of <script type="math/tex">K</script>. In Hecke orders of absolute number fields are constructed (implicitely) by specifying a <script type="math/tex">\mathbf Z</script>-basis, which is refered to as the <em>basis</em> of <script type="math/tex">\mathcal O</script>. If <script type="math/tex">(\omega_1,\dotsc,\omega_d)</script> is the basis of <script type="math/tex">\mathcal O</script>, then the matrix <script type="math/tex">B \in \operatorname{Mat}_{d \times d}(\mathbf Q)</script> with</p>
 <p>
-<script type="math/tex; mode=display"> \begin{pmatrix} \omega*1 \\ \vdots \\ \omega*d \end{pmatrix} = B \begin{pmatrix} 1 \\ \vdots \\ \alpha^{d - 1} \end{pmatrix} </script>
+<script type="math/tex; mode=display">
+\begin{pmatrix} \omega_1 \\\\ \vdots \\\\ \omega_d \end{pmatrix} = B \begin{pmatrix} 1 \\\\ \vdots \\\\ \alpha^{d - 1} \end{pmatrix}
+</script>
 </p>
-<p>is called the <em>basis matrix</em> of <script type="math/tex">\mathcal O</script>. We call <script type="math/tex">\det(B)</script> the <em>generalized index</em> of <script type="math/tex">\mathcal O</script>.  In case <script type="math/tex">\mathbf Z[\alpha] \subseteq \mathcal O</script>, the determinant <script type="math/tex">\det(B)^{-1}</script> is in fact equal to <script type="math/tex">[ \mathcal O : \mathbf Z[\alpha]]</script> and is called the <em>index</em> of <script type="math/tex">\mathcal O</script>. The matrix <script type="math/tex; mode=display"> \begin{pmatrix}  \sigma*1(\omega*1) & \dotsc & \sigma*r(\omega*1) & \sqrt{2}\operatorname{Re}(\sigma*{r+1}(\omega*1)) & \sqrt{2}\operatorname{Im}(\sigma*{r+1}(\omega*1)) & \dotsc & \sqrt{2}\operatorname{Im}(\sigma*{r+s}(\omega*1)) \\
-\sigma*1(\omega*2) & \dotsc & \sigma*r(\omega*2) & \sqrt{2}\operatorname{Re}(\sigma*{r+1}(\omega*2)) & \sqrt{2}\operatorname{Im}(\sigma*{r+1}(\omega*2)) & \dotsc  & \sqrt{2}\operatorname{Im}(\sigma*{r+s}(\omega*2)) \\
-\vdots & \dotsc & \vdots & \vdots & \dotsc & \vdots & \vdots\\
-\sigma*1(\omega*d) & \dotsc & \sigma*r(\omega*d) & \sqrt{2}\operatorname{Re}(\sigma*{r+1}(\omega*d)) & \sqrt{2}\operatorname{Im}(\sigma*{r+2}(\omega*d)) & \dotsc & \sqrt{2}\operatorname{Im}(\sigma*{r+s}(\omega*d)) \end{pmatrix} \in \operatorname{Mat}_{d\times d}(\mathbf R). </script> is called the <em>Minkowski matrix</em> of <script type="math/tex">\mathcal O</script>.</p>
+<p>is called the <em>basis matrix</em> of <script type="math/tex">\mathcal O</script>. We call <script type="math/tex">\det(B)</script> the <em>generalized index</em> of <script type="math/tex">\mathcal O</script>.  In case <script type="math/tex">\mathbf Z[\alpha] \subseteq \mathcal O</script>, the determinant <script type="math/tex">\det(B)^{-1}</script> is in fact equal to <script type="math/tex">[ \mathcal O : \mathbf Z[\alpha]]</script> and is called the <em>index</em> of <script type="math/tex">\mathcal O</script>. The matrix</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{pmatrix} 
+\sigma_1(\omega_1) & \dotsc & \sigma_r(\omega_1) & \sqrt{2}\operatorname{Re}(\sigma_{r+1}(\omega_1)) & \sqrt{2}\operatorname{Im}(\sigma_{r+1}(\omega_1)) & \dotsc & \sqrt{2}\operatorname{Im}(\sigma_{r+s}(\omega_1)) \\\\
+\sigma_1(\omega_2) & \dotsc & \sigma_r(\omega_2) & \sqrt{2}\operatorname{Re}(\sigma_{r+1}(\omega_2)) & \sqrt{2}\operatorname{Im}(\sigma_{r+1}(\omega_2)) & \dotsc  & \sqrt{2}\operatorname{Im}(\sigma_{r+s}(\omega_2)) \\\\
+\vdots & \dotsc & \vdots & \vdots & \dotsc & \vdots & \vdots\\\\
+\sigma_1(\omega_d) & \dotsc & \sigma_r(\omega_d) & \sqrt{2}\operatorname{Re}(\sigma_{r+1}(\omega_d)) & \sqrt{2}\operatorname{Im}(\sigma_{r+2}(\omega_d)) & \dotsc & \sqrt{2}\operatorname{Im}(\sigma_{r+s}(\omega_d))
+\end{pmatrix}
+\in \operatorname{Mat}_{d\times d}(\mathbf R).
+</script>
+</p>
+<p>is called the <em>Minkowski matrix</em> of <script type="math/tex">\mathcal O</script>.</p>
 <h2 id="examples">Examples</h2>
 <p>Usually, to create an order, one starts with a field (or a polynomial):</p>
 <div class="codehilite"><pre><span></span>julia&gt; Qx, x = PolynomialRing(FlintQQ, &quot;x&quot;);
