@@ -438,8 +438,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#miscallenous" class="md-nav__link">
-    Miscallenous
+  <a href="#miscellaneous" class="md-nav__link">
+    Miscellaneous
   </a>
   
 </li>
@@ -747,8 +747,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#miscallenous" class="md-nav__link">
-    Miscallenous
+  <a href="#miscellaneous" class="md-nav__link">
+    Miscellaneous
   </a>
   
 </li>
@@ -1036,8 +1036,8 @@ true
 </pre></div>
 
 <p>Returns the element <script type="math/tex">a^i</script> modulo <script type="math/tex">m</script>.</p>
-<p><a id='Miscallenous-1'></a></p>
-<h2 id="miscallenous">Miscallenous</h2>
+<p><a id='Miscellaneous-1'></a></p>
+<h2 id="miscellaneous">Miscellaneous</h2>
 <hr />
 <div class="codehilite"><pre><span></span><span class="n">representation_matrix</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfAbsOrdElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz_mat</span>
 </pre></div>
@@ -1143,6 +1143,12 @@ true
 <blockquote>
 <p>Return the characteristic polynomial <script type="math/tex">p</script> of the matrix <script type="math/tex">M</script>. The polynomial ring <script type="math/tex">R</script> of the resulting polynomial must be supplied and the matrix is assumed to be square.</p>
 </blockquote>
+<hr />
+<div class="codehilite"><pre><span></span><span class="n">factor</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfOrdElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Fac</span><span class="p">{</span><span class="n">NfOrdElem</span><span class="p">}</span>
+</pre></div>
+
+<p>Computes a factorization of <code>a</code> into irreducible elements. The return value is a factorization <code>fac</code>, which satisfies <code>a = unit(fac) * prod(p^e for (p, e) in fac)</code>.</p>
+<p>The function requires that <code>a</code> is non-zero and that all prime ideals containing <code>a</code> are principal, which is for example satisfied if class group of the order of <code>a</code> is trivial.</p>
                 
                   
                 
