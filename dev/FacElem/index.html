@@ -787,20 +787,38 @@
 <h2 id="construction">Construction</h2>
 <p>In general one can define factored elements by giving 2 arrays, the  base and the exponent, or a dictionary containing the pairs:</p>
 <hr />
-<div class="codehilite"><pre><span></span><code><span class="n">FacElem</span><span class="p">{</span><span class="n">B</span><span class="p">}(</span><span class="n">base</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">B</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="n">exp</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">fmpz</span><span class="p">,</span> <span class="mi">1</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">FacElem</span><span class="p">{</span><span class="n">B</span><span class="p">}</span>
+<div class="codehilite"><pre><span></span><code><span class="n">FacElem</span><span class="p">{</span><span class="n">B</span><span class="p">}(</span><span class="n">R</span><span class="p">,</span> <span class="n">base</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">B</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="n">exp</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">fmpz</span><span class="p">,</span> <span class="mi">1</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">FacElem</span><span class="p">{</span><span class="n">B</span><span class="p">}</span>
 </code></pre></div>
 
 <p>Returns the element <script type="math/tex">\prod b_i^{e_i}</script>, un-expanded.</p>
+<div class="codehilite"><pre><span></span><code>FacElem{B}(base::Array{B, 1}, exp::Array{fmpz, 1}) -&gt; FacElem{B}
+</code></pre></div>
+
+<p>Returns the element <script type="math/tex">\prod b_i^{e_i}</script>, un-expanded.</p>
+<div class="codehilite"><pre><span></span><code>FacElem{B}(R, d::Dict{B, fmpz}) -&gt; FacElem{B}
+FacElem{B}(R, d::Dict{B, Integer}) -&gt; FacElem{B}
+</code></pre></div>
+
+<p>Returns the element <script type="math/tex">\prod b^{d[p]}</script>, un-expanded.</p>
 <div class="codehilite"><pre><span></span><code>FacElem{B}(d::Dict{B, fmpz}) -&gt; FacElem{B}
 FacElem{B}(d::Dict{B, Integer}) -&gt; FacElem{B}
 </code></pre></div>
 
 <p>Returns the element <script type="math/tex">\prod b^{d[p]}</script>, un-expanded.</p>
 <hr />
-<div class="codehilite"><pre><span></span><code><span class="n">FacElem</span><span class="p">{</span><span class="n">B</span><span class="p">}(</span><span class="n">base</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">B</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="n">exp</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">fmpz</span><span class="p">,</span> <span class="mi">1</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">FacElem</span><span class="p">{</span><span class="n">B</span><span class="p">}</span>
+<div class="codehilite"><pre><span></span><code><span class="n">FacElem</span><span class="p">{</span><span class="n">B</span><span class="p">}(</span><span class="n">R</span><span class="p">,</span> <span class="n">base</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">B</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="n">exp</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">fmpz</span><span class="p">,</span> <span class="mi">1</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">FacElem</span><span class="p">{</span><span class="n">B</span><span class="p">}</span>
 </code></pre></div>
 
 <p>Returns the element <script type="math/tex">\prod b_i^{e_i}</script>, un-expanded.</p>
+<div class="codehilite"><pre><span></span><code>FacElem{B}(base::Array{B, 1}, exp::Array{fmpz, 1}) -&gt; FacElem{B}
+</code></pre></div>
+
+<p>Returns the element <script type="math/tex">\prod b_i^{e_i}</script>, un-expanded.</p>
+<div class="codehilite"><pre><span></span><code>FacElem{B}(R, d::Dict{B, fmpz}) -&gt; FacElem{B}
+FacElem{B}(R, d::Dict{B, Integer}) -&gt; FacElem{B}
+</code></pre></div>
+
+<p>Returns the element <script type="math/tex">\prod b^{d[p]}</script>, un-expanded.</p>
 <div class="codehilite"><pre><span></span><code>FacElem{B}(d::Dict{B, fmpz}) -&gt; FacElem{B}
 FacElem{B}(d::Dict{B, Integer}) -&gt; FacElem{B}
 </code></pre></div>
