@@ -812,6 +812,18 @@ julia&gt; O = MaximalOrder(K);
 </code></pre></div>
 
 <p>Returns the maximal order of the number field that contains <script type="math/tex">O</script>. Additional information can be supplied if they are already known, as the ramified primes, the discriminant of the maximal order or a set of integers dividing the index of <script type="math/tex">O</script> in the maximal order.</p>
+<div class="codehilite"><pre><span></span><code>MaximalOrder(O::AlgAssAbsOrd)
+</code></pre></div>
+
+<blockquote>
+<p>Given an order <script type="math/tex">O</script>, this function returns a maximal order containing <script type="math/tex">O</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code>MaximalOrder(A::AbsAlgAss{fmpq}) -&gt; AlgAssAbsOrd
+</code></pre></div>
+
+<blockquote>
+<p>Returns a maximal order of <script type="math/tex">A</script>.</p>
+</blockquote>
 <hr />
 <div class="codehilite"><pre><span></span><code>  <span class="n">maximal_order</span><span class="p">(</span><span class="n">L</span><span class="o">::</span><span class="n">NumField</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfRelOrd</span>
 </code></pre></div>
@@ -831,6 +843,18 @@ julia&gt; K, a = NumberField(x^3 + 2, &quot;a&quot;);
 julia&gt; O = MaximalOrder(K);
 </code></pre></div>
 
+<div class="codehilite"><pre><span></span><code>MaximalOrder(O::AlgAssAbsOrd)
+</code></pre></div>
+
+<blockquote>
+<p>Given an order <script type="math/tex">O</script>, this function returns a maximal order containing <script type="math/tex">O</script>.</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code>MaximalOrder(A::AbsAlgAss{fmpq}) -&gt; AlgAssAbsOrd
+</code></pre></div>
+
+<blockquote>
+<p>Returns a maximal order of <script type="math/tex">A</script>.</p>
+</blockquote>
 <hr />
 <div class="codehilite"><pre><span></span><code><span class="n">lll</span><span class="p">(</span><span class="n">M</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrd</span>
 </code></pre></div>
