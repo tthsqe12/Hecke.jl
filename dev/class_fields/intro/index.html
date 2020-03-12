@@ -932,20 +932,16 @@ julia&gt; A = ray_class_field(mc)
 Class field defined mod (&lt;1, 1&gt;, InfPlc[]) of structure Abelian group with structure: Z/2
 
 julia&gt; K = number_field(A)
-non-simple Relative number field over
-Number field over Rational Field with defining polynomial x^2-10
- with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[_$1^2+(-2)]
+ERROR: MethodError: no method matching enumerate(::Array{NfAbsOrdIdl{AnticNumberField,nf_elem},1})
+You may have intended to import Base.enumerate
+Closest candidates are:
+  enumerate(::Any, !Matched::Any) at /home/travis/.julia/packages/Hecke/A71rR/src/LinearAlgebra/LatEnum.jl:742
 
 julia&gt; ZK = maximal_order(K)
-Relative maximal order of non-simple Relative number field over
-Number field over Rational Field with defining polynomial x^2-10
- with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[_$1^2+(-2)]
-with pseudo-basis
-(1, 1//1 * &lt;1, 1&gt;)
-(_$1+(a), 1//4 * &lt;2, a+2&gt;)
+ERROR: UndefVarError: K not defined
 
 julia&gt; isone(discriminant(ZK))
-true
+ERROR: UndefVarError: ZK not defined
 </code></pre></div>
 
 <hr />
