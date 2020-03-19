@@ -903,13 +903,15 @@
 julia&gt; K, a = NumberField(x^2 - 10, &quot;a&quot;);
 
 julia&gt; c, mc = class_group(K)
-(GrpAb: Z/2, ClassGroup map of
-Set of ideals of Maximal order of Number field over Rational Field with defining polynomial x^2-10
-with basis nf_elem[1, a]
-)
+ERROR: MethodError: no method matching signature(::AnticNumberField)
+Closest candidates are:
+  signature(!Matched::NfAbsOrd{AnticNumberField,nf_elem}) at /home/travis/.julia/packages/Hecke/3XgW4/src/NfOrd/NfOrd.jl:492
+  signature(!Matched::fmpq_poly) at /home/travis/.julia/packages/Nemo/465j9/src/flint/fmpq_poly.jl:676
+  signature(!Matched::fmpz_poly) at /home/travis/.julia/packages/Nemo/465j9/src/flint/fmpz_poly.jl:603
+  ...
 
 julia&gt; A = ray_class_field(mc)
-Class field defined mod (&lt;1, 1&gt;, InfPlc[]) of structure Abelian group with structure: Z/2
+ERROR: UndefVarError: mc not defined
 </code></pre></div>
 
 <p><a id='Conversions-1'></a></p>
@@ -927,25 +929,24 @@ Class field defined mod (&lt;1, 1&gt;, InfPlc[]) of structure Abelian group with
 julia&gt; k, a = NumberField(x^2 - 10, &quot;a&quot;);
 
 julia&gt; c, mc = class_group(k);
+ERROR: MethodError: no method matching signature(::AnticNumberField)
+Closest candidates are:
+  signature(!Matched::NfAbsOrd{AnticNumberField,nf_elem}) at /home/travis/.julia/packages/Hecke/3XgW4/src/NfOrd/NfOrd.jl:492
+  signature(!Matched::fmpq_poly) at /home/travis/.julia/packages/Nemo/465j9/src/flint/fmpq_poly.jl:676
+  signature(!Matched::fmpz_poly) at /home/travis/.julia/packages/Nemo/465j9/src/flint/fmpz_poly.jl:603
+  ...
 
 julia&gt; A = ray_class_field(mc)
-Class field defined mod (&lt;1, 1&gt;, InfPlc[]) of structure Abelian group with structure: Z/2
+ERROR: UndefVarError: mc not defined
 
 julia&gt; K = number_field(A)
-non-simple Relative number field over
-Number field over Rational Field with defining polynomial x^2-10
- with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[_$1^2+(-2)]
+ERROR: UndefVarError: A not defined
 
 julia&gt; ZK = maximal_order(K)
-Relative maximal order of non-simple Relative number field over
-Number field over Rational Field with defining polynomial x^2-10
- with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[_$1^2+(-2)]
-with pseudo-basis
-(1, 1//1 * &lt;1, 1&gt;)
-(_$1+(a), 1//4 * &lt;2, 3*a&gt;)
+ERROR: UndefVarError: K not defined
 
 julia&gt; isone(discriminant(ZK))
-true
+ERROR: UndefVarError: ZK not defined
 </code></pre></div>
 
 <hr />
