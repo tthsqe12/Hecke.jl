@@ -932,8 +932,6 @@ julia&gt; A = ray_class_field(mc)
 Class field defined mod (&lt;1, 1&gt;, InfPlc[]) of structure Abelian group with structure: Z/2
 
 julia&gt; K = number_field(A)
-B = Dict(&lt;2, 3*a+2&gt;=&gt;1)
-B = Dict{NfAbsOrdIdl{AnticNumberField,nf_elem},Int64}()
 non-simple Relative number field over
 Number field over Rational Field with defining polynomial x^2-10
  with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[_$1^2+(-2)]
@@ -944,7 +942,7 @@ Number field over Rational Field with defining polynomial x^2-10
  with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[_$1^2+(-2)]
 with pseudo-basis
 (1, 1//1 * &lt;1, 1&gt;)
-(_$1+(a), 1//4 * &lt;2, 3*a&gt;)
+(_$1+(a), 1//4 * &lt;2, 3*a+2&gt;)
 
 julia&gt; isone(discriminant(ZK))
 true
