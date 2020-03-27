@@ -834,10 +834,11 @@
 <p><a id='Ray-Class-Groups-1'></a></p>
 <h2 id="ray-class-groups">Ray Class Groups</h2>
 <p>Given an integral ideal <script type="math/tex">m_0 \le Z_K</script> and a list of real places <script type="math/tex">m_\infty</script>, the ray class group modulo <script type="math/tex">(m_0, m_\infty)</script>, <script type="math/tex">C(m)</script> is defined as the group of ideals coprime to <script type="math/tex">m_0</script> modulo the elements <script type="math/tex">a\in K^*</script> s.th. <script type="math/tex">v_p(a-1) \ge v_p(m_0)</script> and for all <script type="math/tex">v\in m_\infty</script>, <script type="math/tex">a^{(v)} >0</script>. This is a finite abelian group. For <script type="math/tex">m_0 = Z_K</script> and <script type="math/tex">m_\infty = \{\}</script> we get <script type="math/tex">C()</script> is the class group, if <script type="math/tex">m_\infty</script> contains all real places, we obtain the narrow class group, or strict class group.</p>
-<div class="admonition warning">
-<p class="admonition-title">Missing docstring.</p>
-<p>Missing docstring for <code>ray_class_group(m::Hecke.NfAbsOrdIdl{Nemo.AnticNumberField,Nemo.nf_elem}, inf_plc::Array{Hecke.InfPlc,1}; p_part, n_quo)</code>. Check Documenter's build log for details.</p>
-</div>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">ray_class_group</span><span class="p">(</span><span class="n">m</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="n">inf_plc</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="n">InfPlc</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span> <span class="n">n_quo</span><span class="o">::</span><span class="kt">Int</span><span class="p">,</span> <span class="n">lp</span><span class="o">::</span><span class="kt">Dict</span><span class="p">{</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="kt">Int</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">GrpAbFinGen</span><span class="p">,</span> <span class="n">MapRayClassGrp</span>
+</code></pre></div>
+
+<p>Given an ideal m and a set of infinite places of <script type="math/tex">K</script>, this function returns the corresponding ray class group as an abstract group <script type="math/tex">\mathcal {Cl}_m</script> and a map going from the group into the group of ideals of <script type="math/tex">K</script> that are coprime to <script type="math/tex">m</script>. If <script type="math/tex">n_quo</script> is set, it will return the group modulo <script type="math/tex">n_quo</script>.The factorization of <script type="math/tex">m</script> can be given with the keyword argument <script type="math/tex">lp</script>.</p>
 <hr />
 <div class="codehilite"><pre><span></span><code><span class="n">class_group</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">;</span> <span class="n">bound</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">redo</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">large</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GrpAbFinGen</span><span class="p">,</span> <span class="n">Map</span>
 </code></pre></div>
@@ -942,7 +943,7 @@ Number field over Rational Field with defining polynomial x^2-10
  with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[_$1^2+(-2)]
 with pseudo-basis
 (1, 1//1 * &lt;1, 1&gt;)
-(_$1+(a), 1//4 * &lt;2, a&gt;)
+(_$1+(a), 1//4 * &lt;2, 3*a+2&gt;)
 
 julia&gt; isone(discriminant(ZK))
 true
