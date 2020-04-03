@@ -1135,11 +1135,10 @@
 </code></pre></div>
 
 <p>Returns whether <script type="math/tex">L_{\mathfrak{p}}</script> is modular. In this case the second return value is an integer <script type="math/tex">v</script> such that <script type="math/tex">L_{\mathfrak{p}}</script> is <script type="math/tex">\mathfrak{p}^v</script>-modular.</p>
-<hr />
-<div class="codehilite"><pre><span></span><code><span class="n">bad_primes</span><span class="p">(</span><span class="n">L</span><span class="o">::</span><span class="n">AbsLat</span><span class="p">;</span> <span class="n">even</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Vector</span><span class="p">{</span><span class="n">NfOrdIdl</span><span class="p">}</span>
-</code></pre></div>
-
-<p>Returns the prime ideals dividing the scale and volume of <script type="math/tex">L</script>. If <code>even == true</code> also the prime ideals dividing <script type="math/tex">2</script> are included.</p>
+<div class="admonition warning">
+<p class="admonition-title">Missing docstring.</p>
+<p>Missing docstring for <code>bad_primes(L::AbsLat; even::Bool = false)</code>. Check Documenter's build log for details.</p>
+</div>
 <hr />
 <div class="codehilite"><pre><span></span><code><span class="n">jordan_decomposition</span><span class="p">(</span><span class="n">L</span><span class="o">::</span><span class="n">AbsLat</span><span class="p">,</span> <span class="n">p</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span>
                             <span class="o">-&gt;</span> <span class="kt">Vector</span><span class="p">{</span><span class="n">MatElem</span><span class="p">},</span> <span class="kt">Vector</span><span class="p">{</span><span class="n">MatElem</span><span class="p">},</span> <span class="kt">Vector</span><span class="p">{</span><span class="kt">Int</span><span class="p">}</span>
