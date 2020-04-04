@@ -1114,7 +1114,11 @@ true
 
 <p>Return the <script type="math/tex">T_2</script>-norm of <script type="math/tex">x</script>. The radius of the result will be less than <code>2^-abs_tol</code>.</p>
 <hr />
-<div class="codehilite"><pre><span></span><code><span class="n">minpoly</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfAbsOrdElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz_poly</span>
+<div class="codehilite"><pre><span></span><code><span class="n">minpoly</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfRelElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PolyElem</span>
+</code></pre></div>
+
+<p>Given an element <script type="math/tex">a</script> in an extension <script type="math/tex">L/K</script>, this function returns the minimal polynomial of <script type="math/tex">a</script> of <script type="math/tex">K</script>.</p>
+<div class="codehilite"><pre><span></span><code>minpoly(a::NfAbsOrdElem) -&gt; fmpz_poly
 </code></pre></div>
 
 <p>The minimal polynomial of <script type="math/tex">a</script>.    </p>
