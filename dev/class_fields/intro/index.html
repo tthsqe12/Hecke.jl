@@ -920,15 +920,15 @@ Number field over Rational Field with defining polynomial x^2-10
  with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[_$1^2+(-2)]
 
 julia&gt; ZK = maximal_order(K)
-ERROR: MethodError: no method matching discriminant(::Array{AbstractAlgebra.Generic.MPoly{nf_elem},1})
-Closest candidates are:
-  discriminant(!Matched::fmpz_poly) at /home/travis/.julia/packages/Nemo/Pc5ui/src/flint/fmpz_poly.jl:544
-  discriminant(!Matched::QuadBin) at /home/travis/.julia/packages/Hecke/RahO8/src/Misc/BinQuad.jl:78
-  discriminant(!Matched::FlintRationalField) at /home/travis/.julia/packages/Hecke/RahO8/src/NumField/SimpleNumField/Field.jl:151
-  ...
+Relative maximal order of non-simple Relative number field over
+Number field over Rational Field with defining polynomial x^2-10
+ with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[_$1^2+(-2)]
+with pseudo-basis
+(1, 1//1 * &lt;1, 1&gt;)
+(_$1+(a), 1//4 * &lt;2, a&gt;)
 
 julia&gt; isone(discriminant(ZK))
-ERROR: UndefVarError: ZK not defined
+true
 </code></pre></div>
 
 <hr />

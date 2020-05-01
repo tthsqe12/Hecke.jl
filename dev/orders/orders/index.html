@@ -888,7 +888,11 @@ with Z-basis NfAbsOrdElem{AnticNumberField,nf_elem}[1, a]
 
 <p>Returns the signature of the ambient number field of <script type="math/tex">\mathcal O</script>.</p>
 <hr />
-<div class="codehilite"><pre><span></span><code><span class="n">nf</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfAbsOrd</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AnticNumberField</span>
+<div class="codehilite"><pre><span></span><code>  <span class="n">nf</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfRelOrd</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NumField</span>
+</code></pre></div>
+
+<p>Returns the ambient number field of <script type="math/tex">\mathcal O</script>.</p>
+<div class="codehilite"><pre><span></span><code>nf(O::NfAbsOrd) -&gt; AnticNumberField
 </code></pre></div>
 
 <p>Returns the ambient number field of <script type="math/tex">\mathcal O</script>.</p>
