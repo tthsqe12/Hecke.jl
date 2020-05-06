@@ -933,7 +933,12 @@
 
 <p>Returns the largest entry of <script type="math/tex">A</script>.</p>
 <hr />
-<div class="codehilite"><pre><span></span><code><span class="n">minimum</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SRow</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">T</span>
+<div class="codehilite"><pre><span></span><code>  <span class="n">minimum</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfRelOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdIdl</span>
+  <span class="n">minimum</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfRelOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfRelOrdIdl</span>
+</code></pre></div>
+
+<p>Returns the ideal <script type="math/tex">A \cap O</script> where <script type="math/tex">O</script> is the maximal order of the coefficient ideals of <script type="math/tex">A</script>.</p>
+<div class="codehilite"><pre><span></span><code>minimum(A::SRow{T}) -&gt; T
 </code></pre></div>
 
 <p>Returns the smallest entry of <script type="math/tex">A</script>.</p>

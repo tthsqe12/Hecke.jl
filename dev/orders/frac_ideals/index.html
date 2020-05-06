@@ -855,7 +855,11 @@
 
 <p>Returns the <script type="math/tex">\mathbf Z</script>-basis of <script type="math/tex">I</script>.</p>
 <hr />
-<div class="codehilite"><pre><span></span><code><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfRelOrdFracIdl</span><span class="p">{</span><span class="n">T</span><span class="p">,</span> <span class="n">S</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">S</span>
+<div class="codehilite"><pre><span></span><code><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfRelOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdIdl</span>
+</code></pre></div>
+
+<p>Returns the norm of <script type="math/tex">a</script>.</p>
+<div class="codehilite"><pre><span></span><code>norm(a::NfRelOrdFracIdl{T, S}) -&gt; S
 </code></pre></div>
 
 <p>Returns the norm of <script type="math/tex">a</script>
@@ -871,8 +875,8 @@
 <blockquote>
 <p>Returns the norm of <script type="math/tex">a</script> considered as an (possibly fractional) ideal of <script type="math/tex">O</script>.</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code>norm(a::AlgAssRelOrdIdl{S, T}, O::AlgAssRelOrd{S, T}; copy::Bool = true)
-  where { S, T } -&gt; T
+<div class="codehilite"><pre><span></span><code>norm(a::AlgAssRelOrdIdl{S, T, U}, O::AlgAssRelOrd{S, T, U}; copy::Bool = true)
+  where { S, T, U } -&gt; T
 </code></pre></div>
 
 <blockquote>

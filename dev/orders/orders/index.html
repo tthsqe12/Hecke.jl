@@ -807,35 +807,11 @@ julia&gt; O = MaximalOrder(K);
 <p>Returns a maximal order of <script type="math/tex">A</script>.</p>
 </blockquote>
 <hr />
-<div class="codehilite"><pre><span></span><code>  <span class="n">maximal_order</span><span class="p">(</span><span class="n">L</span><span class="o">::</span><span class="n">NumField</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfRelOrd</span>
-</code></pre></div>
-
-<p>Returns the maximal order of <script type="math/tex">L</script>.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">maximal_order</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfAbsOrd</span><span class="p">;</span> <span class="n">index_divisors</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">fmpz</span><span class="p">},</span> <span class="n">discriminant</span><span class="o">::</span><span class="n">fmpz</span><span class="p">,</span> <span class="n">ramified_primes</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">fmpz</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrd</span>
-</code></pre></div>
-
-<p>Returns the maximal order of the number field that contains <script type="math/tex">O</script>. Additional information can be supplied if they are already known, as the ramified primes, the discriminant of the maximal order or a set of integers dividing the index of <script type="math/tex">O</script> in the maximal order.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">maximal_order</span><span class="p">(</span><span class="n">K</span><span class="o">::</span><span class="kt">Union</span><span class="p">{</span><span class="n">AnticNumberField</span><span class="p">,</span> <span class="n">NfAbsNS</span><span class="p">};</span> <span class="n">discriminant</span><span class="o">::</span><span class="n">fmpz</span><span class="p">,</span> <span class="n">ramified_primes</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="n">fmpz</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrd</span>
-</code></pre></div>
-
-<p>Returns the maximal order of <script type="math/tex">K</script>. Additional information can be supplied if they are already known, as the ramified primes or the discriminant of the maximal order.</p>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><code>julia&gt; Qx, xx = FlintQQ[&quot;x&quot;];
-julia&gt; K, a = NumberField(x^3 + 2, &quot;a&quot;);
-julia&gt; O = MaximalOrder(K);
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code>MaximalOrder(O::AlgAssAbsOrd)
+<div class="codehilite"><pre><span></span><code><span class="n">maximal_order</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">AlgAssRelOrd</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AlgAssRelOrd</span>
 </code></pre></div>
 
 <blockquote>
-<p>Given an order <script type="math/tex">O</script>, this function returns a maximal order containing <script type="math/tex">O</script>.</p>
-</blockquote>
-<div class="codehilite"><pre><span></span><code>MaximalOrder(A::AbsAlgAss{fmpq}) -&gt; AlgAssAbsOrd
-</code></pre></div>
-
-<blockquote>
-<p>Returns a maximal order of <script type="math/tex">A</script>.</p>
+<p>Returns a maximal order of <code>algera(O)</code> containing <script type="math/tex">O</script>.</p>
 </blockquote>
 <hr />
 <div class="codehilite"><pre><span></span><code><span class="n">lll</span><span class="p">(</span><span class="n">M</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrd</span>
@@ -938,6 +914,12 @@ with Z-basis NfAbsOrdElem{AnticNumberField,nf_elem}[1, a]
 </code></pre></div>
 
 <p>Returns the discriminant of the family <script type="math/tex">B</script>.</p>
+<div class="codehilite"><pre><span></span><code>discriminant(O::AlgssRelOrd)
+</code></pre></div>
+
+<blockquote>
+<p>Returns the discriminant of <script type="math/tex">O</script>.</p>
+</blockquote>
 <hr />
 <div class="codehilite"><pre><span></span><code><span class="n">gen_index</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpq</span>
 </code></pre></div>

@@ -949,10 +949,10 @@ julia&gt; [ mc \ I for I = lp]
 10-element Array{GrpAbFinGenElem,1}:
  Element of
 GrpAb: Z/9
-with components [1]
+with components [7]
  Element of
 GrpAb: Z/9
-with components [7]
+with components [1]
  Element of
 GrpAb: Z/9
 with components [1]
@@ -979,7 +979,7 @@ GrpAb: Z/9
 with components [5]
 
 julia&gt; mc(c[1])
-&lt;2, 1//2*_$^2 + 2*_$ + 1//2&gt;
+&lt;2, 7//2*_$^2 + 2*_$ + 3//2&gt;
 Norm: 2
 Minimum: 2
 two normal wrt: 2
@@ -988,7 +988,7 @@ julia&gt; order(c[1])
 9
 
 julia&gt; mc(c[1])^Int(order(c[1]))
-&lt;512, 10991426517025591//2*_$^2 - 5454445711922803*_$ + 11899932301596121//2&gt;
+&lt;512, 49614722983007783397571//2*_$^2 - 24621081949974258001807*_$ + 53715670458794976457101//2&gt;
 Norm: 512
 two normal wrt: 2
 
@@ -1033,7 +1033,7 @@ with components [0]
 
 <p>Finds a number field element <script type="math/tex">\alpha</script> such that <script type="math/tex">\alpha I</script> factors over the factor base in <script type="math/tex">c</script>.</p>
 <div class="codehilite"><pre><span></span><code>julia&gt; I = mc(c[1])
-&lt;2, 1//2*_$^2 + 2*_$ + 1//2&gt;
+&lt;2, 7//2*_$^2 + 2*_$ + 3//2&gt;
 Norm: 2
 Minimum: 2
 two normal wrt: 2
@@ -1042,12 +1042,12 @@ julia&gt; Hecke.isprincipal(I)
 (false, 1)
 
 julia&gt; I = I^Int(order(c[1]))
-&lt;512, 10991426517025591//2*_$^2 - 5454445711922803*_$ + 11899932301596121//2&gt;
+&lt;512, 49614722983007783397571//2*_$^2 - 24621081949974258001807*_$ + 53715670458794976457101//2&gt;
 Norm: 512
 two normal wrt: 2
 
 julia&gt; Hecke.isprincipal(I)
-(true, 1//2*_$^2 - 5*_$ - 17//2)
+(true, -1//2*_$^2 + 5*_$ + 17//2)
 
 julia&gt; Hecke.isprincipal_fac_elem(I)
 ERROR: MethodError: Cannot `convert` an object of type nf_elem to an object of type FacElem{nf_elem,AnticNumberField}
@@ -1087,7 +1087,7 @@ with basis nf_elem[1, _$, 1//2*_$^2 + 1//2]
 )
 
 julia&gt; mu(u[2])
--_$+12
+_$-12
 
 julia&gt; u, mu = unit_group_fac_elem(zk)
 (GrpAb: Z/2 x Z, UnitGroup map of Factored elements over Number field over Rational Field with defining polynomial x^3-13*x^2+13*x-13
@@ -1095,17 +1095,17 @@ julia&gt; u, mu = unit_group_fac_elem(zk)
 
 julia&gt; mu(u[2])
 Factored element with data
-Dict(_$+5 =&gt; 6,7 =&gt; 2,_$+38 =&gt; -2,_$+2 =&gt; 2,107 =&gt; 2,_$-16 =&gt; -2,-13//2*_$^2 + 80*_$ - 247//2 =&gt; -2,_$-35 =&gt; -2,5 =&gt; 2,_$-5 =&gt; -2,_$^2 - 2*_$ - 2 =&gt; -2,11 =&gt; -1,-1//2*_$^2 + 6*_$ - 3//2 =&gt; 1,25*_$^2 - 322*_$ + 208 =&gt; 2,_$^2 + 1*_$ + 2 =&gt; -2)
+Dict(_$+5 =&gt; 2,7 =&gt; 1,5 =&gt; 1,_$-4 =&gt; -1,_$^2 - 2*_$ - 2 =&gt; -1,_$-3 =&gt; -1,_$^2 + 1*_$ + 2 =&gt; -1)
 
 julia&gt; evaluate(ans)
--_$+12
+_$-12
 
 julia&gt; lp = factor(6*zk)
 Dict{NfAbsOrdIdl{AnticNumberField,nf_elem},Int64} with 4 entries:
-  &lt;3, _$^2 + 1&gt;         =&gt; 1
-  &lt;2, 3//2*_$^2 + 1//2&gt; =&gt; 1
-  &lt;2, 5//2*_$^2 + 5//2&gt; =&gt; 2
-  &lt;3, _$-1&gt;             =&gt; 1
+  &lt;3, _$^2 + 1&gt;                =&gt; 1
+  &lt;2, 5//2*_$^2 + 1*_$ + 1//2&gt; =&gt; 1
+  &lt;2, 3//2*_$^2 + 2*_$ + 7//2&gt; =&gt; 2
+  &lt;3, _$-1&gt;                    =&gt; 1
 
 julia&gt; s, ms = Hecke.sunit_group(collect(keys(lp)))
 (GrpAb: Z/2 x Z^(5), SUnits  map of Number field over Rational Field with defining polynomial x^3-13*x^2+13*x-13 for NfAbsOrdIdl{AnticNumberField,nf_elem}[&lt;3, _$^2 + 1&gt;
@@ -1115,14 +1115,14 @@ basis_matrix
 [3  0  0]
 [0  3  0]
 [0  0  1]
-two normal wrt: 3, &lt;2, 3//2*_$^2 + 1//2&gt;
+two normal wrt: 3, &lt;2, 5//2*_$^2 + 1*_$ + 1//2&gt;
 Norm: 2
 Minimum: 2
 basis_matrix
 [2  0  0]
 [1  1  0]
 [1  0  1]
-two normal wrt: 2, &lt;2, 5//2*_$^2 + 5//2&gt;
+two normal wrt: 2, &lt;2, 3//2*_$^2 + 2*_$ + 7//2&gt;
 Norm: 2
 Minimum: 2
 basis_matrix
@@ -1140,13 +1140,13 @@ two normal wrt: 3]
 )
 
 julia&gt; ms(s[4])
-1//2*_$^2 - 6*_$ - 1//2
+-1//2*_$^2 + 6*_$ + 1//2
 
 julia&gt; norm(ans)
--18
+18
 
 julia&gt; factor(numerator(ans))
--1 * 2 * 3^2
+1 * 2 * 3^2
 </code></pre></div>
 
 <p><a id='Miscaellenous-1'></a></p>
@@ -1230,7 +1230,12 @@ julia&gt; factor(numerator(ans))
 
 <p>For a principal ideal <script type="math/tex">A</script>, find a generator in factored form.</p>
 <hr />
-<div class="codehilite"><pre><span></span><code><span class="n">minimum</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfAbsOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fmpz</span>
+<div class="codehilite"><pre><span></span><code>  <span class="n">minimum</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfRelOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdIdl</span>
+  <span class="n">minimum</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfRelOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfRelOrdIdl</span>
+</code></pre></div>
+
+<p>Returns the ideal <script type="math/tex">A \cap O</script> where <script type="math/tex">O</script> is the maximal order of the coefficient ideals of <script type="math/tex">A</script>.</p>
+<div class="codehilite"><pre><span></span><code>minimum(A::NfAbsOrdIdl) -&gt; fmpz
 </code></pre></div>
 
 <p>Returns the smallest nonnegative element in <script type="math/tex">A \cap \mathbf Z</script>.</p>
@@ -1240,7 +1245,11 @@ julia&gt; factor(numerator(ans))
 
 <p>Returns whether <script type="math/tex">A</script> knows its mininum.</p>
 <hr />
-<div class="codehilite"><pre><span></span><code><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfRelOrdFracIdl</span><span class="p">{</span><span class="n">T</span><span class="p">,</span> <span class="n">S</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">S</span>
+<div class="codehilite"><pre><span></span><code><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">NfRelOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfOrdIdl</span>
+</code></pre></div>
+
+<p>Returns the norm of <script type="math/tex">a</script>.</p>
+<div class="codehilite"><pre><span></span><code>norm(a::NfRelOrdFracIdl{T, S}) -&gt; S
 </code></pre></div>
 
 <p>Returns the norm of <script type="math/tex">a</script>
@@ -1255,8 +1264,8 @@ julia&gt; factor(numerator(ans))
 <blockquote>
 <p>Returns the norm of <script type="math/tex">a</script> considered as an (possibly fractional) ideal of <script type="math/tex">O</script>.</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code>norm(a::AlgAssRelOrdIdl{S, T}, O::AlgAssRelOrd{S, T}; copy::Bool = true)
-  where { S, T } -&gt; T
+<div class="codehilite"><pre><span></span><code>norm(a::AlgAssRelOrdIdl{S, T, U}, O::AlgAssRelOrd{S, T, U}; copy::Bool = true)
+  where { S, T, U } -&gt; T
 </code></pre></div>
 
 <blockquote>
