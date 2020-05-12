@@ -563,8 +563,8 @@ function _short_vectors_gram(_G, lb, ub; hard::Bool = false)
 end
 
 # No assumption on _G, algorithm applies LLL
-function _short_vectors_gram(_G, ub)
-  return _short_vectors_gram(_G, fmpz(0), ub)
+function _short_vectors_gram(_G, ub; hard::Bool = false)
+  return _short_vectors_gram(_G, fmpz(0), ub, hard = hard)
 end
 
 # No assumption on _G, algorithm applies LLL

@@ -1487,13 +1487,20 @@ function _isfree_Q32(K::AnticNumberField)
 
   fl, x = _is_principal_maximal_quaternion_generic_proper(OKLambda, Lambda, :right)
 
+
   if !fl
     return false, zero(K)
   end
 
-  if !(x in eZG)
+  OKasidealnume = sum(Lambda(QtoC\(BtoC(BtoA\(e * b)))) * eZG for b in basis(OKasidealnum))
+
+  if !(x in OKasidealnume)
     return false
   end
+
+  x = inv(Q(d)) * x
+
+  @assert sum(Lambda(QtoC\(BtoC(BtoA\(d * e * b)))) * eZG for b in basis(OKasideal)) == (d * x) * eZG
 
   # Now move Lambda_star (which is in fact (eZG)^\times back to ZG)
   
@@ -1506,7 +1513,6 @@ function _isfree_Q32(K::AnticNumberField)
   for i in 1:length(Lambda_star_in_QGalmost)
     v = matrix(FlintQQ, 1, 32, Lambda_star_in_QGalmost[i].coeffs);
     d = denominator(v)
-    @show d
     fl, w = can_solve(change_base_ring(FlintZZ, d * Me), change_base_ring(FlintZZ, d * v), side = :left)
     @assert fl
     @assert e * QG(fmpq[w[1, j] for j in 1:32]) == Lambda_star_in_QGalmost[i]
@@ -1534,11 +1540,17 @@ function _isfree_Q32(K::AnticNumberField)
 
   xlift = BtoA(CtoB(QtoC(x)))
 
-  v = matrix(FlintQQ, 1, 32, xlift.coeffs);
-  d = denominator(Me)
-  fl, w = can_solve(change_base_ring(FlintZZ, d * Me), change_base_ring(FlintZZ, d * v), side = :left)
-
-  xxlift = QG(fmpq[w[1, j] for j in 1:32])
+#  v = matrix(FlintQQ, 1, 32, xlift.coeffs);
+#  d = denominator(Me) * denominator(v)
+#  fl, w = can_solve(Me, v, side = :left)
+#
+#  @assert fl
+#
+#  xxlift = QG(fmpq[w[1, j] for j in 1:32])
+#
+  #@assert xxlift in OKasideal
+ 
+  xxlift = divexact_left(e, xlift)
 
   @assert xxlift in OKasideal
 
@@ -1580,6 +1592,7 @@ function _is_D16_subfield_free(K, KtoQG, QG::AlgGrp)
     B = parent(_cache_tmp[1])
     GG = group(B)
     fl, f = isisomorphic(GG, group(D16))
+    @assert fl
     ff = hom(B, D16, f)
     unitss = ff.(_cache_tmp)
   end
