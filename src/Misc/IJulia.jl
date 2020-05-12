@@ -16,7 +16,7 @@ function math_html(io::IO, a::PolyElem)
   print(io, f)
 end
 
-function Base.show(io::IO, ::MIME"text/html", a::PolyElem)
+function Base.show(io::IO, ::MIME"text/latex", a::PolyElem)
   print(io, "\$")
   math_html(io, a)
   print(io, "\$")
@@ -32,7 +32,7 @@ function math_html(io::IO, a::AnticNumberField)
   end
 end
 
-function Base.show(io::IO, ::MIME"text/html", a::NfRelNS)
+function Base.show(io::IO, ::MIME"text/latex", a::NfRelNS)
   print(io, "\$")
   math_html(io, a)
   print(io, "\$")
@@ -50,7 +50,7 @@ function math_html(io::IO, a::NfRelNS)
   end
 end
 
-function Base.show(io::IO, ::MIME"text/html", a::NfAbsNS)
+function Base.show(io::IO, ::MIME"text/latex", a::NfAbsNS)
   print(io, "\$")
   math_html(io, a)
   print(io, "\$")
@@ -66,14 +66,14 @@ function math_html(io::IO, a::NfAbsNS)
   end
 end
 
-function Base.show(io::IO, ::MIME"text/html", a::AnticNumberField)
+function Base.show(io::IO, ::MIME"text/latex", a::AnticNumberField)
   print(io, "\$")
   math_html(io, a)
   print(io, "\$")
 end
 
 
-function Base.show(io::IO, ::MIME"text/html", A::Fac{T}) where {T}
+function Base.show(io::IO, ::MIME"text/latex", A::Fac{T}) where {T}
   print(io, "\$")
   math_html(io, A)
   print(io, "\$")
@@ -81,7 +81,7 @@ end
 
 function math_html(io::IO, a)
   try
-    show(io, "text/html", a)
+    show(io, "text/latex", a)
   catch e
 #    @show e
     if isa(e, MethodError)
@@ -95,7 +95,7 @@ function math_html(io::IO, a)
 end
 
 #=
-function Base.show(io::IO, ::MIME"text/html", a)
+function Base.show(io::IO, ::MIME"text/latex", a)
   print(io, "\$")
   math_html(io, a)
   print(io, "\$")
@@ -113,7 +113,7 @@ end
 =#
 
 
-function Base.show(io::IO, mime::MIME"text/html", T::Tuple)
+function Base.show(io::IO, mime::MIME"text/latex", T::Tuple)
   print(io, "(")
   for i =1:length(T)
     try
@@ -159,7 +159,7 @@ function math_html(io::IO, a::nf_elem)
   end
 end
 
-function Base.show(io::IO, ::MIME"text/html", a::nf_elem)
+function Base.show(io::IO, ::MIME"text/latex", a::nf_elem)
   print(io, "\$")
   math_html(io, a)
   print(io, "\$")
@@ -180,7 +180,7 @@ function math_html(io::IO, a::MapParent)
   end
 end
 
-function Base.show(io::IO, ::MIME"text/html", a::MapParent)
+function Base.show(io::IO, ::MIME"text/latex", a::MapParent)
   print(io, "\$")
   math_html(io, a)
   print(io, "\$")
@@ -208,10 +208,10 @@ function math_html(io::IO, A::Fac{T}) where {T}
   end
 end
 
-Base.show(io::IO, ::MIME"text/html", a::Integer) = show(io, "text/html", fmpz(a))
+Base.show(io::IO, ::MIME"text/latex", a::Integer) = show(io, "text/latex", fmpz(a))
 math_html(io::IO, a::Integer) = math_html(io, fmpz(a))
 
-function Base.show(io::IO, ::MIME"text/html", a::fmpz)
+function Base.show(io::IO, ::MIME"text/latex", a::fmpz)
   print(io, "\$")
   math_html(io, a)
   print(io, "\$")
@@ -245,7 +245,7 @@ function math_html(io::IO, M::MatElem)
   print(io, "\\end{bmatrix}")
 end
 
-function Base.show(io::IO, ::MIME"text/html", M::MatElem)
+function Base.show(io::IO, ::MIME"text/latex", M::MatElem)
   print(io, "\$")
   math_html(io, M)
   print(io, "\$")
@@ -263,7 +263,7 @@ function math_html(io::IO, a::fmpq)
   end
 end
 
-function Base.show(io::IO, ::MIME"text/html", a::fmpq)
+function Base.show(io::IO, ::MIME"text/latex", a::fmpq)
   print(io, "\$")
   math_html(io, a)
   print(io, "\$")
@@ -271,13 +271,13 @@ end
 
 math_html(io::IO, a::Rational) = math_html(io, fmpq(a))
 
-function Base.show(io::IO, ::MIME"text/html", a::Rational) 
+function Base.show(io::IO, ::MIME"text/latex", a::Rational) 
   print(io, "\$")
   math_html(io, a)
   print(io, "\$")
 end
 
-function Base.show(io::IO, ::MIME"text/html", ::FlintRationalField)
+function Base.show(io::IO, ::MIME"text/latex", ::FlintRationalField)
   print(io, "\$")
   math_html(io, FlintQQ)
   print(io, "\$")
@@ -287,7 +287,7 @@ function math_html(io::IO, ::FlintRationalField)
   print(io, "\\text{Rational Field}")
 end
 
-function Base.show(io::IO, ::MIME"text/html", ::FlintIntegerRing)
+function Base.show(io::IO, ::MIME"text/latex", ::FlintIntegerRing)
   print(io, "\$")
   math_html(io, FlintQQ)
   print(io, "\$")
@@ -301,7 +301,7 @@ end
 
 
 #= infinite recursion through generic math_html, so don't
-function Base.show(io::IO, ::MIME"text/html", a) 
+function Base.show(io::IO, ::MIME"text/latex", a) 
   print(io, "\$")
   math_html(io, a)
   print(io, "\$")
@@ -319,7 +319,7 @@ function math_html(io::IO, l::Array{T, 1}) where {T}
   print(io, "]")
 end
 
-function Base.show(io::IO, mime::MIME"text/html", l::Array{T, 1}) where {T}
+function Base.show(io::IO, mime::MIME"text/latex", l::Array{T, 1}) where {T}
   io = IOContext(io, :compact => true)
   first = true
   print(io, "[")
@@ -363,7 +363,7 @@ function math_html(io::IO, O::NfAbsOrd{AnticNumberField, nf_elem})
   end
 end
 
-function Base.show(io::IO, ::MIME"text/html", a::NfAbsOrd{AnticNumberField, nf_elem})
+function Base.show(io::IO, ::MIME"text/latex", a::NfAbsOrd{AnticNumberField, nf_elem})
   print(io, "\$")
   math_html(io, a)
   print(io, "\$")
@@ -394,7 +394,7 @@ function math_html(io::IO, M::Map)
   end
 end
 
-function Base.show(io::IO, ::MIME"text/html", M::Map)
+function Base.show(io::IO, ::MIME"text/latex", M::Map)
   print(io, "\$")
   math_html(io, M)
   print(io, "\$")
@@ -410,13 +410,13 @@ function math_html(io::IO, I::NfAbsOrdIdlSet)
   end
 end
 
-function Base.show(io::IO, ::MIME"text/html", G::GrpAbFinGen)
+function Base.show(io::IO, ::MIME"text/latex", G::GrpAbFinGen)
   print(io, "\$")
   math_html(io, G)
   print(io, "\$")
 end
 
-function show_tensor_product(io::IO, ::MIME"text/html", G::GrpAbFinGen)
+function show_tensor_product(io::IO, ::MIME"text/latex", G::GrpAbFinGen)
   T = get_special(G, :tensor_product)
   @assert T !== nothing
   io = IOContext(io, :compact => true)
@@ -438,7 +438,7 @@ function math_html(io::IO, G::GrpAbFinGen)
   s = get_special(G, :show)
   if s !== nothing
     try
-      s(io, MIME("text/html"), G)
+      s(io, MIME("text/latex"), G)
       return
     catch e
 #      @show e
@@ -467,7 +467,7 @@ function math_html(io::IO, R::PolyRing)
   print(IOContext(io, :compact => true), base_ring(R))
 end
 
-function Base.show(io::IO, ::MIME"text/html", K::PolyRing)
+function Base.show(io::IO, ::MIME"text/latex", K::PolyRing)
   print(io, "\$")
   math_html(io, K)
   print(io, "\$")
@@ -485,13 +485,13 @@ function math_html(io::IO, K::NfRel)
   math_html(io, K.pol)
 end
 
-function Base.show(io::IO, ::MIME"text/html", K::NfRel)
+function Base.show(io::IO, ::MIME"text/latex", K::NfRel)
   print(io, "\$")
   math_html(io, K)
   print(io, "\$")
 end
 
-function Base.show(io::IO, ::MIME"text/html", b::Bool)
+function Base.show(io::IO, ::MIME"text/latex", b::Bool)
    print(io, b ? "true" : "false")
 end
 
@@ -500,7 +500,7 @@ function math_html(io::IO, S::FacElemMon)
   math_html(io, base_ring(S))
 end
 
-function Base.show(io::IO, ::MIME"text/html", S::FacElemMon)
+function Base.show(io::IO, ::MIME"text/latex", S::FacElemMon)
   print(io, "\$")
   math_html(io, S)
   print(io, "\$")
