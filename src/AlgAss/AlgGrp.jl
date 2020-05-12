@@ -490,6 +490,8 @@ function _galois_module(K::AnticNumberField, A, aut::Map = automorphism_group(K)
     basis_alpha[A.group_to_base[g]] = f(alpha)
   end
 
+  @show alpha
+
   M = zero_matrix(base_field(K), degree(K), degree(K))
   for i = 1:degree(K)
     a = basis_alpha[i]
@@ -1001,4 +1003,13 @@ function isalmost_maximally_ramified(K::AnticNumberField, p::fmpz)
   return true
 end
 
-
+function hom(KG::AlgGrp, KH::AlgGrp, m::GrpGenToGrpGenMor)
+  @assert base_ring(KG) === base_ring(KH)
+  K = base_ring(KG)
+  M = zero_matrix(K, dim(KG), dim(KH))
+  for i in 1:dim(KG)
+    j = KH.group_to_base[m(KG.base_to_group[i])]
+    M[i, j] = one(K)
+  end
+  return hom(KG, KH, M)
+end

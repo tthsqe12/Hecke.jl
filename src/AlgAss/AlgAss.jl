@@ -1051,32 +1051,32 @@ end
 > and from $B$ to $A$.
 """
 # Top level functions to avoid "type mix-ups" (like AlgAss{fq_nmod} with FlintQQ)
-function restrict_scalars(A::AlgAss{nf_elem}, Q::FlintRationalField)
+function restrict_scalars(A::AbsAlgAss{nf_elem}, Q::FlintRationalField)
   return _restrict_scalars_to_prime_field(A, Q)
 end
 
-function restrict_scalars(A::AlgAss{fq_nmod}, Fp::GaloisField)
+function restrict_scalars(A::AbsAlgAss{fq_nmod}, Fp::GaloisField)
   return _restrict_scalars_to_prime_field(A, Fp)
 end
 
-function restrict_scalars(A::AlgAss{fq}, Fp::Generic.ResField{fmpz})
+function restrict_scalars(A::AbsAlgAss{fq}, Fp::Generic.ResField{fmpz})
   return _restrict_scalars_to_prime_field(A, Fp)
 end
 
 if Nemo.version() > v"0.15.1"
-  function restrict_scalars(A::AlgAss{fq}, Fp::Nemo.GaloisFmpzField)
+  function restrict_scalars(A::AbsAlgAss{fq}, Fp::Nemo.GaloisFmpzField)
     return _restrict_scalars_to_prime_field(A, Fp)
   end
 end
 
-function restrict_scalars(A::AlgAss{gfp_elem}, Fp::GaloisField)
+function restrict_scalars(A::AbsAlgAss{gfp_elem}, Fp::GaloisField)
   function AtoA(x::AlgAssElem)
     return x
   end
   return A, AtoA, AtoA
 end
 
-function restrict_scalars(A::AlgAss{Generic.ResF{fmpz}}, Fp::Generic.ResField{fmpz})
+function restrict_scalars(A::AbsAlgAss{Generic.ResF{fmpz}}, Fp::Generic.ResField{fmpz})
   function AtoA(x::AlgAssElem)
     return x
   end
@@ -1084,7 +1084,7 @@ function restrict_scalars(A::AlgAss{Generic.ResF{fmpz}}, Fp::Generic.ResField{fm
 end
 
 if Nemo.version() > v"0.15.1"
-  function restrict_scalars(A::AlgAss{Nemo.gfp_fmpz_elem}, Fp::Nemo.GaloisFmpzField)
+  function restrict_scalars(A::AbsAlgAss{Nemo.gfp_fmpz_elem}, Fp::Nemo.GaloisFmpzField)
     function AtoA(x::AlgAssElem)
       return x
     end
@@ -1107,7 +1107,7 @@ end
 
 #function _restrict_scalars_to_prime_field(A::AlgAss{T}, prime_field::Union{FlintRationalField, GaloisField, Generic.ResField{fmpz}}) where { T <: Union{nf_elem, fq_nmod, fq} }
 # TODO: fix the type
-function _restrict_scalars_to_prime_field(A::AlgAss{T}, prime_field) where { T }
+function _restrict_scalars_to_prime_field(A::AbsAlgAss{T}, prime_field) where { T }
   K = base_ring(A)
   n = dim(A)
   m = degree(K)
@@ -1160,7 +1160,7 @@ function _restrict_scalars_to_prime_field(A::AlgAss{T}, prime_field) where { T }
     end
   end
   B = AlgAss(prime_field, mult_table, _new_coeffs(one(A)))
-  B.iscommutative = A.iscommutative
+  B.iscommutative = iscommutative(A)
 
   function AtoB(x)
     @assert parent(x) == A
@@ -1193,7 +1193,7 @@ end
 > a number field $K$ to $L$, this function returns the restriction $B$ of $A$
 > to $K$ and maps from $A$ to $B$ and from $B$ to $A$.
 """
-function restrict_scalars(A::AlgAss{nf_elem}, KtoL::NfToNfMor)
+function restrict_scalars(A::AbsAlgAss{nf_elem}, KtoL::NfToNfMor)
   K = domain(KtoL)
   L = codomain(KtoL)
   @assert L == base_ring(A)

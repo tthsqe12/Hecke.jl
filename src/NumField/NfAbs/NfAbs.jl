@@ -302,7 +302,28 @@ Given a number field K which is normal over Q, return
 an element generating a normal basis of K over Q.
 """
 function normal_basis(K::Nemo.AnticNumberField)
-  
+  # First try basis elements of LLL basis
+  # or rather not
+  # n = degree(K)
+  # Aut = automorphisms(K)
+
+  # length(Aut) != n && error("The field is not normal over the rationals!")
+
+  # A = zero_matrix(FlintQQ, n, n)
+  # _B = basis(lll(maximal_order(K)))
+  # for i in 1:n
+  #   r = elem_in_nf(_B[i])
+  #   for i = 1:n
+  #     y = Aut[i](r)
+  #     for j = 1:n
+  #       A[i,j] = coeff(y, j - 1)
+  #     end
+  #   end
+  #   if rank(A) == n
+  #     return r
+  #   end
+  # end
+
   O = EquationOrder(K)
   Qx = parent(K.pol)
   d = discriminant(O)

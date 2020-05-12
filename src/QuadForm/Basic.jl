@@ -395,6 +395,7 @@ function _gram_schmidt(M::MatElem, a)
   n = nrows(F)
   S = identity_matrix(K, n)
   okk = isdiagonal(F)
+  @show M
   if !okk
     for i in 1:n
       if iszero(F[i,i])
@@ -442,6 +443,7 @@ function _gram_schmidt(M::MatElem, a)
       F = T * F * transpose(_map(T, a))
       S = T * S
     end
+    @show F
     @assert isdiagonal(F)
   end
   return F, S
