@@ -15,7 +15,7 @@
         <meta name="author" content="Tommy Hofmann">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.1">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.18ac144a.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.71dfd922.min.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/palette.616af814.min.css">
       
@@ -902,10 +902,11 @@ Class field defined mod (&lt;1, 1&gt;, InfPlc[]) of structure Abelian group with
 <p>The algorithm employed is based on Kummer-theory and requires the addition of a suitable root of unity. Progress can be monitored by setting {{{set<em>verbose</em>level(:ClassField, n)}}} where <script type="math/tex">0\le n\le 3</script>
 </p>
 <hr />
-<div class="codehilite"><pre><span></span><code><span class="n">NumberField</span><span class="p">(</span><span class="n">CF</span><span class="o">::</span><span class="n">ClassField</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Hecke</span><span class="o">.</span><span class="n">NfRelNS</span><span class="p">{</span><span class="n">Nemo</span><span class="o">.</span><span class="n">nf_elem</span><span class="p">}</span>
+<div class="codehilite"><pre><span></span><code><span class="n">NumberField</span><span class="p">(</span><span class="n">CF</span><span class="o">::</span><span class="n">ClassField</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfRelNS</span><span class="p">{</span><span class="n">nf_elem</span><span class="p">}</span>
 </code></pre></div>
 
-<p>Given a (formal) abelian extension, compute the class field by finding defining polynomials for all prime power cyclic subfields. Note, by type this is always a non-simple extension.</p>
+<p>Given a (formal) abelian extension, compute the class field by finding defining polynomials for all prime power cyclic subfields.</p>
+<p>Note, the return type is always a non-simple extension.</p>
 <div class="codehilite"><pre><span></span><code>julia&gt; Qx, x = PolynomialRing(FlintQQ, &quot;x&quot;);
 
 julia&gt; k, a = NumberField(x^2 - 10, &quot;a&quot;);
@@ -926,7 +927,7 @@ Number field over Rational Field with defining polynomial x^2-10
  with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[_$1^2+(-2)]
 with pseudo-basis
 (1, 1//1 * &lt;1, 1&gt;)
-(_$1+(a), 1//4 * &lt;2, a+2&gt;)
+(_$1+(a), 1//4 * &lt;2, 3*a+2&gt;)
 
 julia&gt; isone(discriminant(ZK))
 true
