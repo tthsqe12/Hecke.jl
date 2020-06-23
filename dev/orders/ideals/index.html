@@ -805,30 +805,18 @@
 </div>
 <hr />
 <div class="codehilite"><pre><span></span><code><span class="o">*</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">,</span> <span class="n">x</span><span class="o">::</span><span class="n">NfOrdElem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrdIdl</span>
-<span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">NfOrdElem</span><span class="p">,</span> <span class="n">O</span><span class="o">::</span><span class="n">NfOrd</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrdIdl</span>
+<span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">NfAbsOrdElem</span><span class="p">,</span> <span class="n">O</span><span class="o">::</span><span class="n">NfAbsOrd</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NfAbsOrdIdl</span>
 </code></pre></div>
 
 <p>Returns the principal ideal <script type="math/tex">(x)</script> of <script type="math/tex">\mathcal O</script>.</p>
-<hr />
-<div class="codehilite"><pre><span></span><code><span class="n">prime_decomposition</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfAbsOrd</span><span class="p">,</span>
-                    <span class="n">p</span><span class="o">::</span><span class="kt">Integer</span><span class="p">,</span>
-                    <span class="n">degree_limit</span><span class="o">::</span><span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-                    <span class="n">lower_limit</span><span class="o">::</span><span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Tuple</span><span class="p">{</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="kt">Int</span><span class="p">},</span> <span class="mi">1</span><span class="p">}</span>
-</code></pre></div>
-
-<p>Returns an array of tuples <script type="math/tex">(\mathfrak p_i,e_i)</script> such that <script type="math/tex">p \mathcal O</script> is the product of the <script type="math/tex">\mathfrak p_i^{e_i}</script> and <script type="math/tex">\mathfrak p_i \neq \mathfrak p_j</script> for <script type="math/tex">i \neq j</script>.</p>
-<blockquote></blockquote>
-<p>If <code>degree_limit</code> is a nonzero integer <script type="math/tex">k > 0</script>, then only those prime ideals <script type="math/tex">\mathfrak p</script> with <script type="math/tex">\deg(\mathfrak p) \leq k</script> will be returned. Similarly if <code>\lower_limit</code> is a nonzero integer <script type="math/tex">l > 0</script>, then only those prime ideals <script type="math/tex">\mathfrak p</script> with <script type="math/tex">l \leq \deg(\mathfrak p)</script> will be returned. Note that in this case it may happen that <script type="math/tex">p\mathcal O</script> is not the product of the <script type="math/tex">\mathfrak p_i^{e_i}</script>.</p>
-<hr />
-<div class="codehilite"><pre><span></span><code><span class="n">prime_decomposition</span><span class="p">(</span><span class="n">O</span><span class="o">::</span><span class="n">NfAbsOrd</span><span class="p">,</span>
-                    <span class="n">p</span><span class="o">::</span><span class="kt">Integer</span><span class="p">,</span>
-                    <span class="n">degree_limit</span><span class="o">::</span><span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-                    <span class="n">lower_limit</span><span class="o">::</span><span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Tuple</span><span class="p">{</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="kt">Int</span><span class="p">},</span> <span class="mi">1</span><span class="p">}</span>
-</code></pre></div>
-
-<p>Returns an array of tuples <script type="math/tex">(\mathfrak p_i,e_i)</script> such that <script type="math/tex">p \mathcal O</script> is the product of the <script type="math/tex">\mathfrak p_i^{e_i}</script> and <script type="math/tex">\mathfrak p_i \neq \mathfrak p_j</script> for <script type="math/tex">i \neq j</script>.</p>
-<blockquote></blockquote>
-<p>If <code>degree_limit</code> is a nonzero integer <script type="math/tex">k > 0</script>, then only those prime ideals <script type="math/tex">\mathfrak p</script> with <script type="math/tex">\deg(\mathfrak p) \leq k</script> will be returned. Similarly if <code>\lower_limit</code> is a nonzero integer <script type="math/tex">l > 0</script>, then only those prime ideals <script type="math/tex">\mathfrak p</script> with <script type="math/tex">l \leq \deg(\mathfrak p)</script> will be returned. Note that in this case it may happen that <script type="math/tex">p\mathcal O</script> is not the product of the <script type="math/tex">\mathfrak p_i^{e_i}</script>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Missing docstring.</p>
+<p>Missing docstring for <code>prime_decomposition(::NfOrd, ::Integer)</code>. Check Documenter's build log for details.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Missing docstring.</p>
+<p>Missing docstring for <code>prime_decomposition(::NfOrd, ::fmpz)</code>. Check Documenter's build log for details.</p>
+</div>
 <hr />
 <div class="codehilite"><pre><span></span><code><span class="n">factor</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">NfOrdIdl</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Dict</span><span class="p">{</span><span class="n">NfOrdIdl</span><span class="p">,</span> <span class="kt">Int</span><span class="p">}</span>
 </code></pre></div>
@@ -951,10 +939,10 @@ julia&gt; [ mc \ I for I = lp]
 10-element Array{GrpAbFinGenElem,1}:
  Element of
 GrpAb: Z/9
-with components [7]
+with components [1]
  Element of
 GrpAb: Z/9
-with components [1]
+with components [7]
  Element of
 GrpAb: Z/9
 with components [1]
@@ -981,7 +969,7 @@ GrpAb: Z/9
 with components [5]
 
 julia&gt; mc(c[1])
-&lt;2, 5//2*_$^2 + 1//2&gt;
+&lt;2, 1//2*_$^2 + 2*_$ + 1//2&gt;
 Norm: 2
 Minimum: 2
 two normal wrt: 2
@@ -990,7 +978,7 @@ julia&gt; order(c[1])
 9
 
 julia&gt; mc(c[1])^Int(order(c[1]))
-&lt;512, 1559847608628028816595//2*_$^2 - 774067323013275580575*_$ + 1688778150382874818621//2&gt;
+&lt;512, 10991426517025591//2*_$^2 - 5454445711922803*_$ + 11899932301596121//2&gt;
 Norm: 512
 two normal wrt: 2
 
@@ -1035,7 +1023,7 @@ with components [0]
 
 <p>Finds a number field element <script type="math/tex">\alpha</script> such that <script type="math/tex">\alpha I</script> factors over the factor base in <script type="math/tex">c</script>.</p>
 <div class="codehilite"><pre><span></span><code>julia&gt; I = mc(c[1])
-&lt;2, 5//2*_$^2 + 1//2&gt;
+&lt;2, 1//2*_$^2 + 2*_$ + 1//2&gt;
 Norm: 2
 Minimum: 2
 two normal wrt: 2
@@ -1044,12 +1032,12 @@ julia&gt; Hecke.isprincipal(I)
 (false, 1)
 
 julia&gt; I = I^Int(order(c[1]))
-&lt;512, 1559847608628028816595//2*_$^2 - 774067323013275580575*_$ + 1688778150382874818621//2&gt;
+&lt;512, 10991426517025591//2*_$^2 - 5454445711922803*_$ + 11899932301596121//2&gt;
 Norm: 512
 two normal wrt: 2
 
 julia&gt; Hecke.isprincipal(I)
-(true, 1//2*_$^2 - 5*_$ - 17//2)
+(true, -1//2*_$^2 + 5*_$ + 17//2)
 
 julia&gt; Hecke.isprincipal_fac_elem(I)
 ERROR: MethodError: Cannot `convert` an object of type nf_elem to an object of type FacElem{nf_elem,AnticNumberField}
@@ -1089,7 +1077,7 @@ with basis nf_elem[1, _$, 1//2*_$^2 + 1//2]
 )
 
 julia&gt; mu(u[2])
--_$+12
+_$^2 - 1*_$ + 1
 
 julia&gt; u, mu = unit_group_fac_elem(zk)
 (GrpAb: Z/2 x Z, UnitGroup map of Factored elements over Number field over Rational Field with defining polynomial x^3-13*x^2+13*x-13
@@ -1097,16 +1085,16 @@ julia&gt; u, mu = unit_group_fac_elem(zk)
 
 julia&gt; mu(u[2])
 Factored element with data
-Dict(1//2*_$^2 - 1*_$ + 1//2 =&gt; -2,-17//648*_$^2 + 35//108*_$ - 47//648 =&gt; -1,1 =&gt; -12,-1 =&gt; 1)
+Dict(_$-12 =&gt; -2,1 =&gt; -12,-_$^2 + 1*_$ - 1 =&gt; -1,-1 =&gt; 1)
 
 julia&gt; evaluate(ans)
--_$+12
+_$^2 - 1*_$ + 1
 
 julia&gt; lp = factor(6*zk)
 Dict{NfAbsOrdIdl{AnticNumberField,nf_elem},Int64} with 4 entries:
   &lt;3, _$^2 + 1&gt;                =&gt; 1
-  &lt;2, 1//2*_$^2 + 2*_$ + 7//2&gt; =&gt; 1
-  &lt;2, 5//2*_$^2 + 5//2&gt;        =&gt; 2
+  &lt;2, 1//2*_$^2 + 1*_$ + 5//2&gt; =&gt; 1
+  &lt;2, 7//2*_$^2 + 3//2&gt;        =&gt; 2
   &lt;3, _$-1&gt;                    =&gt; 1
 
 julia&gt; s, ms = Hecke.sunit_group(collect(keys(lp)))
@@ -1117,14 +1105,14 @@ basis_matrix
 [3  0  0]
 [0  3  0]
 [0  0  1]
-two normal wrt: 3, &lt;2, 1//2*_$^2 + 2*_$ + 7//2&gt;
+two normal wrt: 3, &lt;2, 1//2*_$^2 + 1*_$ + 5//2&gt;
 Norm: 2
 Minimum: 2
 basis_matrix
 [2  0  0]
 [1  1  0]
 [1  0  1]
-two normal wrt: 2, &lt;2, 5//2*_$^2 + 5//2&gt;
+two normal wrt: 2, &lt;2, 7//2*_$^2 + 3//2&gt;
 Norm: 2
 Minimum: 2
 basis_matrix
@@ -1142,13 +1130,13 @@ two normal wrt: 3]
 )
 
 julia&gt; ms(s[4])
-1//2*_$^2 - 6*_$ - 1//2
+-1//2*_$^2 + 6*_$ + 1//2
 
 julia&gt; norm(ans)
--18
+18
 
 julia&gt; factor(numerator(ans))
--1 * 2 * 3^2
+1 * 2 * 3^2
 </code></pre></div>
 
 <p><a id='Miscaellenous-1'></a></p>
