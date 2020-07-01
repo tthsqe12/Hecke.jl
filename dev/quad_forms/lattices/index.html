@@ -15,7 +15,7 @@
         <meta name="author" content="Tommy Hofmann">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.3.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
     
     
       
@@ -878,8 +878,10 @@
                   
                 
                 
-                <p><a id='Quadratic-and-hermitian-lattices-1'></a></p>
+                <p><a id='Quadratic-and-hermitian-lattices'></a></p>
+<p><a id='Quadratic-and-hermitian-lattices-1'></a></p>
 <h1 id="quadratic-and-hermitian-lattices">Quadratic and hermitian lattices</h1>
+<p><a id='Creation-of-lattices'></a></p>
 <p><a id='Creation-of-lattices-1'></a></p>
 <h2 id="creation-of-lattices">Creation of lattices</h2>
 <hr />
@@ -907,6 +909,7 @@
 <p>Given a number field <script type="math/tex">K</script> and a pseudo-matrix <script type="math/tex">B</script>, returns the hermitian lattice spanned by the pseudo-matrix <script type="math/tex">B</script> inside the hermitian space over <script type="math/tex">K</script> with gram matrix <script type="math/tex">F</script>.</p>
 <p>If <script type="math/tex">F</script> is not supplied, the gram matrix of the ambient space will be the identity matrix.</p>
 <hr />
+<p><a id='Basic-invariants'></a></p>
 <p><a id='Basic-invariants-1'></a></p>
 <h2 id="basic-invariants">Basic invariants</h2>
 <hr />
@@ -986,6 +989,7 @@
 
 <p>Returns a <script type="math/tex">\mathbf{Z}</script>-basis matrix of <script type="math/tex">L</script>.</p>
 <hr />
+<p><a id='Rational-invariants'></a></p>
 <p><a id='Rational-invariants-1'></a></p>
 <h2 id="rational-invariants">Rational invariants</h2>
 <hr />
@@ -1011,6 +1015,7 @@
 
 <p>Returns whether the rational spans <script type="math/tex">L</script> and <script type="math/tex">M</script> are equivalent.</p>
 <hr />
+<p><a id='Definiteness'></a></p>
 <p><a id='Definiteness-1'></a></p>
 <h2 id="definiteness">Definiteness</h2>
 <hr />
@@ -1034,6 +1039,7 @@
 
 <p>Returns whether there is totally positive rescaled lattice of <script type="math/tex">L</script>. If so, the second return value is an element <script type="math/tex">a</script> such that <script type="math/tex">L^a</script> is totally positive.</p>
 <hr />
+<p><a id='Module-operations'></a></p>
 <p><a id='Module-operations-1'></a></p>
 <h2 id="module-operations">Module operations</h2>
 <hr />
@@ -1074,6 +1080,7 @@
 
 <p>Returns the dual lattice of <script type="math/tex">L</script>.</p>
 <hr />
+<p><a id='Invariants'></a></p>
 <p><a id='Invariants-1'></a></p>
 <h2 id="invariants">Invariants</h2>
 <hr />
@@ -1102,6 +1109,7 @@
 
 <p>Returns whether <script type="math/tex">L</script> is modular. In this case, the second return value is a fractional ideal <script type="math/tex">\mathfrak a</script> such that <script type="math/tex">\mathfrak a L^\# = L</script>, where <script type="math/tex">L^\#</script> is the dual of <script type="math/tex">L</script>.</p>
 <hr />
+<p><a id='Local-properties'></a></p>
 <p><a id='Local-properties-1'></a></p>
 <h2 id="local-properties">Local properties</h2>
 <hr />
@@ -1136,8 +1144,10 @@
 
 <p>Returns whether the completions of <script type="math/tex">L</script> and <script type="math/tex">M</script> at the prime ideal <script type="math/tex">\mathfrak{p}</script> are locally isometric.</p>
 <hr />
+<p><a id='Genera'></a></p>
 <p><a id='Genera-1'></a></p>
 <h2 id="genera">Genera</h2>
+<p><a id='Creation-of-genera-from-lattices'></a></p>
 <p><a id='Creation-of-genera-from-lattices-1'></a></p>
 <h3 id="creation-of-genera-from-lattices">Creation of genera from lattices</h3>
 <hr />
@@ -1152,6 +1162,7 @@
 
 <p>Given a Hermitian lattice, return the genus it belongs to.</p>
 <hr />
+<p><a id='Properties-of-genera'></a></p>
 <p><a id='Properties-of-genera-1'></a></p>
 <h3 id="properties-of-genera">Properties of genera</h3>
 <hr />
@@ -1190,6 +1201,7 @@
 
 <p>Return the primes of a global genus symbol.</p>
 <hr />
+<p><a id='Check-if-lattice-is-contained-in-genus'></a></p>
 <p><a id='Check-if-lattice-is-contained-in-genus-1'></a></p>
 <h3 id="check-if-lattice-is-contained-in-genus">Check if lattice is contained in genus</h3>
 <hr />
@@ -1203,6 +1215,7 @@
 
 <p>Test if the lattice <script type="math/tex">L</script> is contained in the local genus <script type="math/tex">G</script>.</p>
 <hr />
+<p><a id='Creating-representatives'></a></p>
 <p><a id='Creating-representatives-1'></a></p>
 <h3 id="creating-representatives">Creating representatives</h3>
 <hr />
@@ -1290,14 +1303,14 @@
     </div>
     
       <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../assets/javascripts/bundle.4a5ba8d6.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.9b3611bd.min.js"
+            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

@@ -15,7 +15,7 @@
         <meta name="author" content="Tommy Hofmann">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.3.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
     
     
       
@@ -754,9 +754,11 @@
                   
                 
                 
-                <p><a id='Elements-1'></a></p>
+                <p><a id='Elements'></a></p>
+<p><a id='Elements-1'></a></p>
 <h1 id="elements">Elements</h1>
 <p>Elements in orders have two representations: they can be viewed as  elements in the <script type="math/tex">Z^n</script> giving the coefficients wrt to the order basis where they are elements in. On the other hand, as every order is in a field, they also have a representation as number field elements. Since, asymptotically, operations are more efficient in the  field (due to fast polynomial arithmetic) than in the order, the primary representation is that as a field element.</p>
+<p><a id='Creation'></a></p>
 <p><a id='Creation-1'></a></p>
 <h2 id="creation">Creation</h2>
 <p>Elements are constructed either as linear combinations of basis elements or via explicit coercion. Elements will be of type <code>NfOrdElem</code>,  the type if actually parametrized by the type of the surrounding field and the type of the field elements. E.g. the type of any element in any order of an absolute simple field will be <code>NfAbsOrdElem{AnticNumberField,nf_elem}</code></p>
@@ -773,6 +775,7 @@
 </code></pre></div>
 
 <p>This function constructs a new element of <script type="math/tex">\mathcal O</script> which is set to <script type="math/tex">0</script>.</p>
+<p><a id='Basic-properties'></a></p>
 <p><a id='Basic-properties-1'></a></p>
 <h2 id="basic-properties">Basic properties</h2>
 <hr />
@@ -857,6 +860,7 @@ true
 </code></pre></div>
 
 <p>Tests if <script type="math/tex">a</script> is one.</p>
+<p><a id='Arithmetic'></a></p>
 <p><a id='Arithmetic-1'></a></p>
 <h2 id="arithmetic">Arithmetic</h2>
 <hr />
@@ -1026,6 +1030,7 @@ true
 </code></pre></div>
 
 <p>Returns the element <script type="math/tex">a^i</script> modulo <script type="math/tex">m</script>.</p>
+<p><a id='Miscellaneous'></a></p>
 <p><a id='Miscellaneous-1'></a></p>
 <h2 id="miscellaneous">Miscellaneous</h2>
 <hr />
@@ -1227,14 +1232,14 @@ charpoly(a::NfAbsOrdElem, FlintZZ) -&gt; fmpz_poly
     </div>
     
       <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../assets/javascripts/bundle.4a5ba8d6.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.9b3611bd.min.js"
+            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

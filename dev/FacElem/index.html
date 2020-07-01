@@ -15,7 +15,7 @@
         <meta name="author" content="Tommy Hofmann">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.3.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
     
     
       
@@ -754,7 +754,8 @@
                   
                 
                 
-                <p><a id='Factored-Elements-1'></a></p>
+                <p><a id='Factored-Elements'></a></p>
+<p><a id='Factored-Elements-1'></a></p>
 <h1 id="factored-elements">Factored Elements</h1>
 <p>In many applications in number theory related to the multiplicative structure of number fields, interesting elements, e.g. units, are extremely large when written wrt. to a fxied basis for the field: for the fundamental unit in <script type="math/tex">Q[\sqrt d]</script> it is known that the coefficients wrt. the canonical basis <script type="math/tex">1, \sqrt d</script> can have <script type="math/tex">O(\exp \sqrt d)</script> many digits. All currently known, fast methods construct those elements as power products of smaller elements, allowing the computer to handle them.</p>
 <p>Mathematically, one can think of factored elements to formally live in the ring <script type="math/tex">Z[K]</script> the group ring of the non-zero field elements. Thus elements are of the form <script type="math/tex"> \prod a*i^{e*i}</script> where <script type="math/tex">a_i</script> are elements in <script type="math/tex">K</script>, typically <em>small</em> and the <script type="math/tex">e_i\in Z</script> are frequently  large exponents. We refer to the <script type="math/tex">a_i</script> as the <em>base</em> and the <script type="math/tex">e_i</script> as the  <em>exponents</em> of the factored element.</p>
@@ -767,6 +768,7 @@
 <li><code>FacElem{NfAbsOrdIdl, NfAbsOrdIdlSet}</code>, factored ideals</li>
 </ul>
 <p>It should be noted that an object of type `<script type="math/tex">FacElem{fmpz, FlintIntegerRing}</script>  will, in general, not represent an integer as the exponents can be negative.</p>
+<p><a id='Construction'></a></p>
 <p><a id='Construction-1'></a></p>
 <h2 id="construction">Construction</h2>
 <p>In general one can define factored elements by giving 2 arrays, the  base and the exponent, or a dictionary containing the pairs:</p>
@@ -813,6 +815,7 @@ FacElem{B}(d::Dict{B, Integer}) -&gt; FacElem{B}
 </code></pre></div>
 
 <p>The factored fractional ideal <script type="math/tex">a*O</script>.</p>
+<p><a id='Conversion'></a></p>
 <p><a id='Conversion-1'></a></p>
 <h2 id="conversion">Conversion</h2>
 <p>The process of computing the value defined by a factored element is available as <code>evaluate</code>. Depending on the types involved this can be very efficient.</p>
@@ -831,6 +834,7 @@ FacElem{B}(d::Dict{B, Integer}) -&gt; FacElem{B}
 <hr />
 <p>evaluate_naive{T}(x::FacElem{T}) -&gt; T</p>
 <p>Expands or evaluates the factored element, i.e. actually computes the value. Uses the obvious naive algorithm. Faster for input in finite rings.</p>
+<p><a id='Special-functions'></a></p>
 <p><a id='Special-functions-1'></a></p>
 <h2 id="special-functions">Special functions</h2>
 <p>In the case where the parent of the base allows for efficient gcd computation, power products can be made unique:</p>
@@ -948,6 +952,7 @@ FacElem{B}(d::Dict{B, Integer}) -&gt; FacElem{B}
 </code></pre></div>
 
 <p>Given an algebraic number <script type="math/tex">a</script> in factored form and data \code{me} as computed by \code{modular_init}, project <script type="math/tex">a</script> onto the residue class fields.</p>
+<p><a id='Miscellaneous'></a></p>
 <p><a id='Miscellaneous-1'></a></p>
 <h2 id="miscellaneous">Miscellaneous</h2>
 <hr />
@@ -1048,14 +1053,14 @@ FacElem{B}(d::Dict{B, Integer}) -&gt; FacElem{B}
     </div>
     
       <script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../assets/javascripts/bundle.4a5ba8d6.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
           base: "..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.9b3611bd.min.js"
+            worker: "../assets/javascripts/worker/search.a68abb33.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

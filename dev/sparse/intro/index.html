@@ -15,7 +15,7 @@
         <meta name="author" content="Tommy Hofmann">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.3.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
     
     
       
@@ -848,16 +848,20 @@
                   
                 
                 
-                <p><a id='Sparse-linear-algebra-1'></a></p>
+                <p><a id='Sparse-linear-algebra'></a></p>
+<p><a id='Sparse-linear-algebra-1'></a></p>
 <h1 id="sparse-linear-algebra">Sparse linear algebra</h1>
+<p><a id='Introduction'></a></p>
 <p><a id='Introduction-1'></a></p>
 <h2 id="introduction">Introduction</h2>
 <p>This chapter deals with sparse linear algebra over commutative rings and fields.</p>
 <p>Sparse linear algebra, that is, linear algebra with sparse matrices,  plays an important role in various algorithms in algebraic number theory. For example, it is one of the key ingredients in the computation of class groups and discrete logarithms using index calculus methods.</p>
+<p><a id='Sparse-rows'></a></p>
 <p><a id='Sparse-rows-1'></a></p>
 <h2 id="sparse-rows">Sparse rows</h2>
 <p>Building blocks for sparse matrices are sparse rows, which are modelled by objects of type \texttt{SRow}. More precisely, the type is of parametrized form objects of type <code>SRow</code>. More precisely, the type is of parametrized form <code>SRow{T}</code>, where <code>T</code> is the element type of the base ring <script type="math/tex">R</script>. For example, <code>SRow{fmpz}</code> is the type for sparse rows over the integers.</p>
 <p>It is important to note that sparse rows do not have a fixed number of columns, that is, they represent elements of <script type="math/tex">\{ (x_i)_i \in R^{\mathbb{N}} \mid x_i = 0 \text{ for almost all }i\}</script>. In particular any two sparse rows over the same base ring can be added.</p>
+<p><a id='Creation'></a></p>
 <p><a id='Creation-1'></a></p>
 <h3 id="creation">Creation</h3>
 <hr />
@@ -883,6 +887,7 @@
 </code></pre></div>
 
 <p>Constructs the sparse row <script type="math/tex">(a_i)_i</script> over <script type="math/tex">R</script> with <script type="math/tex">a_{i_j} = x_j</script>, where <script type="math/tex">J = (i_j)_j</script> and <script type="math/tex">V = (x_j)_j</script>.</p>
+<p><a id='Basic-operations'></a></p>
 <p><a id='Basic-operations-1'></a></p>
 <h3 id="basic-operations">Basic operations</h3>
 <hr />
@@ -920,6 +925,7 @@
 </code></pre></div>
 
 <p>Returns the row <script type="math/tex">c A + B</script>.</p>
+<p><a id='Change-of-base-ring'></a></p>
 <p><a id='Change-of-base-ring-1'></a></p>
 <h3 id="change-of-base-ring">Change of base ring</h3>
 <hr />
@@ -927,6 +933,7 @@
 </code></pre></div>
 
 <p>Create a new sparse row by coercing all elements into the ring <script type="math/tex">R</script>.</p>
+<p><a id='Maximum,-minimum-and-2-norm'></a></p>
 <p><a id='Maximum,-minimum-and-2-norm-1'></a></p>
 <h3 id="maximum-minimum-and-2-norm">Maximum, minimum and 2-norm</h3>
 <hr />
@@ -949,6 +956,7 @@
 </code></pre></div>
 
 <p>Returns <script type="math/tex">A \cdot A^t</script>.</p>
+<p><a id='Functionality-for-integral-sparse-rows'></a></p>
 <p><a id='Functionality-for-integral-sparse-rows-1'></a></p>
 <h3 id="functionality-for-integral-sparse-rows">Functionality for integral sparse rows</h3>
 <hr />
@@ -971,10 +979,12 @@
 </code></pre></div>
 
 <p>Returns the largest, in absolute value, entry of <script type="math/tex">A</script>.</p>
+<p><a id='Sparse-matrices'></a></p>
 <p><a id='Sparse-matrices-1'></a></p>
 <h2 id="sparse-matrices">Sparse matrices</h2>
 <p>Let <script type="math/tex">R</script> be a commutative ring. Sparse matrices with base ring <script type="math/tex">R</script> are modelled by objects of type <code>SMat</code>. More precisely, the type is of parametrized form <code>SRow{T}</code>, where <code>T</code> is the element type of the base ring. For example, <code>SMat{fmpz}</code> is the type for sparse matrices over the integers.</p>
 <p>In constrast to sparse rows, sparse matrices have a fixed number of rows and columns, that is, they represent elements of the matrices space <script type="math/tex">\mathrm{Mat}_{n\times m}(R)</script>. Internally, sparse matrices are implemented as an array of sparse rows.  As a consequence, Unlike their dense counterparts, sparse matrices have a mutable number of rows and it is very performant to add additional rows.</p>
+<p><a id='Construction'></a></p>
 <p><a id='Construction-1'></a></p>
 <h3 id="construction">Construction</h3>
 <hr />
@@ -1069,14 +1079,14 @@
     </div>
     
       <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../assets/javascripts/bundle.4a5ba8d6.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.9b3611bd.min.js"
+            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

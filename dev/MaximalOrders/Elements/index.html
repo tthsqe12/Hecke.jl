@@ -15,7 +15,7 @@
         <meta name="author" content="Tommy Hofmann">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.3.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
     
     
       
@@ -709,26 +709,34 @@
                 
                 
                 <p>@module{Hecke}</p>
+<p><a id='Elements'></a></p>
 <p><a id='Elements-1'></a></p>
 <h1 id="elements">Elements</h1>
+<p><a id='Creation'></a></p>
 <p><a id='Creation-1'></a></p>
 <h2 id="creation">Creation</h2>
 <p>@{call(::NfMaximalOrder, ::nf<em>elem, ::Bool)} @{call(::NfMaximalOrder, ::fmpz)} @{call(::NfMaximalOrder, ::Array{fmpz, 1})} @{call(::NfMaximalOrder, ::Array{Int, 1})} @{call(::NfMaximalOrder, ::nf</em>elem, ::Array{fmpz, 1})} @{call(::NfMaximalOrder)} @{zero(::NfMaximalOrder)} @{one(::NfMaximalOrder)}</p>
+<p><a id='Basic-invariants'></a></p>
 <p><a id='Basic-invariants-1'></a></p>
 <h2 id="basic-invariants">Basic invariants</h2>
 <p>@{parent(::NfOrderElem)} @{elem<em>in</em>nf(::NfOrderElem)} @{coordinates(::NfOrderElem)} @{==(::NfOrderElem, ::NfOrderElem)} @{deepcopy(::NfOrderElem)} @{in(::nf<em>elem, ::NfMaximalOrder)} @{denominator(::nf</em>elem, ::NfMaximalOrder)}</p>
+<p><a id='Binary-and-unary-operations'></a></p>
 <p><a id='Binary-and-unary-operations-1'></a></p>
 <h2 id="binary-and-unary-operations">Binary and unary operations</h2>
 <p>@{-(::NfOrderElem)} @{<em>(::NfOrderElem, ::NfOrderElem)} @{+(::NfOrderElem, ::NfOrderElem)} @{-(::NfOrderElem, ::NfOrderElem)} @{</em>(::NfOrderElem, ::fmpz)} @{+(::NfOrderElem, ::fmpz)} @{-(::NfOrderElem, ::fmpz)} @{^(::NfOrderElem, ::Int)} @{mod(::NfOrderElem, ::Int)} @{powermod(::NfOrderElem, ::Int, ::fmpz)}</p>
+<p><a id='Representation-matrices'></a></p>
 <p><a id='Representation-matrices-1'></a></p>
 <h2 id="representation-matrices">Representation matrices</h2>
 <p>@{representation<em>matrix(::NfOrderElem)} @{representation</em>matrix(::NfOrderElem, ::AnticNumberField)}</p>
+<p><a id='Trace-and-norm'></a></p>
 <p><a id='Trace-and-norm-1'></a></p>
 <h2 id="trace-and-norm">Trace and norm</h2>
 <p>@{tr(::NfOrderElem)} @{norm(::NfOrderElem)}</p>
+<p><a id='Random-elements'></a></p>
 <p><a id='Random-elements-1'></a></p>
 <h2 id="random-elements">Random elements</h2>
 <p>@{rand(::NfMaximalOrder, ::UnitRange{Int})} @{rand(::NfMaximalOrder, ::Int)}</p>
+<p><a id='Conjugates'></a></p>
 <p><a id='Conjugates-1'></a></p>
 <h2 id="conjugates">Conjugates</h2>
 <p>@{conjugates<em>arb(::NfOrderElem, ::Int)} @{minkowski</em>map(::NfOrderElem, ::Int)} @{conjugates_log(::NfOrderElem)}</p>
@@ -777,14 +785,14 @@
     </div>
     
       <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../assets/javascripts/bundle.4a5ba8d6.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.9b3611bd.min.js"
+            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
