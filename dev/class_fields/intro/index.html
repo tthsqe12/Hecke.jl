@@ -892,14 +892,13 @@
 julia&gt; K, a = NumberField(x^2 - 10, &quot;a&quot;);
 
 julia&gt; c, mc = class_group(K)
-ERROR: MethodError: Cannot `convert` an object of type Int64 to an object of type Tuple
-Closest candidates are:
-  convert(::Type{T}, !Matched::CartesianIndex) where T&lt;:Tuple at multidimensional.jl:133
-  convert(::Type{T}, !Matched::T) where T at essentials.jl:168
-  Tuple(::Any) where T&lt;:Tuple at tuple.jl:220
+(GrpAb: Z/2, ClassGroup map of
+Set of ideals of Maximal order of Number field over Rational Field with defining polynomial x^2-10
+with basis nf_elem[1, a]
+)
 
 julia&gt; A = ray_class_field(mc)
-ERROR: UndefVarError: mc not defined
+Class field defined mod (&lt;1, 1&gt;, InfPlc[]) of structure Abelian group with structure: Z/2
 </code></pre></div>
 
 <p><a id='Conversions'></a></p>
@@ -919,23 +918,25 @@ ERROR: UndefVarError: mc not defined
 julia&gt; k, a = NumberField(x^2 - 10, &quot;a&quot;);
 
 julia&gt; c, mc = class_group(k);
-ERROR: MethodError: Cannot `convert` an object of type Int64 to an object of type Tuple
-Closest candidates are:
-  convert(::Type{T}, !Matched::CartesianIndex) where T&lt;:Tuple at multidimensional.jl:133
-  convert(::Type{T}, !Matched::T) where T at essentials.jl:168
-  Tuple(::Any) where T&lt;:Tuple at tuple.jl:220
 
 julia&gt; A = ray_class_field(mc)
-ERROR: UndefVarError: mc not defined
+Class field defined mod (&lt;1, 1&gt;, InfPlc[]) of structure Abelian group with structure: Z/2
 
 julia&gt; K = number_field(A)
-ERROR: UndefVarError: A not defined
+non-simple Relative number field over
+Number field over Rational Field with defining polynomial x^2-10
+ with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[_$1^2+(-2)]
 
 julia&gt; ZK = maximal_order(K)
-ERROR: UndefVarError: K not defined
+Relative maximal order of non-simple Relative number field over
+Number field over Rational Field with defining polynomial x^2-10
+ with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[_$1^2+(-2)]
+with pseudo-basis
+(1, 1//1 * &lt;1, 1&gt;)
+(_$1+(a), 1//4 * &lt;2, a&gt;)
 
 julia&gt; isone(discriminant(ZK))
-ERROR: UndefVarError: ZK not defined
+true
 </code></pre></div>
 
 <hr />
