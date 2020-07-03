@@ -852,13 +852,21 @@ Minimum: 2
 two normal wrt: 2
 
 julia&gt; isprincipal(p)
-(false, 1)
+ERROR: MethodError: Cannot `convert` an object of type Int64 to an object of type Tuple
+Closest candidates are:
+  convert(::Type{T}, !Matched::CartesianIndex) where T&lt;:Tuple at multidimensional.jl:133
+  convert(::Type{T}, !Matched::T) where T at essentials.jl:168
+  Tuple(::Any) where T&lt;:Tuple at tuple.jl:220
 
 julia&gt; fl, alpha = isprincipal(p^2)
-(true, -2)
+ERROR: MethodError: Cannot `convert` an object of type Int64 to an object of type Tuple
+Closest candidates are:
+  convert(::Type{T}, !Matched::CartesianIndex) where T&lt;:Tuple at multidimensional.jl:133
+  convert(::Type{T}, !Matched::T) where T at essentials.jl:168
+  Tuple(::Any) where T&lt;:Tuple at tuple.jl:220
 
 julia&gt; norm(alpha)
-4
+ERROR: UndefVarError: alpha not defined
 </code></pre></div>
 
 <p>It is possible to work with residue fields as well:</p>
