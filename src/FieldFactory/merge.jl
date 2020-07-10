@@ -591,16 +591,16 @@ function sieve_by_norm_group(list1::Vector{FieldsTower}, list2::Vector{FieldsTow
     lfieldsK = maximal_abelian_subextension(list1[v[i][1]])
     lfieldsL = maximal_abelian_subextension(list2[v[i][2]])
     h = change_base_ring(K, lfieldsK[1].pol, parent = Kt)
-    S = norm_group(h, mr)[1]
+    S, mS = norm_group(h, mr, cached = false)
     for i = 2:length(lfieldsK)
       h = change_base_ring(K, lfieldsK[i].pol, parent = Kt)
-      s = norm_group(h, mr)[1]
-      S = intersect(s, S)
+      s, ms = norm_group(h, mr, cached = false)
+      S, mS = intersect(ms, mS, false)
     end
     for i = 1:length(lfieldsL)
       h = change_base_ring(K, lfieldsL[i].pol, parent = Kt)
-      s = norm_group(h, mr)[1]
-      S = intersect(s, S)
+      s, ms = norm_group(h, mr, cached = false)
+      S, mS = intersect(ms, mS, false)
     end
     norm_groups[i] = S
   end
