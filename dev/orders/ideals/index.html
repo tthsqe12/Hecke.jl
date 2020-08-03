@@ -943,37 +943,37 @@ julia&gt; [ mc \ I for I = lp]
 10-element Array{GrpAbFinGenElem,1}:
  Element of
 GrpAb: Z/9
-with components [1]
- Element of
-GrpAb: Z/9
-with components [4]
- Element of
-GrpAb: Z/9
-with components [4]
- Element of
-GrpAb: Z/9
-with components [5]
- Element of
-GrpAb: Z/9
-with components [3]
- Element of
-GrpAb: Z/9
-with components [2]
- Element of
-GrpAb: Z/9
 with components [7]
  Element of
 GrpAb: Z/9
 with components [1]
  Element of
 GrpAb: Z/9
+with components [1]
+ Element of
+GrpAb: Z/9
+with components [8]
+ Element of
+GrpAb: Z/9
+with components [3]
+ Element of
+GrpAb: Z/9
+with components [5]
+ Element of
+GrpAb: Z/9
+with components [4]
+ Element of
+GrpAb: Z/9
+with components [7]
+ Element of
+GrpAb: Z/9
 with components [0]
  Element of
 GrpAb: Z/9
-with components [2]
+with components [5]
 
 julia&gt; mc(c[1])
-&lt;2, 7//2*_$^2 + 1*_$ + 7//2&gt;
+&lt;2, 1//2*_$^2 + 2*_$ + 5//2&gt;
 Norm: 2
 Minimum: 2
 two normal wrt: 2
@@ -982,7 +982,7 @@ julia&gt; order(c[1])
 9
 
 julia&gt; mc(c[1])^Int(order(c[1]))
-&lt;512, 41794786087639248563497//2*_$^2 - 20740473623078307949289*_$ + 45249369973270754110597//2&gt;
+&lt;512, 13217457633644257//2*_$^2 - 6559103588818597*_$ + 14309957929619471//2&gt;
 Norm: 512
 two normal wrt: 2
 
@@ -1027,7 +1027,7 @@ with components [0]
 
 <p>Finds a number field element <script type="math/tex">\alpha</script> such that <script type="math/tex">\alpha I</script> factors over the factor base in <script type="math/tex">c</script>.</p>
 <div class="codehilite"><pre><span></span><code>julia&gt; I = mc(c[1])
-&lt;2, 7//2*_$^2 + 1*_$ + 7//2&gt;
+&lt;2, 1//2*_$^2 + 2*_$ + 5//2&gt;
 Norm: 2
 Minimum: 2
 two normal wrt: 2
@@ -1036,12 +1036,12 @@ julia&gt; Hecke.isprincipal(I)
 (false, 1)
 
 julia&gt; I = I^Int(order(c[1]))
-&lt;512, 41794786087639248563497//2*_$^2 - 20740473623078307949289*_$ + 45249369973270754110597//2&gt;
+&lt;512, 13217457633644257//2*_$^2 - 6559103588818597*_$ + 14309957929619471//2&gt;
 Norm: 512
 two normal wrt: 2
 
 julia&gt; Hecke.isprincipal(I)
-(true, 1//2*_$^2 - 3*_$ + 9//2)
+(true, 1//2*_$^2 - 5*_$ - 17//2)
 
 julia&gt; Hecke.isprincipal_fac_elem(I)
 ERROR: MethodError: Cannot `convert` an object of type nf_elem to an object of type FacElem{nf_elem,AnticNumberField}
@@ -1097,7 +1097,7 @@ _$^2 - 1*_$ + 1
 julia&gt; lp = factor(6*zk)
 Dict{NfAbsOrdIdl{AnticNumberField,nf_elem},Int64} with 4 entries:
   &lt;3, _$^2 + 1&gt;                =&gt; 1
-  &lt;2, 7//2*_$^2 + 3*_$ + 3//2&gt; =&gt; 1
+  &lt;2, 7//2*_$^2 + 1*_$ + 7//2&gt; =&gt; 1
   &lt;2, 1//2*_$^2 + 1//2&gt;        =&gt; 2
   &lt;3, _$-1&gt;                    =&gt; 1
 
@@ -1109,7 +1109,7 @@ basis_matrix
 [3  0  0]
 [0  3  0]
 [0  0  1]
-two normal wrt: 3, &lt;2, 7//2*_$^2 + 3*_$ + 3//2&gt;
+two normal wrt: 3, &lt;2, 7//2*_$^2 + 1*_$ + 7//2&gt;
 Norm: 2
 Minimum: 2
 basis_matrix
