@@ -820,18 +820,17 @@ K \longrightarrow \mathbf R^{d}, \ \alpha \longmapsto (\sigma_1(\alpha),\dotsc,\
 julia&gt; K, a = NumberField(x^2 - 10, &quot;a&quot;);
 
 julia&gt; E = EquationOrder(K)
-Maximal order of Number field over Rational Field with defining polynomial x^2-10
+Maximal order of Number field over Rational Field with defining polynomial x^2 - 10
 with basis nf_elem[1, a]
 
 julia&gt; Z_K = MaximalOrder(K)
-Maximal order of Number field over Rational Field with defining polynomial x^2-10
+Maximal order of Number field over Rational Field with defining polynomial x^2 - 10
 with basis nf_elem[1, a]
 
 julia&gt; conductor(E)
 &lt;no 2-elts present&gt;
 basis_matrix
-[1  0]
-[0  1]
+[1 0; 0 1]
 
 julia&gt; E == Z_K
 true
@@ -866,7 +865,7 @@ julia&gt; norm(alpha)
 (Finite field of degree 1 over F_2, Map with following data
 Domain:
 =======
-Maximal order of Number field over Rational Field with defining polynomial x^2-10
+Maximal order of Number field over Rational Field with defining polynomial x^2 - 10
 with basis nf_elem[1, a]
 Codomain:
 =========
