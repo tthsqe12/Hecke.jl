@@ -15,7 +15,7 @@
         <meta name="author" content="Tommy Hofmann">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.5">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.947af8d5.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.63b94e9e.min.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/palette.7f672a1f.min.css">
       
@@ -893,7 +893,7 @@ julia&gt; K, a = NumberField(x^2 - 10, &quot;a&quot;);
 
 julia&gt; c, mc = class_group(K)
 (GrpAb: Z/2, ClassGroup map of
-Set of ideals of Maximal order of Number field over Rational Field with defining polynomial x^2 - 10
+Set of ideals of Maximal order of Number field over Rational Field with defining polynomial x^2-10
 with basis nf_elem[1, a]
 )
 
@@ -924,16 +924,16 @@ Class field defined mod (&lt;1, 1&gt;, InfPlc[]) of structure Abelian group with
 
 julia&gt; K = number_field(A)
 non-simple Relative number field over
-Number field over Rational Field with defining polynomial x^2 - 10
- with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[1*_$1^2 + -2]
+Number field over Rational Field with defining polynomial x^2-10
+ with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[_$1^2-2]
 
 julia&gt; ZK = maximal_order(K)
 Relative maximal order of non-simple Relative number field over
-Number field over Rational Field with defining polynomial x^2 - 10
- with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[1*_$1^2 + -2]
+Number field over Rational Field with defining polynomial x^2-10
+ with defining polynomials AbstractAlgebra.Generic.MPoly{nf_elem}[_$1^2-2]
 with pseudo-basis
 (1, 1//1 * &lt;1, 1&gt;)
-(1*_$1 + a, 1//4 * &lt;2, 3*a&gt;)
+(_$1+a, 1//4 * &lt;2, 3*a&gt;)
 
 julia&gt; isone(discriminant(ZK))
 true
@@ -1146,7 +1146,7 @@ true
       
     </div>
     
-      <script src="../../assets/javascripts/vendor.c3dc8c49.min.js"></script>
+      <script src="../../assets/javascripts/vendor.d1f5a259.min.js"></script>
       <script src="../../assets/javascripts/bundle.f9edbbd5.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
@@ -1154,7 +1154,7 @@ true
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.8e2cddea.min.js"
+            worker: "../../assets/javascripts/worker/search.fae956e7.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
