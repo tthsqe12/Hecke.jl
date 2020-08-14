@@ -826,7 +826,7 @@
 <details class="note"><summary>Example</summary><div class="codehilite"><pre><span></span><code><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Qx</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">FlintQQ</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">);</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">K</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">NumberField</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">)</span>
-<span class="p">(</span><span class="kt">Number</span> <span class="n">field</span> <span class="n">over</span> <span class="kt">Rational</span> <span class="n">Field</span> <span class="n">with</span> <span class="n">defining</span> <span class="n">polynomial</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="p">(</span><span class="kt">Number</span> <span class="n">field</span> <span class="n">over</span> <span class="kt">Rational</span> <span class="n">Field</span> <span class="n">with</span> <span class="n">defining</span> <span class="n">polynomial</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 </code></pre></div>
 
 </details>
@@ -849,7 +849,7 @@
 <span class="mi">2</span>
 
 <span class="n">julia</span><span class="o">&gt;</span> <span class="n">minpoly</span><span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">g</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="n">x</span><span class="o">^</span><span class="mi">4</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">x</span><span class="o">^</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">10</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
 </code></pre></div>
 
 </details>
