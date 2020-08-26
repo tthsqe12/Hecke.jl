@@ -15,7 +15,7 @@
         <meta name="author" content="Tommy Hofmann">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.8">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.9">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.36ee6aaa.min.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
       
@@ -668,6 +668,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#elementary-properties" class="md-nav__link">
+    Elementary Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manipulation-access" class="md-nav__link">
+    Manipulation/ Access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arithmetic" class="md-nav__link">
+    Arithmetic
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -823,6 +844,27 @@
           <li class="md-nav__item">
   <a href="#construction" class="md-nav__link">
     Construction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elementary-properties" class="md-nav__link">
+    Elementary Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manipulation-access" class="md-nav__link">
+    Manipulation/ Access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arithmetic" class="md-nav__link">
+    Arithmetic
   </a>
   
 </li>
@@ -983,7 +1025,7 @@
 <p><a id='Sparse-matrices-1'></a></p>
 <h2 id="sparse-matrices">Sparse matrices</h2>
 <p>Let <script type="math/tex">R</script> be a commutative ring. Sparse matrices with base ring <script type="math/tex">R</script> are modelled by objects of type <code>SMat</code>. More precisely, the type is of parametrized form <code>SRow{T}</code>, where <code>T</code> is the element type of the base ring. For example, <code>SMat{fmpz}</code> is the type for sparse matrices over the integers.</p>
-<p>In constrast to sparse rows, sparse matrices have a fixed number of rows and columns, that is, they represent elements of the matrices space <script type="math/tex">\mathrm{Mat}_{n\times m}(R)</script>. Internally, sparse matrices are implemented as an array of sparse rows.  As a consequence, Unlike their dense counterparts, sparse matrices have a mutable number of rows and it is very performant to add additional rows.</p>
+<p>In constrast to sparse rows, sparse matrices have a fixed number of rows and columns, that is, they represent elements of the matrices space <script type="math/tex">\mathrm{Mat}_{n\times m}(R)</script>. Internally, sparse matrices are implemented as an array of sparse rows.  As a consequence, unlike their dense counterparts, sparse matrices have a mutable number of rows and it is very performant to add additional rows.</p>
 <p><a id='Construction'></a></p>
 <p><a id='Construction-1'></a></p>
 <h3 id="construction">Construction</h3>
@@ -1009,10 +1051,183 @@
 
 <p>Constructs the sparse matrix over <script type="math/tex">R</script> corresponding to <script type="math/tex">A</script>.</p>
 <p>The normal way however, is to add rows:</p>
-<div class="admonition warning">
-<p class="admonition-title">Missing docstring.</p>
-<p>Missing docstring for <code>push!(::SMat, ::SRow)</code>. Check Documenter's build log for details.</p>
-</div>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">push!</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">B</span><span class="o">::</span><span class="n">SRow</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span>
+</code></pre></div>
+
+<p>Appends the sparse row <code>B</code> to <code>A</code>.</p>
+<p>Sparse matrices can also be concatenated to form larger ones:</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">vcat!</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">,</span> <span class="n">B</span><span class="o">::</span><span class="n">SMat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SMat</span>
+</code></pre></div>
+
+<p>Vertically joins <script type="math/tex">A</script> and <script type="math/tex">B</script> inplace, that is, the rows of <script type="math/tex">B</script> are appended to <script type="math/tex">A</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">vcat</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">,</span> <span class="n">B</span><span class="o">::</span><span class="n">SMat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SMat</span>
+</code></pre></div>
+
+<p>Vertically joins <script type="math/tex">A</script> and <script type="math/tex">B</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">hcat!</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">,</span> <span class="n">B</span><span class="o">::</span><span class="n">SMat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SMat</span>
+</code></pre></div>
+
+<p>Horizontally concatenates <script type="math/tex">A</script> and <script type="math/tex">B</script>, inplace, changing <script type="math/tex">A</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">hcat</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">,</span> <span class="n">B</span><span class="o">::</span><span class="n">SMat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SMat</span>
+</code></pre></div>
+
+<p>Horizontally concatenates <script type="math/tex">A</script> and <script type="math/tex">B</script>.</p>
+<p>(Normal julia <script type="math/tex">cat</script> is also supported)</p>
+<p>There are special constructors:</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">identity_matrix</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="n">SMat</span><span class="p">},</span> <span class="n">R</span><span class="o">::</span><span class="n">Ring</span><span class="p">,</span> <span class="n">n</span><span class="o">::</span><span class="kt">Int</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Return a sparse <script type="math/tex">n</script> times <script type="math/tex">n</script> identity matrix over <script type="math/tex">R</script>.   </p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">zero_matrix</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="n">SMat</span><span class="p">},</span> <span class="n">R</span><span class="o">::</span><span class="n">Ring</span><span class="p">,</span> <span class="n">n</span><span class="o">::</span><span class="kt">Int</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Return a sparse <script type="math/tex">n</script> times <script type="math/tex">n</script> zero matrix over <script type="math/tex">R</script>.   </p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">zero_matrix</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="n">SMat</span><span class="p">},</span> <span class="n">R</span><span class="o">::</span><span class="n">Ring</span><span class="p">,</span> <span class="n">n</span><span class="o">::</span><span class="kt">Int</span><span class="p">,</span> <span class="n">m</span><span class="o">::</span><span class="kt">Int</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Return a sparse <script type="math/tex">n</script> times <script type="math/tex">m</script> zero matrix over <script type="math/tex">R</script>.   </p>
+<p>Slices:</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">sub</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">,</span> <span class="n">r</span><span class="o">::</span><span class="kt">UnitRange</span><span class="p">,</span> <span class="n">c</span><span class="o">::</span><span class="kt">UnitRange</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SMat</span>
+</code></pre></div>
+
+<p>Return the submatrix of <script type="math/tex">A</script>, where the rows correspond to <script type="math/tex">r</script> and the columns correspond to <script type="math/tex">c</script>.</p>
+<p>Transpose:</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">transpose</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SMat</span>
+</code></pre></div>
+
+<p>Returns the transpose of <script type="math/tex">A</script>.</p>
+<p><a id='Elementary-Properties'></a></p>
+<p><a id='Elementary-Properties-1'></a></p>
+<h3 id="elementary-properties">Elementary Properties</h3>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">sparsity</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Float64</span>
+</code></pre></div>
+
+<p>Return the sparsity of <code>A</code>, that is, the number of zero-valued elements divided by the number of all elements.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">density</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Float64</span>
+</code></pre></div>
+
+<p>Return the density of <code>A</code>, that is, the number of nonzero-valued elements divided by the number of all elements.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">nnz</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+</code></pre></div>
+
+<p>Return the number of non-zero entries of <script type="math/tex">A</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">nrows</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+</code></pre></div>
+
+<p>Return the number of rows of <script type="math/tex">A</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">ncols</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+</code></pre></div>
+
+<p>Return the number of columns of <script type="math/tex">A</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">isone</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Tests if <script type="math/tex">A</script> is an identity matrix.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">isone</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Tests if <script type="math/tex">A</script> is a zero matrix.</p>
+<p><a id='Manipulation/-Access'></a></p>
+<p><a id='Manipulation/-Access-1'></a></p>
+<h3 id="manipulation-access">Manipulation/ Access</h3>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">getindex</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">,</span> <span class="n">i</span><span class="o">::</span><span class="kt">Int</span><span class="p">,</span> <span class="n">j</span><span class="o">::</span><span class="kt">Int</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Given a sparse matrix <script type="math/tex">A = (a_{ij})_{i, j}</script>, return the entry <script type="math/tex">a_{ij}</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">getindex</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">,</span> <span class="n">i</span><span class="o">::</span><span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SRow</span>
+</code></pre></div>
+
+<p>Given a sparse matrix <script type="math/tex">A</script> and an index <script type="math/tex">i</script>, return the <script type="math/tex">i</script>-th row of <script type="math/tex">A</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">setindex!</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">,</span> <span class="n">b</span><span class="o">::</span><span class="n">SRow</span><span class="p">,</span> <span class="n">i</span><span class="o">::</span><span class="kt">Int</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Given a sparse matrix <script type="math/tex">A</script>, a sparse row <script type="math/tex">b</script> and an index <script type="math/tex">i</script>, set the <script type="math/tex">i</script>-th row of <script type="math/tex">A</script> equal to <script type="math/tex">b</script>.</p>
+<p>Changing of the ring:</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">map_entries</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SMat</span>
+</code></pre></div>
+
+<p>Given a sparse matrix <script type="math/tex">A</script> and a callable object <script type="math/tex">f</script>, this function will construct a new sparse matrix by applying <script type="math/tex">f</script> to all elements of <script type="math/tex">A</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">change_base_ring</span><span class="p">(</span><span class="n">R</span><span class="o">::</span><span class="n">Ring</span><span class="p">,</span> <span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Create a new sparse matrix by coercing all elements into the ring <script type="math/tex">R</script>.</p>
+<p><a id='Arithmetic'></a></p>
+<p><a id='Arithmetic-1'></a></p>
+<h3 id="arithmetic">Arithmetic</h3>
+<p>Various products:</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">mul</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">b</span><span class="o">::</span><span class="kt">AbstractVector</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">Vector</span><span class="p">{</span><span class="n">T</span><span class="p">}</span>
+</code></pre></div>
+
+<p>Return the product <script type="math/tex">A \cdot b</script> as a dense vector.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">mul</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">b</span><span class="o">::</span><span class="kt">AbstractArray</span><span class="p">{</span><span class="n">T</span><span class="p">,</span> <span class="mi">2</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">Array</span><span class="p">{</span><span class="n">T</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+</code></pre></div>
+
+<p>Return the product <script type="math/tex">A \cdot b</script> as a dense array.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">mul</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="n">b</span><span class="o">::</span><span class="n">MatElem</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">MatElem</span>
+</code></pre></div>
+
+<p>Return the product <script type="math/tex">A \cdot b</script> as a dense matrix.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="n">mul</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SRow</span><span class="p">,</span> <span class="n">B</span><span class="o">::</span><span class="n">SMat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SRow</span>
+</code></pre></div>
+
+<p>Return the product <script type="math/tex">A\cdot B</script> as a sparse row.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="o">*</span><span class="p">(</span><span class="n">b</span><span class="o">::</span><span class="n">T</span><span class="p">,</span> <span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">SMat</span><span class="p">{</span><span class="n">T</span><span class="p">}</span>
+</code></pre></div>
+
+<p>Return the product <script type="math/tex">b \cdot A</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="o">*</span><span class="p">(</span><span class="n">b</span><span class="o">::</span><span class="kt">Integer</span><span class="p">,</span> <span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">SMat</span><span class="p">{</span><span class="n">T</span><span class="p">}</span>
+</code></pre></div>
+
+<p>Return the product <script type="math/tex">b \cdot A</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="o">*</span><span class="p">(</span><span class="n">b</span><span class="o">::</span><span class="n">fmpz</span><span class="p">,</span> <span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="o">-&gt;</span> <span class="n">SMat</span><span class="p">{</span><span class="n">T</span><span class="p">}</span>
+</code></pre></div>
+
+<p>Return the product <script type="math/tex">b \cdot A</script>.</p>
+<p>Other:</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="o">+</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">,</span> <span class="n">B</span><span class="o">::</span><span class="n">SMat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SMat</span>
+</code></pre></div>
+
+<p>Return the sum <script type="math/tex">A + B</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="o">-</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">,</span> <span class="n">B</span><span class="o">::</span><span class="n">SMat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SMat</span>
+</code></pre></div>
+
+<p>Return the difference <script type="math/tex">A - B</script>.</p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="o">==</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">SMat</span><span class="p">,</span> <span class="n">B</span><span class="o">::</span><span class="n">SMat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+</code></pre></div>
+
+<p>Return whether <script type="math/tex">A</script> is equal to <script type="math/tex">B</script>.</p>
                 
               
               
@@ -1086,7 +1301,7 @@
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.fae956e7.min.js"
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
