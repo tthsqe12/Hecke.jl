@@ -187,13 +187,8 @@ end
 function fun_factor(f::Generic.Poly{qadic})
   K = base_ring(f)
   Kt = parent(f)
-<<<<<<< HEAD
-  v = precision(f)
-  @assert isone(_content(f))
-=======
   v = prec(f)
   @assert isone(fcontent(f))
->>>>>>> Renamed _content to fcontent. Wrote some docs.
   if iszero(valuation(lead(f)))
     return one(Kt), g
   end
@@ -229,15 +224,7 @@ end
 #
 ################################################################################
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-function Nemo.precision(g::Generic.Poly{T}) where T <: Union{padic, qadic}
-=======
-function Nemo.prec(g::Generic.Poly{T}) where T <: FlintLocalFieldElem
->>>>>>> Renamed _content to fcontent. Wrote some docs.
-=======
-function Nemo.prec(g::Generic.Poly{T}) where T <: NALocalFieldElem
->>>>>>> Added type info to Eisenstein field struct.
+function Nemo.precision(g::Generic.Poly{T}) where T <: NALocalFieldElem
   N = coeff(g, 0).N
   for i = 1:degree(g)
     N = min(N, coeff(g, i).N)
@@ -551,7 +538,6 @@ end
 
 Computes Res_x(f(x), t- g(x)).
 """
-<<<<<<< HEAD
 function characteristic_polynomial(f::Generic.Poly{padic}, g::Generic.Poly{padic})
   Kt = parent(f)
   Ktx, x = PolynomialRing(Kt, "x")
@@ -563,10 +549,7 @@ function characteristic_polynomial(f::Generic.Poly{padic}, g::Generic.Poly{padic
 end
 
 #=
-function characteristic_polynomial(f::Generic.Poly{T}, g::Generic.Poly{T}) where T <: Union{padic, qadic}
-=======
 function characteristic_polynomial(f::Generic.Poly{T}, g::Generic.Poly{T}) where T <: FlintLocalFieldElem
->>>>>>> Renamed _content to fcontent. Wrote some docs.
   K = base_ring(f)
   Kt = parent(f)
   p = prime(K)

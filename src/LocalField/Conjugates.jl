@@ -14,31 +14,6 @@ export qAdicConj
 # Root contexts for lifting algorithms
 ################################################################################
 
-mutable struct qAdicRootCtx
-  f::fmpz_poly
-  p::Int
-  n::Int
-  Q::Array{FlintQadicField, 1}
-  H::Hecke.HenselCtx
-  R::Array{qadic, 1} # These are the cached roots.
-  function qAdicRootCtx(f::fmpz_poly, p::Int)
-    r = new()
-    r.f = f
-    r.p = p
-    r.H = H = Hecke.factor_mod_pk_init(f, p)
-    lf = Hecke.factor_mod_pk(H, 1)
-    #TODO:XXX: Careful: QadicField ONLY works, currently, in Conway range
-    Q = [QadicField(p, x, 1) for x = Set(degree(y) for y = keys(lf))]
-    @assert all(isone, values(lf))
-    r.Q = Q
-
-    #NOTE: Roots are not computed when initialized, as no precision has been determined.
-    return r
-  end
-end
-
-
-
 @doc Markdown.doc"""
     qAdicConj(K::AnticNumberField, p::Int)
 
@@ -53,47 +28,7 @@ over $Q_p$.
 # It would make more sense to have some computation precomputed.
 
 # This object doesn't know very much right now.
-mutable struct qAdicConj
-  K::AnticNumberField
-  C::qAdicRootCtx
-  cache::Dict{nf_elem, Any}
-
-  function qAdicConj(K::AnticNumberField, p::Int)
-    isindex_divisor(maximal_order(K), p) && error("cannot deal with index divisors yet")
-    isramified(maximal_order(K), p) && error("cannot deal with ramification yet")
-
-    # Check for cached data. If none, update the reference in K to set
-    # `D` as the local conjugate data.
-    D = _get_nf_conjugate_data_qAdic(K, false)
-    if D !== nothing
-      if haskey(D, p)
-        Dp = D[p]
-        return new(K, Dp[1], Dp[2])
-      end
-    else
-      D = Dict{Int, Tuple{qAdicRootCtx, Dict{nf_elem, Any}}}()
-      _set_nf_conjugate_data_qAdic(K, D)
-    end
-
-    # Initialize the new structure.  
-    Zx = PolynomialRing(FlintZZ, cached = false)[1]
-    C = qAdicRootCtx(Zx(K.pol), p)
-    r = new()
-    r.C = C
-    r.K = K
-
-    # cache for conjugates of a given number field element??
-    r.cache = Dict{nf_elem, Any}()
-    D[p] = (C, r.cache)
-    return r
-  end
-end
-
 # Display for conjugates data.
-function Base.show(io::IO, C::qAdicConj)
-  println(io, "data for the $(C.C.p)-adic completions of $(C.K)")
-end
-
 
 
 #########################################################################################
@@ -143,11 +78,6 @@ end
 #
 #########################################################################################
 
-function gens(P::NfOrdIdl)
-    @assert has_2_elem(P)
-    (P.gen_one, P.gen_two)
-end
-
 @doc Markdown.doc"""
     qAdicConj(K::AnticNumberField, p::Int)
 
@@ -180,59 +110,8 @@ mutable struct qAdicConj
     else
         return [coeff_field(coeff(a,j)) for j=0:degree(k)-1]
     end
+  end
 end
-
-function coeffs(a::qadic)
-    k = parent(a)
-    return [coeff(a,j) for j=0:degree(k)-1]
-end
-
-function mod_sym(a,b)
-    c = mod(a,b)
-    return c < b/2 ? c : c-b
-end
-
-function sym_lift(a::padic)
-    u = unit_part(a)
-    p = prime(a.parent)
-    N = precision(a)
-    v = valuation(a)
-    return mod_sym(u, p^(N-v))*FlintQQ(p)^v
-end
-
-@doc Markdown.doc"""
-    underdetermined_solve(A,b)
-Solves the equation `Ax=b`. Return the first index of the column where the last entry is non-zero.
-"""
-# TODO: This method needs to be made more reliable. The return structure of `N` is a bit wacky.
-function underdetermined_solve(A,b)
-
-    M = hcat(A,-b)
-    nu,N = nullspace(M)
-
-    display(N)
-
-    ind = 0
-    for j=1:size(N,2)
-        if isone(N[size(N,1),j])
-            ind=j
-            break
-        end
-    end
-    @assert !iszero(ind)
-
-    return nu,N,ind
-end
-
-@doc Markdown.doc"""
-    underdetermined_solve_first(A,b)
-Return the first basis column of the solutions to Ax=b, if it exists.
-"""
-function underdetermined_solve_first(A,b)
-    nu,N,ind = underdetermined_solve(A,b)
-    return N[1:size(N,1)-1,ind]
-end
-
 
 ## Temporary structure to record data cached so that a completion can be sharpened.
 ## This should somehow be remembered by the maps to/from the completion instead.
@@ -649,11 +528,6 @@ function regulator_iwasawa(R::NfAbsOrd, C::qAdicConj, n::Int = 10)
   return regulator_iwasawa([mu(u[i]) for i=2:ngens(u)], C, n)
 end
 
-function matrix(a::Array{Array{T, 1}, 1}) where {T}
-  return matrix(hcat(a...))
-end
-
-
 function eval_f_fs(f::PolyElem, x::RingElem)
   d = Int[]
   for i=1:degree(f)
@@ -781,21 +655,21 @@ function completion(K::AnticNumberField, P::NfOrdIdl)
   return completion(K, p, i[1])
 end
 
-completion(K::AnticNumberField, p::Integer, i::Int) = completion(K, fmpz(p), i)
+# completion(K::AnticNumberField, p::Integer, i::Int) = completion(K, fmpz(p), i)
 
-@doc Markdown.doc"""
-    completion(K::AnticNumberField, p::fmpz, i::Int) -> FlintQadicField, Map
-
-The completion corresponding to the $i$-th conjugate in the non-canonical ordering of
-`conjugates`.
-"""
-function completion(K::AnticNumberField, p::fmpz, i::Int)
-  C = qAdicConj(K, Int(p))
-  @assert 0<i<= degree(K)
-
-  ca = conjugates(gen(K), C, all = true, flat = false)[i]
-  return completion(K, ca)
-end
+#@doc Markdown.doc"""
+#    completion(K::AnticNumberField, p::fmpz, i::Int) -> FlintQadicField, Map
+#
+#The completion corresponding to the $i$-th conjugate in the non-canonical ordering of
+#`conjugates`.
+#"""
+#function completion(K::AnticNumberField, p::fmpz, i::Int)
+#  C = qAdicConj(K, Int(p))
+#  @assert 0<i<= degree(K)
+#
+#  ca = conjugates(gen(K), C, all = true, flat = false)[i]
+#  return completion(K, ca)
+#end
 
 function completion(K::AnticNumberField, ca::qadic)  
   p = prime(parent(ca))
@@ -966,4 +840,9 @@ end
 function is_tamely_ramified(K::NALocalField)
     return gcd(prime(K), ramification_degree(K)) == 1
 end
+
+function Base.show(io::IO, C::qAdicConj)
+  println(io, "data for the $(C.C.p)-adic completions of $(C.K)")
+end
+
 

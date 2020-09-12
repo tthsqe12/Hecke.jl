@@ -182,27 +182,6 @@ function ResidueField(Q::FlintQadicField)
   return k, MapFromFunc(pro, lif, Q, k)
 end
 
-function ResidueField(Q::FlintPadicField)
-  k = GF(Int(prime(Q)))
-  pro = function(x::padic)
-    v = valuation(x)
-    v < 0 && error("elt non integral")
-    v > 0 && return k(0)
-    z = k(lift(x))
-    return z
-  end
-  lif = function(x::gfp_elem)
-    z = Q(lift(x))
-    return z
-  end
-  return k, MapFromFunc(pro, lif, Q, k)
-end
-
-function coefficient_ring(Q::FlintQadicField)
-  return FlintPadicField(prime(Q), precision(Q))
-end
-coefficient_field(Q::FlintQadicField) = coefficient_ring(Q)
-
 # This is a pretty terrible name. Should be prime_power or something.
 function prime(R::PadicField, i::Int)
   p = fmpz()

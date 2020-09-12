@@ -65,13 +65,6 @@ function (Q::FlintPadicField)(a::Rational{Int})
     return Q(numerator(a))//Q(denominator(a))
 end
 
-# TODO: Move to NEMO
-import Base.ceil
-function ceil(a::fmpq)
-    q,r = divrem(numerator(a), denominator(a))
-    return iszero(r) ? q : q+1
-end
-
 #****************************************************************************************
 
 @doc Markdown.doc"""
