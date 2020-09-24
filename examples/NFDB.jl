@@ -843,7 +843,7 @@ function _latexify(f::Fac{fmpz}; withnumber = true, approx = true)
     if l[i][2] == 1
       s = s * "$(l[i][1])\\cdot "
     else
-      s = s * "$(l[i][1])^{$(l[i][2])} \\cdot "
+      s = s * "$(l[i][1])^{$(l[i][2])}"
     end
   end
   if l[end][2] == 1
